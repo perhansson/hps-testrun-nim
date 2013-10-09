@@ -2,8 +2,8 @@ hps-testrun-nim
 ===============
 
 Setup user name:
-git config --global user.name "perhansson"
-git config --global user.email "phansson@slac.stanford.edu"
+git config --global user.name "name"
+git config --global user.email "name@email.com"
 
 Clone the remote repository:
 (Recommended)
