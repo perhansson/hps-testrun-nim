@@ -252,40 +252,49 @@ local doses exceeding $XXXX$~MRad
 
 \section{Detector Overview}
 \label{detector}
-The HPS experiment is proposed to run in Hall B at JLab using the CEBAF electron beam. This electron 
-beam is delivered at 499 MHz at energies ranging from 1.1 GeV to 5.5 GeV and currents up to 800 nA.  An 
-energy upgrade to be completed in 2014 doubles this range. The HPS Test apparatus was designed as a 
+The HPS experiment is proposed to run in Hall B using electron beams of Continuos Electron Beam 
+Accelerator Facility (CEBAF) at JLab. CEBAF can simultaneously deliver  electron 
+beams to multiple experimental hall at 499 MHz frequency with beam currents of up to 150 $\mu$A (for Hall-B 
+the current is limited to $<1 ~\mu$A).  Currently CEBAF facilities are undergoing energy upgrade that will be 
+completed in a year. The upgraded CEBAF machine will double its energy range from up to $6$ GeV during 
+the HPS test run to $12$ GeV. 
+
+
+The HPS Test apparatus was designed as a 
 first step of a multi-stage approach 
 to the HPS experiment. The primary goal was to demonstrate that the technology and design approach 
-chosen by HPS was sound for running in the challenging environment. Nevertheless, a secondary but 
+chosen by HPS are sound for running in a challenging environment. Nevertheless, a secondary but 
 important aspect was that, after proving the technical concepts,  the apparatus would have the 
 capability to discover \Aprime events. The implication was that the design of the HPS Test apparatus 
 would be subject to almost the same constraints and requirements as the full experiment.
-The kinematics of \Aprime production 
-typically results in final state particles within a few degrees of the incoming beam, especially at low 
-$m_{\textrm{A}^\prime}$.  Because of this, the apparatus must accommodate passage of the beam 
-downstream of the target and operate as close to that beam as possible.  Because background rates in this 
-region from the scattered beam are very large, a fast trigger and excellent time tagging of hits are required 
-to select interesting data and reduce the bandwidth required to transfer data from the detector. This method 
-of background reduction is the motivation for operating HPS in a nearly continuous beam: in a beam with 
-large per-bunch charge, background from a single bunch would fully occupy the detector at the required 
-beam intensity. At masses below $2 m_\mu$ only decays to electrons are allowed, so the key trigger 
-comes from a lead-tungstate calorimeter with 250~MHz readout.  
-%Above the di-muon threshold, a 
-%downstream muon detector completes the trigger acceptance and may allow triggering for pion final states 
-%required for sensitivity near the $\rho$ mass. 
+The kinematics of \Aprime production typically results in final state particles within a few degrees of the incoming beam, especially at low 
+$m_{\textrm{A}^\prime}$.  
+%Step
+This implies that the apparatus for $A^\prime$ search in electron interactions with fix targets must operate in 
+close proximity to an intense electron beam that passes through a high-Z target, and 
+hence it should tolerate high radiation, high background environment. To meet this challenge, HPS will 
+deploy high rate and radiation hard detector composed of 
+a silicon vertex tracker with 40 MHz readout and a PbWO$_4$ crystal calorimeter with 250 MHz readout, 
+capable of triggering multi-prong events at the rate of up 50 kHz.
+
+
+%\subsection{HPS Test setup}
 
 The HPS Test apparatus, a simplified version of that 
 planned for the full HPS experiment, demonstrates the feasibility of the detector
-technologies proposed for silicon tracker, electromagnetic calorimeter, and data acquisition systems. 
-A rendering of the HPS Test apparatus installed on the beam line is shown in 
-Fig.~\ref{fig:testrundetector}.
-Most technologies used in the HPS Test apparatus will be used in the HPS detector with some 
+technologies proposed for the silicon tracker, electromagnetic calorimeter, and data acquisition system. 
+A rendering of the HPS Test setup is shown in Fig.~\ref{fig:testrundetector}. The setup is based on the Hall-B 
+pair spectrometer (PS) magnet, 18D36 dipole. The silicon tracer was installed inside the vacuum chamber of 
+PS, and the electromagnetic calorimeter was mounted behind the vacuum flange. A new vacuum box 
+attached to the upstream end of the pair spectrometer vacuum chamber provided necessary connections to 
+the tracker (cooling, HV, and signal readout). 
+Most technologies used in the HPS Test apparatus as well as the magnet and the vacuum chamber will be 
+used in the HPS detector with some 
 improvements to each of the systems; both from lessons learned during running of the HPS Test but 
-also from less schedule and budget constraints. 
+also from planned upgrades for longer and more effective running. 
 
 
-\subsection{Detector Components}
+
 An overview of the coverage, segmentation and performance of the HPS Test detector is given in Tab.~\ref{tab:detector-overview}. 
 
 %\begin{multicols}{2}
@@ -312,44 +321,54 @@ ECal & $15<\theta_{y} < XXXX$ & 442 & 12 & 4~ns & 1 & $1.3\times1.3$~cm$^2$  & $
 \end{center}
 %\end{multicols}
 
-The silicon tracking and vertexing detector for HPS Test, or SVT, operates in an existing vacuum chamber 
-inside the pair spectrometer analyzing magnet in Hall B at JLab.  The design principles of the SVT are 
-described in further detail in the HPS Test Run Proposal  \cite{HPS_tPROP}. There are five measurement 
-stations, or ``layers,'' placed immediately downstream of the target. Each layer comprises a pair of closely-
-spaced planes and each plane is responsible for measuring a single coordinate, or ``view.'' Introduction of 
-a stereo angle between the two planes of each layer provides three-dimensional tracking and vertexing 
-throughout the acceptance of the detector with one redundant layer. 
 
-In order to accommodate the dead zone, the SVT is built in two halves that are mirror reflections of one 
-another about the plane of the nominal electron beam.  Each half consists of five double-sided modules 
+In order to accommodate the dead zone, the SVT and ECal are built in two halves that are mirror reflections of one 
+another about the plane of the nominal electron beam.  Each half of SVT consists of five double-sided modules 
 mounted on a support plate that provides services to the modules and allows them to be moved as a group 
 relative to the dead zone. Each module places a pair of silicon microstrip sensors back-to-back at a 
-specified stereo angle with independent cooling and support.
+specified stereo angle with independent cooling and support. The sensors are read out
+continuously at 40 MHz using the APV25 chip, developed for the CMS experiment at the
+LHC.
+
+The each half of ECal consists of $221$ PbWO$_4$ crystals arranged in rectangular formation, five rows, $46$ modules in each raw with first raw having  $37$ modules. The light readout from each module is performed by Avalanche Photodiode (APD) glued on back surface of the crystal. APD signals were amplified using custom-made amplifier boards before sending them to the readout electronics.  
+
+The  Data Acquisition system combines two architectures, Advanced Telecom Communications Architecture (ACTA) based SVT readout system and VXS based digitization and triggering system for ECal. System is designed to run with up to 20 kHz trigger rate.
 
 
 
-\subsection{Electronics, Trigger, Data Acquisition and Online Computing}
+
+%\subsection{Electronics, Trigger, Data Acquisition and Online Computing}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{The CEBAF Accelerator and Its Impact on the HPS Test Detector }
-\label{cebaf}
-\subsection{The CEBAF Accelerator}
+%\section{The CEBAF Accelerator and Its Impact on the HPS Test Detector }
+%\label{cebaf}
+%\subsection{The CEBAF Accelerator}
 
-\subsection{The HPS Test Beamline}
-In Figure \ref{fig:hpstest_layout}, the layout of the parasitic run is shown. The silicon vertex tracker was installed inside the Hall B pair spectrometer magnet vacuum chamber with the electromagnetic calorimeter mounted downstream.
-Both the tracker and the ECal were retracted off the beam plane to allow clean passage of the photon beam through the system.
- 
+\section{The HPS Test Beamline}
+HPS test run studied multiple Coulomb scattering of electrons and positrons produced in a thin gold foils by 
+bremsstrahlung photons from the Hall-B tagged photon facility. In Figure \ref{fig:hpstest_layout}, the layout of 
+the test run setup on the beam line is shown. The silicon vertex tracker was installed inside the Hall B pair 
+spectrometer magnet vacuum chamber with the electromagnetic calorimeter mounted downstream. Both the 
+tracker and the ECal were retracted off the beam plane to allow clean passage of the photon beam through 
+the system. 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{figures/HPS_dimensions}
 \caption{\small{Layout of the HPS parasitic run.} }
 \label{fig:hpstest_layout}
 \end{figure}
 
-For dedicated HPS running the photon beam was generated in the interaction of the $5.5$ GeV electrons with a gold radiator of $10^{-4}$ r.l., located $\approx 8$ meters upstream of the PS pair converter. After collimation ($D=6.4$ mm), the photon beam passes through the pair converter and through the HPS system. The converter was located $\approx 77$~cm upstream of the first layer of the silicon vertex tracker. Data were taken on different converters (empty, $1.8\times 10^{-3}$ r.l., $4.5\times 10^{-3}$ r.l., and $1.6\times 10^{-2}$ r.l.). These measurements were repeated for the reverse field setting of the pair spectrometer dipole.
+The photon beam was generated in the interaction of the $5.5$ GeV electrons with a gold radiator of 
+$10^{-4}$ r.l., located $\approx 8$ meters upstream of the PS pair converter. The primary and scattered 
+electron beams are deflected way from detectors by the dipole magnet of the photon tagging system. After 
+collimation ($D=6.4$ mm), the photon beam passes through the pair converter and through the HPS system. 
+The converter was located $\approx 77$~cm upstream of the first layer of the silicon vertex tracker. Data were 
+taken on different converters (empty, $1.8\times 10^{-3}$ r.l., $4.5\times 10^{-3}$ r.l., and $1.6\times 10^{-2}$ 
+r.l.). These measurements were repeated for the reverse field setting of the pair spectrometer dipole.
+
 
 
 
