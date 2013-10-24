@@ -78,6 +78,7 @@
 %\usepackage{multicol}
 \newcommand{\Aprime}{A$^\prime$}
 \newcommand{\ee}{e$^+$e$^-$}
+\newcommand{\fluenceunit}{1~MeV~neutron~equivalent/cm\ensuremath{^2}}
 
 
 \journal{Nuclear Physics B}
@@ -177,7 +178,7 @@ There are two necessary parameters that determine the properties of this ``heavy
 a coupling of the \Aprime to Standard Model fermions with a strength of $\epsilon e$.  In simple models 
 with kinetic mixing, $\epsilon$ is favored to be in the range of $10^{-2} -10^{-5}$.  The second is the mass 
 of the \Aprime.  Under the assumption that this mass is generated via a Higgs-like symmetry breaking, 
-the mass would be roughly of the order $\sqrt{\epsilon} m_W \sim$~MeV-GeV.  These ranges are further 
+the mass would be roughly of the order $\sqrt{\epsilon} m_W \sim$~-GeV.  These ranges are further 
 motivated by explanations of other dark matter anomalies involving non-minimal dark sectors~
 \cite{TuckerSmith:2001hy} and the fact that no similar excess in proton-antiproton pairs is observed, which 
 would be simply explained if $ m_{\textrm{A}^\prime} < 2m_p$~\cite{Adriani:2010rc}.
@@ -413,31 +414,25 @@ achieve good vertexing performance, the first layer must be placed no more than 
 of the target. At that distance, it is found that the active region of a sensor can be placed as close to 1.5 mm 
 from the center of the beam, defining a 15 mrad ``dead zone" in the detector around the plane of the 
 primary beam. At the edge of this ``dead zone," the radiation dose approaches $10^{15}$ electrons/cm
-$^2$/month, or roughly $3 \times 10^{13}$ 1 MeV neutron equivalent/cm$^2$/month, as shown in Fig.~
-\ref{fig:radiation} and~\ref{fig:rates}~\cite{Rashevskaya:2002nd}. 
+$^2$/month, or roughly $3 \times 10^{14}$~\fluenceunit/month, as shown in Fig.~
+\ref{fig:radiation} 
 %===================
-\begin{figure}[htp]
+\begin{figure}[]
 \includegraphics[width=7cm]{figures/radiation}
 \label{fig:radiation}
-\caption{Electron fluences: electrons bend towards $+x$.}
+\caption{Simulation of the fluence 10~cm downstream of the target in the active region of the SVT ($|Y|>0.15~$cm) looking downstream; electrons bend towards $+x$.}
 \end{figure}
-\begin{figure}[htp]
+%===================
+and~\ref{fig:rates}~\cite{Rashevskaya:2002nd}.
+%===================
+\begin{figure}[]
 \includegraphics[width=7cm]{figures/rates}
 \label{fig:rates}
-\caption{The environment near the dead zone 10 cm from the target.}
+\caption{Simulation of the occupancy in the SVT 10~cm downstream of the target as a function of the 
+vertical distance from the beam center.}
 \end{figure}
-%\begin{figure}[htp]
-%\subfigure[\label{fig:rates}The occupancy in an 8 ns window in 60 micron strips.]
-%{\includegraphics[width=8cm]{figures/rates}}
-%\subfigure[\label{fig:radiation}Electron fluences: electrons bend towards $+x$.]
-%{\includegraphics[width=7cm]{figures/radiation}}
-%\subfigure[\label{fig:rates}The occupancy in an 8 ns window in 60 micron strips.]
-%{\includegraphics[width=8cm]{figures/rates}}
-%\caption{The environment near the dead zone 10 cm from the target.}
-%\end{figure}
-%===================
+%=================== 
 This requires the sensors to be actively cooled. Meanwhile, very low-energy delta rays from beam gas interactions multiply the density of background hits, so the SVT must operate inside the beam vacuum.  Finally, in order protect the sensors, the detector must be movable so that it can be retracted during periods of uncertain beam conditions.  
-
 %To summarize the SVT must:
 %\begin{itemize}
 %\item have a uniform acceptance in the forward region; up to $\theta_y=XXXXmrad$ and as close as 
@@ -456,11 +451,16 @@ This requires the sensors to be actively cooled. Meanwhile, very low-energy delt
 
 \subsection{SVT Layout}
 
-A realistic simulation of the detector using the java-based org.lcsim package and including full backgrounds has been used to optimize the layout for acceptance, tracking efficiency, mass resolution and prompt vertex rejection~\cite{Graf:2011zzc}. The layout of the SVT is summarized in Table~\ref{tab:trk} and shown in Figure~\ref{fig:tracker_model}. 
+A realistic {\sc Geant4} simulation of the detector based on the {\sc SLIC}~\ref{slic} simulation 
+package~\cite{Graf:2011zzc}
+including all backgrounds has been used to optimize the layout for acceptance, tracking efficiency, mass 
+resolution and prompt vertex rejection. The layout of the SVT is summarized in Tab.~\ref{tab:trk} and rendered in Fig.~\ref{fig:tracker_model}. 
 
-The layout of the SVT is shown in Fig.~\ref{fig:tracker_model} and summarized in Table \ref{tab:trk}. The 
-vacuum chamber is too small vertically to accommodate 90-degree stereo layers to optimize the vertex 
-resolution. Instead, 100~mrad stereo is used in the first three layers 
+The layout of the SVT is shown in Fig.~\ref{fig:tracker_model} and summarized in Table \ref{tab:trk}.
+The vertex resolution with an asymmetric beam spot of $\approx 200\times40 \mu$m requires hit 
+resolutions better than XXXX (XXXX)~$\mu$m in the vertical (horizontal) measurement coordinate. 
+In addition, the vacuum chamber is too small vertically to accommodate 90-degree stereo layers to optimize 
+the vertex resolution in the horizontal coordinate. Instead, 100~mrad stereo is used in the first three layers 
 to provide higher-resolution 3-D space points for vertexing. The 50~mrad stereo of the last two layers 
 breaks the tracking degeneracy of having five identical layers and minimizes fakes from ghost hits, 
 improving pattern recognition while still providing sufficient pointing resolution into the third layer
@@ -475,7 +475,7 @@ association in the denser environment there. Altogether, this layout comprises 2
 \hline \hline 
     Layer & 1 & 2 & 3 & 4 & 5 \\      
 \hline
-    $z$ from target (cm)  & 10 & 20 & 30 & 50 & 70  \\ 
+    $z$ from nom. target (cm)  & 10 & 20 & 30 & 50 & 70  \\ 
     Stereo angle (mrad)  & 100 & 100 & 100 & 50 & 50 \\ 
     Bend res. ($\mu$m)  & $\approx$60 & $\approx$60 & $\approx$60 & $\approx$120 & $\approx$120  \\ 
     Non-bend res. ($\mu$m)  & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6  \\ 
@@ -499,7 +499,7 @@ association in the denser environment there. Altogether, this layout comprises 2
 \end{figure}
 \end{center}
 %=======================
-The Test SVT is built in two separate halves that are mirror reflections of one another about the plane of the 
+The SVT is built in two separate halves that are mirror reflections of one another about the plane of the 
 nominal electron beam.  Each half consists of five, double-sided modules mounted on a support plate that 
 provides services to the modules and allows them to be moved as a group relative to the dead zone. The 
 two halves of the tracker are connected to hinges mounted on a C-shaped support just beyond layer 5 that 
@@ -527,46 +527,49 @@ integrated cable runs are clearly seen.} }
 
 \subsubsection{Silicon Sensors}
 The sensors for the SVT are selected according to a number of requirements.  First, the sensors must be 
-radiation tolerant to approximately $1.5\times10^{14}$ 1 MeV neq/cm$^2$ for a six month run.  This 
-corresponds to about 4 MHz/mm$^2$, so the sensor and readout technology must be capable of handling 
+radiation tolerant to approximately $1.5\times10^{14}$~\fluenceunit for a six month run.  This 
+corresponds to about 4~MHz/mm$^2$, so the sensor and readout technology must be capable of handling 
 very high local occupancies. Since sensitivity is limited by multiple scattering, a material budget of less 
-than 1\% $X_0$/layer is imperative and far less is desirable.  The best vertex resolution with a small beam 
-spot ($\approx 10 \mu$m) requires single-hit resolution better than 20 $\mu$m in both measurement 
-coordinates.  Finally, the sensor technology must be mature and readily available at low cost.  Surprisingly, 
-we find that silicon microstrips are the best match to these requirements, and a supply of appropriate 
-microstrip sensors purchased from the Hamamatsu Photonics Corporation for the Run 2b upgrade of D\O~
-\cite{Denisov:2001aa} are readily available. These are $p+$ on $n$, single sided, AC coupled, polysilicon-
-biased sensors fabricated on $<100>$ silicon and have 30(60) micron sense(readout) pitch over their 4 cm 
+than 1\% $X_0$/layer is imperative and far less is desirable. To achieve the required vertex resolution  
+single-hit resolutions better than XXXX~$\mu$m are required. Finally, the sensor technology must 
+be mature and readily available at low cost.  Silicon microstrips are the best match to these requirements, and 
+a supply of appropriate microstrip sensors purchased from the Hamamatsu Photonics Corporation for the 
+Run 2b upgrade of D\O~\cite{Denisov:2001aa} are readily available. 
+These are $p+$-on-$n$, single sided, AC coupled, 
+polysilicon-biased sensors fabricated on $<100>$ silicon and have 30(60) micron sense(readout) pitch 
+over their 4 cm 
 $\times$ 10 cm surface. Although a maximum bias of 350 V is specified, the vast majority are operable to 
-1000V and therefore remain fully depleted to a dose of approximately $1.5\times10^{14}$ 1 MeV neq/cm
-$^2$. 
+1000V and therefore remain fully depleted to a dose of approximately 
+$1.5\times10^{14}$~\fluenceunit.
 
 \subsubsection{Front-end Electronics}
-
 Because the regions of high occupancy are small spots in two dimensions, only a short length of any one 
 strip sees significant occupancy, and the strips in that region act as long pixels. However, the rates are still 
 very high and lowering the peak occupancy in the sensors to approximately 1\% for tracking requires a 
-trigger window and tagging of hit times to roughly 8 ns, as shown in Figure~\ref{fig:rates}.  The FADC 
+trigger window and tagging of hit times to roughly 8~ns, as shown in Fig.~\ref{fig:rates}.  The FADC 
 readout for the ECal and muon system are capable of this, but achieving achieving $2\sigma$ efficiency for 
-silicon hits then requires 2 ns time resolution for the hits in the SVT. This performance can be achieved with 
+silicon hits then requires 2~ns time resolution for the hits in the SVT. This performance can be achieved with 
 the APV25 readout ASIC developed for the CMS experiment at CERN~\cite{French:2001xb}.  When 
 operated in ``multi-peak mode", the APV25 captures successive samples of the output of the shaper in sets 
 of three.  By fitting the known $CR$-$RC$ shaping curve to these samples, the initial time of the hit can be 
-determined to a precision of 2 ns for S/N$>$25, an achievable figure with our sensors if read out 
+determined to a precision of 2~ns for S/N$>25$, an achievable figure with our sensors if read out 
 individually~\cite{Friedl:2009zz}.  For the SVT, six-sample readout and the shortest possible shaping time 
-(35 ns) will be used to best distinguish hits that overlap in time.
+(35~ns) will be used to best distinguish hits that overlap in time.
 The APV25 chips are hosted on simple FR4 hybrids since these hybrids and their cooling system are 
-outside the tracking volume.  Along with the sensors, these are assembled into large multi-sensor modules, 
-one for each tracking view.
+outside the tracking volume.  Along with the sensors, these are assembled into half-modules, one for each 
+tracking view, with a short cable pigtail to provide power and configuration to the modules and signal 
+readout. 
 
 \subsubsection{Support Structure}
 
-The sensor modules for the SVT consist of a pair of identical half-modules, sandwiched back-to-back around an aluminum cooling block at one end and a similar PEEK spacer block at the other. Figure \ref{fig:tracker_module} shows a prototype module assembly.
+The sensor modules for the SVT consist of a pair of identical half-modules, sandwiched back-to-back around 
+an aluminum cooling block at one end and a similar PEEK spacer block at the other. 
+Figure~\ref{fig:tracker_module} shows a single module after assembly.
 %=======================
 \begin{figure}[htp]
 	\begin{center}
    	 \includegraphics[width=7cm]{figures/IMG_5200}
-	\caption{\small{A prototype module assembly (foreground) with the 50 mrad (left) and 100 mrad (right) module assembly fixtures in the background.  A pair of cooling blocks and a spacer block can be seen on the fixtures.} }
+	\caption{\small{A prototype module assembly (foreground) with the 50~mrad (left) and 100~mrad (right) module assembly fixtures in the background.  A pair of cooling blocks and a spacer block can be seen on the fixtures.} }
 	\label{fig:tracker_module}
 	\end{center}
 \vspace*{-5mm}
