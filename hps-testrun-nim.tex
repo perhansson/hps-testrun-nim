@@ -124,19 +124,22 @@
 \address[label1]{Lule\aa~Hockey}
 
 \begin{abstract}
-Recent astrophysical data motivates searches for a massive, dark sector analog to the photon. The 
-preferred parameter space for this "heavy photon" requires very high luminosity for direct production, 
-favoring fixed target experiments, and results in long-lived decays of these new force carriers to pairs of 
-light, charged fermions.  Identification of these states on large backgrounds requires precision tracking and 
-vertexing at high rates in a difficult experimental environment. The Heavy Photon Search, or HPS, 
-proposes a novel silicon tracking and vertexing detector, the HPS Silicon Vertex Tracker (SVT), to search 
+Heavy photons, aka "hidden sector" or "dark" photons, are massive cousins to the SM photon, 
+which couple to an analogue of electric charge. They arise naturally in theories with additional
+U(1) gauge groups, and have been proposed as a possible explanation for the muon g-2 anomaly,
+astrophysical puzzles, and possible sightings of light dark matter in direct detection experiments.
+Masses in the range 10 to 1000 MeV are suggested. Heavy photons couple weakly to electric charge, 
+so can be produced via electroproduction and can decay into elecron-positron pairs, albeit at rates 
+strongly suppressed compared to standard QED trident processes. Consequently, heavy photons must be identified
+above copious backgrounds, requiring high luminosity/high rate experiments, good mass resolution
+(to identify invariant mass bumps), and good vertexing (to see the long lifetimes implied by
+weak couplings). The Heavy Photon Search (HPS) will use  a silicon microstrip vertex tracker
+triggered by a high speed PbWO4 electromagnetic calorimeter to search 
 for these states in a fixed target experiment at Thomas Jefferson National Accelerator Facility (JLab). 
-The HPS SVT employs actively cooled silicon 
-microstrip sensors with fast readout directly downstream of a target and inside of a dipole magnet to 
-instrument a large acceptance with a relatively small detector. The readout is triggered by a fast, 
-radiation-hard, compact, lead tungstate electromagnetic calorimeter.  As a first step; a simpler, small scale 
-version of this detector has been assembled and operated on beam at JLab. A detector description and 
-results on multiple Coulomb scattering models are outlined in this paper.
+The first stage of HPS was the HPS Test Run experiment, designed to demonstrate the technical feasibility of the detector and data
+acquisition systems and to confirm that critical backgrounds were correctly modeled.
+This paper describes the HPS Test Run detector, reviews its performance, and presents results of
+the normalized trigger rate measurements that confirm the accuracy of the background simulation.
 \end{abstract}
 
 \begin{keyword}
@@ -173,71 +176,67 @@ One of the more striking anomalies in recent astrophysical observations is an ex
 }
 \end{center}
 
-There are two necessary parameters that determine the properties of this ``heavy photon," designated the 
-\Aprime.  The first is the mixing of this state with the Standard Model photon, $\epsilon$, which results in 
-a coupling of the \Aprime to Standard Model fermions with a strength of $\epsilon e$.  In simple models 
-with kinetic mixing, $\epsilon$ is favored to be in the range of $10^{-2} -10^{-5}$.  The second is the mass 
-of the \Aprime.  Under the assumption that this mass is generated via a Higgs-like symmetry breaking, 
-the mass would be roughly of the order $\sqrt{\epsilon} m_W \sim$~-GeV.  These ranges are further 
-motivated by explanations of other dark matter anomalies involving non-minimal dark sectors~
-\cite{TuckerSmith:2001hy} and the fact that no similar excess in proton-antiproton pairs is observed, which 
-would be simply explained if $ m_{\textrm{A}^\prime} < 2m_p$~\cite{Adriani:2010rc}.
-
-Searches for these heavy photons with high-intensity, fixed target experiments offer the best sensitivity in 
-this region of the parameter space~\cite{Bjorken:2009mm}.  In these experiments, an \Aprime is 
-radiated off the incident electron, much like a bremsstrahlung photon, which subsequently decays to a pair 
-of Standard Model fermions.  However, achieving sensitivity to this parameter space presents a number of 
-challenges.  At larger couplings, large data samples are required to identify a small invariant mass peak on 
-significant background.  At smaller couplings, the  \Aprime becomes long-lived, which enables 
-sensitivity from extremely high-luminosity beam-dump experiments that screen out the Standard Model 
-backgrounds.  However, in the intermediate region, lifetimes are too short to screen out backgrounds with a 
-shield, but signal cross sections are so small that collecting large enough event samples to distinguish the 
-signal requires unacceptable data rates or running times.  Gaining sensitivity to this region requires a fast 
-detector capable of precision mass reconstruction of \Aprime final states together with the best possible 
-rejection of prompt vertexes to eliminate backgrounds. The HPS experiment aims to achieve these goals 
-by placing a compact silicon and vertexing detector ($\approx 1$ m long) immediately downstream ($
-\approx 10$ cm) of a thin target ($\approx0.25$ X$_0$ tungsten) and inside of a dipole magnet ($\approx 
-1$ T)~\cite{HPS_proposal_2010}.
+Heavy photons, aka known as "hidden sector" or "dark" photons, are particles with mass 10-1000 MeV which 
+couple
+weakly to the SM photon, so can be radiated by electrons, and can decay into e+e- pairs, albeit at rates far
+below those of QED trident processes. They have been suggested by numerous Beyond Standard Model 
+theories and
+as an explanation of the current muonic g-2 anomaly, and may couple directly
+to hidden sector particles that may constitute all or some of the dark matter. Current phenomenology highlights 
+the 
+20-1000 MeV mass range, and suggests that heavy photons couple to electric charge with strength 
+$\epsilon$e, where 
+$\epsilon$ is in the range of $10^{-3} -10^{-5}$. This range of parameters makes heavy photon searches viable 
+at electron-positron colliders and in moderate energy fixed target electroproduction, and results from both
+approaches have already been reported. Fixed target experiments offer the highest sensitivity 
+for heavy photons with mass $<1000$~MeV~\cite{Bjorken:2009mm}, but require large data sets and good 
+mass resolution to identify a small mass peak above the copious QED background. At small couplings, heavy 
+photons become long-lived, so detection of a secondary decay vertex can reject the prompt QED background 
+and boost experimental sensitivity.
+The HPS experiment uses both invariant mass and vertex signatures by placing a compact silicon tracking and 
+vertexing detector ($\approx 1$~m long) immediately downstream ($\approx 10$~cm) of a thin target 
+($\approx0.25~X_0$ tungsten) and inside of a dipole magnet ($\approx 1$~T)~\cite{HPS_proposal_2010}. 
+The experiment runs at high rates, exploiting the 100\% duty cycle of the 
+CEBAF accelerator to accumulate the need statistics. The trigger is provided by a fast electromagnetic 
+calorimeter just downstream of the magnet.
 
 
-The HPS Test run was proposed to DOE early in 2011 as the first stage of the HPS experiment. Its
-purposes included demonstrating that the apparatus and data acquisition systems are feasible and
-that the trigger rates and occupancies encountered in electron-beam running are as simulated.  It also
-provided valuable experience to the HPS Collaboration in all aspects of designing, building, installing,
-and running the experiment at JLab. Furthermore, in the case that HPS Test detector met all of the 
-performance goals and was given dedicated running time with an electron beam, the HPS Test Run 
-could provide new sensitivity to heavy photons. The HPS Test apparatus was installed on April 19, 2012, 
-and 
-ran parasitically with the HDice experiment, using a photon beam, until May 18. The JLab run schedule 
+The HPS Test run, a simplified version of the full HPS experiment, was proposed and approved at JLab 
+as the first stage of the HPS experiment.  Its purposes included demonstrating that the apparatus and data 
+acquisition systems are technically feasible and
+that the trigger rates and occupancies encountered in electron-beam running are as simulated. Additionally,
+given dedicated running time with electron beams, the HPS Test Run could provide new sensitivity to heavy 
+photons. The HPS Test apparatus was installed on April 19, 2012, and 
+ran parasitically with the HDice experiment, using its photon beam, until May 18. The JLab run schedule 
 precluded any dedicated electron beam running, but the HPS Test Run was allowed a short and valuable
 dedicated run with the photon beam.
 
-This paper reviews the HPS Test Run apparatus, a simplified version of that 
-planned for the full HPS experiment, and demonstrates the feasibility of the detector
-technologies proposed for silicon tracker, ECal, and data acquisition systems. It documents the
-performance of the trigger, data acquisition, silicon tracker, and ECal
-and shows that the performance assumed in calculating the physics reach of the experiment is realistic.
-Of particular importance, data from dedicated photon beam running has been used to compare
-the observed trigger rates with that expected in simulation. The trigger rate is almost entirely due to
-photons which have converted to \ee upstream of HPS and is sensitive to the multiple
-Coulomb scattering of electrons and positrons in the conversion target.  Since scattered primary beam is 
-the dominant 
-source of occupancy in running HPS in an electron beam, good agreement between data and simulation 
-confirm the background simulation used to benchmark the physics reach of the HPS experiment. 
+This paper reviews the HPS Test Run apparatus. It documents the successful performance of the trigger, data 
+acquisition, silicon tracker, and ECal and
+shows that the performance assumed in calculating the physics reach of the experiment is realistic.
+Of particular importance, data from the dedicated photon beam running has been used to compare
+the measured trigger rates with those expected in simulation. The Test Run trigger rate is almost entirely due to
+photons which have converted to \ee pairs in a thin target upstream of HPS and it is sensitive to the particulars 
+of their multiple Coulomb scattering in the conversion target.  Since, during electron beam running, the tails of 
+the multiply Coulomb scattered primary beam are the dominant source of occupancy in the tracker and the 
+trigger rate in the Ecal, they must be understood quantitatively. The trigger rates in the Test Run are also 
+sensitive to the tails of the multiple Coulomb scattering distribution. Good agreement between the measured 
+and simulated rates confirms our understanding of multiple Coulomb scattering and 
+the reliability of the background simulation used to benchmark the physics reach of the HPS experiment. 
 
-The very small signal rate compared to the large background, the need to fully reconstruct the final states of 
-the electron and positron and doing it in a dense radiation environment millimeters from a high-current beam place stringent requirements on the detector, which should have,
+The very small signal rate compared to the large background and the need to reconstruct the final states of 
+the electron and positron in a dense radiation environment millimeters from a high-current beam 
+place stringent requirements on the detector, which should have,
 \begin{itemize}
 \item large and uniform acceptance in the forward region to catch boosted decay products,
-\item excellent reconstruction efficiency for electron and positrons  with energy down to $XXXX$~MeV,
-\item good momentum resolution to separate a promptly decaying \Aprime signal from the irreducible background,
-\item excellent vertex resolution along the beam line direction to search for displaced \Aprime decays,
-\item low-noise electronics with event timing resolution down to 2~ns, 
 \item a flexible, redundant and efficient trigger selecting electron and positron pairs at rates up to 50kHz,
-\item an online computing framework and data acquisition capable of handling event rates of 50~kHz and 
-bandwidths of 100~MB/s to permanent storage,
+\item excellent track reconstruction efficiency for electrons and positrons,
+\item good angular and momentum resolution to reconstruct invariant mass precisely,
+\item excellent vertex resolution to search for displaced heavy photon decays,
+\item high rate electronics with event timing resolution down to 2~ns,
+\item data acquisition system capable of handling data rates of 100~MB/s to permanent storage,
 \item detector components that can survive and efficiently operate in a high radiation environment with 
-local doses exceeding $XXXX$~MRad
+local doses exceeding $100$~MRad
 \end{itemize}
 
 
@@ -451,7 +450,7 @@ This requires the sensors to be actively cooled. Meanwhile, very low-energy delt
 
 \subsection{SVT Layout}
 
-A realistic {\sc Geant4} simulation of the detector based on the {\sc SLIC}~\ref{slic} simulation 
+A realistic {\sc Geant4} simulation of the detector based on the {\sc SLIC} simulation 
 package~\cite{Graf:2011zzc}
 including all backgrounds has been used to optimize the layout for acceptance, tracking efficiency, mass 
 resolution and prompt vertex rejection. The layout of the SVT is summarized in Tab.~\ref{tab:trk} and rendered in Fig.~\ref{fig:tracker_model}. 
@@ -883,8 +882,8 @@ with an effective readout threshold of 70~MeV.
 
 Modules above thresholds are clustered using a simple robust algorithm described in Sec.~\ref{sec:trigger}.
 
-\subsubsection{Calibration}
-\label{sec:ecal_calibration}
+%\subsubsection{Calibration}
+%\label{sec:ecal_calibration}
 The noise and pedestal of the readout chain are calibrated by running the ECal readout in a mode where the 
 preamplifier output is sampled every 4~ns in a time window of 100 samples: by looking at a part of the 
 window before the hit, we calibrate the readout channel. The The readout threshold 
