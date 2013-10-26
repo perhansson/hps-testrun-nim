@@ -75,10 +75,14 @@
 % \biboptions{}
 
 % HPS stuff
+\usepackage{color}
 %\usepackage{multicol}
-\newcommand{\Aprime}{A$^\prime$}
+\newcommand{\Aprime}{A\ensuremath{^\prime}}
 \newcommand{\ee}{e$^+$e$^-$}
 \newcommand{\fluenceunit}{1~MeV~neutron~equivalent/cm\ensuremath{^2}}
+\newcommand{\geant}{{\sc Geant4}}
+\newcommand{\egs}{{\sc EGS5}}
+\newcommand{\moliere}{Moli\`{e}re}
 
 
 \journal{Nuclear Physics B}
@@ -170,7 +174,7 @@ One of the more striking anomalies in recent astrophysical observations is an ex
 {\small
 \begin{figure*}[ht]
     \includegraphics[width=0.8\textwidth]{figures/hps_testrun_rendering}
-\caption{Rendering of the HPS Test apparatus installed on the beam line. SHOULD FIND A PIC WITH LOWER HEIGHT.}
+\caption{Rendering of the HPS Test apparatus installed on the beam line.}
 \label{fig:testrundetector}
 \end{figure*}
 }
@@ -236,7 +240,7 @@ place stringent requirements on the detector, which should have,
 \item high rate electronics with event timing resolution down to 2~ns,
 \item data acquisition system capable of handling data rates of 100~MB/s to permanent storage,
 \item detector components that can survive and efficiently operate in a high radiation environment with 
-local doses exceeding $100$~MRad
+local doses exceeding $100$~Mrad
 \end{itemize}
 
 
@@ -254,28 +258,28 @@ local doses exceeding $100$~MRad
 \label{detector}
 The HPS experiment is proposed to run in Hall B using electron beams of Continuos Electron Beam 
 Accelerator Facility (CEBAF) at JLab. CEBAF can simultaneously deliver  electron 
-beams to multiple experimental hall at 499 MHz frequency with beam currents of up to 150 $\mu$A (for Hall-B 
-the current is limited to $<1 ~\mu$A).  Currently CEBAF facilities are undergoing energy upgrade that will be 
-completed in a year. The upgraded CEBAF machine will double its energy range from up to $6$ GeV during 
-the HPS test run to $12$ GeV. 
+beams to multiple experimental hall at 499 MHz frequency with beam currents of up to 150 $\mu$A (Hall-B 
+is limited to $<1 ~\mu$A).  Currently CEBAF facilities are undergoing energy an upgrade that is expected to be 
+completed in end of 2014. The upgraded CEBAF machine will double its maximum energy from $6$~GeV 
+during the HPS test run to $12$~GeV. 
 
 
 The HPS Test apparatus was designed as a 
 first step of a multi-stage approach 
 to the HPS experiment. The primary goal was to demonstrate that the technology and design approach 
-chosen by HPS are sound for running in a challenging environment. Nevertheless, a secondary but 
+chosen are sound for running in such a challenging environment. Nevertheless, a secondary but 
 important aspect was that, after proving the technical concepts,  the apparatus would have the 
 capability to discover \Aprime events. The implication was that the design of the HPS Test apparatus 
 would be subject to almost the same constraints and requirements as the full experiment.
 The kinematics of \Aprime production typically results in final state particles within a few degrees of the incoming beam, especially at low 
-$m_{\textrm{A}^\prime}$.  
+$m_{\Aprime}$.  
 %Step
-This implies that the apparatus for $A^\prime$ search in electron interactions with fix targets must operate in 
-close proximity to an intense electron beam that passes through a high-Z target, and 
-hence it should tolerate high radiation, high background environment. To meet this challenge, HPS will 
-deploy high rate and radiation hard detector composed of 
-a silicon vertex tracker with 40 MHz readout and a PbWO$_4$ crystal calorimeter with 250 MHz readout, 
-capable of triggering multi-prong events at the rate of up 50 kHz.
+This implies that the apparatus for an \Aprime search in electron interactions with fix targets must operate in 
+close proximity to an intense electron beam that passes through a high-Z target. 
+Hence it should cope with high backgrounds and tolerate the high radiation environment. 
+To meet this challenge, HPS will deploy high rate and radiation hard detector composed of 
+a silicon vertex tracker with 40~MHz readout and a PbWO$_4$ crystal calorimeter with 250~MHz 
+readout, capable of triggering multi-prong events at top to 50~kHz rate.
 
 
 %\subsection{HPS Test setup}
@@ -284,18 +288,15 @@ The HPS Test apparatus, a simplified version of that
 planned for the full HPS experiment, demonstrates the feasibility of the detector
 technologies proposed for the silicon tracker, electromagnetic calorimeter, and data acquisition system. 
 A rendering of the HPS Test setup is shown in Fig.~\ref{fig:testrundetector}. The setup is based on the Hall-B 
-pair spectrometer (PS) magnet, 18D36 dipole. The silicon tracer was installed inside the vacuum chamber of 
-PS, and the electromagnetic calorimeter was mounted behind the vacuum flange. A new vacuum box 
-attached to the upstream end of the pair spectrometer vacuum chamber provided necessary connections to 
-the tracker (cooling, HV, and signal readout). 
+pair spectrometer (PS) magnet, 18D36 dipole. The silicon vertex tracker (SVT) was installed inside the vacuum 
+chamber of PS and the electromagnetic calorimeter (ECal) was mounted behind the vacuum flange. 
+A new vacuum box 
+attached to the upstream end of the pair spectrometer vacuum chamber provided necessary services to 
+the SVT (cooling, power and signal readout). 
 Most technologies used in the HPS Test apparatus as well as the magnet and the vacuum chamber will be 
 used in the HPS detector with some 
 improvements to each of the systems; both from lessons learned during running of the HPS Test but 
 also from planned upgrades for longer and more effective running. 
-
-
-
-An overview of the coverage, segmentation and performance of the HPS Test detector is given in Tab.~\ref{tab:detector-overview}. 
 
 %\begin{multicols}{2}
 \begin{center}
@@ -321,39 +322,38 @@ ECal & $15<\theta_{y} < XXXX$ & 442 & 12 & 4~ns & 1 & $1.3\times1.3$~cm$^2$  & $
 \end{center}
 %\end{multicols}
 
-
-In order to accommodate the dead zone, the SVT and ECal are built in two halves that are mirror reflections of one 
-another about the plane of the nominal electron beam.  Each half of SVT consists of five double-sided modules 
+An overview of the coverage, segmentation and performance of the HPS Test detector is given in 
+Tab.~\ref{tab:detector-overview}.  In order to accommodate the dead zone, the SVT and ECal are built in two 
+halves that are mirror reflections of one 
+another about the plane of the nominal electron beam.  Each half of the SVT consists of five double-sided 
+modules 
 mounted on a support plate that provides services to the modules and allows them to be moved as a group 
 relative to the dead zone. Each module places a pair of silicon microstrip sensors back-to-back at a 
 specified stereo angle with independent cooling and support. The sensors are read out
-continuously at 40 MHz using the APV25 chip, developed for the CMS experiment at the
+continuously at 40~MHz using the APV25 ASIC, developed for the CMS experiment at the
 LHC.
 
-The each half of ECal consists of $221$ PbWO$_4$ crystals arranged in rectangular formation, five rows, $46$ modules in each raw with first raw having  $37$ modules. The light readout from each module is performed by Avalanche Photodiode (APD) glued on back surface of the crystal. APD signals were amplified using custom-made amplifier boards before sending them to the readout electronics.  
+Each half of the ECal consists of 221 PbWO$_4$ crystals arranged in rectangular formation. 
+There are five rows with 46 
+modules in each row except the row closest to the beam plane which has 37. The light from each crystal is read 
+out by Avalanche Photodiode (APD) glued on the back surface of the crystal. 
+Signals from the APDs were amplified using custom-made amplifier boards before being sent to the readout 
+electronics.  
 
-The  Data Acquisition system combines two architectures, Advanced Telecom Communications Architecture (ACTA) based SVT readout system and VXS based digitization and triggering system for ECal. System is designed to run with up to 20 kHz trigger rate.
-
-
-
-
-%\subsection{Electronics, Trigger, Data Acquisition and Online Computing}
-
+The  Data Acquisition system combines two architectures, the Advanced Telecom Communications 
+Architecture (ATCA) based SVT readout system and VXS based digitization and triggering system for the ECal. 
+The system was designed to run at up to a 20 kHz trigger rate.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%\section{The CEBAF Accelerator and Its Impact on the HPS Test Detector }
-%\label{cebaf}
-%\subsection{The CEBAF Accelerator}
-
 \section{The HPS Test Beamline}
-HPS test run studied multiple Coulomb scattering of electrons and positrons produced in a thin gold foils by 
-bremsstrahlung photons from the Hall-B tagged photon facility. In Figure \ref{fig:hpstest_layout}, the layout of 
-the test run setup on the beam line is shown. The silicon vertex tracker was installed inside the Hall B pair 
-spectrometer magnet vacuum chamber with the electromagnetic calorimeter mounted downstream. Both the 
-tracker and the ECal were retracted off the beam plane to allow clean passage of the photon beam through 
+The HPS Test run studied multiple Coulomb scattering of electrons and positrons from bremsstrahlung photons 
+produced in the Hall-B tagged photon facility. Figure~\ref{fig:hpstest_layout} shows the layout of 
+the HPS Test setup on the beam line. The SVT was installed inside the Hall B pair 
+spectrometer magnet (PS) vacuum chamber with the ECal mounted downstream of it. Both the 
+SVT and the ECal were retracted off the beam plane to allow clean passage of the photon beam through 
 the system. 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{figures/HPS_dimensions}
@@ -362,12 +362,14 @@ the system.
 \end{figure}
 
 The photon beam was generated in the interaction of the $5.5$ GeV electrons with a gold radiator of 
-$10^{-4}$ r.l., located $\approx 8$ meters upstream of the PS pair converter. The primary and scattered 
-electron beams are deflected way from detectors by the dipole magnet of the photon tagging system. After 
-collimation ($D=6.4$ mm), the photon beam passes through the pair converter and through the HPS system. 
-The converter was located $\approx 77$~cm upstream of the first layer of the silicon vertex tracker. Data were 
-taken on different converters (empty, $1.8\times 10^{-3}$ r.l., $4.5\times 10^{-3}$ r.l., and $1.6\times 10^{-2}$ 
-r.l.). These measurements were repeated for the reverse field setting of the pair spectrometer dipole.
+$10^{-4}~X_0$, located $\approx~9$~m upstream of the PS. The primary beam and scattered 
+electrons are deflected away from detectors by the dipole magnet of the photon tagging system. After 
+collimation (6.4~mm diameter), the photon beam passes through the aluminum PS pair converter and 
+later the HPS system. 
+The converter was located $\approx~77$~cm upstream of the first layer of the silicon vertex tracker. Data was 
+taken on different converters (empty, $1.8\times 10^{-3}~X_0$ , $4.5\times 10^{-3}~X_0$ and 
+$1.6 \times 10^{-2}~X_0$). 
+These measurements were repeated with the reverse field setting of the PS dipole magnet.
 
 
 
@@ -380,7 +382,7 @@ r.l.). These measurements were repeated for the reverse field setting of the pai
 The principle purpose of the HPS Test Silicon Vertex Tracker (SVT) is the efficient detection of 
 charged particles and reconstruction of their momentum and angles. The precise measurements 
 forms the primary input to the extraction of a signal from \Aprime decays; both from the precise 
-measurement of the invariant mass of it's \ee decay products and the position of it's decay vertex 
+measurement of the invariant mass of its \ee decay products and the position of its decay vertex 
 downstream of the target. Track reconstruction is also important for energy scale calibration of the 
 electromagnetic calorimeter due to the better momentum resolution of tracks compared to clusters 
 in the calorimeter.
@@ -403,7 +405,7 @@ possible material budget.  Therefore, the construction of the SVT must place the
 material in the tracking volume.  Second, the signal yield for long-lived A$^\prime$ will be very small, so 
 the rejection of prompt vertexes must be exceedingly pure, on the order of $10^{-7}$, in order to eliminate 
 all prompt backgrounds.  This requires great care in design, calibration, and operation of the detector. 
-Finally, the passage of degraded primary beam through the apparatus creates a region of extreme 
+Finally, the passage of the degraded primary beam through the apparatus creates a region of extreme 
 occupancy and radiation that is critical for sensitivity to low-mass A$^\prime$ that have decay products 
 nearly collinear with the beam.  This places low-mass acceptance in opposition to tracking and vertexing 
 purity and the longevity of the detector.  
@@ -413,25 +415,24 @@ achieve good vertexing performance, the first layer must be placed no more than 
 of the target. At that distance, it is found that the active region of a sensor can be placed as close to 1.5 mm 
 from the center of the beam, defining a 15 mrad ``dead zone" in the detector around the plane of the 
 primary beam. At the edge of this ``dead zone," the radiation dose approaches $10^{15}$ electrons/cm
-$^2$/month, or roughly $3 \times 10^{14}$~\fluenceunit/month, as shown in Fig.~
-\ref{fig:radiation} 
+$^2$/month, or roughly $3 \times 10^{14}$~\fluenceunit/month~\cite{Rashevskaya:2002nd}, as shown in 
+Fig.~\ref{fig:radiation} and~\ref{fig:rates}.
 %===================
 \begin{figure}[]
 \includegraphics[width=7cm]{figures/radiation}
 \label{fig:radiation}
-\caption{Simulation of the fluence 10~cm downstream of the target in the active region of the SVT ($|Y|>0.15~$cm) looking downstream; electrons bend towards $+x$.}
+\caption{\small Simulation of the fluence 10~cm downstream of the target in the active region of the SVT ($|Y|>0.15~$cm) looking downstream; electrons bend towards $+x$.}
 \end{figure}
 %===================
-and~\ref{fig:rates}~\cite{Rashevskaya:2002nd}.
 %===================
 \begin{figure}[]
 \includegraphics[width=7cm]{figures/rates}
 \label{fig:rates}
-\caption{Simulation of the occupancy in the SVT 10~cm downstream of the target as a function of the 
+\caption{\small Simulation of the occupancy in the SVT 10~cm downstream of the target as a function of the 
 vertical distance from the beam center.}
 \end{figure}
 %=================== 
-This requires the sensors to be actively cooled. Meanwhile, very low-energy delta rays from beam gas interactions multiply the density of background hits, so the SVT must operate inside the beam vacuum.  Finally, in order protect the sensors, the detector must be movable so that it can be retracted during periods of uncertain beam conditions.  
+This requires the sensors to be actively cooled. Meanwhile, very low-energy delta rays from beam gas interactions multiply the density of background hits, so the SVT must operate inside the beam vacuum.  Finally, in order to protect the sensors, the detector must be movable so that it can be retracted during periods of uncertain beam conditions.  
 %To summarize the SVT must:
 %\begin{itemize}
 %\item have a uniform acceptance in the forward region; up to $\theta_y=XXXXmrad$ and as close as 
@@ -450,17 +451,16 @@ This requires the sensors to be actively cooled. Meanwhile, very low-energy delt
 
 \subsection{SVT Layout}
 
-A realistic {\sc Geant4} simulation of the detector based on the {\sc SLIC} simulation 
+A realistic \geant~\cite{Agostinelli2003250} simulation of the detector based on the {\sc SLIC} simulation 
 package~\cite{Graf:2011zzc}
 including all backgrounds has been used to optimize the layout for acceptance, tracking efficiency, mass 
 resolution and prompt vertex rejection. The layout of the SVT is summarized in Tab.~\ref{tab:trk} and rendered in Fig.~\ref{fig:tracker_model}. 
 
-The layout of the SVT is shown in Fig.~\ref{fig:tracker_model} and summarized in Table \ref{tab:trk}.
-The vertex resolution with an asymmetric beam spot of $\approx 200\times40 \mu$m requires hit 
+The vertex resolution with an asymmetric beam spot of $\approx200\times40~\mu$m requires hit 
 resolutions better than XXXX (XXXX)~$\mu$m in the vertical (horizontal) measurement coordinate. 
 In addition, the vacuum chamber is too small vertically to accommodate 90-degree stereo layers to optimize 
 the vertex resolution in the horizontal coordinate. Instead, 100~mrad stereo is used in the first three layers 
-to provide higher-resolution 3-D space points for vertexing. The 50~mrad stereo of the last two layers 
+to provide higher-resolution 3D space points for vertexing. The 50~mrad stereo of the last two layers 
 breaks the tracking degeneracy of having five identical layers and minimizes fakes from ghost hits, 
 improving pattern recognition while still providing sufficient pointing resolution into the third layer
  for robust hit 
@@ -483,7 +483,7 @@ association in the denser environment there. Altogether, this layout comprises 2
     Power cons. (W) & 6.9 & 6.9 & 6.9 & 6.9 & 6.9 \\
 \hline \hline
 \end{tabular}
-\caption{Layout of the HPS Test SVT.  Note the elimination of one layer and 90-degree stereo, and the use of only small, single-sensor-sized double-sided modules both above and below he dead zone. }
+\caption{\small Layout of the HPS Test SVT.. }
 }
 \label{tab:trk} 
 \end{table}
@@ -492,7 +492,9 @@ association in the denser environment there. Altogether, this layout comprises 2
 \begin{center}
 \begin{figure}[htp]
     \includegraphics[width=7cm]{figures/HPS_nochamber}
-\caption{A rendering of the Test SVT showing the modules on their support plates held by the hinged C-support on the left and the motion levers on the right. The sensors are shown in red and the hybrids in green. The beam enters from the right through a vacuum box with flanges for services. }
+\caption{\small A rendering of the HPS Test SVT showing the modules on their support plates held by the 
+hinged C-support on the left and the motion levers on the right. The sensors are shown in red and the hybrid 
+readout boards in green. The beam enters from the right through a vacuum box with flanges for services. }
 \label{fig:tracker_model}
 \vspace*{-5mm}
 \end{figure}
@@ -501,10 +503,10 @@ association in the denser environment there. Altogether, this layout comprises 2
 The SVT is built in two separate halves that are mirror reflections of one another about the plane of the 
 nominal electron beam.  Each half consists of five, double-sided modules mounted on a support plate that 
 provides services to the modules and allows them to be moved as a group relative to the dead zone. The 
-two halves of the tracker are connected to hinges mounted on a C-shaped support just beyond layer 5 that 
-defines the nominal spacing between the upper and lower halves of the tracker.  A shaft attached to each 
+two halves of the tracker are connected to hinges mounted on a C-shaped support just beyond the last layer t
+that defines the nominal spacing between the upper and lower halves of the tracker.  A shaft attached to each 
 support plate in front of layer 1 extends upstream and connects to a linear shift that transfers motion into the 
-vacuum box through bellows to open and close the tracker around the dead zone. The C-support is 
+vacuum box through bellows to open and close the two halves around the dead zone. The C-support is 
 mounted to an aluminum baseplate that defines the position of the SVT with respect to the vacuum 
 chamber. Figure~\ref{fig:tracker_halves} shows a photograph of both completed detector halves prior to 
 final assembly. 
@@ -533,28 +535,29 @@ than 1\% $X_0$/layer is imperative and far less is desirable. To achieve the req
 single-hit resolutions better than XXXX~$\mu$m are required. Finally, the sensor technology must 
 be mature and readily available at low cost.  Silicon microstrips are the best match to these requirements, and 
 a supply of appropriate microstrip sensors purchased from the Hamamatsu Photonics Corporation for the 
-Run 2b upgrade of D\O~\cite{Denisov:2001aa} are readily available. 
+Run 2b upgrade of the D\O experiment~\cite{Denisov:2001aa} are readily available. 
 These are $p+$-on-$n$, single sided, AC coupled, 
-polysilicon-biased sensors fabricated on $<100>$ silicon and have 30(60) micron sense(readout) pitch 
-over their 4 cm 
-$\times$ 10 cm surface. Although a maximum bias of 350 V is specified, the vast majority are operable to 
-1000V and therefore remain fully depleted to a dose of approximately 
+polysilicon-biased sensors fabricated on $<100>$ silicon and have 30 (60) micron sense (readout) pitch 
+over their $4\times10$~cm$^2$ surface. Although a maximum bias of 350~V is specified, the vast majority are 
+operable to 1000~V and therefore remain fully depleted to a dose of approximately 
 $1.5\times10^{14}$~\fluenceunit.
 
 \subsubsection{Front-end Electronics}
 Because the regions of high occupancy are small spots in two dimensions, only a short length of any one 
-strip sees significant occupancy, and the strips in that region act as long pixels. However, the rates are still 
+strip see a significant occupancy, and the strips in that region act as long pixels. However, the rates are still 
 very high and lowering the peak occupancy in the sensors to approximately 1\% for tracking requires a 
 trigger window and tagging of hit times to roughly 8~ns, as shown in Fig.~\ref{fig:rates}.  The FADC 
-readout for the ECal and muon system are capable of this, but achieving achieving $2\sigma$ efficiency for 
+readout for the ECal and muon system are capable of this (see Sec.~\ref{sec:fadc}), but achieving 
+$2\sigma$ efficiency for 
 silicon hits then requires 2~ns time resolution for the hits in the SVT. This performance can be achieved with 
 the APV25 readout ASIC developed for the CMS experiment at CERN~\cite{French:2001xb}.  When 
 operated in ``multi-peak mode", the APV25 captures successive samples of the output of the shaper in sets 
-of three.  By fitting the known $CR$-$RC$ shaping curve to these samples, the initial time of the hit can be 
+of three at a sampling rate of approximately 40~MHz.  
+By fitting the known $CR$-$RC$ shaping curve to these samples, the initial time of the hit can be 
 determined to a precision of 2~ns for S/N$>25$, an achievable figure with our sensors if read out 
 individually~\cite{Friedl:2009zz}.  For the SVT, six-sample readout and the shortest possible shaping time 
 (35~ns) will be used to best distinguish hits that overlap in time.
-The APV25 chips are hosted on simple FR4 hybrids since these hybrids and their cooling system are 
+The APV25 ASICs are hosted on simple FR4 hybrids since these hybrids and their cooling system are 
 outside the tracking volume.  Along with the sensors, these are assembled into half-modules, one for each 
 tracking view, with a short cable pigtail to provide power and configuration to the modules and signal 
 readout. 
@@ -581,7 +584,7 @@ far end of the module, stiffens the module structure, and improves the stability
 The total power consumption of the five APV25 chips mounted on 
 the hybrid readout board is about 2~W. Since heating from the leakage current is only significant at a 
 single small spot on the sensor, the 
-dominant heat load on the sensor, event after irradiation, is radiant heat from the inside wall of the vacuum 
+dominant heat load on the sensor, even after irradiation, is radiant heat from the inside wall of the vacuum 
 chamber, less than 0.5~W per sensor. The total power consumption budget of about 40~W is removed by a 
 water/glycol mixture circulated through a flexible manifold attached to the cupper tubes in the cooling blocks. The total mass flow is about XXXXg/s to operate the sensors at XXXX degrees C. 
 
@@ -592,12 +595,12 @@ around the periphery of the silicon to minimize material. A 50~$\mu$m sheet of p
 the surface of the carbon fiber with 1 mm overhang at all openings to ensure good isolation between the 
 backside of the sensor, carrying high-voltage bias, and the carbon fiber which is held near ground.  The 
 average support material in the tracking volume is approximately 0.06\% $X_{0}$ per double-sided module 
-for a total of 0.7\% per layer.
+for a total material budget of 0.7\% per layer.
 
 
 
 \subsection{SVT Digitization, Event Building and Data Transmission}
-\label{sec:svt_daq}
+\label{sec:svtdaq}
 The SVT Data Acquisition (DAQ) is a SLAC-standard system using consisting of a single ATCA crate with 
 two Cluster On Board (COB) cards and a 10~Gb/s switch~\cite{Larsen:2011zb}.  
 The COBs connect to Rear Transition 
@@ -614,72 +617,75 @@ detector.
 \subsection{Production, Assembly and Shipping}
 
 Hybrid readout boards and half-modules were assembled at SLAC.  Mounting APV25 chips and all 
-wirebonding and QA testing were performed at Univerity of California, Santa Cruz. Of the sensors tested 
-during production, 90\% were 
-capable of 1000~V bias. Hybrids underwent quick QA testing and each half-module was run at low 
+wirebonding and QA testing were performed at University of California, Santa Cruz. Of the sensors tested 
+during production, 90\% were capable of 1000~V bias voltage without breakdown. 
+Hybrids underwent quick QA testing and each half-module was run at low 
 temperature ($\approx5^{\circ}$ C) and fully characterized for pedestals, gains, noise and time response 
 after assembly.  All 29 production modules were assembled between mid-February and the end of March, 
 2012.  Module yields were excellent for such a small production.  Of 165 APV chips acquired, 150 were 
-used to assemble 30 production hybrids, of which 29 passed QA testing.  Of 29 modules built, 28 passed 
+used to assemble 30 production hybrids, of which 29 passed QA testing.  Of 29 half-modules built, 28 passed 
 QA testing, leaving 8 spare modules after completion of the SVT.  Full-module assembly and 
 mechanical surveys were performed at SLAC in early April 2012 before final assembly, testing and 
 shipping of the SVT to JLab on April 11.  A custom shipping container, based on experience 
-at FNAL~\cite{shipping}, was built in order to safely send the partly assembled of the SVT. The two fully 
+from FNAL~\cite{shipping}, was built in order to safely send the partly assembled SVT to JLab. The two fully 
 assembled SVT halves were attached to a baseplate supported by four wire-rope isolators. This plate, 
-covered by a clean lexan cover was mounted inside an inner box surrounded by 4 inches of Polyurethane 
-foam to complete the two-spring construction. At JLab, the entire SVT was integrated with the full DAQ and 
-the power supplies for the first time in the cleanroom, before moving the module-loaded support plates to 
-Hall~B for final mechanical assembly and installation inside of the vacuum chamber on April 19.   
+covered by a lexan cover for cleanliness, was mounted inside an inner box surrounded by 4 inches of 
+Polyurethane foam to complete the two-spring construction. At JLab, the entire SVT was integrated with the full 
+DAQ and the power supplies for the first time in the clean room, before moving the module-loaded support 
+plates to Hall~B for final mechanical assembly and installation inside of the vacuum chamber on April 19, 2012.   
 
 
 \subsection{Monitoring and Calibration}
 
 \subsection{Data Analysis and Performance}
 
-During the duration of the dedicated photon run all SVT modules and APV25 
-readout chips were configured to their nominal operating 
-points~\cite{Jones:1069892} while all sensors were reverse-bias at 180~V.  The 
-sensors were operated within a temperature range of  20 to 24$^\circ$C 
-throughout the test run. Multiple calibration runs established a noise level of $\approx$ 750 - 850 electrons  
-which was stable across the SVT modules. 
+During the duration of the test run all SVT modules and APV25 chips were configured to their 
+nominal operating points~\cite{Jones:1069892} with all sensors reverse-biased at 180~V.  The 
+sensors were operated within a temperature range of  $20-24^\circ$C 
+throughout the test run. Multiple calibration runs, normalized with lab-based radioactive source tests, 
+established a noise level of $\approx$ XXXX-XXXX electrons which was stable across all the SVT modules. 
 
 Throughout the duration of the test run, approximately 97\% of the 12,780 SVT channels were found to be 
-operating normally. The fraction of dead or noisy channels varied from 2.4\% to 4.7\%; 
-most of these were due to misconfigured readout chips (2--4 misconfigured chips out of 100 total) 
-a known noisy half-module, and a couple of known noisy readout chips. 
+operating normally. The fraction of dead or noisy channels varied from 2.4\% to 4.7\%.  
+Most of these were due to misconfigured readout chips (2--4 misconfigured chips out of 100 ), 
+a known noisy half-module and a couple of known noisy readout chips. 
 
 
 \subsubsection{Cluster and Hit Reconstruction}
+
 After a trigger is received, six samples of the corresponding output of the APV25 shaper circuit are digitized. 
 The samples from every channel on a sensor surviving the 
-data reduction, described in Sec.~\ref{sec:svtdaq}, are the basis for offline hit reconstruction. 
-The six samples of the APV25 pulse shaper output 
+data reduction algorithm (see Sec.~\ref{sec:svtdaq}) are the basis for offline hit reconstruction. 
+The six samples of the APV25 shaper output 
 are fitted to an ideal $CR-RC$ function to extract the amplitude and the $t_0$ of the hit. 
-The typical pulse shape obtained is shown in Figure~\ref{fig:pulse_shape} also demonstrates that the SVT 
+The typical pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape} also demonstrates that the SVT 
 was well timed in to the trigger with the rise of the pulse at the 3rd sampling point.
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=6cm]{figures/08062012_run1351_samples_vs_amplitude}
-    	\caption{{\small The six pedestal subtracted samples associated with a hit on a track.}}
+    	\caption{{\small The six pedestal subtracted samples from individual channels associated with a hit on a 
+	track.}}
 	\label{fig:pulse_shape}
 	\end{center}
 \end{figure}
 These hits are passed through a simple clustering algorithm which forms clusters by grouping adjacent 
-strips. The position of a cluster on the sensor is determined by a pulse height weighted mean (FIX THIS).
+strips. The position of a cluster on the sensor is determined by the amplitude-weighted mean.
 With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associated with a track follow 
 the characteristic Landau shape as expected, see Fig.~\ref{fig:cluster_pulse}. 
+The signal to noise ratio is XXXX.
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=6cm]{figures/run1351_mip_small.pdf}
-    	\caption{{\small The cluster charge distribution. }}
+    	\caption{{\small The cluster charge distribution for hits associated with a track. }}
 	\label{fig:cluster_pulse}
 	\end{center}
 \end{figure}
 
 After clustering hits on a sensor, the hit time for each cluster is computed as the amplitude-weighted 
 average of the fitted $t_0$ channel times. The $t_0$-resolution is studied by comparing the cluster hit time 
-with the average of all cluster hit times, the ``track time'' which has the expected jitter due to clock phase 
-and trigger $\approx 25$~ns. Figure~\ref{fig:tracktime} shows the residual to the individual cluster times. 
+with the average of all cluster hit times on the track, the ``track time'', which has the expected jitter due to clock 
+phase and trigger, approximately 25~ns. Figure~\ref{fig:tracktime} shows the residual to the individual cluster 
+times. 
 \begin{figure}[h]
 	\begin{center}
 %	\includegraphics[width=7cm]{figures/top_track_time.pdf}
@@ -690,15 +696,15 @@ and trigger $\approx 25$~ns. Figure~\ref{fig:tracktime} shows the residual to th
 	\label{fig:tracktime}
 	\end{center}
 \end{figure}
-After correcting for offsets from each sensor (time-of-flight, clock phase) the extracted $t0$ resolution is 
-2.6~ns. This is somewhat worse than the $\approx 2$~ns resolution expected which we attribute to the true 
+After correcting for offsets from each sensor (time-of-flight, clock phase) the extracted $t_0$ resolution is 
+2.6~ns. This is somewhat worse than the approximately 2~ns resolution expected which we attribute to the true 
 pulse shape differing from our idealized fit function which will be improved in the future. Reducing the 
 APV25 pulse shaping time will also improve time resolution. These results show that we can operate with 
-the critical six sample readout mode of the APV25 chip and achieve time resolution adequate for pileup 
-rejection during electron running. 
+the six sample readout mode of the APV25 chip and achieve time resolution adequate for pileup 
+rejection during electron running in the HPS experiment. 
 
 While occupancy was slightly larger than expected, good agreement between data and simulation was 
-found after taking into account dead or noisy channels. The hit efficiency, see Fig~\ref{fig:hit_efficiency} 
+found after taking into account dead or noisy channels. The hit efficiency, see Fig.~\ref{fig:hit_efficiency}, 
 was measured to be above 98\% and fairly uniform across the SVT.
 \begin{figure}[h]
 	\begin{center}
@@ -711,24 +717,29 @@ was measured to be above 98\% and fairly uniform across the SVT.
 The spatial resolution of similar microstrip sensors is well established by test beam data, against which the 
 charge deposition model in the simulation is validated.  This resolution can be parameterized as a 
 function of the total signal to single-strip noise (S/N) and the crossing angle of tracks through the sensor.  
-The single-hit resolution for charged particles with $S/N > 20$, as demonstrated here, is relatively constant 
-at approximately 6 $\mu$m for tracks that are close to normal to the sensors as in HPS.
+The single-hit resolution for charged particles with signal to noise ration above 20, as demonstrated here, 
+is relatively constant at approximately 6~$\mu$m for tracks that are close to normal to the sensors as in HPS.
 
 \subsubsection{Alignment}
 The SVT was aligned using a combination of optical, laser and touch probe surveys at SLAC and JLab. The 
-optical survey of individual modules with precision of a few microns are combined with a touch-prove survey 
-of the overall SVT support structure, with 25-100 microns precision, to locate the silicon sensor layers with 
+optical survey of individual modules with precision of a few $\mu$m are combined with a touch-prove survey 
+of the overall SVT support structure, with 25-100~$\mu$m precision, to locate the silicon sensor layers with 
 respect to the support plates and the mechanical survey balls on the base plate.
 After full assembly and installation of the SVT at JLab, a mechanical survey of the SVT base plate position 
 inside the pair spectrometer vacuum chamber is used to determine the global position of the SVT with 
 respect to CEBAF beam line. 
 The resulting survey-based alignment has the position of the silicon sensors correct to within a few hundred 
-microns a more sophisticated global track-based alignment technique to reach 
-the final alignment precision is used.
+microns. A more sophisticated global track-based alignment technique to reach the final alignment precision 
+is being developed.
 
 \subsubsection{Momentum and Vertexing Resolution}
 
-By selecting e$^{+}$e$^{-}$ pairs from the triggered events we are able to study basic distributions of pair production kinematics and in particular those related to our vertex performance. Pairs of opposite charge tracks, one in the top and one in the bottom half of the SVT, with larger than 400~MeV were selected. The pair production kinematics are relatively well reproduced given the alignment of the tracker; Fig.~\ref{fig:pair_kin} shows the invariant mass and ratio of electron momentum over the sum of electron and positron. 
+By selecting \ee pairs from the triggered events we are able to study basic distributions of pair production 
+kinematics and in particular those related to our vertex performance. Pairs of opposite charge tracks, one in the 
+top and one in the bottom half of the SVT, with momentum larger than 400~MeV were selected. 
+The pair production 
+kinematics are relatively well reproduced given the alignment of the tracker; Fig.~\ref{fig:pair_kin} shows the 
+invariant mass and ratio of electron momentum over the sum of electron and positron. 
  \begin{center}
 {\small
 \begin{figure*}[ht]
@@ -744,35 +755,33 @@ By selecting e$^{+}$e$^{-}$ pairs from the triggered events we are able to study
 
 For the vertexing 
 performance the foremost difference compared to electron beam running is that the target was 
-located $\sim67$~cm from our nominal target position; giving almost collinear tracks in the detector. This 
-degrades the vertex resolution along the 
+located approximately 67~cm from our nominal target position; giving almost collinear tracks in the detector. 
+This degrades the vertex resolution along the 
 beam line compared to that expected in an electron beam with tracks from the nominal target position. 
-Furthermore, tails of the vertex distributions are impossible to study with the finite sample of events from the 
-Test Run. 
-Nevertheless, useful information can still be 
+Furthermore, tails of the vertex distributions are impossible to study with the finite data sample obtained 
+in the test run. Nevertheless, useful information can still be 
 obtained by studying the vertex distributions. Figure~\ref{fig:vtx_pos} shows the distance of closest 
 approach of the momentum vectors extrapolated in the 
-upstream direction from our analyzing magnet, taking into account the measured fringe field. 
+upstream direction from our analyzing magnet, taking into account the measured fringe field of the PS magnet. 
  \begin{center}
 {\small
 	 \begin{figure*}[ht]
 	\includegraphics[width=5cm]{figures/h_vtx_fr_x_h_vtx_x_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
 	\includegraphics[ width=5cm]{figures/h_vtx_fr_y_h_vtx_y_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
 	\includegraphics[width=5cm]{figures/h_vtx_fr_z_h_vtx_z_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-	\caption{Vertex position represented by the distance of closest approach of the extrapolated 
-	momentum vectors upstream of the analyzing magnet. The overall shift from zero in the x-direction is 
+	\caption{{\bf \textcolor{red}{NEED TO BE UPDATED}}Vertex position represented by the distance of 
+	closest approach of the extrapolated momentum vectors upstream of the PS magnet taking into account 
+	the measured fringe field. The overall shift from zero in the x-direction is 
 	due to a 30~mrad rotation of the SVT with respect to the beam line.}
 	\label{fig:vtx_pos}
 \end{figure*}
 }
 \end{center}
-
-
-
 While the tails of the vertex distribution expected in electron beam running is not accessible here the 
 fact that the core is relatively well described provides confidence of the description of the amount of 
-material and the multiple scattering description.  These are crucial for benchmarking the physics reach of the 
-HPS detector since both the mass and vertex resolution that determine the physics reach are limited by multiple scattering.
+material and the model used for simulating multiple scattering in the target.  
+These are crucial for benchmarking the HPS \Aprime physics reach since both the mass and vertex resolution 
+that determine the sensitivity are limited by multiple scattering.
 
 
 
@@ -1140,18 +1149,27 @@ The SVT DAQ is described in more details in Sec.~\ref{sec:svt_daq}.
 Occupancies close to the beam create many of the key challenges in the HPS experiment
 and determine the limits of sensitivity to low \Aprime masses.
 These occupancies are dominated by electrons which have multiple Coulomb scattered (MCS) 
-to relatively large 
-angles in the converter. Because HPS is sensitive to scattering angles far out on the tail of the MCS 
-distribution, well beyond the angles important in other experiments, care must be taken
+to relatively large angles in the target. Because HPS is sensitive to scattering angles far out on the tail of the 
+MCS distribution, well beyond the angles important in other experiments, care must be taken
 to ensure our simulations are correct in this regime.  
 
 \subsection{Multiple Coulomb Scattering Models}
 
-In particular,
-{\sc Geant4}~\cite{Agostinelli2003250} overestimates the MCS rate by a factor of two  
-at large angles. One of the main goals of the HPS Test was to evaluate the description of the tails of the 
-multiple Coulomb scattering in order 
+One of the main goals of the HPS Test was to evaluate the description of the tails of the MCS
 to gain further confidence in the expected detector occupancy in the full HPS experiment. 
+Previous studies of multiple scattering angles show good agreement with the \moliere 
+theory~\cite{Moliere:1948zz} for a wide range 
+of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467}. We have verified that 
+the angular distribution $F(\theta)$ in the differential cross section $d\sigma = F( \theta) d(\cos\theta) d\phi$ 
+for the \egs~\cite{egs5} simulation program show good agreement with \moliere's analytical formula as 
+formulated by Bethe~\cite{Bethe:1953va}. 
+The small angle approximation was also shown to be in agreement with the theory formulated by Gaudsmit and 
+Saunderson~\cite{Goudsmit:1940zza,Goudsmit:1940zz} that is valid for any angle. 
+While \egs uses the more complex and time consuming \moliere 
+formula, \geant uses an approximation with two, continuously joined, functions to take into account 
+small and large angle scattering. Due to the explicit function in large angle approximation used by \geant 
+we expect that \geant will overestimate the angular distribution at angles larger than a few mrad.
+
 
 Figure~\ref{fig:schematic_testrun_vs_erun} gives a schematic view of the main differences 
 between the photon and electron beam setup. 
@@ -1159,11 +1177,12 @@ between the photon and electron beam setup.
 \includegraphics[ width=7cm]{figures/photon_vs_electron_beam_schematic.png}
 \caption{\small{Schematic comparison of HPS Test run photon beam compared to the HPS electron beam.}}\label{fig:schematic_testrun_vs_erun}
 \end{figure}
-In particular, the angular distribution of the pair produced electron and positron emerging 
-from the converter has comparable contributions from {\it i)} the pair production angle
+The angular distribution of the pair produced electron and positron emerging 
+from the converter in the test run has comparable contributions from {\it i)} the pair production angle
 and {\it ii)} the MCS of the electron and positron in the converter after production. By measuring the 
 scattering rate at several different converter thicknesses we can vary the contribution from MCS 
-to confirm our model of MCS despite the fact that all data was taken with a photon beam.
+while the contribution from the pair production angle is constant. This allows us to confirm our model of MCS 
+despite the fact that all data was taken with a photon beam.
 
 
 \subsection{Running Conditions}
@@ -1204,13 +1223,9 @@ Converter thickness & Duration &  $e^-$ on converter \\
 \subsection{Measured Angular Distributions}
 
 
-For this analysis, we measure angular distribution of electrons and positrons using the ECal.
-Cluster reconstruction was done using the algorithm described in Sec.~\ref{sec:ecal_clustering}: build 
-clusters around seed hits (hits above a ``seed'' energy threshold and with greater energy than any 
-neighboring hits), and add all neighboring hits above an ``add'' energy threshold.
-Hit energy is calibrated by matching track momentum to cluster energy, as described in Sec.~\ref{sec:ecal_calibration}.
-
-The measured angular distribution in the ECal for the three converter thicknesses are shown in 
+We measure the vertical angular distributions of electrons and positrons using the ECal. 
+Cluster reconstruction and calibration was performed as described in Sec.~\ref{sec:ecal}. The measured 
+angular distribution in the ECal for the three converter thicknesses are shown in 
 Fig.~\ref{fig:ang_distr_data} (left).  
 \begin{center}
 {\small
@@ -1223,20 +1238,17 @@ Fig.~\ref{fig:ang_distr_data} (left).
 	\end{figure}
 }
 \end{center}
-The background fraction for the there converter thicknesses was 16\%, 52\% and 71\% 
+The background fraction for the three converter thicknesses was 16\%, 52\% and 71\% 
 for converter thicknesses of 1.6\%, 0.45\% and 0.18\%, respectively. The background fraction was also 
-cross-checked by pointing back tracks reconstructed in the SVT to identify the fraction of tracks not emanating from the converter. 
-%This can be seen in Fig.~\ref{fig:extrapol_converter} (bottom) where small 
-%satellite peaks at $\pm 10$~mm can be identified as tracks from the upstream background. The angular distribution, after normalization and subtracting the upstream background, are shown in 
-%Fig.~\ref{fig:ang_distr_data} (right).  
-We also checked that the contribution from photons to our triggered 
-sample was less than 2\% (without angular selections which would further reduce the contribution).
-
-
-These measured angular distributions are compared to simulation to validate the modeling of the 
-MCS. As described in more detail in Appendix XXXX, {\sc EGS5}~\cite{egs5} is used to generate 
-the electromagnetic interactions in the converter while {\sc GEANT4} is used to simulate the particles after the converter.  Figure~\ref{fig:ang_distr_dataMC} shows the angular distribution comparing data and 
-EGS5 normalized to 1~s of beam at 90~nA beam current. 
+cross-checked by pointing back tracks reconstructed in the SVT to identify the fraction of tracks not originating 
+from the converter. We also checked that the contribution from photons to our triggered 
+sample was much less than 2\%. These measured angular distributions are compared to simulation to validate 
+the modeling of the MCS. \egs~\cite{egs5} is used to generate 
+the electromagnetic interactions in the converter while \geant is used to simulate the particles after the 
+converter.  Figure~\ref{fig:ang_distr_dataMC} shows the angular distribution comparing data and 
+\egs normalized to 1~s of beam at 90~nA beam current. Taking into account systematics uncertainties 
+described below reasonable agreement is obtained;   total rates for each converter thickness is shown in 
+Fig.~\ref{fig:rate_vs_thickness} and summarized in Tab.~\ref{tab:ang_distr_dataMC}.
 \begin{center}
 {\small
 	\begin{figure*}[t]
@@ -1244,27 +1256,26 @@ EGS5 normalized to 1~s of beam at 90~nA beam current.
 	\includegraphics[ scale=0.25]{figures/dataMC_1354_Hit_Y_top_norm_bkgsub.png}
 	\includegraphics[ scale=0.25]{figures/dataMC_1353_Hit_Y_top_norm_bkgsub.png}
 	\caption{Comparison between the observed and predicted angular 
-distribution using {\sc EGS5} for a converter thickness of 1.6\% (left), 0.45\% (middle) and 0.18\% 
-(right).  Only statistical uncertainties are included. }
+distribution using \egs for a converter thickness of 1.6\% (left), 0.45\% (middle) and 0.18\% 
+(right).  Only statistical uncertainties are shown. }
 	\label{fig:ang_distr_dataMC}
 	\end{figure*}
 }
 \end{center}
-The total rate measurements are in Fig.~\ref{fig:rate_vs_thickness} and summarized in 
-Tab.~\ref{tab:ang_distr_dataMC}.
 \begin{center}
 {\small
 	\begin{figure*}[t]
 	\includegraphics[ scale=0.3]{figures/dataMC_geant4.png}
 	\includegraphics[ scale=0.3]{figures/dataMC_egs.png}
-	\caption{\small{The measured rate as a function of converter thickness comparing GEANT4 (left) and EGS5 (right)}.} 
+	\caption{\small{The measured rate as a function of converter thickness comparing \geant (left) 
+	and \egs (right)}.} 
 	\label{fig:rate_vs_thickness}
 	\end{figure*}
 }
 \end{center}
-The total systematic uncertainty was estimated to be between 10-18\% depending on the run including:  
-a 5\% uncertainty on the integrated current normalization, alignment of the ECal, uncertainty from the 
-background normalization, and limited Monte Carlo statistics.  
+The total systematic uncertainty was estimated to be between 10-18\% depending on the run, they include:  
+uncertainty on the integrated current normalization (5\%), alignment of the ECal, uncertainty from the 
+background normalization and limited Monte Carlo statistics.  
 \begin{center}
 {\small
 \begin{table}
@@ -1272,9 +1283,9 @@ background normalization, and limited Monte Carlo statistics.
 \hline
 Converter (\% r.l.) & 1.60 & 0.45 &	0.18 \\
 \hline
-EGS5 &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
+\egs &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
 \hline
-GEANT4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
+\geant & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
 \hline
 Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\						
 \hline
@@ -1288,9 +1299,10 @@ thicknesses. The uncertainty on the prediction includes systematic uncertainties
 
 \subsection{Conclusion}
 In summary, the accurate modeling of the MCS is fundamental to estimate occupancies and trigger rates 
-for HPS. {\sc EGS5} predicts the correct angular distribution across all converter thicknesses while 
-{\sc GEANT4} overestimates the rates; with the disagreement increasing  with larger converter thickness. 
-This preliminary result verifies our modeling of the MCS using {\sc EGS5} for HPS.
+for HPS. \egs predicts the correct angular distribution across all converter thicknesses while 
+\geant overestimates the rates; with the disagreement increasing  with larger converter thickness. 
+This preliminary result verifies similar studies [] and gives confidence in our modeling of the MCS 
+using \egs for evaluating the physics reach of HPS.
 
 
 
@@ -1298,65 +1310,64 @@ This preliminary result verifies our modeling of the MCS using {\sc EGS5} for HP
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Summary and Outlook}
+\section{Summary}
 
-This paper reviewed the HPS Test Run apparatus, a simplified version of that 
+This paper reviewed the HPS Test run apparatus, a simplified version of that 
 planned for the full HPS experiment, and demonstrates the feasibility of the detector
-technologies proposed for silicon tracker, ECal, and data acquisition systems. It documents the
-performance of the trigger, data acquisition, silicon tracker, and ECal
-and shows that the performance assumed in calculating the physics reach of the experiment is realistic.
-Of particular importance, data from dedicated photon beam running has been used to compare
+technologies proposed for the silicon vertex tracker, the electromagnetic calorimeter, data acquisition and 
+trigger systems and their performance. Of particular importance, data from dedicated photon beam running has 
+been used to compare
 the observed trigger rates with that expected in simulation. The trigger rate is almost entirely due to
-photons which have converted to e$^+$e$^-$ upstream of HPS and is sensitive to the multiple
+photons which have converted to \ee upstream of the HPS Test setup and is sensitive to the multiple
 Coulomb scattering of electrons and positrons in the conversion target.  Since scattered primary beam is 
-the dominant 
-source of occupancy in running HPS in an electron beam, good agreement between data and simulation 
-confirm the background simulation used to benchmark the physics reach of the HPS experiment. 
+the dominant source of occupancy in running HPS in an electron beam, good agreement between data and 
+simulation confirm the background simulation used to benchmark the physics reach of the HPS experiment. 
 
-
-In addition to this important test of our background simulation, the test run accomplished the following goals:\begin{enumerate}
-	\item More than 97\% of SVT channels functioned properly
-	\item SVT readout signal to noise of 25.5, required to achieve the expected spatial and temporal resolutions
+In addition to this important test of our background simulation, the HPS Test run accomplished the following 
+goals:
+\begin{itemize}
+	\item More than 97\% of the SVT channels functioned properly
+	\item SVT readout signal to noise of XXXX, required to achieve the expected spatial and temporal resolutions
 	\item SVT hit time resolution of 2.6~ns, proving hit time reconstruction will work for HPS
 	\item SVT hit efficiency greater than 98\%
 	%\item SVT track reconstruction efficiency greater than 98\%
 	\item Survey-based SVT alignment performed as expected and will allow track-based alignment
 	\item 87\% of ECal crystals functioned properly, with defects to be corrected by planned ECal upgrades
 	\item The ECal has been calibrated using SVT tracks
-	\item The SVT and JLab DAQ were successfully integrated
-	\item The trigger functioned as designed; FADC trigger rate was tested to greater than 100~kHz
+	\item The SVT and JLab data acquisition systems were successfully integrated
+	\item The trigger functioned as designed; rates greater than 100~kHz was tested in special runs
 	% deficiencies found in test run trigger performance are addressed for the 2014-2015 run
-\end{enumerate}
+\end{itemize}
 
-While the Test Run successfully allowed us to test many aspects of the HPS experiment, there were 
+While the HPS Test run successfully allowed us to test many aspects of the HPS experiment, there were 
 limitations to what could be achieved in some key areas such as mass resolution and vertexing 
 performance. In particular, the low statistics and lack of resonances or scattered beam electrons prohibits a 
-direct analysis of the momentum 
+direct analysis of the momentum resolution 
 and tails of the vertex distribution. However, for both of these performance parameters, the observed 
 agreement between data and simulation in key distributions supports the performance expected for the 
 proposed experiment. 
 
 
 
-\subsection{Lessons Learned}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lessons Learned and Outlook}
 
 In the process of developing the HPS Test design, it was found that this simple system was capable of 
 delivering a surprising fraction of the physics potential anticipated for the full experiment.  With this in mind, 
 we have proposed a new design for the HPS detector that builds upon the HPS Test , principally 
-by addressing the compromises made for HPS Test to ensure the best possible performance for A$^\prime$ 
+by addressing the compromises made for HPS Test to ensure the best possible performance for \Aprime 
 physics within the envelope of the existing beam line layout and analyzing magnet. For the SVT, 
 this design uses the same sensors, readout chips, and module concept and for the ECal the crystal and 
 detector layout will be identical, retaining the most successful 
 elements of the test run apparatus and addressing the weaknesses identified during assembly and 
-operation to ensure the success of the 
-experiment. The new SVT layout restores the sixth layer for more robust tracking, adds acceptance in the 
-deeper layers to increase sensitivity and provides better silicon cooling to improve longevity. Other major 
-updates needed for the full experiment are updates to the SVT electronics and 
+operation. The new SVT layout adds a sixth layer for more robust tracking, adds acceptance in the 
+three deeper layers to increase physics sensitivity and provides better silicon cooling to improve longevity. 
+Other major updates needed for the full experiment are updates to the SVT electronics and 
 DAQ; improving connectivity and cabling, moving digitization closer to the front-end electronics and 
-updating the data reduction, event handling and trigger synchronization to reach 50kHz 
-trigger rates. 
-This first generation of 
-the full experiment will be ready to take physics data when CEBAF begins operation again in 2014.
+updating the data reduction, event handling and trigger synchronization to reach 50~kHz trigger rates. 
+This first generation of the full experiment will be ready to take physics data when CEBAF begins operation 
+again in end of 2014.
 
 
 
