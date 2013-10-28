@@ -562,7 +562,7 @@ outside the tracking volume.  Along with the sensors, these are assembled into h
 tracking view, with a short cable pigtail to provide power and configuration to the modules and signal 
 readout. 
 
-\subsubsection{Support Structure}
+\subsubsection{Support Structure and Cooling}
 
 The sensor modules for the SVT consist of a pair of identical half-modules, sandwiched back-to-back around 
 an aluminum cooling block at one end and a similar PEEK spacer block at the other. 
@@ -586,7 +586,9 @@ the hybrid readout board is about 2~W. Since heating from the leakage current is
 single small spot on the sensor, the 
 dominant heat load on the sensor, even after irradiation, is radiant heat from the inside wall of the vacuum 
 chamber, less than 0.5~W per sensor. The total power consumption budget of about 40~W is removed by a 
-water/glycol mixture circulated through a flexible manifold attached to the cupper tubes in the cooling blocks. The total mass flow is about XXXXg/s to operate the sensors at XXXX degrees C. 
+water/glycol mixture circulated through a flexible manifold attached to the cupper tubes in the cooling blocks. 
+During the Test run the sensors where operated at around $23^{\circ}$C with a total mass flow of 
+about XXXXg/s. 
 
 Each half module consists of a single sensor and a hybrid electronic readout board glued to a 
 polyamide-laminated carbon fiber composite backing.  A window is machined in the carbon fiber leaving 
@@ -601,18 +603,48 @@ for a total material budget of 0.7\% per layer.
 
 \subsection{SVT Digitization, Event Building and Data Transmission}
 \label{sec:svtdaq}
-The SVT Data Acquisition (DAQ) is a SLAC-standard system using consisting of a single ATCA crate with 
-two Cluster On Board (COB) cards and a 10~Gb/s switch~\cite{Larsen:2011zb}.  
-The COBs connect to Rear Transition 
-Modules (RTM) housing 14-bit ADCs that accept input data from the APV25 chips.  
-The COB house FPGA-based 
-Data Processing Modules (DPM) and the Trigger Interface (TI) to the ECal trigger.  This system is capable 
-of 20~kHz operation, whereas upgrades for the full experiment pushes this up to 50~kHz. 
-Power is provided to each hybrid using CAEN power supplies from the decommissioned CDF SVXII 
-detector. 
+The SVT data acquisition (DAQ) based on the Reconfigurable Cluster Element (RCE) and Cluster 
+Interconnect (CI) concept developed at SLAC as generic building blocks for DAQ systems in high energy 
+physics {\bf [need reference]}. 
+The RCE is a generic computational building block, housed on a separate daughter card called 
+Data Processing Module (DPM), that are realized on an ATCA front board called the Cluster On Board (COB), 
+see Fig.~\ref{fig:cob}.
+ \begin{figure}[]
+\begin{center}
+{\small
+	\includegraphics[width=6cm]{figures/svt_daq_module}
+	\caption{Picture of the SVT DAQ COB board with four data processing daughter cards visible.}
+	\label{fig:cob}
+}
+\end{center}
+\end{figure}
+The Gen-I RCE used in the Test run consisted of a Virtex~5 FPGA with 1~GB of DDR3 RAM. 
+The outputs of 12 SVT half-modules 
+are digitized on the Rear-Transition-Module (RTM), a custom board on the back side of the ATCA crate, 
+interfacing the HPS readout to the generic DAQ components on the COB. 
+A pre-amplifier converts the APV25 differential current output to a different voltage output scaled to the sensitive 
+range of a 14-bit ADC operating at the system clock of 41.667~MHz. 
+The RTM is organized into four sections with each section supporting three SVT half-module hybrids (15 
+APV25 channels). The RTM also includes a 4-channel Fiber Optic module and supporting logic which can be 
+used to interface to the JLab trigger system supervisor.
+Each section of the RTM, up to three hybrids, is input to a DPM which apply thresholds for data reduction and 
+organizes the sample data into UDP datagrams. The DPM also hosts an I2C controller used to configure and 
+monitor the APV25 chips on those three hybrids. A single ATCA crate with two COB cards was used, one 
+supporting four DPMs and one supporting 3 DPMs and one DPM that is configured as the trigger and data 
+transmission module. The two COB cards and their DPMs are interconnected with a 10Gb/s switch 
+card~\cite{Larsen:2011zb} which 
+also hosts two 1Gb/s Ethernet interfaces to the external SVT DAQ PC.  
 
+The external PC supports three network interfaces; two standard 1Gb/s Ethernet and one custom low latency 
+data reception card. The first Ethernet interface is used for slow control and monitoring of the 8 DPM modules. 
+The second Ethernet interface serves as the interface to the JLAB data acquisition system. The third custom low 
+latency network interface is used to receive data from the SVT ATCA crate and supports a low latency, reliable 
+TTL trigger acknowledge interface to the trigger DPM. This PC hosts the SVT control and monitoring software 
+as well as the JLab read out controller (ROC) application described in more detail in Sec.~\ref{sec:daq}.
 
-{\bf  This needs to be expanded. I should talk about the data reduction and event handling. }
+This system is capable of operating up to 20~kHz and XXXX~MB/s which is well in line with the rates 
+expected and observed during the HPS Test run.
+
 
 \subsection{Production, Assembly and Shipping}
 
@@ -661,24 +693,29 @@ are fitted to an ideal $CR-RC$ function to extract the amplitude and the $t_0$ o
 The typical pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape} also demonstrates that the SVT 
 was well timed in to the trigger with the rise of the pulse at the 3rd sampling point.
 \begin{figure}[h]
-	\begin{center}
+\begin{center}
+{\small
 	\includegraphics[width=6cm]{figures/08062012_run1351_samples_vs_amplitude}
-    	\caption{{\small The six pedestal subtracted samples from individual channels associated with a hit on a 
-	track.}}
+    	\caption{The six pedestal subtracted samples from individual channels associated with a hit on a 
+	track.}
 	\label{fig:pulse_shape}
-	\end{center}
+}
+\end{center}
 \end{figure}
+
 These hits are passed through a simple clustering algorithm which forms clusters by grouping adjacent 
 strips. The position of a cluster on the sensor is determined by the amplitude-weighted mean.
 With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associated with a track follow 
 the characteristic Landau shape as expected, see Fig.~\ref{fig:cluster_pulse}. 
 The signal to noise ratio is XXXX.
 \begin{figure}[h]
-	\begin{center}
+\begin{center}
+{\small
 	\includegraphics[width=6cm]{figures/run1351_mip_small.pdf}
-    	\caption{{\small The cluster charge distribution for hits associated with a track. }}
+    	\caption{ The cluster charge distribution for hits associated with a track. }
 	\label{fig:cluster_pulse}
-	\end{center}
+}
+\end{center}
 \end{figure}
 
 After clustering hits on a sensor, the hit time for each cluster is computed as the amplitude-weighted 
@@ -687,14 +724,16 @@ with the average of all cluster hit times on the track, the ``track time'', whic
 phase and trigger, approximately 25~ns. Figure~\ref{fig:tracktime} shows the residual to the individual cluster 
 times. 
 \begin{figure}[h]
-	\begin{center}
+\begin{center}
+{\small
 %	\includegraphics[width=7cm]{figures/top_track_time.pdf}
 	\includegraphics[width=6cm]{figures/t0_resolution.pdf}
-	\caption{\small{
+	\caption{
 %	Track time distribution (left) and cluster time residual (right). The track time is measured relative to the APV25 clock. The width of the distribution is due to trigger jitter (24~ns jitter in the tracker readout clock, plus 16~ns jitter in the trigger system). 
-	The cluster time residual is for a representative sensor relative to the track time.}}
+	The cluster time residual is for a representative sensor relative to the track time.}
 	\label{fig:tracktime}
-	\end{center}
+}
+\end{center}
 \end{figure}
 After correcting for offsets from each sensor (time-of-flight, clock phase) the extracted $t_0$ resolution is 
 2.6~ns. This is somewhat worse than the approximately 2~ns resolution expected which we attribute to the true 
@@ -707,13 +746,14 @@ While occupancy was slightly larger than expected, good agreement between data a
 found after taking into account dead or noisy channels. The hit efficiency, see Fig.~\ref{fig:hit_efficiency}, 
 was measured to be above 98\% and fairly uniform across the SVT.
 \begin{figure}[h]
-	\begin{center}
+\begin{center}
+{\small
     	\includegraphics[width=7cmh]{figures/hit_efficiency_vs_layer.pdf}
-        \caption{{\small The hit reconstruction efficiency as a function of detector layer.}} 
+        \caption{ The hit reconstruction efficiency as a function of detector layer.}
 	\label{fig:hit_efficiency}
-	\end{center}
+}
+\end{center}
 \end{figure}
-
 The spatial resolution of similar microstrip sensors is well established by test beam data, against which the 
 charge deposition model in the simulation is validated.  This resolution can be parameterized as a 
 function of the total signal to single-strip noise (S/N) and the crossing angle of tracks through the sensor.  
@@ -857,15 +897,15 @@ They have a $5\times5$~mm$^2$ active area and quantum efficiency of about 75\%. 
 centered on the back ends of the crystals using MeltMount 1.7 thermal plastic adhesive. 
 The low? amplitude signals of APDs are amplified using custom?made preamplifier boards. 
 Figure~\ref{fig:ecal-module} shows a schematic view of the module assembly.
+\begin{figure}[]
 \begin{center}
 {\small
-\begin{figure}[]
 \includegraphics[width=7cm]{figures/ecal-module-schematic.png}
 \caption{Schematic vied of an ECal module.}
 \label{fig:ecal-module}
-\end{figure}
 }
 \end{center}
+\end{figure}
 The gain uniformity of the APDs is on the order of XXXX\%; with APD high voltage bias varying by as 
 much as 100V. Since only a limited number of high voltage channels were available during the test, 10 
 channels were grouped together with an attempt to group modules with similar gains. 
@@ -903,12 +943,16 @@ inoperable or noisy in the test run, so any efficiency or bias effects that affe
 in the simulation as well; then we use a formula to compute the ``weighted E/p'' for a crystal, representing the average E/p for clusters that include the crystal
 % $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$
 , and iteratively adjust the gains until the weighted E/p is equal for test run data and simulation.
-\begin{figure}[ht]
+\begin{figure}[]
+\begin{center}
+{\small
 	\includegraphics[width=7cm]{figures/ecalgainplots_corr_sim}
 	\includegraphics[width=7cm]{figures/gains}
-	\caption{\small{Weighted E/p from Monte Carlo simulation (top), calibrated values of gain in units of MeV 
-	per ADC count (bottom).}}
+	\caption{Weighted E/p from Monte Carlo simulation (top), calibrated values of gain in units of MeV 
+	per ADC count (bottom).}
 	\label{fig:gains}
+}
+\end{center}
 \end{figure}
 
 These gains can then be used to convert from ADC counts in a channel to the energy deposited into that ECal 
@@ -943,15 +987,15 @@ to all detector sub- systems to read out a selected event.
 The analog signals from the individual APD's of the ECal (shaped and amplified as described in 
 Sec.~\ref{sec:aid}) are input to a single channel on the 16-channel JLab FADC250 VXS module (FADC), 
 shown in Fig. ~\ref{fig:fadc}. 
+\begin{figure}[t]
 \begin{center}
 {\small
-\begin{figure}[t]
 \includegraphics[width=7cm]{figures/FADC250_Photo_001.jpg}
 \caption{A Jefferson Lab FADC250 VXS module.}
 \label{fig:fadc}
-\end{figure}
 }
 \end{center}
+\end{figure}
 Three 20-slot VXS crates are needed to accommodate the system: one for each half of the ECal with 221 
 channels and one for the Muon System with a total of 232 channels. 
 
@@ -996,15 +1040,15 @@ For the readout path, every FADC has the following parameters:
  \item the readout threshold, measured in ADC counts.
  \end{itemize}
 The number of samples for a given channel integration is the sum of $NSB+NSA$ samples. It is a fixed gate width pulse integration with no pedestal subtraction where the sum is stored in a 17-bit register for readout (pedestal subtraction happens offline). 
+\begin{figure}[]
 \begin{center}
 {\small
-\begin{figure}[]
 \includegraphics[width=7cm]{figures/hps_trigger_data}
 \caption{\small{FADC data paths}}
 \label{fig:hps_trigger_data}
-\end{figure}
 }
 \end{center}
+\end{figure}
 For the trigger path, every channel has, in addition to $NSB$ and $NSA$: 
 \begin{itemize}
 % \item number of samples integrated before the threshold crossing (NSB),
@@ -1037,15 +1081,15 @@ of the ECal.  The trigger system can be broken down into three sections (see Fig
 \item CTP (cluster finding): groups FADC pulses from each half of the ECal into clusters. The cluster energy, arrival time, and hit pattern are sent to the SSP.
  \item SSP (cluster pair finding): searches for time coincidence of pairs of clusters from the top and bottom half of the ECal and applies topological selections.
  \end{itemize}
+ \begin{figure}[t]
 \begin{center}
 {\small
- \begin{figure}[t]
  \includegraphics[width=7cm]{figures/hps_trigger_cal}
 \caption{Block diagram of the ECAL trigger system consisting of the FADC that samples and digitizes the detector channel signals and sends them for cluster finding in the CTP. The CTP clusters are sent to the SSP where the final trigger decision is taken based on pairs of clusters in both halves of the ECal. The decision is sent to the Trigger Supervisor (TS) that generates the necessary signals to readout the sub-detectors.}
  \label{fig:hps_trigger_cal}
- \end{figure}
 }
 \end{center}
+ \end{figure}
 The time coincidence window of pairs of clusters in the top and bottom half of the ECal are programmable 
 with 4~ns resolution. 
 
@@ -1101,18 +1145,18 @@ probe cluster in the ECal half under test.
 We then measure trigger efficiency (proportion of tagged events where there was a trigger) as a function of 
 ADC counts and energy of the probe cluster.
 These turn-on curves are shown for the top half of the ECal in Fig.~\ref{fig:turnon}. 
+\begin{figure}[ht]
 \begin{center}
 {\small
-\begin{figure}[ht]
 	\includegraphics[width=7cm]{figures/top_turnon_adc}
 	\includegraphics[width=7cm]{figures/top_turnon_e}
 	\caption{Trigger turn-on as a function of probe cluster ADC counts (top) and probe cluster energy in MeV 
 	(bottom). Both plots are for the top half of the ECal; bottom is similar. Energy is not corrected for sampling 
 	fraction.}
 \label{fig:turnon}
-\end{figure}
 }
 \end{center}
+\end{figure}
 The trigger threshold is seen to be 1280 ADC counts as expected. The threshold is not perfectly sharp in this 
 analysis because of uncertainties in the conversion from readout to trigger hits but based on comparisons 
 with Monte Carlo simulation we believe the trigger worked exactly as specified. 
@@ -1125,6 +1169,7 @@ issues that led to threshold variations in the test run.
 
 
 \subsection{Data Acquisition and Online Computing}
+\label{sec:daq}
 For the ECal, every VXS crate contains a Readout Controller (ROC)
 that collects digitized information, processes it, and sends it on to the Event Builder (EB). The ROC is a single 
 blade Intel-based CPU module running DAQ software under CentOS Linux OS. For the SVT ATCA system, 
@@ -1227,17 +1272,17 @@ We measure the vertical angular distributions of electrons and positrons using t
 Cluster reconstruction and calibration was performed as described in Sec.~\ref{sec:ecal}. The measured 
 angular distribution in the ECal for the three converter thicknesses are shown in 
 Fig.~\ref{fig:ang_distr_data} (left).  
+\begin{figure}[]
 \begin{center}
 {\small
-	\begin{figure}[]
 	\includegraphics[ width=7cm]{figures/rate_ecalrow_raw.png}
 	\includegraphics[ width=7cm]{figures/rate_ecalrow_norm_subtr.png}
 	\caption{Measured raw vertical angular distributions before (top) and after (bottom) 
 	normalization and background subtraction.}
 	\label{fig:ang_distr_data}
-	\end{figure}
 }
 \end{center}
+\end{figure}
 The background fraction for the three converter thicknesses was 16\%, 52\% and 71\% 
 for converter thicknesses of 1.6\%, 0.45\% and 0.18\%, respectively. The background fraction was also 
 cross-checked by pointing back tracks reconstructed in the SVT to identify the fraction of tracks not originating 
@@ -1267,8 +1312,8 @@ distribution using \egs{} for a converter thickness of 1.6\% (left), 0.45\% (mid
 	\begin{figure*}[t]
 	\includegraphics[ scale=0.3]{figures/dataMC_geant4.png}
 	\includegraphics[ scale=0.3]{figures/dataMC_egs.png}
-	\caption{\small{The measured rate as a function of converter thickness comparing \geant{} (left) 
-	and \egs{} (right)}.} 
+	\caption{The measured rate as a function of converter thickness comparing \geant{} (left) 
+	and \egs{} (right).} 
 	\label{fig:rate_vs_thickness}
 	\end{figure*}
 }
