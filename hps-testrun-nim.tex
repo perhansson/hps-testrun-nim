@@ -666,101 +666,7 @@ Polyurethane foam to complete the two-spring construction. At JLab, the entire S
 DAQ and the power supplies for the first time in the clean room, before moving the module-loaded support 
 plates to Hall~B for final mechanical assembly and installation inside of the vacuum chamber on April 19, 2012.   
 
-
-\subsection{Monitoring and Calibration}
-
-\subsection{Data Analysis and Performance}
-
-During the duration of the test run all SVT modules and APV25 chips were configured to their 
-nominal operating points~\cite{Jones:1069892} with all sensors reverse-biased at 180~V.  The 
-sensors were operated within a temperature range of  $20-24^\circ$C 
-throughout the test run. Multiple calibration runs, normalized with lab-based radioactive source tests, 
-established a noise level of $\approx$ XXXX-XXXX electrons which was stable across all the SVT modules. 
-
-Throughout the duration of the test run, approximately 97\% of the 12,780 SVT channels were found to be 
-operating normally. The fraction of dead or noisy channels varied from 2.4\% to 4.7\%.  
-Most of these were due to misconfigured readout chips (2--4 misconfigured chips out of 100 ), 
-a known noisy half-module and a couple of known noisy readout chips. 
-
-
-\subsubsection{Cluster and Hit Reconstruction}
-
-After a trigger is received, six samples of the corresponding output of the APV25 shaper circuit are digitized. 
-The samples from every channel on a sensor surviving the 
-data reduction algorithm (see Sec.~\ref{sec:svt_daq}) are the basis for offline hit reconstruction. 
-The six samples of the APV25 shaper output 
-are fitted to an ideal $CR-RC$ function to extract the amplitude and the $t_0$ of the hit. 
-The typical pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape} also demonstrates that the SVT 
-was well timed in to the trigger with the rise of the pulse at the 3rd sampling point.
-\begin{figure}[h]
-\begin{center}
-{\small
-	\includegraphics[width=6cm]{figures/08062012_run1351_samples_vs_amplitude}
-    	\caption{The six pedestal subtracted samples from individual channels associated with a hit on a 
-	track.}
-	\label{fig:pulse_shape}
-}
-\end{center}
-\end{figure}
-
-These hits are passed through a simple clustering algorithm which forms clusters by grouping adjacent 
-strips. The position of a cluster on the sensor is determined by the amplitude-weighted mean.
-With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associated with a track follow 
-the characteristic Landau shape as expected, see Fig.~\ref{fig:cluster_pulse}. 
-The signal to noise ratio is XXXX.
-\begin{figure}[h]
-\begin{center}
-{\small
-	\includegraphics[width=6cm]{figures/run1351_mip_small.pdf}
-    	\caption{ The cluster charge distribution for hits associated with a track. }
-	\label{fig:cluster_pulse}
-}
-\end{center}
-\end{figure}
-
-After clustering hits on a sensor, the hit time for each cluster is computed as the amplitude-weighted 
-average of the fitted $t_0$ channel times. The $t_0$-resolution is studied by comparing the cluster hit time 
-with the average of all cluster hit times on the track, the ``track time'', which has the expected jitter due to clock 
-phase and trigger, approximately 25~ns. Figure~\ref{fig:tracktime} shows the residual to the individual cluster 
-times. 
-\begin{figure}[h]
-\begin{center}
-{\small
-%	\includegraphics[width=7cm]{figures/top_track_time.pdf}
-	\includegraphics[width=6cm]{figures/t0_resolution.pdf}
-	\caption{
-%	Track time distribution (left) and cluster time residual (right). The track time is measured relative to the APV25 clock. The width of the distribution is due to trigger jitter (24~ns jitter in the tracker readout clock, plus 16~ns jitter in the trigger system). 
-	The cluster time residual is for a representative sensor relative to the track time.}
-	\label{fig:tracktime}
-}
-\end{center}
-\end{figure}
-After correcting for offsets from each sensor (time-of-flight, clock phase) the extracted $t_0$ resolution is 
-2.6~ns. This is somewhat worse than the approximately 2~ns resolution expected which we attribute to the true 
-pulse shape differing from our idealized fit function which will be improved in the future. Reducing the 
-APV25 pulse shaping time will also improve time resolution. These results show that we can operate with 
-the six sample readout mode of the APV25 chip and achieve time resolution adequate for pileup 
-rejection during electron running in the HPS experiment. 
-
-While occupancy was slightly larger than expected, good agreement between data and simulation was 
-found after taking into account dead or noisy channels. The hit efficiency, see Fig.~\ref{fig:hit_efficiency}, 
-was measured to be above 98\% and fairly uniform across the SVT.
-\begin{figure}[h]
-\begin{center}
-{\small
-    	\includegraphics[width=7cmh]{figures/hit_efficiency_vs_layer.pdf}
-        \caption{ The hit reconstruction efficiency as a function of detector layer.}
-	\label{fig:hit_efficiency}
-}
-\end{center}
-\end{figure}
-The spatial resolution of similar microstrip sensors is well established by test beam data, against which the 
-charge deposition model in the simulation is validated.  This resolution can be parameterized as a 
-function of the total signal to single-strip noise (S/N) and the crossing angle of tracks through the sensor.  
-The single-hit resolution for charged particles with signal to noise ration above 20, as demonstrated here, 
-is relatively constant at approximately 6~$\mu$m for tracks that are close to normal to the sensors as in HPS.
-
-\subsubsection{Alignment}
+\subsection{Alignment}
 The SVT was aligned using a combination of optical, laser and touch probe surveys at SLAC and JLab. The 
 optical survey of individual modules with precision of a few $\mu$m are combined with a touch-prove survey 
 of the overall SVT support structure, with 25-100~$\mu$m precision, to locate the silicon sensor layers with 
@@ -771,58 +677,6 @@ respect to CEBAF beam line.
 The resulting survey-based alignment has the position of the silicon sensors correct to within a few hundred 
 microns. A more sophisticated global track-based alignment technique to reach the final alignment precision 
 is being developed.
-
-\subsubsection{Momentum and Vertexing Resolution}
-
-By selecting \ee{} pairs from the triggered events we are able to study basic distributions of pair production 
-kinematics and in particular those related to our vertex performance. Pairs of opposite charge tracks, one in the 
-top and one in the bottom half of the SVT, with momentum larger than 400~MeV were selected. 
-The pair production 
-kinematics are relatively well reproduced given the alignment of the tracker; Fig.~\ref{fig:pair_kin} shows the 
-invariant mass and ratio of electron momentum over the sum of electron and positron. 
- \begin{center}
-{\small
-\begin{figure*}[ht]
-   \includegraphics[width=5cm]{figures/h_trk_top_px_h_trk_top_px_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-   \includegraphics[width=5cm]{figures/h_invM_h_invM_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-   \includegraphics[width=5cm]{figures/h_sumE_h_sumE_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-%   \includegraphics[scale=0.25]{test2012/vertexing/figures/h_ratioEsum_h_ratioEsum_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-\caption{Kinematic distributions for e$^+$e$^-$ pairs selected by opposite charged tracks in the top and bottom half of the tracker: track momentum in the top half of the SVT (left), invariant mass (middle) and the sum of the track momentum for the pair.}
-\label{fig:pair_kin}
-\end{figure*}
-}
-\end{center}
-
-For the vertexing 
-performance the foremost difference compared to electron beam running is that the target was 
-located approximately 67~cm from our nominal target position; giving almost collinear tracks in the detector. 
-This degrades the vertex resolution along the 
-beam line compared to that expected in an electron beam with tracks from the nominal target position. 
-Furthermore, tails of the vertex distributions are impossible to study with the finite data sample obtained 
-in the test run. Nevertheless, useful information can still be 
-obtained by studying the vertex distributions. Figure~\ref{fig:vtx_pos} shows the distance of closest 
-approach of the momentum vectors extrapolated in the 
-upstream direction from our analyzing magnet, taking into account the measured fringe field of the PS magnet. 
- \begin{center}
-{\small
-	 \begin{figure*}[ht]
-	\includegraphics[width=5cm]{figures/h_vtx_fr_x_h_vtx_x_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-	\includegraphics[ width=5cm]{figures/h_vtx_fr_y_h_vtx_y_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-	\includegraphics[width=5cm]{figures/h_vtx_fr_z_h_vtx_z_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-	\caption{{\bf \textcolor{red}{NEED TO BE UPDATED}}Vertex position represented by the distance of 
-	closest approach of the extrapolated momentum vectors upstream of the PS magnet taking into account 
-	the measured fringe field. The overall shift from zero in the x-direction is 
-	due to a 30~mrad rotation of the SVT with respect to the beam line.}
-	\label{fig:vtx_pos}
-\end{figure*}
-}
-\end{center}
-While the tails of the vertex distribution expected in electron beam running is not accessible here the 
-fact that the core is relatively well described provides confidence of the description of the amount of 
-material and the model used for simulating multiple scattering in the target.  
-These are crucial for benchmarking the HPS \Aprime{} physics reach since both the mass and vertex resolution 
-that determine the sensitivity are limited by multiple scattering.
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -975,56 +829,6 @@ to the FADC. During data analysis, a pedestal value is subtracted to obtain the 
 \end{center}
 \end{figure}
 
-\subsection{Calibration and Performance}
-\label{sec:ecal_calibration}
-
-Only 385 out of 442 modules (87\%) were operational during the test run.  Of 442 modules, 39 were disabled or 
-disconnected and were not read out by the DAQ. 
-13 of these were not read out because of a shortage of FADC readout boards.
-The remainder either had no HV bias on the APD, or were disabled in the FADC software due to noise.
-In the data, we identified two types of abnormal channels. 
-One FADC was not sending trigger signals correctly, resulting in low efficiency.
- This affected the 13 channels read out by that FADC. 5 channels were diagnosed as noisy because they 
- had a high incidence of hits out of coincidence with the trigger. A large number of channels were originally 
- misidentified as noisy because they had much higher hit occupancy than neighboring channels.
-Gain calibration shows that these channels have high gain (and thus lower energy threshold) but are otherwise 
-normal. The abnormal channels were ignored in analysis in order to simplify comparison with Monte Carlo. This 
-leaves 385 useful channels---87\% of the ECal.
-
-The noise level of the ECal modules were measured to be approximately 15~MeV. The ECal was operated 
-with an effective readout threshold of 70~MeV. Modules above thresholds are clustered using a simple robust 
-algorithm described in Sec.~\ref{sec:trigger}.
-
-%\subsubsection{Calibration}
-%\label{sec:ecal_calibration}
-The noise and pedestal of the readout chain are calibrated by running the ECal readout in a mode where the 
-preamplifier output is sampled every 4~ns in a time window of 100 samples: by looking at a part of the 
-window before the hit,  the readout channel pedestal can be obtained. 
-We calibrate gain of the individual ECal channels using the SVT measurement of track momentum and 
-comparison to Monte Carlo simulation.  We disable all SVT and ECal channels in the simulation that were 
-inoperable or noisy in the test run, so any efficiency or bias effects that affect the real data should be reflected 
-in the simulation as well; then we use a formula to compute the ``weighted E/p'' for a crystal, representing the average E/p for clusters that include the crystal
-% $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$
-, and iteratively adjust the gains until the weighted E/p is equal for test run data and simulation.
-\begin{figure}[]
-\begin{center}
-{\small
-	\includegraphics[width=7cm]{figures/eoverp_simulation}
-	\caption{Weighted E/p from Monte Carlo simulation after gain calibration.}
-	\label{fig:gains}
-}
-\end{center}
-\end{figure}
-These gains can then be used to convert from ADC counts in a channel to the energy deposited into that ECal 
-crystal.
-The other information needed to find the energy of an incident particle is the sampling fraction---the ratio of 
-energy read out from crystals to energy of an incident particle. The conventional sampling fraction, 
-the fraction of incident energy that is deposited in crystals, is approximately 0.9  for the center of the ECal and less 
-at the 
-edges. For our readout, there is additional energy lost because crystals under the readout threshold are not 
-read out. The weighted E/p used in calibration (see Figure \ref{fig:gains}) is an approximate measurement of sampling fraction, but the sampling fraction is energy-dependent because of the effect of readout threshold. 
-A full computation of sampling fraction can be done using simulation.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1130,7 +934,218 @@ The SVT DAQ is described in more details in Sec.~\ref{sec:svt_daq}.
 
 
 
-\subsection{Performance}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Performance}
+
+\subsection{SVT Performance}
+
+During the duration of the test run all SVT modules and APV25 chips were configured to their 
+nominal operating points~\cite{Jones:1069892} with all sensors reverse-biased at 180~V.  The 
+sensors were operated within a temperature range of  $20-24^\circ$C 
+throughout the test run. Multiple calibration runs, normalized with lab-based radioactive source tests, 
+established a noise level of $\approx$ XXXX-XXXX electrons which was stable across all the SVT modules. 
+
+Throughout the duration of the test run, approximately 97\% of the 12,780 SVT channels were found to be 
+operating normally. The fraction of dead or noisy channels varied from 2.4\% to 4.7\%.  
+Most of these were due to misconfigured readout chips (2--4 misconfigured chips out of 100 ), 
+a known noisy half-module and a couple of known noisy readout chips. 
+
+
+\subsubsection{Cluster and Hit Reconstruction}
+
+After a trigger is received, six samples of the corresponding output of the APV25 shaper circuit are digitized. 
+The samples from every channel on a sensor surviving the 
+data reduction algorithm (see Sec.~\ref{sec:svt_daq}) are the basis for offline hit reconstruction. 
+The six samples of the APV25 shaper output 
+are fitted to an ideal $CR-RC$ function to extract the amplitude and the $t_0$ of the hit. 
+The typical pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape} also demonstrates that the SVT 
+was well timed in to the trigger with the rise of the pulse at the 3rd sampling point.
+\begin{figure}[h]
+\begin{center}
+{\small
+	\includegraphics[width=6cm]{figures/08062012_run1351_samples_vs_amplitude}
+    	\caption{The six pedestal subtracted samples from individual channels associated with a hit on a 
+	track.}
+	\label{fig:pulse_shape}
+}
+\end{center}
+\end{figure}
+
+These hits are passed through a simple clustering algorithm which forms clusters by grouping adjacent 
+strips. The position of a cluster on the sensor is determined by the amplitude-weighted mean.
+With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associated with a track follow 
+the characteristic Landau shape as expected, see Fig.~\ref{fig:cluster_pulse}. 
+The signal to noise ratio is XXXX.
+\begin{figure}[h]
+\begin{center}
+{\small
+	\includegraphics[width=6cm]{figures/run1351_mip_small.pdf}
+    	\caption{ The cluster charge distribution for hits associated with a track. }
+	\label{fig:cluster_pulse}
+}
+\end{center}
+\end{figure}
+
+After clustering hits on a sensor, the hit time for each cluster is computed as the amplitude-weighted 
+average of the fitted $t_0$ channel times. The $t_0$-resolution is studied by comparing the cluster hit time 
+with the average of all cluster hit times on the track, the ``track time'', which has the expected jitter due to clock 
+phase and trigger, approximately 25~ns. Figure~\ref{fig:tracktime} shows the residual to the individual cluster 
+times. 
+\begin{figure}[h]
+\begin{center}
+{\small
+%	\includegraphics[width=7cm]{figures/top_track_time.pdf}
+	\includegraphics[width=6cm]{figures/t0_resolution.pdf}
+	\caption{
+%	Track time distribution (left) and cluster time residual (right). The track time is measured relative to the APV25 clock. The width of the distribution is due to trigger jitter (24~ns jitter in the tracker readout clock, plus 16~ns jitter in the trigger system). 
+	The cluster time residual is for a representative sensor relative to the track time.}
+	\label{fig:tracktime}
+}
+\end{center}
+\end{figure}
+After correcting for offsets from each sensor (time-of-flight, clock phase) the extracted $t_0$ resolution is 
+2.6~ns. This is somewhat worse than the approximately 2~ns resolution expected which we attribute to the true 
+pulse shape differing from our idealized fit function which will be improved in the future. Reducing the 
+APV25 pulse shaping time will also improve time resolution. These results show that we can operate with 
+the six sample readout mode of the APV25 chip and achieve time resolution adequate for pileup 
+rejection during electron running in the HPS experiment. 
+
+While occupancy was slightly larger than expected, good agreement between data and simulation was 
+found after taking into account dead or noisy channels. The hit efficiency, see Fig.~\ref{fig:hit_efficiency}, 
+was measured to be above 98\% and fairly uniform across the SVT.
+\begin{figure}[h]
+\begin{center}
+{\small
+    	\includegraphics[width=7cmh]{figures/hit_efficiency_vs_layer.pdf}
+        \caption{ The hit reconstruction efficiency as a function of detector layer.}
+	\label{fig:hit_efficiency}
+}
+\end{center}
+\end{figure}
+The spatial resolution of similar microstrip sensors is well established by test beam data, against which the 
+charge deposition model in the simulation is validated.  This resolution can be parameterized as a 
+function of the total signal to single-strip noise (S/N) and the crossing angle of tracks through the sensor.  
+The single-hit resolution for charged particles with signal to noise ration above 20, as demonstrated here, 
+is relatively constant at approximately 6~$\mu$m for tracks that are close to normal to the sensors as in HPS.
+
+
+
+\subsubsection{Momentum and Vertexing Resolution}
+
+By selecting \ee{} pairs from the triggered events we are able to study basic distributions of pair production 
+kinematics and in particular those related to our vertex performance. Pairs of opposite charge tracks, one in the 
+top and one in the bottom half of the SVT, with momentum larger than 400~MeV were selected. 
+The pair production 
+kinematics are relatively well reproduced given the alignment of the tracker; Fig.~\ref{fig:pair_kin} shows the 
+invariant mass and ratio of electron momentum over the sum of electron and positron. 
+ \begin{center}
+{\small
+\begin{figure*}[ht]
+   \includegraphics[width=5cm]{figures/h_trk_top_px_h_trk_top_px_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
+   \includegraphics[width=5cm]{figures/h_invM_h_invM_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
+   \includegraphics[width=5cm]{figures/h_sumE_h_sumE_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
+%   \includegraphics[scale=0.25]{test2012/vertexing/figures/h_ratioEsum_h_ratioEsum_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
+\caption{Kinematic distributions for e$^+$e$^-$ pairs selected by opposite charged tracks in the top and bottom half of the tracker: track momentum in the top half of the SVT (left), invariant mass (middle) and the sum of the track momentum for the pair.}
+\label{fig:pair_kin}
+\end{figure*}
+}
+\end{center}
+
+For the vertexing 
+performance the foremost difference compared to electron beam running is that the target was 
+located approximately 67~cm from our nominal target position; giving almost collinear tracks in the detector. 
+This degrades the vertex resolution along the 
+beam line compared to that expected in an electron beam with tracks from the nominal target position. 
+Furthermore, tails of the vertex distributions are impossible to study with the finite data sample obtained 
+in the test run. Nevertheless, useful information can still be 
+obtained by studying the vertex distributions. Figure~\ref{fig:vtx_pos} shows the distance of closest 
+approach of the momentum vectors extrapolated in the 
+upstream direction from our analyzing magnet, taking into account the measured fringe field of the PS magnet. 
+ \begin{center}
+{\small
+	 \begin{figure*}[ht]
+	\includegraphics[width=5cm]{figures/h_vtx_fr_x_h_vtx_x_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
+	\includegraphics[ width=5cm]{figures/h_vtx_fr_y_h_vtx_y_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
+	\includegraphics[width=5cm]{figures/h_vtx_fr_z_h_vtx_z_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
+	\caption{{\bf \textcolor{red}{NEED TO BE UPDATED}}Vertex position represented by the distance of 
+	closest approach of the extrapolated momentum vectors upstream of the PS magnet taking into account 
+	the measured fringe field. The overall shift from zero in the x-direction is 
+	due to a 30~mrad rotation of the SVT with respect to the beam line.}
+	\label{fig:vtx_pos}
+\end{figure*}
+}
+\end{center}
+While the tails of the vertex distribution expected in electron beam running is not accessible here the 
+fact that the core is relatively well described provides confidence of the description of the amount of 
+material and the model used for simulating multiple scattering in the target.  
+These are crucial for benchmarking the HPS \Aprime{} physics reach since both the mass and vertex resolution 
+that determine the sensitivity are limited by multiple scattering.
+
+
+
+
+
+
+\subsection{ECal and Trigger Performance}
+\label{sec:ecal_calibration}
+
+%\subsubsection{ECal Calibration and Performance}
+
+Only 385 out of 442 modules (87\%) were operational during the test run.  Of 442 modules, 39 were disabled or 
+disconnected and were not read out by the DAQ. 
+13 of these were not read out because of a shortage of FADC readout boards.
+The remainder either had no HV bias on the APD, or were disabled in the FADC software due to noise.
+In the data, we identified two types of abnormal channels. 
+One FADC was not sending trigger signals correctly, resulting in low efficiency.
+ This affected the 13 channels read out by that FADC. 5 channels were diagnosed as noisy because they 
+ had a high incidence of hits out of coincidence with the trigger. A large number of channels were originally 
+ misidentified as noisy because they had much higher hit occupancy than neighboring channels.
+Gain calibration shows that these channels have high gain (and thus lower energy threshold) but are otherwise 
+normal. The abnormal channels were ignored in analysis in order to simplify comparison with Monte Carlo. This 
+leaves 385 useful channels---87\% of the ECal.
+
+The noise level of the ECal modules were measured to be approximately 15~MeV. The ECal was operated 
+with an effective readout threshold of 70~MeV. Modules above thresholds are clustered using a simple robust 
+algorithm described in Sec.~\ref{sec:trigger}.
+
+%\subsubsection{Calibration}
+%\label{sec:ecal_calibration}
+The noise and pedestal of the readout chain are calibrated by running the ECal readout in a mode where the 
+preamplifier output is sampled every 4~ns in a time window of 100 samples: by looking at a part of the 
+window before the hit,  the readout channel pedestal can be obtained. 
+We calibrate gain of the individual ECal channels using the SVT measurement of track momentum and 
+comparison to Monte Carlo simulation.  We disable all SVT and ECal channels in the simulation that were 
+inoperable or noisy in the test run, so any efficiency or bias effects that affect the real data should be reflected 
+in the simulation as well; then we use a formula to compute the ``weighted E/p'' for a crystal, representing the average E/p for clusters that include the crystal
+% $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$
+, and iteratively adjust the gains until the weighted E/p is equal for test run data and simulation.
+\begin{figure}[]
+\begin{center}
+{\small
+	\includegraphics[width=7cm]{figures/eoverp_simulation}
+	\caption{Weighted E/p from Monte Carlo simulation after gain calibration.}
+	\label{fig:gains}
+}
+\end{center}
+\end{figure}
+These gains can then be used to convert from ADC counts in a channel to the energy deposited into that ECal 
+crystal.
+The other information needed to find the energy of an incident particle is the sampling fraction---the ratio of 
+energy read out from crystals to energy of an incident particle. The conventional sampling fraction, 
+the fraction of incident energy that is deposited in crystals, is approximately 0.9  for the center of the ECal and less 
+at the 
+edges. For our readout, there is additional energy lost because crystals under the readout threshold are not 
+read out. The weighted E/p used in calibration (see Figure \ref{fig:gains}) is an approximate measurement of sampling fraction, but the sampling fraction is energy-dependent because of the effect of readout threshold. 
+A full computation of sampling fraction can be done using simulation.
+
+
+
+
+%\subsubsection{Trigger Performance}
 As discussed above, the trigger and DAQ integrate pulses differently to measure hit energy. The trigger 
 integrates using a time-over-threshold window, and the DAQ readout integrates using a constant window 
 (5 samples before and 30 samples after a threshold crossing). For every event, the trigger reports the 
@@ -1170,6 +1185,8 @@ means that the effective threshold is higher for clusters that span multiple cry
 Overall the trigger appears to have functioned exactly as intended. Changes planned for the next run 
 (constant integration window and per-crystal gain calibration constants for the trigger) will solve both of the 
 issues that led to threshold variations in the test run.
+
+
 
 
 
