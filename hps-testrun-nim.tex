@@ -1045,9 +1045,9 @@ invariant mass and ratio of electron momentum over the sum of electron and posit
  \begin{center}
 {\small
 \begin{figure*}[ht]
-   \includegraphics[width=5cm]{figures/h_trk_top_px_h_trk_top_px_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-   \includegraphics[width=5cm]{figures/h_invM_h_invM_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-   \includegraphics[width=5cm]{figures/h_sumE_h_sumE_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
+   \includegraphics[width=5cm]{figures/h_trk_top_px_h_trk_top_px_trigsel4hit_pair1351_twotrkfilt-v6-paper}
+   \includegraphics[width=5cm]{figures/h_invM_h_invM_trigsel4hit_pair1351_twotrkfilt-v6-paper}
+   \includegraphics[width=5cm]{figures/h_sumE_h_sumE_trigsel4hit_pair1351_twotrkfilt-v6-paper}
 %   \includegraphics[scale=0.25]{test2012/vertexing/figures/h_ratioEsum_h_ratioEsum_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
 \caption{Kinematic distributions for e$^+$e$^-$ pairs selected by opposite charged tracks in the top and bottom half of the tracker: track momentum in the top half of the SVT (left), invariant mass (middle) and the sum of the track momentum for the pair.}
 \label{fig:pair_kin}
@@ -1068,10 +1068,12 @@ upstream direction from our analyzing magnet, taking into account the measured f
  \begin{center}
 {\small
 	 \begin{figure*}[ht]
-	\includegraphics[width=5cm]{figures/h_vtx_fr_x_h_vtx_x_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-	\includegraphics[ width=5cm]{figures/h_vtx_fr_y_h_vtx_y_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-	\includegraphics[width=5cm]{figures/h_vtx_fr_z_h_vtx_z_dataMC_trigseltwotrksel4hit_recoilmc_twotrkfilt.png}
-	\caption{{\bf \textcolor{red}{NEED TO BE UPDATED}}Vertex position represented by the distance of 
+	% Plot info:
+	% TestRun-v6 geometry, twotrkfilter, trigsel, hps-java-1.8-SNAPSHOT, 4hits, chi2<10
+	\includegraphics[width=5cm]{figures/h_vtx_fr_x_h_vtx_x_trigsel4hit_pair1351_twotrkfilt-v6-paper}
+	\includegraphics[width=5cm]{figures/h_vtx_fr_y_h_vtx_y_trigsel4hit_pair1351_twotrkfilt-v6-paper}
+	\includegraphics[width=5cm]{figures/h_vtx_fr_z_h_vtx_z_trigsel4hit_pair1351_twotrkfilt-v6-paper}
+	\caption{ Vertex position represented by the distance of 
 	closest approach of the extrapolated momentum vectors upstream of the PS magnet taking into account 
 	the measured fringe field. The overall shift from zero in the x-direction is 
 	due to a 30~mrad rotation of the SVT with respect to the beam line.}
@@ -1216,7 +1218,8 @@ formulated by Bethe~\cite{Bethe:1953va}.
 The small angle approximation was also shown to be in agreement with the theory formulated by Gaudsmit and 
 Saunderson~\cite{Goudsmit:1940zza,Goudsmit:1940zz} that is valid for any angle. 
 While \egs{} uses the more complex and time consuming \moliere{} 
-formula, \geant{} uses an approximation with two, continuously joined, functions to take into account 
+formula, the default physics list of \geant{} uses the so-called Urban model, an approximation with two, 
+continuously joined, functions to take into account 
 small and large angle scattering. Due to the explicit function in large angle approximation used by \geant{} 
 we expect that \geant{} will overestimate the angular distribution at angles larger than a few mrad.
 
@@ -1276,14 +1279,15 @@ Converter thickness & Duration &  $e^-$ on converter \\
 We measure the vertical angular distributions of electrons and positrons using the ECal. 
 Cluster reconstruction and calibration was performed as described in Sec.~\ref{sec:ecal}. The measured 
 angular distribution in the ECal for the three converter thicknesses are shown in 
-Fig.~\ref{fig:ang_distr_data} (left).  
+Fig.~\ref{fig:ang_distr_data} (left). The data has been normalized to the integrated beam current and 
+the upstream background has been subtracted. 
 \begin{figure}[]
 \begin{center}
 {\small
-	\includegraphics[ width=7cm]{figures/rate_ecalrow_raw.png}
+%	\includegraphics[ width=7cm]{figures/rate_ecalrow_raw.png}
 	\includegraphics[ width=7cm]{figures/rate_ecalrow_norm_subtr.png}
-	\caption{Measured raw vertical angular distributions before (top) and after (bottom) 
-	normalization and background subtraction.}
+	\caption{Measured vertical angular distributions before after integrated beam current 
+	normalization and upstream background subtraction.}
 	\label{fig:ang_distr_data}
 }
 \end{center}
@@ -1296,31 +1300,36 @@ sample was much less than 2\%. These measured angular distributions are compared
 the modeling of the MCS. \egs{}~\cite{egs5} is used to generate 
 the electromagnetic interactions in the converter while \geant{} is used to simulate the particles after the 
 converter.  Figure~\ref{fig:ang_distr_dataMC} shows the angular distribution comparing data and 
-\egs{} normalized to 1~s of beam at 90~nA beam current. Taking into account systematics uncertainties 
-described below reasonable agreement is obtained;   total rates for each converter thickness is shown in 
-Fig.~\ref{fig:rate_vs_thickness} and summarized in Tab.~\ref{tab:ang_distr_dataMC}.
+\egs{} normalized to 1~s of beam at 90~nA beam current with a converter thickness of 1.6\%. 
 \begin{center}
 {\small
-	\begin{figure*}[t]
+	\begin{figure}[]
+%	\begin{figure*}[t]
 	\includegraphics[ scale=0.25]{figures/dataMC_1351_Hit_Y_top_norm_bkgsub.png}
-	\includegraphics[ scale=0.25]{figures/dataMC_1354_Hit_Y_top_norm_bkgsub.png}
-	\includegraphics[ scale=0.25]{figures/dataMC_1353_Hit_Y_top_norm_bkgsub.png}
-	\caption{Comparison between the observed and predicted angular 
-distribution using \egs{} for a converter thickness of 1.6\% (left), 0.45\% (middle) and 0.18\% 
-(right).  Only statistical uncertainties are shown. }
+%	\includegraphics[ scale=0.25]{figures/dataMC_1354_Hit_Y_top_norm_bkgsub.png}
+%	\includegraphics[ scale=0.25]{figures/dataMC_1353_Hit_Y_top_norm_bkgsub.png}
+	\caption{Comparison between the observed and predicted angular distribution using \egs{} for a 
+	converter thickness of 1.6\%. Similar agreement is found for 0.45\% and 0.18\% converter thicknesses. 
+	Only statistical uncertainties are shown. }
 	\label{fig:ang_distr_dataMC}
-	\end{figure*}
+%	\end{figure*}
+	\end{figure}
 }
 \end{center}
+Reasonable agreement is obtained in the most important region close to the beam. There is a hint of a 
+slightly different slope of the data at larger angles; this difference is covered by systematic uncertainties.  The 
+total rates for each converter thickness is shown in Fig.~\ref{fig:rate_vs_thickness} and summarized in 
+Tab.~\ref{tab:ang_distr_dataMC}.
 \begin{center}
 {\small
-	\begin{figure*}[t]
-	\includegraphics[ scale=0.3]{figures/dataMC_geant4.png}
+	\begin{figure}[]
+%	\begin{figure*}[]
+	%\includegraphics[ scale=0.3]{figures/dataMC_geant4.png}
 	\includegraphics[ scale=0.3]{figures/dataMC_egs.png}
-	\caption{The measured rate as a function of converter thickness comparing \geant{} (left) 
-	and \egs{} (right).} 
+	\caption{The measured rate as a function of converter thickness for data and \egs{} simulation of MCS in 	the converter.} 
 	\label{fig:rate_vs_thickness}
-	\end{figure*}
+%	\end{figure*}
+	\end{figure}
 }
 \end{center}
 The total systematic uncertainty was estimated to be between 10-18\% depending on the run, they include:  
@@ -1346,6 +1355,8 @@ thicknesses. The uncertainty on the prediction includes systematic uncertainties
 }
 \end{center}
 \end{table}
+As expected \egs{} show good agreement with our data while \geant{} using the default physics list 
+overestimates the MCS at these large angles. 
 
 \subsection{Conclusion}
 In summary, the accurate modeling of the MCS is fundamental to estimate occupancies and trigger rates 
