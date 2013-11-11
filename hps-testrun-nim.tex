@@ -170,8 +170,9 @@ silicon microstrips \sep tracking  \sep vertexing \sep heavy photon \sep electro
 \section{Introduction}
 \label{introduction}
 One of the more striking anomalies in recent astrophysical observations is an excess of high energy electrons 
-and positrons consistent with a large, unknown source of pair production~\cite{Adriani:2008zr}\cite{FermiLAT:
-2011ab}. The existence of a massive, hidden sector vector boson; a ``dark photon;" that mixes kinetically with 
+and positrons consistent with a large, unknown source of pair 
+production~\cite{Adriani:2008zr,FermiLAT:2011ab}. 
+The existence of a massive, hidden sector vector boson; a ``dark photon;" that mixes kinetically with 
 the Standard Model photon and mediates annihilation or decay of dark matter particles is a theoretically 
 attractive explanation of this cosmic-ray excess~\cite{Holdom:1985ag}\cite{ArkaniHamed:2008qn}.
 \begin{center}
@@ -1214,27 +1215,42 @@ Converter thickness & Duration &  $e^-$ on converter \\
 \subsection{Measured Angular Distributions}
 
 
-We measure the vertical angular distributions of electrons and positrons using the ECal. 
-Cluster reconstruction and calibration was performed as described in Sec.~\ref{sec:ecal}. The measured 
+
+
+For this analysis, we measure angular distribution of electrons and positrons using the ECal.
+Cluster reconstruction was done using the algorithm described in Sec.~\ref{sec:trigger} build 
+clusters around seed hits (hits above a ``seed'' energy threshold and with greater energy than any 
+neighboring hits), and add all neighboring hits above an ``add'' energy threshold.
+Hit energy is calibrated by matching track momentum to cluster energy, as described in Sec.~\ref{sec:ecal_calibration}.
+
+
+The measured 
 angular distribution in the ECal for the three converter thicknesses are shown in 
-Fig.~\ref{fig:ang_distr_data} (left). The data has been normalized to the integrated beam current and 
-the upstream background has been subtracted. 
+Fig.~\ref{fig:ang_distr_data} (left). 
 \begin{figure}[]
 \begin{center}
 {\small
 %	\includegraphics[ width=7cm]{figures/rate_ecalrow_raw.png}
 	\includegraphics[ width=7cm]{figures/rate_ecalrow_norm_subtr.png}
-	\caption{Measured vertical angular distributions before after integrated beam current 
-	normalization and upstream background subtraction.}
+	\caption{Measured vertical angular distributions after integrated beam current 
+	normalization and background subtraction.}
 	\label{fig:ang_distr_data}
 }
 \end{center}
 \end{figure}
-The background fraction for the three converter thicknesses was 16\%, 52\% and 71\% 
+The data has been normalized to the integrated beam current and the background has been 
+subtracted. 
+The background fraction for the there converter thicknesses was 16\%, 52\% and 71\% 
 for converter thicknesses of 1.6\%, 0.45\% and 0.18\%, respectively. The background fraction was also 
-cross-checked by pointing back tracks reconstructed in the SVT to identify the fraction of tracks not originating 
-from the converter. We also checked that the contribution from photons to our triggered 
-sample was much less than 2\%. These measured angular distributions are compared to simulation to validate 
+cross-checked by pointing back tracks reconstructed in the SVT to identify the fraction of tracks not emanating from the converter. 
+%This can be seen in Fig.~\ref{fig:extrapol_converter} (bottom) where small 
+%satellite peaks at $\pm 10$~mm can be identified as tracks from the upstream background. The angular distribution, after normalization and subtracting the upstream background, are shown in 
+%Fig.~\ref{fig:ang_distr_data} (right).  
+We also checked that the contribution from photons to our triggered 
+sample was less than 2\% (without angular selections which would further reduce the contribution).
+
+
+These measured angular distributions are compared to simulation to validate 
 the modeling of the MCS. \egs{}~\cite{egs5} is used to generate 
 the electromagnetic interactions in the converter while \geant{} is used to simulate the particles after the 
 converter.  Figure~\ref{fig:ang_distr_dataMC} shows the angular distribution comparing data and 
@@ -1270,19 +1286,19 @@ Tab.~\ref{tab:ang_distr_dataMC}.
 	\end{figure}
 }
 \end{center}
-The total systematic uncertainty was estimated to be between 10-18\% depending on the run, they include:  
-uncertainty on the integrated current normalization (5\%), alignment of the ECal, uncertainty from the 
-background normalization and limited Monte Carlo statistics.  
-\begin{table}
+The total systematic uncertainty was estimated to be between 10-18\% depending on the run including:  
+a 5\% uncertainty on the integrated current normalization, alignment of the ECal, uncertainty from the 
+background normalization, and limited Monte Carlo statistics.  
 \begin{center}
 {\small
+\begin{table}
 \begin{tabular}{|l|c|c|c|}
 \hline
-Converter (\% $X_0$) & 1.60 & 0.45 &	0.18 \\
+Converter (\% r.l.) & 1.60 & 0.45 &	0.18 \\
 \hline
-\egs{} &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
+EGS5 &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
 \hline
-\geant{} & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
+GEANT4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
 \hline
 Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\						
 \hline
@@ -1290,11 +1306,9 @@ Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\
 \caption{ Observed and predicted number of events for 1~s of beam at 90~nA for three different converter 
 thicknesses. The uncertainty on the prediction includes systematic uncertainties. }
 \label{tab:ang_distr_dataMC}
+\end{table}
 }
 \end{center}
-\end{table}
-As expected \egs{} show good agreement with our data while \geant{} using the default physics list 
-overestimates the MCS at these large angles. 
 
 \subsection{Conclusion}
 In summary, the accurate modeling of the MCS is fundamental to estimate occupancies and trigger rates 
