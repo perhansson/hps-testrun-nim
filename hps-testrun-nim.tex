@@ -169,7 +169,11 @@ silicon microstrips \sep tracking  \sep vertexing \sep heavy photon \sep electro
 %% main text
 \section{Introduction}
 \label{introduction}
-One of the more striking anomalies in recent astrophysical observations is an excess of high energy electrons and positrons consistent with a large, unknown source of pair production~\cite{Adriani:2008zr}\cite{FermiLAT:2011ab}. The existence of a massive, hidden sector vector boson; a ``dark photon;" that mixes kinetically with the Standard Model photon and mediates annihilation or decay of dark matter particles is a theoretically attractive explanation of this cosmic-ray excess~\cite{Holdom:1985ag}\cite{ArkaniHamed:2008qn}.
+One of the more striking anomalies in recent astrophysical observations is an excess of high energy electrons 
+and positrons consistent with a large, unknown source of pair production~\cite{Adriani:2008zr}\cite{FermiLAT:
+2011ab}. The existence of a massive, hidden sector vector boson; a ``dark photon;" that mixes kinetically with 
+the Standard Model photon and mediates annihilation or decay of dark matter particles is a theoretically 
+attractive explanation of this cosmic-ray excess~\cite{Holdom:1985ag}\cite{ArkaniHamed:2008qn}.
 \begin{center}
 {\small
 \begin{figure*}[ht]
@@ -271,8 +275,8 @@ chosen are sound for running in such a challenging environment. Nevertheless, a 
 important aspect was that, after proving the technical concepts,  the apparatus would have the 
 capability to discover \Aprime{} events. The implication was that the design of the HPS Test apparatus 
 would be subject to almost the same constraints and requirements as the full experiment.
-The kinematics of \Aprime{} production typically results in final state particles within a few degrees of the incoming beam, especially at low 
-$m_{\Aprime{}}$.  
+The kinematics of \Aprime{} production typically results in final state particles within a few degrees of the 
+incoming beam, especially at low $m_{\Aprime{}}$.  
 %Step
 This implies that the apparatus for an \Aprime{} search in electron interactions with fix targets must operate in 
 close proximity to an intense electron beam that passes through a high-Z target. 
@@ -1306,64 +1310,68 @@ using \egs{} for evaluating the physics reach of HPS.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Summary}
+\section{Summary and Outlook}
 
-This paper reviewed the HPS Test run apparatus, a simplified version of that 
-planned for the full HPS experiment, and demonstrates the feasibility of the detector
-technologies proposed for the silicon vertex tracker, the electromagnetic calorimeter, data acquisition and 
-trigger systems and their performance. Of particular importance, data from dedicated photon beam running has 
-been used to compare
-the observed trigger rates with that expected in simulation. The trigger rate is almost entirely due to
-photons which have converted to \ee{} upstream of the HPS Test setup and is sensitive to the multiple
-Coulomb scattering of electrons and positrons in the conversion target.  Since scattered primary beam is 
-the dominant source of occupancy in running HPS in an electron beam, good agreement between data and 
-simulation confirm the background simulation used to benchmark the physics reach of the HPS experiment. 
+%This paper reviewed 
+The HPS Test Run experiment, using a simplified version of the apparatus planned for the full HPS experiment in a parasitic photon beam, demonstrated the feasibility of the detector technologies proposed for the HPS silicon tracker, ECal, and data acquisition systems. Performance from each of these subsystems has been shown to be adequate to conduct the full experiment successfully. A measurement of the normalized trigger rates from a photon conversion target confirmed expectations from simulation, giving credance to estimates of the trigger rates and the detector backgrounds expected in electron beam running.  
 
-In addition to this important test of our background simulation, the HPS Test run accomplished the following 
-goals:
-\begin{itemize}
-	\item More than 97\% of the SVT channels functioned properly
-	\item SVT readout signal to noise of XXXX, required to achieve the expected spatial and temporal resolutions
-	\item SVT hit time resolution of 2.6~ns, proving hit time reconstruction will work for HPS
-	\item SVT hit efficiency greater than 98\%
-	%\item SVT track reconstruction efficiency greater than 98\%
-	\item Survey-based SVT alignment performed as expected and will allow track-based alignment
-	\item 87\% of ECal crystals functioned properly, with defects to be corrected by planned ECal upgrades
-	\item The ECal has been calibrated using SVT tracks
-	\item The SVT and JLab data acquisition systems were successfully integrated
-	\item The trigger functioned as designed; rates greater than 100~kHz was tested in special runs
-	% deficiencies found in test run trigger performance are addressed for the 2014-2015 run
-\end{itemize}
+%The test run achieved the following detector performance:\begin
+%{enumerate}
+%	\item More than 97\% of SVT channels functioned properly
+%	\item Silicon detector signal to noise was 25.5, good enough %to achieve the expected resolutions
+%	\item SVT hit time resolution was 2.6 ns, which will permit %background rejection with tight timing cuts 
+%	\item SVT hit efficiency was greater than 98\%
+%	%\item SVT track reconstruction efficiency was greater than %98\%
+%	\item 87\% of ECal crystals functioned properly, with %%defects to be corrected by planned ECal upgrades
+%	\item The ECal has been successfully calibrated using SVT %tracks
+%	\item The SVT and JLab DAQ were successfully integrated
+%	\item The trigger functioned as designed; the FADC trigger 
+%rate was tested to greater than 100~kHz
+% deficiencies found in test run trigger performance are 
+%addressed for the 2014-2015 run
+%\end{enumerate}
 
-While the HPS Test run successfully allowed us to test many aspects of the HPS experiment, there were 
-limitations to what could be achieved in some key areas such as mass resolution and vertexing 
-performance. In particular, the low statistics and lack of resonances or scattered beam electrons prohibits a 
-direct analysis of the momentum resolution 
-and tails of the vertex distribution. However, for both of these performance parameters, the observed 
-agreement between data and simulation in key distributions supports the performance expected for the 
-proposed experiment. 
+%While the Test Run successfully allowed us to test many aspects %of the HPS experiment, there were 
+%limitations to what could be achieved in some key areas such as %mass resolution and vertexing 
+%performance. In particular, the low statistics and lack of 
+%resonances or scattered beam electrons prohibits a 
+%direct analysis of the momentum 
+%and tails of the vertex distribution. However, for both of these %performance parameters, the observed 
+%agreement between data and simulation in key distributions 
+%supports the performance expected for the 
+%proposed experiment. 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Lessons Learned}
 
-\section{Lessons Learned and Outlook}
-
-In the process of developing the HPS Test design, it was found that this simple system was capable of 
-delivering a surprising fraction of the physics potential anticipated for the full experiment.  With this in mind, 
-we have proposed a new design for the HPS detector that builds upon the HPS Test , principally 
-by addressing the compromises made for HPS Test to ensure the best possible performance for \Aprime{} 
-physics within the envelope of the existing beam line layout and analyzing magnet. For the SVT, 
-this design uses the same sensors, readout chips, and module concept and for the ECal the crystal and 
-detector layout will be identical, retaining the most successful 
-elements of the test run apparatus and addressing the weaknesses identified during assembly and 
-operation. The new SVT layout adds a sixth layer for more robust tracking, adds acceptance in the 
-three deeper layers to increase physics sensitivity and provides better silicon cooling to improve longevity. 
-Other major updates needed for the full experiment are updates to the SVT electronics and 
-DAQ; improving connectivity and cabling, moving digitization closer to the front-end electronics and 
-updating the data reduction, event handling and trigger synchronization to reach 50~kHz trigger rates. 
-This first generation of the full experiment will be ready to take physics data when CEBAF begins operation 
-again in end of 2014.
+%In the process of developing the HPS Test design, it was found 
+%that this simple system was capable of 
+%delivering a surprising fraction of the physics potential 
+%anticipated for the full experiment.  With this in mind, 
+%we have proposed a new design for the HPS detector that builds 
+%upon the HPS Test , principally 
+%by addressing the compromises made for HPS Test to ensure the 
+%best possible performance for A$^\prime$ 
+%physics within the envelope of the existing beam line layout and %analyzing magnet. For the SVT, 
+%this design uses the same sensors, readout chips, and module 
+%concept and for the ECal the crystal and 
+%detector layout will be identical, retaining the most successful 
+%elements of the test run apparatus and addressing the weaknesses %identified during assembly and 
+%operation to ensure the success of the 
+%experiment. The new SVT layout restores the sixth layer for more %robust tracking, adds acceptance in the 
+%deeper layers to increase sensitivity and provides better 
+%silicon cooling to improve longevity. Other major 
+%updates needed for the full experiment are updates to the SVT 
+%electronics and 
+%DAQ; improving connectivity and cabling, moving digitization 
+%closer to the front-end electronics and 
+%updating the data reduction, event handling and trigger 
+%synchronization to reach 50kHz 
+%trigger rates. 
+%This first generation of 
+%the full experiment will be ready to take physics data when 
+%CEBAF begins operation again in 2014.
 
 
 
