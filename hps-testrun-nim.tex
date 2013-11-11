@@ -684,9 +684,11 @@ is being developed.
 
 \section{Electromagnetic Calorimeter}
 \label{sec:ecal}
+\section{Electromagnetic Calorimeter}
+\label{ecal}
 
-The electromagnetic calorimeter, installed downstream of the tracker, performs two essential functions for the 
-experiment: provides a trigger to DAQ system and is used in the analysis for electron identification. 
+The electromagnetic calorimeter, installed downstream of the tracker, performs two essential functions for the experiment: provides a trigger to DAQ system and 
+is used in the analysis for electron identification. 
 %The device is highly segmented. It is fast, able to readout at rates comparable to those in the tracker, and able to provide good spatial and energy information to the trigger electronics. Like the tracker, the electromagnetic calorimeter is split to avoid impinging on the “dead zone”. The beam and radiative secondaries pass between the two of the calorimeter in vacuum, to avoid generating unnecessary backgrounds.
 %Step\subsection{Purpose and Design Requirements}
 %StepThe electromagnetic calorimeter (ECal) provide the trigger for the data acquisition and will be used for electron identification during the data analysis. The ECal is positioned after the analyzing dipole magnet and cover the full acceptance region of the SVT. It consist of two halves, split in the horizontal beam plane. The gap between upper and lower parts, $XXXX$~mrad (15mrad for electron running),  as seen from the target location, is necessary to avoid the "dead zone" where occupancy and radiation prevents any instrumentation to be situated.  
@@ -702,41 +704,13 @@ resistant Avalanche Photodiode (APD) readout.  Such calorimeter has been operati
 part of the CLAS detector for experiments in Hall-B at JLab since 2005 and meet all requirements set by 
 HPS. The modules from this calorimeter have been subsequently repurposed for the ECal. 
 
-\subsection{Purpose and Design Requirements}
-
-The electromagnetic calorimeter (ECal) provide the trigger for the data acquisition and will be used for 
-electron identification during the data analysis. The ECal is positioned after the analyzing dipole 
-magnet and cover the full acceptance region of the SVT. It consist of two halves, split in the horizontal 
-beam plane. The gap between upper and lower parts, $XXXX$~mrad (15mrad for electron running),  
-as seen from the target location, is necessary to avoid the "dead zone" where occupancy and radiation 
-prevents any instrumentation to be situated.  
-
-The energy of electrons of interest will be in the range 
-$0.5-6.5$~GeV. The ECal modules must have sufficient radiation lengths to absorb the full energy of these 
-scattered electrons, have fine enough granularity to handle a high rate of electromagnetic 
-background and survive large doses of radiation, especially near the beam plane. In addition, it needs to 
-have excellent hit time resolution, $<10$~ns, in order to beat down beam backgrounds.  
-
-The compact design requirements: high radiation environment , high rate and the presence of 
-high magnetic field, are fulfilled by a lead-tungstate (PbWO$_{4}$) crystal calorimeter with magnetic field 
-resistant avalanche photodiode (APD) readout.  Such crystals has been operational in the inner 
-calorimeter of the CLAS experiment~[XXXX] at JLab since 2005 and meet all requirements set by 
-HPS. These crystals were subsequently repurposed for the ECal. 
-
 
 \subsection{ECal Components}
 
 %Step\subsubsection{PbWO$_4$ Crystals}
-The HPS test run ECal uses PbWO$_{4}$ crystals, APDs, and preamplifier boards from the inner calorimeter (IC) 
-of the CLAS detector~\cite{2008erhm.conf..421N}.  In Fig.~\ref{fig:ecal-module} a schematic view of the module 
-assembly is shown. Lead-tungstate crystals are $160$ mm long and are tapered with front face of 
-$13.3\times13.3$~mm$^2$, tapered to $16\times16$~mm$^2$ at the rear face. The crystals were fabricated with 
-very tight tolerances: $19~\mu$m for 13.3~mm dimension and $13~\mu$m for the 16~mm dimension. Each crystal 
-is wrapped in VM2000 multilayer polymer mirror film.
-The APDs (Hamamatsu S8664-55) with $5\times5$~mm$^2$ active area and $75\%$ quantum efficiency were 
-glued on the rear face of the crystals using MeltMount 1.7 thermal plastic adhesive. The low gain of APDs ($\sim 
-200$) was compensated with custom made preamplifier boards, which provide factor 2000 amplification of the 
-ADP signal. 
+The HPS test run ECal uses PbWO$_{4}$ crystals, APDs, and preamplifier boards from the inner calorimeter (IC) of the CLAS detector\cite{2008erhm.conf..421N}.  In Figure~\ref{fig:ecal-module} a schematic view of the module assembly is shown. Lead-tungstate crystals are $160$ mm long and are tapered with front face of $13.3\times13.3$~mm$^2$, tapered to $16\times16$~mm$^2$ at the rear face. The crystals were fabricated with very tight tolerances: $19~\mu$m for 13.3~mm dimension and $13~\mu$m for the 16~mm dimension. Each crystal is wrapped in VM2000 multilayer polymer mirror film.
+The APDs (Hamamatsu S8664-55) with $5\times5$~mm$^2$ active area and $75\%$ quantum efficiency were glued on the rear face of the crystals using MeltMount 1.7 thermal plastic adhesive. The low gain of APDs ($\sim 200$) was compensated with custom made preamplifier boards, which provide factor 2000 amplification of the ADP signal. 
+
 \begin{figure}[]
 \begin{center}
 {\small
@@ -749,30 +723,17 @@ ADP signal.
 
 \subsection{Layout}
 
-Like the tracker, the electromagnetic calorimeter is split into two parts, beam-up and beam-down, to avoid 
-impinging on the “dead zone”. The two parts of the Ecal are separated by a vacuum chamber, see 
-Fig.~\ref{fig:ecal}. The beam and radiative secondaries pass between the two parts in vacuum, to avoid 
-generating unnecessary backgrounds. The crystal modules in each part are arranged in rectangular formation, as 
-shown in top panel of Fig.~\ref{fig:ecal}. There are 5 layers in each formation. Each layer has $46$ crystals except 
-for the layers closest to the beam 
+Like the tracker, the electromagnetic calorimeter is split into two parts, beam-up and beam-down, to avoid impinging on the “dead zone”. The two parts of the Ecal are separated by a vacuum chamber, see Fig.~\ref{fig:ecal}. The beam and radiative secondaries pass between the two parts in vacuum, to avoid generating unnecessary backgrounds. The crystal modules in each part are arranged in rectangular formation, as shown in top panel of Fig.~\ref{fig:ecal}. There are 5 layers in each formation. Each layer has $46$ crystals except for the layers closest to the beam 
 plane where 9 modules were removed to allow a larger opening for the outgoing electron and photon beams. 
-In order to have stable light yield from crystals, and stable operation of APDs and preamplifiers, the module 
-assembly of each ECal part was enclosed inside a temperature controlled box. 
+In order to have stable light yield from crystals, and stable operation of APDs and preamplifiers, the module assembly of each ECal part was enclosed inside a temperature controlled box. 
 
-Inside the box PbWO$_{4}$ crystals were supported by aluminum frames stacked on top of each other.  The bias 
-voltage for APDs ($\sim 400$ V), the low voltage for preamplifiers ($\pm 5$ V), and the signals from APDs were 
-transmitted in and out of the enclosure through a backplane called motherboard. The $221$ modules in each part 
-of the ECal were divided into two low voltage groups and 12 bias voltage groups. Modules in bias voltage groups 
-were selected to have gain uniformity of $\sim 20\%$.  
+Inside the box PbWO$_{4}$ crystals were supported by aluminum frames stacked on top of each other.  The bias voltage for APDs ($\sim 400$ V), the low voltage for preamplifiers ($\pm 5$ V), and the signals from APDs were transmitted in and out of the enclosure through a backplane called motherboard. The $221$ modules in each part of the ECal were divided into two low voltage groups and 12 bias voltage groups. Modules in bias voltage groups were selected to have gain uniformity of $\sim 20\%$.  
 
-During the test run ECal was mounted downstream of the analyzing dipole magnet at the distance of about 
-$147$~cm from the 
+During the test run ECal was mounted downstream of the analyzing dipole magnet at the distance of about $147$~cm from the 
 upstream edge of the magnet. 
 %The two ECal modules are positioned just above and below the ECal vacuum chamber as shown in bottom panel of Fig.~\ref{fig:ecal}. 
 %The primary electron beam, scattered electrons and bremsstrahlung photons pass through the system in vacuum. 
-The gap between innermost edge of the crystals of two parts was just $7.4$~cm from the beam. The temperature 
-stability of the system during the test run was better than $1^\circ~$F, the temperature uniformity inside the box 
-was better than $3^\circ~$C. 
+The gap between innermost edge of the crystals of two parts was $7.4$~cm, centered on the beam plane. The temperature stability of the system during the test run was better than $1^\circ~$F, the temperature uniformity inside the box was better than  $4^\circ~$F. 
 
 \begin{center}
 {\small
@@ -792,37 +753,33 @@ was better than $3^\circ~$C.
 %StepAvalanche Photodiodes (APD) S8664-55 produced by Hamamatsu Corp. are used as photodetectors. They have a $5\times5$~mm$^2$ active area and quantum efficiency of about 75\%. Single APDs were centered on the back ends of the crystals using MeltMount 1.7 thermal plastic adhesive. The low? amplitude signals of APDs are amplified using custom?made preamplifier boards. 
 %The gain uniformity of the APDs is on the order of XXXX\%; with APD high voltage bias varying by as much as 100V. Since only a limited number of high voltage channels were available during the test, 10 channels were grouped together with an attempt to group modules with similar gains. 
 
-
 \subsection{Signal readout}
 \label{sec:fadc}
-Amplified APD signal from the motherboard is sent to a $2:1$ signal splitter. After the split, 2/3 of the signal is sent 
-a discriminator then to a Time-to-Digital Converter. The 1/3 of the signal is fed to a single channel of 16-channel 
-JLab Flash Amplitude-to-Digital Converter VXS module (FADC250)~\cite{fadc} shown in Fig.\ref{fig:fadc}.  
+
+ECal signal readout was organized as follows: the amplified APD signal from the motherboard is sent to a $2:1$ signal splitter. After the split, 2/3 of the signal is sent a discriminator then to a Time-to-Digital 
+Converter (TDC). The 1/3 of the signal is fed to a single channel of 16-channel JLAB Flash Amplitude-to-Digital Converter (FADC250), see Fig.\ref{fig:fadc} \cite{fadc}.  
 \begin{figure}[t]
 \begin{center}
 {\small
 \includegraphics[width=7cm]{figures/FADC250_Photo_001.jpg}
-\caption{A JLab FADC250 VXS module.}
+\caption{A Jefferson Lab FADC250 VXS module.}
 \label{fig:fadc}
 }
 \end{center}
 \end{figure}
-Two 20-slot VXS crates with 14 FADC bards were needed to accommodate the system: one for each half of the 
-ECal with 221 channels. 
+Two 20-slot VXS crates with 14 (for top ECal) and 13 (for bottom ECal) FADC bards were employed for the test run. 
 
-The FADCs store 12-bit digitized samples at 250~MSPS in 8~$\mu$s deep pipelines. 
-When a trigger is received, the appropriate part of the pipeline is accessed for the readout. HPS used FADCs in 
-the co-called integration mode. A predefined number of samples of the signal that exceeds a predefined threshold 
-have been summed and stored in 17-bit register for readout. The number of samples for integration was defined 
-by two parameters that could be set separately, the number of samples integrated before the signal crossed 
-threshold ($NSB$) and  the number of samples integrated after the signal crossed threshold ($NSA$), 
-see Fig.~\ref{fig:hps_trigger_data}. 
+The FADCs store 12-bit digitized samples at 250~MHz in 8~$\mu$s deep pipelines. 
+When a trigger is received, the appropriate part of the pipeline is accessed for the readout. HPS used FADCs in the integration mode. A predefined number of samples of the signal that exceeds a predefined threshold have been summed and stored in 17-bit register for readout. The number of samples for integration was defined by two parameters that could be set separately, the number of samples integrated before the signal crossed threshold ($NSB$) and  the number of samples integrated after the signal crossed threshold ($NSA$), see Fig.\ref{fig:hps_trigger_data}. 
 This scheme significantly compresses the data input 
 to the FADC. During data analysis, a pedestal value is subtracted to obtain the actual summed energy.
+
+For various reasons only 385 out of 442 modules (87\%) were operational during the test run. The readout threshold was set to $70$ MeV, the number of samples before and after the threshold crossing were NSB=5 and NSA=30, respectively. 
+
 \begin{figure}[]
 \begin{center}
 {\small
-\includegraphics[width=7cm]{figures/hps_trigger_data}
+\includegraphics[width=8cm]{figures/fadc_datapath_diagram.png}
 \caption{\small{FADC data paths}}
 \label{fig:hps_trigger_data}
 }
@@ -848,21 +805,15 @@ The HPS test run trigger system is designed to efficiently select \ee{} events b
 using information from the ECal . The trigger looks for time coincidences of clusters in the top and bottom half 
 of the ECal.  The trigger system can be broken down into three sections (see Fig.~\ref{fig:hps_trigger_cal}):
  \begin{itemize}
- \item FADC (pulse finding): samples and digitizes the signal pulses from each detector channel. Sends the 
- measured pulse energy and arrival time to the Crate Trigger Processor (CTP),
-\item CTP (cluster finding): groups FADC pulses from each half of the ECal into clusters. The cluster energy and 
-arrival time are sent to the Sub-System Processor (SSP),
- \item SSP (cluster pair finding): searches for time coincidence of pairs of clusters from the top and bottom half of 
- the ECal and applies topological selections.
+ \item FADC (pulse finding): samples and digitizes the signal pulses from each detector channel. Sends the measured pulse energy and arrival time to the Crate Trigger Processor (CTP),
+\item CTP (cluster finding): groups FADC pulses from each half of the ECal into clusters. The cluster energy and arrival time are sent to the Sub-System Processor (SSP),
+ \item SSP (cluster pair finding): searches for time coincidence of pairs of clusters from the top and bottom half of the ECal and applies topological selections.
  \end{itemize}
  \begin{figure}[t]
 \begin{center}
 {\small
- \includegraphics[width=7cm]{figures/hps_trigger_cal}
-\caption{Block diagram of the ECAL trigger system consisting of the FADC that samples and digitizes the detector 
-	channel signals and sends them for cluster finding in the CTP. The CTP clusters are sent to the SSP where 
-	the final trigger decision is taken based on pairs of clusters in both halves of the ECal. The decision is sent to
-	the Trigger Supervisor (TS) that generates the necessary signals to readout the sub-detectors.}
+ \includegraphics[width=8cm]{figures/hps_trigger_cal}
+\caption{Block diagram of the ECAL trigger system consisting of the FADC that samples and digitizes signals for each detector channel and sends them for cluster finding in the CTP. The CTP clusters are sent to the SSP where the final trigger decision is taken based on pairs of clusters in both halves of the ECal. The decision is sent to the Trigger Supervisor (TS) that generates the necessary signals to readout the sub-detectors.}
  \label{fig:hps_trigger_cal}
 }
 \end{center}
@@ -871,19 +822,19 @@ The time coincidence window of pairs of clusters in the top and bottom half of t
 with 4~ns resolution. 
 
 As described above, the first stage of the trigger logic is incorporated into the 
-FPGA's on the FADC boards. For the trigger path, every channel has, in addition to $NSB$ and $NSA$: 
+FPGA's on the FADC boards. The trigger  
+integrates using a "time-over-threshold" window, see Fig. \ref{fig:hps_trigger_data}.
+For the trigger path, every channel has: 
 \begin{itemize}
 % \item number of samples integrated before the threshold crossing (NSB),
  %\item number of samples integrated after the  threshold crossing (NSA),
  \item trigger threshold, measured in ADC counts, 
- \item a pedestal, 
- \item a conversion factor (gain) that converts the ADC counts to energy in MeV (with 13 bits:  from 0 to 8191~MeV), 
+ \item an offset, 
+ \item a conversion factor that converts the ADC counts into 5-bits energy in MeV, from $50$ to $\sim1500$~MeV, 
  \item an energy discriminator threshold (minimum energy cutoff).
  \end{itemize}
 Note that the threshold for the trigger path can be set independently from the readout threshold.
-The pedestal value is subtracted from the integrated sum over $NSB+NSA$ samples and 
-converted to MeV units using a supplied gain conversion factor. The energy discriminator can be used to cut 
-off low energy pulses before reporting to CTP. 
+The offset is subtracted from ADC samples before they are integrated.  
 The values reported to the CTP are the 5-bit pulse energy and 3-bit time information at which the 
 pulse crossed the threshold. Data for every channel is sent to CTP every 32~ns. With the available 
 3-bit time information, the CTP looks for time coincidence of crystal signals with 8~ns resolution (limit is 4~ns).
@@ -903,8 +854,7 @@ electronics. As described above, the CTP only selects the 3x3 window with the hi
 neighbors. This filtering is applied to deal with overlapping clusters and cases where the cluster is larger than 
 a 3x3 window.
 
-The final trigger decision is made by CTPs and SSP passed to the Trigger Supervisor (TS). The TS generates all 
-necessary signals and controls the entire DAQ 
+ The final trigger decision is made by CTPs and SSP passed to the Trigger Supervisor (TS). The TS generates all necessary signals and controls the entire DAQ 
 system readout through the Trigger Interface (TI) units. The TI units are installed in every crate that participate 
 in the readout process. 
 
@@ -913,21 +863,20 @@ time at occupancies expected by HPS. The Trigger Supervisor can apply dead time 
 on a `busy' or `full' condition from front-end electronics. The system is designed to handle trigger rates above 
 50~kHz and a latency set to $\approx 3~\mu$s to match that required by the SVT APV25 chip. 
 
-During the test run, for the most part trigger system run in single cluster mode and was tested to work for up to 
-20~kHz trigger rates. 
+During the test run, for the most part trigger system run in single cluster mode and was tested to work for up to 20 kHz trigger rates. 
 
 \subsection{Data Acquisition and Online Computing}
 \label{sec:daq}
 For the ECal, every VXS crate contains a Readout Controller (ROC)
 that collects digitized information, processes it, and sends it on to the Event Builder (EB). The ROC is a single 
-blade Intel-based CPU module running DAQ software under CentOS Linux OS. For the SVT DAQ system, 
-the ROC application runs on a dedicated DAQ desktop computer. The EB assembles 
-information from the SVT and Cal ROCs into a single event which is passed to the Event 
-Recorder (ER) that writes it to a RAID5-based data storage system capable of handling up to 100~MB/s. The 
+blade Intel-based CPU module running DAQ software under CentOS Linux OS. For the SVT ATCA system, 
+the ROC application runs on an embedded processor situated on the ATCA main board. The EB assembles 
+information from the SVT and ECal ROCs into a single event which is passed to the Event 
+Recorder (ER) that writes it to a RAID5-based data storage system capable of handling up to 100 MB/s. The 
 EB and other critical components run on multicore Intel-based multi-CPU servers. The DAQ network system is 
 a Foundry router providing high-speed connections between the DAQ components and to the JLab 
-computing facility. The SVT ROC, which must handle large data volumes, has a 10~Gb/s link to the Foundry 
-router, while a 1~Gb/s link is adequate for the ECal. A 10~Gb/s uplink to the JLab 
+computing facility. The SVT ROC, which must handle large data volumes, has a 10 Gbit/s link to the Foundry 
+router, while a 1 Gbit/s link is adequate for the ECal. A 10 Gbit/s uplink to the JLab 
 computing facility is used for long-term storage.
 
 The SVT DAQ is described in more details in Sec.~\ref{sec:svt_daq}.
@@ -1095,34 +1044,16 @@ that determine the sensitivity are limited by multiple scattering.
 \subsection{ECal and Trigger Performance}
 \label{sec:ecal_calibration}
 
-%\subsubsection{ECal Calibration and Performance}
 
-Only 385 out of 442 modules (87\%) were operational during the test run.  Of 442 modules, 39 were disabled or 
-disconnected and were not read out by the DAQ. 
-13 of these were not read out because of a shortage of FADC readout boards.
-The remainder either had no HV bias on the APD, or were disabled in the FADC software due to noise.
-In the data, we identified two types of abnormal channels. 
-One FADC was not sending trigger signals correctly, resulting in low efficiency.
- This affected the 13 channels read out by that FADC. 5 channels were diagnosed as noisy because they 
- had a high incidence of hits out of coincidence with the trigger. A large number of channels were originally 
- misidentified as noisy because they had much higher hit occupancy than neighboring channels.
-Gain calibration shows that these channels have high gain (and thus lower energy threshold) but are otherwise 
-normal. The abnormal channels were ignored in analysis in order to simplify comparison with Monte Carlo. This 
-leaves 385 useful channels---87\% of the ECal.
 
-The noise level of the ECal modules were measured to be approximately 15~MeV. The ECal was operated 
-with an effective readout threshold of 70~MeV. Modules above thresholds are clustered using a simple robust 
-algorithm described in Sec.~\ref{sec:trigger}.
+%step Of 442 modules, 39 were disabled or disconnected and were not read out by the DAQ. 13 of these were not read out because of a shortage of FADC readout boards (see Sec.~\ref{sec:fadc}).The remainder either had no HV bias on the APD, or were disabled in the FADC software due to noise. In the data, we identified two types of abnormal channels. One FADC was not sending trigger signals correctly, resulting in low efficiency. This affected the 13 channels read out by that FADC. 5 channels were diagnosed as noisy because they  had a high incidence of hits out of coincidence with the trigger. A large number of channels were originally misidentified as noisy because they had much higher hit occupancy than neighboring channels. Gain calibration shows that these channels have high gain (and thus lower energy threshold) but are otherwise normal. The abnormal channels were ignored in analysis in order to simplify comparison with Monte Carlo. This leaves 385 useful channels---87\% of the ECal.
 
-%\subsubsection{Calibration}
-%\label{sec:ecal_calibration}
-The noise and pedestal of the readout chain are calibrated by running the ECal readout in a mode where the 
-preamplifier output is sampled every 4~ns in a time window of 100 samples: by looking at a part of the 
-window before the hit,  the readout channel pedestal can be obtained. 
-We calibrate gain of the individual ECal channels using the SVT measurement of track momentum and 
-comparison to Monte Carlo simulation.  We disable all SVT and ECal channels in the simulation that were 
-inoperable or noisy in the test run, so any efficiency or bias effects that affect the real data should be reflected 
-in the simulation as well; then we use a formula to compute the ``weighted E/p'' for a crystal, representing the average E/p for clusters that include the crystal
+The gain of the individual ECal channels has been calibrated using the SVT measurement of track momentum and comparison to Monte Carlo simulation. The integrated pulse of the each channel was converted to energy by first subtracting the pedestal then applying a gain or conversion factor to convert ADC counts to energy in MeV. The pedestals have been measured using special runs where FADCs sampled APD signals every 4~ns and for each trigger a time window of 100 samples have been recorded. Pedestal levels were determined by looking at a part of the 
+window before the actual hit. Modules above a threshold are clustered using a simple algorithm described in Sec.~\ref{sec:trigger}. The ECal was operated 
+with an effective readout threshold of 73~MeV. The noise level of the ECal modules were measured to be approximately 15~MeV. 
+
+To compare data and simulation, all inoperable or noisy channels in SVT and ECal have been disabled in the simulation, so any efficiency or bias effects that affect the real data should be reflected 
+in the simulation as well. Using a formula to compute the ``weighted E/p'' for a crystal, representing the average E/p for clusters that include the crystal
 % $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$
 , and iteratively adjust the gains until the weighted E/p is equal for test run data and simulation.
 \begin{figure}[]
@@ -1134,15 +1065,16 @@ in the simulation as well; then we use a formula to compute the ``weighted E/p''
 }
 \end{center}
 \end{figure}
+
 These gains can then be used to convert from ADC counts in a channel to the energy deposited into that ECal 
 crystal.
 The other information needed to find the energy of an incident particle is the sampling fraction---the ratio of 
-energy read out from crystals to energy of an incident particle. The conventional sampling fraction, 
-the fraction of incident energy that is deposited in crystals, is approximately 0.9  for the center of the ECal and less 
-at the 
-edges. For our readout, there is additional energy lost because crystals under the readout threshold are not 
+energy read out from cluster to energy of an incident particle. The conventional sampling fraction, 
+the fraction of incident energy that is deposited in the cluster, is approximately 0.9  for the ECal (somewhat less at the 
+edges). For our readout, there is additional energy lost because crystals under the threshold are not 
 read out. The weighted E/p used in calibration (see Figure \ref{fig:gains}) is an approximate measurement of sampling fraction, but the sampling fraction is energy-dependent because of the effect of readout threshold. 
 A full computation of sampling fraction can be done using simulation.
+
 
 
 
@@ -1166,6 +1098,7 @@ probe cluster in the ECal half under test.
 We then measure trigger efficiency (proportion of tagged events where there was a trigger) as a function of 
 ADC counts and energy of the probe cluster.
 These turn-on curves are shown for the top half of the ECal in Fig.~\ref{fig:turnon}. 
+
 \begin{figure}[ht]
 \begin{center}
 {\small
@@ -1187,6 +1120,7 @@ means that the effective threshold is higher for clusters that span multiple cry
 Overall the trigger appears to have functioned exactly as intended. Changes planned for the next run 
 (constant integration window and per-crystal gain calibration constants for the trigger) will solve both of the 
 issues that led to threshold variations in the test run.
+
 
 
 
