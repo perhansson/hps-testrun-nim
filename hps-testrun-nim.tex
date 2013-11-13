@@ -365,15 +365,14 @@ These measurements were repeated with the reverse field setting of the PS dipole
 \section{Silicon Vertex Tracker}
 \label{svt}
 
-The principle purpose of the HPS Test Silicon Vertex Tracker (SVT) is the efficient detection of 
-charged particles and reconstruction of their momentum and angles. The precise measurements 
-forms the primary input to the extraction of a signal from \Aprime{} decays; both from the precise 
-measurement of the invariant mass of its \ee{} decay products and the position of its decay vertex 
-downstream of the target. Track reconstruction is also important for energy scale calibration of the 
-electromagnetic calorimeter due to the better momentum resolution of tracks compared to clusters 
-in the calorimeter.
+The Silicon Vertex Tracker (SVT) enables efficient reconstruction of charged particles and precision 
+determination of their trajectories. These measurements allow \Aprime{} decays to be distinguished from background 
+via simultaneous estimation of the invariant mass of \ee{} decay products and the position of decay vertexes 
+downstream of the target. 
 
-\subsection{SVT Requirements and Constraints}
+%Track reconstruction is also important for energy scale calibration of the electromagnetic calorimeter due to the better momentum resolution of tracks compared to clusters in the calorimeter.
+
+%\subsection{SVT Requirements and Constraints}
 %The primary goal was to demonstrate that the technology and design approach 
 %chosen for the SVT was sound for running in the challenging environment at JLab. 
 %Nevertheless, a secondary but 
@@ -382,8 +381,6 @@ in the calorimeter.
 %HPS Test apparatus would be subject to almost the same constraints and requirements as the full 
 %experiment except for certain aspects regarding longevity and robustness subject to cost, beam time 
 %and construction and design time constraints for the Test run. 
-
-
 
 The design of the SVT presents a number of significant challenges.  First, the A$^\prime$ decay products 
 have momenta in the range of 1 GeV, so multiple scattering dominates mass and vertexing errors for any 
@@ -402,7 +399,8 @@ of the target. At that distance, it is found that the active region of a sensor 
 from the center of the beam, defining a 15 mrad ``dead zone" in the detector around the plane of the 
 primary beam. At the edge of this ``dead zone," the radiation dose approaches $10^{15}$ electrons/cm
 $^2$/month, or roughly $3 \times 10^{14}$~\fluenceunit{}/month~\cite{Rashevskaya:2002nd}, as shown in 
-Fig.~\ref{fig:radiation} and~\ref{fig:rates}.
+Fig.~\ref{fig:radiation}.
+% and~\ref{fig:rates}.
 %===================
 \begin{figure}[]
 \includegraphics[width=7cm]{figures/radiation}
@@ -411,12 +409,12 @@ Fig.~\ref{fig:radiation} and~\ref{fig:rates}.
 \end{figure}
 %===================
 %===================
-\begin{figure}[]
-\includegraphics[width=7cm]{figures/rates}
-\label{fig:rates}
-\caption{\small Simulation of the occupancy in the SVT 10~cm downstream of the target as a function of the 
-vertical distance from the beam center.}
-\end{figure}
+%\begin{figure}[]
+%\includegraphics[width=7cm]{figures/rates}
+%\label{fig:rates}
+%\caption{\small Simulation of the occupancy in the SVT 10~cm downstream of the target as a function of the 
+%vertical distance from the beam center.}
+%\end{figure}
 %=================== 
 This requires the sensors to be actively cooled. Meanwhile, very low-energy delta rays from beam gas interactions multiply the density of background hits, so the SVT must operate inside the beam vacuum.  Finally, in order to protect the sensors, the detector must be movable so that it can be retracted during periods of uncertain beam conditions.  
 %To summarize the SVT must:
@@ -435,32 +433,24 @@ This requires the sensors to be actively cooled. Meanwhile, very low-energy delt
 %\end{itemize}
 
 
-\subsection{SVT Layout}
+\subsection{Layout}
 
 A realistic \geant{}~\cite{Agostinelli2003250} simulation of the detector based on the {\sc SLIC} simulation 
-package~\cite{Graf:2011zzc}
-including all backgrounds has been used to optimize the layout for acceptance, tracking efficiency, mass 
+package~\cite{Graf:2011zzc}, including all backgrounds, has been used to optimize the layout for acceptance, tracking efficiency, mass 
 resolution and prompt vertex rejection. The layout of the SVT is summarized in Tab.~\ref{tab:trk} and rendered in Fig.~\ref{fig:tracker_model}. 
-
-The vertex resolution with an asymmetric beam spot of $\approx200\times40~\mu$m requires hit 
-resolutions better than XXXX (XXXX)~$\mu$m in the vertical (horizontal) measurement coordinate. 
-In addition, the vacuum chamber is too small vertically to accommodate 90-degree stereo layers to optimize 
-the vertex resolution in the horizontal coordinate. Instead, 100~mrad stereo is used in the first three layers 
-to provide higher-resolution 3D space points for vertexing. The 50~mrad stereo of the last two layers 
-breaks the tracking degeneracy of having five identical layers and minimizes fakes from ghost hits, 
-improving pattern recognition while still providing sufficient pointing resolution into the third layer
- for robust hit 
-association in the denser environment there. Altogether, this layout comprises 20 sensors and hybrids and 
-100 APV25 chips for a total of 12780 readout channels. 
+%Vertex resolution with an asymmetric beam spot of $\approx200\times40~\mu$m requires hit resolutions better than XXXX (XXXX)~$\mu$m in the vertical (horizontal) measurement coordinate. 
+%In addition, the vacuum chamber is too small vertically to accommodate 90-degree stereo layers to optimize the vertex resolution in the horizontal coordinate. Instead, 
+100~mrad stereo is used in the first three layers to provide higher-resolution 3D space points for vertexing. 50~mrad stereo in the last two layers breaks the tracking degeneracy of having five identical layers and minimizes fakes from ghost hits, 
+improving pattern recognition while still providing sufficient pointing resolution into the third layer for robust hit association in the denser environment there. Altogether, this layout comprises 20 sensors and hybrids and 100 APV25 chips for a total of 12780 readout channels. 
 %=======================
 \begin{center}
 \begin{table}[ht]
-{\small
+{\footnotesize
 \begin{tabular}{lccccc}   
 \hline \hline 
     Layer & 1 & 2 & 3 & 4 & 5 \\      
 \hline
-    $z$ from nom. target (cm)  & 10 & 20 & 30 & 50 & 70  \\ 
+    $z$ from target (cm)  & 10 & 20 & 30 & 50 & 70  \\ 
     Stereo angle (mrad)  & 100 & 100 & 100 & 50 & 50 \\ 
     Bend res. ($\mu$m)  & $\approx$60 & $\approx$60 & $\approx$60 & $\approx$120 & $\approx$120  \\ 
     Non-bend res. ($\mu$m)  & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6  \\ 
@@ -469,9 +459,10 @@ association in the denser environment there. Altogether, this layout comprises 2
     Power cons. (W) & 6.9 & 6.9 & 6.9 & 6.9 & 6.9 \\
 \hline \hline
 \end{tabular}
-\caption{\small Layout of the HPS Test SVT.. }
+\caption{\small Layout of the HPS Test SVT.}
 }
-\label{tab:trk} 
+\label{tab:trk}
+\vspace*{-15mm}
 \end{table}
 \end{center}
 %=======================
@@ -482,7 +473,7 @@ association in the denser environment there. Altogether, this layout comprises 2
 hinged C-support on the left and the motion levers on the right. The sensors are shown in red and the hybrid 
 readout boards in green. The beam enters from the right through a vacuum box with flanges for services. }
 \label{fig:tracker_model}
-\vspace*{-5mm}
+%\vspace*{-5mm}
 \end{figure}
 \end{center}
 %=======================
@@ -508,11 +499,9 @@ integrated cable runs are clearly seen.} }
 \end{figure}
 %=======================
 
+\subsection{Components}
 
-
-\subsection{SVT Components}
-
-\subsubsection{Silicon Sensors}
+%\subsubsection{Silicon Sensors}
 The sensors for the SVT are selected according to a number of requirements.  First, the sensors must be 
 radiation tolerant to approximately $1.5\times10^{14}$~\fluenceunit{} for a six month run.  This 
 corresponds to about 4~MHz/mm$^2$, so the sensor and readout technology must be capable of handling 
@@ -528,11 +517,11 @@ over their $4\times10$~cm$^2$ surface. Although a maximum bias of 350~V is speci
 operable to 1000~V and therefore remain fully depleted to a dose of approximately 
 $1.5\times10^{14}$~\fluenceunit{}.
 
-\subsubsection{Front-end Electronics}
+%\subsubsection{Front-end Electronics}
 Because the regions of high occupancy are small spots in two dimensions, only a short length of any one 
 strip see a significant occupancy, and the strips in that region act as long pixels. However, the rates are still 
 very high and lowering the peak occupancy in the sensors to approximately 1\% for tracking requires a 
-trigger window and tagging of hit times to roughly 8~ns, as shown in Fig.~\ref{fig:rates}.  The FADC 
+trigger window and tagging of hit times to roughly 8~ns.  The FADC 
 readout for the ECal and muon system are capable of this (see Sec.~\ref{sec:fadc}), but achieving 
 $2\sigma$ efficiency for 
 silicon hits then requires 2~ns time resolution for the hits in the SVT. This performance can be achieved with 
@@ -548,7 +537,7 @@ outside the tracking volume.  Along with the sensors, these are assembled into h
 tracking view, with a short cable pigtail to provide power and configuration to the modules and signal 
 readout. 
 
-\subsubsection{Support Structure and Cooling}
+%\subsubsection{Support Structure and Cooling}
 
 The sensor modules for the SVT consist of a pair of identical half-modules, sandwiched back-to-back around 
 an aluminum cooling block at one end and a similar PEEK spacer block at the other. 
@@ -587,13 +576,14 @@ for a total material budget of 0.7\% per layer.
 
 
 
-\subsection{SVT Digitization, Event Building and Data Transmission}
+\subsection{Digitization, Event Building and Data Transmission}
 \label{sec:svt_daq}
 The SVT data acquisition (DAQ) based on the Reconfigurable Cluster Element (RCE) and Cluster 
 Interconnect (CI) concept developed at SLAC as generic building blocks for DAQ systems in high energy 
-physics . The RCE is a generic computational building block, housed on a separate daughter card 
-called Data Processing Module (DPM), that are realized on an ATCA front board called the Cluster On 
-Board (COB), see Fig.~\ref{fig:cob}.
+physics {\bf [need reference]}. 
+The RCE is a generic computational building block, housed on a separate daughter card called 
+Data Processing Module (DPM), that are realized on an ATCA front board called the Cluster On Board (COB), 
+see Fig.~\ref{fig:cob}.
  \begin{figure}[]
 \begin{center}
 {\small
@@ -604,9 +594,7 @@ Board (COB), see Fig.~\ref{fig:cob}.
 \end{center}
 \end{figure}
 The Gen-I RCE used in the Test run consisted of a Virtex~5 FPGA with 1~GB of DDR3 RAM. 
-The outputs of 12 SVT half-modules 
-are digitized on the Rear-Transition-Module (RTM), a custom board on the back side of the ATCA crate, 
-interfacing the HPS readout to the generic DAQ components on the COB. 
+The outputs of 12 SVT half-modules are digitized on the Rear-Transition-Module (RTM), a custom board on the back side of the ATCA crate, interfacing the HPS readout to the generic DAQ components on the COB. 
 A pre-amplifier converts the APV25 differential current output to a different voltage output scaled to the sensitive 
 range of a 14-bit ADC operating at the system clock of 41.667~MHz. 
 The RTM is organized into four sections with each section supporting three SVT half-module hybrids (15 
@@ -633,27 +621,31 @@ expected and observed during the HPS Test run.
 
 \subsection{Production, Assembly and Shipping}
 
-Hybrid readout boards and half-modules were assembled at SLAC.  Mounting APV25 chips and all 
-wirebonding and QA testing were performed at University of California, Santa Cruz. Of the sensors tested 
-during production, 90\% were capable of 1000~V bias voltage without breakdown. 
-Hybrids underwent quick QA testing and each half-module was run at low 
-temperature ($\approx5^{\circ}$ C) and fully characterized for pedestals, gains, noise and time response 
-after assembly.  All 29 production modules were assembled between mid-February and the end of March, 
-2012.  Module yields were excellent for such a small production.  Of 165 APV chips acquired, 150 were 
-used to assemble 30 production hybrids, of which 29 passed QA testing.  Of 29 half-modules built, 28 passed 
+%Hybrid readout boards and half-modules were assembled at SLAC.  Mounting APV25 chips and all wirebonding and QA testing were performed at University of California, Santa Cruz. 
+
+Of the sensors tested during production, 90\% were capable of 1000~V bias voltage without breakdown. 
+Hybrids underwent quick QA testing and each half-module was run at low temperature ($\approx5^{\circ}$ C) and 
+fully characterized for pedestals, gains, noise and time response after assembly.  
+%All 29 production modules were assembled between mid-February and the end of March, 2012.  Module yields were excellent for such a small production.  Of 165 APV chips acquired, 150 were used to assemble 30 production hybrids, of which 29 passed QA testing.  
+Of 29 half-modules built, 28 passed 
 QA testing, leaving 8 spare modules after completion of the SVT.  Full-module assembly and 
-mechanical surveys were performed at SLAC in early April 2012 before final assembly, testing and 
-shipping of the SVT to JLab on April 11.  A custom shipping container, based on experience 
-from FNAL~\cite{shipping}, was built in order to safely send the partly assembled SVT to JLab. The two fully 
-assembled SVT halves were attached to a baseplate supported by four wire-rope isolators. This plate, 
-covered by a lexan cover for cleanliness, was mounted inside an inner box surrounded by 4 inches of 
-Polyurethane foam to complete the two-spring construction. At JLab, the entire SVT was integrated with the full 
-DAQ and the power supplies for the first time in the clean room, before moving the module-loaded support 
-plates to Hall~B for final mechanical assembly and installation inside of the vacuum chamber on April 19, 2012.   
+mechanical surveys were performed at SLAC
+% in early April 2012 
+before final assembly, testing and shipping of the SVT to JLab
+% on April 11.  
+A custom shipping container with nested crates and redundant isolation for shock and vibration 
+%, based on experience from FNAL~\cite{shipping},
+was built in order to safely send the partly assembled SVT to JLab. 
+% The two fully assembled SVT halves were attached to a baseplate supported by four wire-rope isolators. This plate, covered by a lexan cover for cleanliness, was mounted inside an inner box surrounded by 4 inches of Polyurethane foam to complete the two-spring construction. 
+At JLab, the entire SVT was integrated with the full DAQ and the power supplies 
+%for the first time in the clean room, 
+before moving the module-loaded support plates to Hall~B for final mechanical assembly and installation inside of the 
+vacuum chamber.
+% on April 19, 2012.   
 
 \subsection{Alignment}
 The SVT was aligned using a combination of optical, laser and touch probe surveys at SLAC and JLab. The 
-optical survey of individual modules with precision of a few $\mu$m are combined with a touch-prove survey 
+optical survey of individual modules with precision of a few $\mu$m are combined with a touch-probe survey 
 of the overall SVT support structure, with 25-100~$\mu$m precision, to locate the silicon sensor layers with 
 respect to the support plates and the mechanical survey balls on the base plate.
 After full assembly and installation of the SVT at JLab, a mechanical survey of the SVT base plate position 
@@ -669,8 +661,6 @@ is being developed.
 
 \section{Electromagnetic Calorimeter}
 \label{sec:ecal}
-\section{Electromagnetic Calorimeter}
-\label{ecal}
 
 The electromagnetic calorimeter, installed downstream of the tracker, performs two essential functions for the experiment: provides a trigger to DAQ system and 
 is used in the analysis for electron identification. 
@@ -690,7 +680,7 @@ part of the CLAS detector for experiments in Hall-B at JLab since 2005 and meet 
 HPS. The modules from this calorimeter have been subsequently repurposed for the ECal. 
 
 
-\subsection{ECal Components}
+\subsection{Components}
 
 %Step\subsubsection{PbWO$_4$ Crystals}
 The HPS test run ECal uses PbWO$_{4}$ crystals, APDs, and preamplifier boards from the inner calorimeter (IC) of the CLAS detector\cite{2008erhm.conf..421N}.  In Figure~\ref{fig:ecal-module} a schematic view of the module assembly is shown. Lead-tungstate crystals are $160$ mm long and are tapered with front face of $13.3\times13.3$~mm$^2$, tapered to $16\times16$~mm$^2$ at the rear face. The crystals were fabricated with very tight tolerances: $19~\mu$m for 13.3~mm dimension and $13~\mu$m for the 16~mm dimension. Each crystal is wrapped in VM2000 multilayer polymer mirror film.
