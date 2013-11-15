@@ -83,7 +83,7 @@
 \newcommand{\geant}{{\sc Geant4}}
 \newcommand{\egs}{{\sc EGS5}}
 \newcommand{\moliere}{Moli\`{e}re}
-
+%\include{affiliations}
 
 \journal{Nuclear Physics B}
 
@@ -114,18 +114,28 @@
 
 \title{The Heavy Photon Search Test Detector}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% use optional labels to link authors explicitly to addresses:
 %% \author[label1,label2]{<author name>}
 %% \address[label1]{<address>}
 %% \address[label2]{<address>}
 
-\author[label1]{Per Ledin}
-\ead{contact@hps.discovery.com}
+\input{author_list_hps_PAC39_compact}
+
+
+
+%\author[label1]{Per Ledin}
+%\ead{contact@hps.discovery.com}
 %\author[slac]{Per Hansson Adrian\corref{cor1}}
 %\ead{phansson@slac.stanford.edu}
 %\author[slac]{Timothy K. Nelson}
 %\address[slac]{SLAC National Accelerator Laboratory, 94025, Menlo Park, CA, USA}
-\address[label1]{Lule\aa~Hockey}
+%\address[label1]{Lule\aa~Hockey}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \begin{abstract}
 Heavy photons, aka "hidden sector" or "dark" photons, are massive cousins to the SM photon, 
@@ -156,6 +166,7 @@ silicon microstrips \sep tracking  \sep vertexing \sep heavy photon \sep electro
 
 \end{frontmatter}
 
+\clearpage
 \tableofcontents
 \clearpage
 \newpage
@@ -771,90 +782,103 @@ The HPS Test apparatus DAQ handles the acquisition of data from two sub-detector
 SVT and the ECal, with two DAQ architectures. The SVT is readout with Advanced 
 Telecom Communications Architecture (ATCA) hardware while the ECal uses VXS based 
 hardware. The trigger system receives input from the ECal and distributes a trigger signal 
-to all detector sub- systems to read out a selected event. 
+to all detector sub-systems to read out a selected event. 
 
 \subsection{Trigger system}
 \label{sec:trigger}
 
-The HPS test run trigger system is designed to efficiently select \ee{} events by 
-using information from the ECal . The trigger looks for time coincidences of clusters in the top and bottom half 
-of the ECal.  The trigger system can be broken down into three sections (see Fig.~\ref{fig:hps_trigger_cal}):
+The HPS test run trigger system is designed to select \ee{} events efficiently by 
+using information from the ECal. The trigger looks for time coincidences of clusters in the top and bottom 
+half of the ECal. The trigger system can be broken down into three sections (see 
+Fig.~\ref{fig:hps_trigger_cal}):
  \begin{itemize}
- \item FADC (pulse finding): samples and digitizes the signal pulses from each detector channel. Sends the measured pulse energy and arrival time to the Crate Trigger Processor (CTP),
-\item CTP (cluster finding): groups FADC pulses from each half of the ECal into clusters. The cluster energy and arrival time are sent to the Sub-System Processor (SSP),
- \item SSP (cluster pair finding): searches for time coincidence of pairs of clusters from the top and bottom half of the ECal and applies topological selections.
+ \item FADC (pulse finding): samples and digitizes the signal pulses from each detector channel. 
+Sends the measured pulse energy and arrival time to the Crate Trigger Processor (CTP),
+\item CTP (cluster finding): groups FADC pulses from each half of the ECal into clusters. 
+The cluster energy and arrival time are sent to the Sub-System Processor (SSP),
+ \item SSP (cluster pair finding): searches for time coincidences of pairs of clusters from 
+the top and bottom half of the ECal and applies topological selections.
  \end{itemize}
  \begin{figure}[t]
 \begin{center}
 {\small
  \includegraphics[width=8cm]{figures/hps_trigger_cal}
-\caption{Block diagram of the ECAL trigger system consisting of the FADC that samples and digitizes signals for each detector channel and sends them for cluster finding in the CTP. The CTP clusters are sent to the SSP where the final trigger decision is taken based on pairs of clusters in both halves of the ECal. The decision is sent to the Trigger Supervisor (TS) that generates the necessary signals to readout the sub-detectors.}
+\caption{Block diagram of the ECAL trigger system consisting of the FADC that samples and digitizes 
+signals for each detector channel and sends them for cluster finding in the CTP. The CTP clusters are 
+sent to the SSP where the final trigger decision is taken based on pairs of clusters in both halves of the 
+ECal. The decision is sent to the Trigger Supervisor (TS) that generates the necessary signals to readout 
+the sub-detectors.}
  \label{fig:hps_trigger_cal}
 }
 \end{center}
  \end{figure}
-The time coincidence window of pairs of clusters in the top and bottom half of the ECal are programmable 
-with 4~ns resolution. 
+The time coincidence window of pairs of clusters in the top and bottom half of the ECal are 
+programmable with 4~ns resolution. 
 
 As described above, the first stage of the trigger logic is incorporated into the 
 FPGA's on the FADC boards. The trigger  
 integrates using a "time-over-threshold" window, see Fig. \ref{fig:hps_trigger_data}.
-For the trigger path, every channel has: 
+For triggering purposes, every channel has: 
 \begin{itemize}
 % \item number of samples integrated before the threshold crossing (NSB),
  %\item number of samples integrated after the  threshold crossing (NSA),
- \item trigger threshold, measured in ADC counts, 
+ \item a trigger threshold, measured in ADC counts, 
  \item an offset, 
- \item a conversion factor that converts the ADC counts into 5-bits energy in MeV, from $50$ to $\sim1500$~MeV, 
- \item an energy discriminator threshold (minimum energy cutoff).
+ \item a conversion factor to convert ADC counts into energy in MeV, from $50$ to $\sim1500$~MeV, with 5-bit accuracy 
+ \item an energy threshold discriminator to provide aminimum energy cutoff
  \end{itemize}
 Note that the threshold for the trigger path can be set independently from the readout threshold.
 The offset is subtracted from ADC samples before they are integrated.  
-The values reported to the CTP are the 5-bit pulse energy and 3-bit time information at which the 
-pulse crossed the threshold. Data for every channel is sent to CTP every 32~ns. With the available 
-3-bit time information, the CTP looks for time coincidence of crystal signals with 8~ns resolution (limit is 4~ns).
-The cluster finding algorithm is fast and makes use of the parallel processing nature of FPGA's by 
-simultaneously searching for 125 clusters, up to 3x3 in size, across the calorimeter crystal array and performs 
-the following tasks:
+The values reported to the CTP are the 5-bit pulse energy and the 3-bit time at which the 
+pulse crossed the threshold. Data from every channel is sent to the CTP every 32~ns. With the available 
+3-bit time information, the CTP looks for time coincidences of crystal signals within an 8~ns window (the 
+limit is 4~ns).
+The cluster finding algorithm is fast and makes use of the parallel processing capability of the FPGA's by 
+simultaneously searching for 125 clusters, up to 3x3 in size, across the calorimeter crystal array, and it 
+performs the following tasks:
 \begin{itemize}
-\item Adds energy from hits together for every 3x3 square of channels in ECal.
-\item Hits are added together if they occur (leading edge) within a programmable number of 4~ns clock cycles of each other (HPS test run used 8~ns coincidence time interval).
-\item If the 3x3 energy sum is larger than the programmable cluster energy threshold and the sum is greater than any neighboring 3x3 windows, the CTP reports the cluster parameters to the SSP. 
+\item Adds together the energy for every 3x3 square of channels in the ECal
+\item Hits are added together if their leading edges occurred within a programmable number of 4~ns 
+clock cycles  (HPS test run used 8~ns coincidence time interval).
+\item If the 3x3 energy sum is larger than the programmable cluster energy threshold and the sum is 
+greater than any neighboring 3x3 windows, the CTP reports the cluster parameters to the SSP. 
 \end{itemize}
-The CTP evaluates all hits in its half of the calorimeter every 4~ns. A programmable time window is used to 
-allow hits that are out of time with each other to be considered as part of a cluster sum. This is done by 
-reporting hits when they occur and then reporting them again for the next $N$ number of 4~ns clock cycles, 
-where $N \in [0,7]$. This is useful to deal with skew and jitter that develop from the detector, cabling, and 
-electronics. As described above, the CTP only selects the 3x3 window with the highest energy sum of its 
-neighbors. This filtering is applied to deal with overlapping clusters and cases where the cluster is larger than 
-a 3x3 window.
+The CTP evaluates all the hits in its half of the calorimeter every 4~ns. A programmable time window is 
+used to allow hits that are slightly out of time with each other to be considered as part of a cluster sum. 
+This is done by reporting hits when they occur and then reporting them again for the next $N$ number of 
+4~ns clock cycles, where $N \in [0,7]$. This is useful to deal with skew and jitter that develop from the 
+detector, cabling, and electronics. As described above, the CTP only selects the 3x3 window with the 
+highest energy sum of its neighbors. This filtering is applied to deal with overlapping clusters and cases 
+where the cluster is larger than a 3x3 window.
 
- The final trigger decision is made by CTPs and SSP passed to the Trigger Supervisor (TS). The TS generates all necessary signals and controls the entire DAQ 
-system readout through the Trigger Interface (TI) units. The TI units are installed in every crate that participate 
-in the readout process. 
+The final trigger decision is made by CTPs and the SSP is passed to the Trigger Supervisor (TS). The TS 
+generates all necessary signals and controls the entire DAQ system readout through the Trigger 
+Interface (TI) units. The TI units are installed in every crate that participate in the readout process. 
 
-The trigger system is free-running and driven by the 250~MHz global clock and has essentially zero dead 
-time at occupancies expected by HPS. The Trigger Supervisor can apply dead time if necessary, for example 
-on a `busy' or `full' condition from front-end electronics. The system is designed to handle trigger rates above 
-50~kHz and a latency set to $\approx 3~\mu$s to match that required by the SVT APV25 chip. 
+The trigger system is free-running and driven by the 250~MHz global clock and has essentially zero 
+dead time at the occupancies expected for HPS. The Trigger Supervisor can apply dead time if 
+necessary, for example on a `busy' or `full' condition from the front-end electronics. The system is 
+designed to handle trigger rates above 50~kHz and has a latency set to $\approx 3~\mu$s to match that 
+required by the SVT APV25 chip. 
 
-During the test run, for the most part trigger system run in single cluster mode and was tested to work for up to 20 kHz trigger rates. 
+During the test run, for the most part the trigger system required only a single cluster in either the top or 
+bottom Ecal module. It was tested to work up to 20 kHz trigger rates. 
 
 \subsection{Data Acquisition and Online Computing}
 \label{sec:daq}
 For the ECal, every VXS crate contains a Readout Controller (ROC)
-that collects digitized information, processes it, and sends it on to the Event Builder (EB). The ROC is a single 
-blade Intel-based CPU module running DAQ software under CentOS Linux OS. For the SVT ATCA system, 
-the ROC application runs on an embedded processor situated on the ATCA main board. The EB assembles 
-information from the SVT and ECal ROCs into a single event which is passed to the Event 
-Recorder (ER) that writes it to a RAID5-based data storage system capable of handling up to 100 MB/s. The 
-EB and other critical components run on multicore Intel-based multi-CPU servers. The DAQ network system is 
-a Foundry router providing high-speed connections between the DAQ components and to the JLab 
-computing facility. The SVT ROC, which must handle large data volumes, has a 10 Gbit/s link to the Foundry 
-router, while a 1 Gbit/s link is adequate for the ECal. A 10 Gbit/s uplink to the JLab 
-computing facility is used for long-term storage.
+that collects digitized information, processes it, and sends it on to the Event Builder (EB). The ROC is a 
+single blade Intel-based CPU module running DAQ software under CentOS Linux OS. For the SVT 
+ATCA system, the ROC application runs on an embedded processor situated on the ATCA main board. 
+The EB assembles information from the SVT and ECal ROCs into a single event which is passed to the 
+Event Recorder (ER) that writes it to a RAID5-based data storage system capable of handling up to 
+100~MB/s. The EB and other critical components run on multicore Intel-based multi-CPU servers. The 
+DAQ network system is a Foundry router providing high-speed connections between the DAQ 
+components and the JLab computing facility. The SVT ROC, which must handle large data volumes, has 
+a 10~Gbit/s link to the Foundry router, while a 1~Gbit/s link is adequate for the ECal. A 10~Gbit/s uplink 
+to the JLab computing facility is used for long-term storage.
 
-The SVT DAQ is described in more details in Sec.~\ref{sec:svt_daq}.
+The SVT DAQ is described in more detail in Sec.~\ref{sec:svt_daq}.
 
 
 
