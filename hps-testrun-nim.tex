@@ -358,7 +358,7 @@ the system.
 \label{fig:hpstest_layout}
 \end{figure}
 
-The photon beam was generated in the interaction of the $5.5$ GeV electrons with a gold radiator of 
+The photon beam was generated in the interaction of the $5.5$~GeV electrons with a gold radiator of 
 $10^{-4}~X_0$, located $\approx~9$~m upstream of the PS. The primary beam and scattered 
 electrons are deflected away from detectors by the dipole magnet of the photon tagging system. After 
 collimation (6.4~mm diameter), the photon beam passes through the aluminum PS pair converter and 
@@ -894,19 +894,16 @@ The SVT DAQ is described in more detail in Sec.~\ref{sec:svt_daq}.
 During the duration of the test run all SVT modules and APV25 chips were configured to their 
 nominal operating points~\cite{Jones:1069892} with all sensors reverse-biased at 180~V.  The 
 sensors were operated within a temperature range of  $20-24^\circ$C 
-throughout the test run. Multiple calibration runs, normalized with lab-based radioactive source tests, 
-established a noise level of $\approx$ XXXX-XXXX electrons which was stable across all the SVT modules. 
-
-Throughout the duration of the test run, approximately 97\% of the 12,780 SVT channels were found to be 
-operating normally. The fraction of dead or noisy channels varied from 2.4\% to 4.7\%.  
+throughout the test run. 
+Throughout the duration of the test run, approximately 97\% of the 12,780 SVT channels were found to
+be operating normally. The fraction of dead or noisy channels varied from 2.4\% to 4.7\%.  
 Most of these were due to misconfigured readout chips (2--4 misconfigured chips out of 100 ), 
 a known noisy half-module and a couple of known noisy readout chips. 
 
 
 \subsubsection{Cluster and Hit Reconstruction}
 
-After a trigger is received, six samples of the corresponding output of the APV25 shaper circuit are digitized. 
-The samples from every channel on a sensor surviving the 
+After a trigger is received, six samples of the corresponding output of the APV25 shaper circuit are digitized. The samples from every channel on a sensor surviving the 
 data reduction algorithm (see Sec.~\ref{sec:svt_daq}) are the basis for offline hit reconstruction. 
 The six samples of the APV25 shaper output 
 are fitted to an ideal $CR-RC$ function to extract the amplitude and the $t_0$ of the hit. 
@@ -915,8 +912,8 @@ was well timed in to the trigger with the rise of the pulse at the 3rd sampling 
 \begin{figure}[h]
 \begin{center}
 {\small
-	\includegraphics[width=6cm]{figures/08062012_run1351_samples_vs_amplitude}
-    	\caption{The six pedestal subtracted samples from individual channels associated with a hit on a 
+	\includegraphics[width=6cm]{figures/run1351_110513_samples_L1_top.pdf}
+	\caption{The six pedestal subtracted samples from individual channels associated with a hit on a 
 	track.}
 	\label{fig:pulse_shape}
 }
@@ -926,8 +923,10 @@ was well timed in to the trigger with the rise of the pulse at the 3rd sampling 
 These hits are passed through a simple clustering algorithm which forms clusters by grouping adjacent 
 strips. The position of a cluster on the sensor is determined by the amplitude-weighted mean.
 With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associated with a track follow 
-the characteristic Landau shape as expected, see Fig.~\ref{fig:cluster_pulse}. 
-The signal to noise ratio is XXXX.
+the characteristic Landau shape as expected, see Fig.~\ref{fig:cluster_pulse}.  
+A noise level between $1.1-1.5\times 10^{3}$ electrons was established through multiple calibration 
+runs giving a signal to noise ratio of $21-25$. Lab-based radioactive source tests was used to 
+provide the absolute charge normalization.
 \begin{figure}[h]
 \begin{center}
 {\small
@@ -939,32 +938,35 @@ The signal to noise ratio is XXXX.
 \end{figure}
 
 After clustering hits on a sensor, the hit time for each cluster is computed as the amplitude-weighted 
-average of the fitted $t_0$ channel times. The $t_0$-resolution is studied by comparing the cluster hit time 
-with the average of all cluster hit times on the track, the ``track time'', which has the expected jitter due to clock 
-phase and trigger, approximately 25~ns. Figure~\ref{fig:tracktime} shows the residual to the individual cluster 
+average of the fitted $t_0$ channel times. The $t_0$-resolution is studied by comparing the cluster hit 
+time with the average of all cluster hit times on the track, the ``track time'', which has the expected jitter 
+due to clock phase and trigger, approximately 25~ns. Figure~\ref{fig:tracktime} shows the residual to the individual cluster 
 times. 
 \begin{figure}[h]
 \begin{center}
 {\small
-%	\includegraphics[width=7cm]{figures/top_track_time.pdf}
-	\includegraphics[width=6cm]{figures/t0_resolution.pdf}
+	\includegraphics[width=6cm]{figures/t0_resolution_run1351_110513.pdf}
 	\caption{
-%	Track time distribution (left) and cluster time residual (right). The track time is measured relative to the APV25 clock. The width of the distribution is due to trigger jitter (24~ns jitter in the tracker readout clock, plus 16~ns jitter in the trigger system). 
-	The cluster time residual is for a representative sensor relative to the track time.}
+	The cluster time residual for a representative sensor relative to the track time (see text for more 
+	details). \color{red}{\bf Fix axis.} }
 	\label{fig:tracktime}
 }
 \end{center}
 \end{figure}
-After correcting for offsets from each sensor (time-of-flight, clock phase) the extracted $t_0$ resolution is 
-2.6~ns. This is somewhat worse than the approximately 2~ns resolution expected which we attribute to the true 
+After correcting for offsets from each sensor (time-of-flight, clock phase) and accounting for the 
+correlation between the $t_0$ and track time,  the extracted $t_0$ resolution is 2.6~ns. This is somewhat 
+worse than the approximately 2~ns resolution expected which we attribute to the true 
 pulse shape differing from our idealized fit function which will be improved in the future. Reducing the 
-APV25 pulse shaping time will also improve time resolution. These results show that we can operate with 
-the six sample readout mode of the APV25 chip and achieve time resolution adequate for pileup 
+APV25 pulse shaping time will also improve time resolution. These results show that we can operate 
+with the six sample readout mode of the APV25 chip and achieve time resolution adequate for pileup 
 rejection during electron running in the HPS experiment. 
 
 While occupancy was slightly larger than expected, good agreement between data and simulation was 
-found after taking into account dead or noisy channels. The hit efficiency, see Fig.~\ref{fig:hit_efficiency}, 
-was measured to be above 98\% and fairly uniform across the SVT.
+found after taking into account dead or noisy channels. The hit efficiency was estimated by measuring 
+the number of good tracks with a hit close to the extrapolated intersection of a given sensor that was 
+excluded from the track fit itself. Tracks which intersect regions with known bad channels or very close to 
+in the edge region are excluded in the calculation of the single hit efficiency. The hit efficiency, see 
+Fig.~\ref{fig:hit_efficiency}, was measured to be above 98\% and fairly uniform across the SVT.
 \begin{figure}[h]
 \begin{center}
 {\small
@@ -1029,11 +1031,11 @@ upstream direction from our analyzing magnet, taking into account the measured f
 \end{figure*}
 }
 \end{center}
-While the tails of the vertex distribution expected in electron beam running is not accessible here the 
-fact that the core is relatively well described provides confidence of the description of the amount of 
-material and the model used for simulating multiple scattering in the target.  
-These are crucial for benchmarking the HPS \Aprime{} physics reach since both the mass and vertex resolution 
-that determine the sensitivity are limited by multiple scattering.
+%While the tails of the vertex distribution expected in electron beam running is not accessible here the 
+%fact that the core is relatively well described provides confidence of the description of the amount of 
+%material and the model used for simulating multiple scattering in the target.  
+%These are crucial for benchmarking the HPS \Aprime{} physics reach since both the mass and vertex 
+%resolution that determine the sensitivity are limited by multiple scattering.
 
 
 
@@ -1047,78 +1049,81 @@ that determine the sensitivity are limited by multiple scattering.
 
 %step Of 442 modules, 39 were disabled or disconnected and were not read out by the DAQ. 13 of these were not read out because of a shortage of FADC readout boards (see Sec.~\ref{sec:fadc}).The remainder either had no HV bias on the APD, or were disabled in the FADC software due to noise. In the data, we identified two types of abnormal channels. One FADC was not sending trigger signals correctly, resulting in low efficiency. This affected the 13 channels read out by that FADC. 5 channels were diagnosed as noisy because they  had a high incidence of hits out of coincidence with the trigger. A large number of channels were originally misidentified as noisy because they had much higher hit occupancy than neighboring channels. Gain calibration shows that these channels have high gain (and thus lower energy threshold) but are otherwise normal. The abnormal channels were ignored in analysis in order to simplify comparison with Monte Carlo. This leaves 385 useful channels---87\% of the ECal.
 
-The gain of the individual ECal channels has been calibrated using the SVT measurement of track momentum and comparison to Monte Carlo simulation. The integrated pulse of the each channel was converted to energy by first subtracting the pedestal then applying a gain or conversion factor to convert ADC counts to energy in MeV. The pedestals have been measured using special runs where FADCs sampled APD signals every 4~ns and for each trigger a time window of 100 samples have been recorded. Pedestal levels were determined by looking at a part of the 
-window before the actual hit. Modules above a threshold are clustered using a simple algorithm described in Sec.~\ref{sec:trigger}. The ECal was operated 
-with an effective readout threshold of 73~MeV. The noise level of the ECal modules were measured to be approximately 15~MeV. 
+The integrated pulse of the each channel was converted to energy by first 
+subtracting the pedestal then applying a gain or conversion factor to convert ADC counts to energy. 
+The pedestals was measured in special runs where a 100 samples long window was recorded for each 
+trigger in which the FADCs sampled the APD signals every 4~ns.  The pedestals were extracted from the 
+part of the window before the actual hit in the calorimeter. Modules above a threshold are clustered 
+using a simple algorithm described in Sec.~\ref{sec:trigger}. The ECal was operated with an effective 
+crystal readout threshold of 73~MeV. The noise level of the ECal modules were measured to be approximately 15~MeV. 
 
-To compare data and simulation, all inoperable or noisy channels in SVT and ECal have been disabled in the simulation, so any efficiency or bias effects that affect the real data should be reflected 
-in the simulation as well. Using a formula to compute the ``weighted E/p'' for a crystal, representing the average E/p for clusters that include the crystal
-% $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$
-, and iteratively adjust the gains until the weighted E/p is equal for test run data and simulation.
+To compare data and simulation, all inoperable or noisy channels in SVT and ECal have been disabled 
+in the simulation; any efficiency or bias effects that affect the real data should be reflected 
+in the simulation. Furthermore, a gain calibration is performed to equalize the gains in the 
+simulation to those observed in data by comparing the ECal cluster energy $E$ to the momentum $p$ of 
+matched tracks in the SVT.  The ``weighted $E/p$'' for each crystal is computed, representing the 
+average $E/p$ for clusters that include the crystal
+% $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$.
+Iteratively, gains are adjusted until the weighted $E/p$ is similar in data and simulation. The $E/p$ 
+in data and simulation can be seen in Fig.~\ref{fig:gains}.
 \begin{figure}[]
 \begin{center}
 {\small
-	\includegraphics[width=7cm]{figures/eoverp_simulation}
-	\caption{Weighted E/p from Monte Carlo simulation after gain calibration.}
+	\includegraphics[width=7cm]{figures/eoverp_MC_egs_0_016x0_June5_2013_Sho_Ecal_presentation.png}
+	\includegraphics[width=7cm]{figures/eoverp_data_run1351_June5_2013_Sho_Ecal_presentation.png}
+	\caption{The ECal energy over track momentum ratio for simulation (top) and data (bottom).\color{red}{\bf (Update style.)}} 
 	\label{fig:gains}
 }
 \end{center}
 \end{figure}
-
-These gains can then be used to convert from ADC counts in a channel to the energy deposited into that ECal 
-crystal.
-The other information needed to find the energy of an incident particle is the sampling fraction---the ratio of 
-energy read out from cluster to energy of an incident particle. The conventional sampling fraction, 
-the fraction of incident energy that is deposited in the cluster, is approximately 0.9  for the ECal (somewhat less at the 
-edges). For our readout, there is additional energy lost because crystals under the threshold are not 
-read out. The weighted E/p used in calibration (see Figure \ref{fig:gains}) is an approximate measurement of sampling fraction, but the sampling fraction is energy-dependent because of the effect of readout threshold. 
-A full computation of sampling fraction can be done using simulation.
-
+These gains can then be used to convert from the ADC counts reported by the FADC in each channels 
+to the energy deposited in the crystals. In order to find the energy of the incident particle one also needs 
+to know the  the fraction of incident energy that is deposited in the cluster or "sampling fraction". 
+The sampling fraction is parameterized from simulation that show that it is approximately 0.9 for the 
+ECal. The weighted $E/p$ shown in Fig.~\ref{fig:gains} is an approximate measurement of the sampling 
+fraction of that part of the ECal but is position- (somewhat smaller at the edges) and energy-dependent 
+because of the high readout thresholds (explaining the low value compared to 0.9). Since the 
+sampling fraction is not needed to normalize event rates it was not applied in the multiple scattering 
+analysis in Sec.~\ref{sec:mcs}.
 
 
 
 
 %\subsubsection{Trigger Performance}
-As discussed above, the trigger and DAQ integrate pulses differently to measure hit energy. The trigger 
-integrates using a time-over-threshold window, and the DAQ readout integrates using a constant window 
-(5 samples before and 30 samples after a threshold crossing). For every event, the trigger reports the 
-trigger decision as a bit mask (top trigger, bottom trigger, or both) and the time the trigger fires.
-
-We study trigger performance by simulating the trigger for each event and comparing to how events were 
-actually triggered.
-First, we simulate the FADC readout board to convert from readout hits (constant integration window) to 
-trigger hits (time-over-threshold integration). We then simulate the CTP clustering algorithm and the trigger 
-decision before we compare the trigger decision and trigger time reported by the simulation to what was 
-reported by the real trigger.
-
-To eliminate trigger bias in checking the trigger decision, we use a tag and probe method. To check trigger 
-performance in one half of the ECal, we tag events where there was a trigger in the other half, and exactly one 
-probe cluster in the ECal half under test. 
-We then measure trigger efficiency (proportion of tagged events where there was a trigger) as a function of 
-ADC counts and energy of the probe cluster.
-These turn-on curves are shown for the top half of the ECal in Fig.~\ref{fig:turnon}. 
-
+The trigger and DAQ integrate pulses from the ECal modules differently to measure the energy 
+deposited in the each crystal. The trigger integrates the pulse using a time-over-threshold window, and 
+the DAQ readout integrates using a fixed-size window (5 samples before and 30 samples after a 
+threshold crossing). For every event, the trigger reports the trigger decision as a bit mask (top half, 
+bottom half or both) and the time the trigger fired. The trigger performance was studied by simulating the 
+trigger for each event and comparing to how the events were actually triggered.
+First, we simulate the FADC readout board to convert from readout hits (with fixed-size window 
+integration) to trigger hits (time-over-threshold integration). Secondly, the CTP clustering 
+algorithm and the trigger decision is simulated before we compare the trigger decision and trigger time 
+to what was reported by the actual trigger. To eliminate trigger bias, we use a tag and probe method. To 
+study the trigger performance in one half of the ECal, we select events which triggered the other half 
+and where there was exactly one probe cluster in the ECal half under study. We then measure trigger 
+efficiency as the fraction of tagged events that fired the trigger in the probe half as a function of the 
+probe cluster energy, shown in Fig.~\ref{fig:turnon}. As a cross-check, the turn-on from the trigger 
+threshold was measured to be 1280 in units of ADC counts as expected. The threshold was not 
+perfectly sharp because of uncertainties in the conversion from readout to trigger hits described above, 
+but based on comparisons with simulation we believe the trigger worked exactly as specified.
 \begin{figure}[ht]
 \begin{center}
 {\small
-	\includegraphics[width=7cm]{figures/top_turn_on__bottom_tag}
 	\includegraphics[width=7cm]{figures/top_turn_on__bottom_tag_E}
-	\caption{Trigger turn-on as a function of probe cluster ADC counts (top) and probe cluster energy in MeV
-	(bottom). Both plots are for the top half of the ECal; bottom is similar. Energy is not corrected for sampling 
-	fraction.}
+	\caption{Trigger turn-on in the top half of the ECal (bottom is similar) for data and simulation as a 
+	function of probe cluster energy.}
 \label{fig:turnon}
 }
 \end{center}
 \end{figure}
-The trigger threshold is seen to be 1280 ADC counts as expected. The threshold is not perfectly sharp in this 
-analysis because of uncertainties in the conversion from readout to trigger hits but based on comparisons 
-with Monte Carlo simulation we believe the trigger worked exactly as specified. 
-The trigger threshold in terms of cluster energy is very uneven for two reasons; gain variations between 
-different ECal crystals lead to threshold variations and the nonlinearity of the time-over-threshold integral 
-means that the effective threshold is higher for clusters that span multiple crystals.
-Overall the trigger appears to have functioned exactly as intended. Changes planned for the next run 
-(constant integration window and per-crystal gain calibration constants for the trigger) will solve both of the 
-issues that led to threshold variations in the test run.
+The trigger turn-on is slow and reaches an uneven plateau just below one for two reasons.  Gain 
+variations between different crystals lead to threshold variations and the nonlinearity of the 
+time-over-threshold integral means that the effective threshold is higher for clusters that span multiple 
+crystals. The effective trigger threshold is therefore dependent on position and energy of the particle 
+as well as cluster multiplicity. Overall the trigger appears to have functioned exactly as intended. 
+Changes planned for physics running (constant integration window and per-crystal gain calibration 
+constants for the trigger) will solve both of the issues that led to threshold variations in the Test run.
 
 
 
@@ -1130,7 +1135,7 @@ issues that led to threshold variations in the test run.
 
 
 \section{Multiple Coulomb Scattering Distributions}
-
+\label{sec:mcs}
 Occupancies close to the beam create many of the key challenges in the HPS experiment
 and determine the limits of sensitivity to low \Aprime{} masses.
 These occupancies are dominated by electrons which have multiple Coulomb scattered (MCS) 
@@ -1187,16 +1192,16 @@ from the other runs, properly normalized using the measured integrated currents.
 \begin{tabular}{|c|c|c|}
 \hline
 Converter thickness & Duration &  $e^-$ on converter \\
- (\%$X_0$) & (s) & (nC)    \\   
+ (\%$X_0$) & (s) & ($\mu$C)    \\   
 \hline
 %\hline
-1.6   & 911 &     24385.9     \\ %27 nA
+1.6   & 911 &   24.4 \\ %24385.9     \\ %27 nA
 %\hline
-0.18   & 2640 &    193508.9  \\  %73 nA
+0.18   & 2640 &   193.5 \\ % 193508.9  \\  %73 nA
 %\hline
-0.45  & 2149 &       140709.9  \\ %65.5 nA
+0.45  & 2149 &     140.7 \\ %  140709.9  \\ %65.5 nA
 %\hline
-0    & 1279  &   88079.6  \\
+0    & 1279  &   88.1 \\ %88079.6  \\
 \hline
 \end{tabular}
 \caption{Measured integrated currents for the dedicated photon runs.}
