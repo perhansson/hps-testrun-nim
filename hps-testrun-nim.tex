@@ -1049,17 +1049,26 @@ upstream direction from our analyzing magnet, taking into account the measured f
 %step Of 442 modules, 39 were disabled or disconnected and were not read out by the DAQ. 13 of these were not read out because of a shortage of FADC readout boards (see Sec.~\ref{sec:fadc}).The remainder either had no HV bias on the APD, or were disabled in the FADC software due to noise. In the data, we identified two types of abnormal channels. One FADC was not sending trigger signals correctly, resulting in low efficiency. This affected the 13 channels read out by that FADC. 5 channels were diagnosed as noisy because they  had a high incidence of hits out of coincidence with the trigger. A large number of channels were originally misidentified as noisy because they had much higher hit occupancy than neighboring channels. Gain calibration shows that these channels have high gain (and thus lower energy threshold) but are otherwise normal. The abnormal channels were ignored in analysis in order to simplify comparison with Monte Carlo. This leaves 385 useful channels---87\% of the ECal.
 
 The integrated pulse of the each channel was converted to energy by first 
-subtracting the pedestal then applying a conversion factor to convert ADC counts to energy. 
-The pedestals are measured using special runs where a 100 samples of APD signals, $4$ ns a part, have been recorded at each trigger.  The pedestals were extracted from the 
-part of the $400$ ns window before the actual hit in the calorimeter. After subtracting the pedestal, modules with integrated pulse above a threshold are clustered 
-using a simple algorithm similar to the one deployed for the trigger, see Sec.~\ref{sec:trigger}. Due to a high readout threshold of $73$~MeV, the average number of modules in a cluster was $\sim 3$ and the simple clustering algorithm worked well for reconstruction of detected shower energy. From pedestal runs the average noise level of the ECal modules were measured to be approximately 15~MeV. 
+subtracting the pedestal and then applying a conversion factor to convert ADC counts to energy. 
+The pedestals are measured using special runs where each trigger records 100 samples of signals from 
+the APDs with 4~ns between each sample. The pedestals were extracted from the 
+part of the window before the actual hit in the calorimeter. After subtracting the pedestal, modules with 
+integrated pulse above a threshold are clustered using a simple algorithm similar to the one deployed 
+for the trigger (see Sec.~\ref{sec:trigger}). Due to the high effective readout threshold of $73$~MeV the 
+average number of modules in a cluster was $\sim 3$ and the simple clustering algorithm worked well 
+for reconstruction of the detected shower energy. An average noise level of approximately 15~MeV 
+was measured in special pedestal runs. 
 
-In order to determine conversion factors from ADC counts to energy, the ratios the ECal cluster energy $E$ to the momentum $p$ of  matched tracks in the SVT have been studied in the data and simulation. To compare data and simulation, all inoperable or noisy channels in SVT and ECal have been disabled 
-in both data and the simulation. Any efficiency or bias effects that affect the real data should be reflected 
-in the simulation. 
-%Furthermore, a conversion factor calibration is performed to equalize the gains of  each channel.  simulation to those observed in data by comparing .  The ``weighted $E/p$'' for each crystal is computed, representing the average $E/p$ for clusters that include the crystal
+The ratio of the ECal cluster energy $E$ to the momentum $p$ of a matched track in the SVT was used 
+to determine the conversion factors from ADC counts to energy. To compare data and simulation, all 
+inoperable or noisy channels in the SVT and ECal was disabled in both data and simulation; any 
+efficiency or bias that affect the data should be reflected in the simulation. 
+%Furthermore, a conversion factor calibration is performed to equalize the gains of  each channel.  simulation to those observed in data by comparing .  The ``weighted $E/p$'' for each crystal is computed, 
+representing the average $E/p$ for clusters that include the crystal
 % $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$.
-Iteratively, conversion coefficients have been adjusted until the $E/p$ ratios in the data became similar to the  ones in simulation. The distribution of the $E/p$ ratio in data and simulation can be seen in Fig.~\ref{fig:gains}. The peak position of the distribution shows the sampling fraction of the ECal, the fraction of the incident energy detected in the cluster. The width and tails of the distribution in data indicates imperfect calibration and noise of ECal modules. This level of calibration and the agreement with simulation was found to be sufficient for the multiple scattering analysis using normalized event rates, see Sec.~\ref{sec:mcs}.
+Iteratively, conversion coefficients for each module is adjusted until the $E/p$ ratio in data and 
+simulation are similar. The distribution of the $E/p$ ratio in data and simulation can be seen in 
+Fig.~\ref{fig:gains}. 
 \begin{figure}[]
 \begin{center}
 {\small
@@ -1070,13 +1079,19 @@ Iteratively, conversion coefficients have been adjusted until the $E/p$ ratios i
 }
 \end{center}
 \end{figure}
+The peak position of the distribution indicates the sampling fraction of the ECal, 
+the fraction of the incident particle energy measured in the cluster. The width and tails of the distribution 
+in data indicates imperfect calibration and noise of the ECal modules. This level of calibration and the 
+agreement with simulation was found to be sufficient for the multiple scattering analysis using 
+normalized event rates described in Sec.~\ref{sec:mcs}.
+
 %These gains can then be used to convert from the ADC counts reported by the FADC in each channels to the energy deposited in the crystals. In order to find the energy of the incident particle one also needs to know the  the fraction of incident energy that is deposited in the cluster or "sampling fraction". 
 %The sampling fraction is parameterized from simulation that show that it is approximately 0.9 for the ECal. The weighted $E/p$ shown in Fig.~\ref{fig:gains} is an approximate measurement of the sampling fraction of that part of the ECal but is position- (somewhat smaller at the edges) and energy-dependent because of the high readout thresholds (explaining the low value compared to 0.9). Since the sampling fraction is not needed to normalize event rates it was not applied in the multiple scattering analysis in Sec.~\ref{sec:mcs}.
 
 
 
 
-\subsubsection{Trigger Performance}
+\subsection{Trigger Performance}
 The trigger and DAQ integrate pulses from the ECal modules differently to measure the energy 
 deposited in the each crystal. The trigger integrates the pulse using a time-over-threshold window, and 
 the DAQ readout integrates using a fixed-size window (5 samples before and 30 samples after a 
