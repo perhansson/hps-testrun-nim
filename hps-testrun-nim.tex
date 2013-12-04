@@ -190,7 +190,7 @@ excess~\cite{Holdom:1985ag}\cite{ArkaniHamed:2008qn}.
 {\small
 \begin{figure*}[ht]
     \includegraphics[width=0.8\textwidth]{figures/hps_testrun_rendering}
-\caption{Rendering of the HPS Test apparatus installed on the beam line. SHOULD FIND A PIC WITH LOWER HEIGHT.}
+\caption{Rendering of the HPS Test apparatus installed on the beam line.}
 \label{fig:testrundetector}
 \end{figure*}
 }
@@ -591,10 +591,9 @@ for a total material budget of 0.7\% per layer.
 \label{sec:svt_daq}
 The SVT data acquisition (DAQ) based on the Reconfigurable Cluster Element (RCE) and Cluster 
 Interconnect (CI) concept developed at SLAC as generic building blocks for DAQ systems in high energy 
-physics {\bf [need reference]}. 
-The RCE is a generic computational building block, housed on a separate daughter card called 
-Data Processing Module (DPM), that are realized on an ATCA front board called the Cluster On Board (COB), 
-see Fig.~\ref{fig:cob}.
+physics. The RCE is a generic computational building block, housed on a separate daughter card called 
+Data Processing Module (DPM), that are realized on an ATCA front board called the Cluster On Board 
+(COB), see Fig.~\ref{fig:cob}.
  \begin{figure}[]
 \begin{center}
 {\small
@@ -696,7 +695,6 @@ HPS. The modules from this calorimeter have been subsequently repurposed for the
 %Step\subsubsection{PbWO$_4$ Crystals}
 The HPS test run ECal uses PbWO$_{4}$ crystals, APDs, and preamplifier boards from the inner calorimeter (IC) of the CLAS detector\cite{2008erhm.conf..421N}.  In Figure~\ref{fig:ecal-module} a schematic view of the module assembly is shown. Lead-tungstate crystals are $160$ mm long and are tapered with front face of $13.3\times13.3$~mm$^2$, tapered to $16\times16$~mm$^2$ at the rear face. The crystals were fabricated with very tight tolerances: $19~\mu$m for 13.3~mm dimension and $13~\mu$m for the 16~mm dimension. Each crystal is wrapped in VM2000 multilayer polymer mirror film.
 The APDs (Hamamatsu S8664-55) with $5\times5$~mm$^2$ active area and $75\%$ quantum efficiency were glued on the rear face of the crystals using MeltMount 1.7 thermal plastic adhesive. The low gain of APDs ($\sim 200$) was compensated with custom made preamplifier boards, which provide factor 2000 amplification of the ADP signal. 
-
 \begin{figure}[]
 \begin{center}
 {\small
@@ -720,16 +718,16 @@ upstream edge of the magnet.
 %The two ECal modules are positioned just above and below the ECal vacuum chamber as shown in bottom panel of Fig.~\ref{fig:ecal}. 
 %The primary electron beam, scattered electrons and bremsstrahlung photons pass through the system in vacuum. 
 The gap between innermost edge of the crystals of two parts was $7.4$~cm, centered on the beam plane. The temperature stability of the system during the test run was better than $1^\circ~$F, the temperature uniformity inside the box was better than  $4^\circ~$F. 
-
 \begin{center}
 {\small
-\begin{figure}
-\includegraphics[width=7cm]{figures/ECal}
-\includegraphics[width=7cm]{figures/ecal_vacuumchamber.pdf}
+\begin{figure*}[htb]
+\includegraphics[width=0.45\textwidth]{figures/ECal}
+\includegraphics[width=0.45\textwidth]{figures/ecal_picture_beamline}
+%\includegraphics[width=7cm]{figures/ecal_vacuumchamber.pdf}
 %\includegraphics[width=7cm]{figures/ecal_assembly}
-\caption{Layout of PbWO$_{4}$ modules in two halves of the ECal (top) and ECal assembly together with ECal vacuum chamber (bottom). }
+\caption{Layout of PbWO$_{4}$ modules in two halves of the ECal (left) and the ECal assembly on the beam line (right). }
 \label{fig:ecal}
-\end{figure}
+\end{figure*}
 }
 \end{center}
 %Step \subsubsection{Support Structure}
@@ -747,7 +745,7 @@ Converter (TDC). The 1/3 of the signal is fed to a single channel of 16-channel 
 \begin{figure}[t]
 \begin{center}
 {\small
-\includegraphics[width=7cm]{figures/FADC250_Photo_001.jpg}
+\includegraphics[width=5cm]{figures/FADC250_Photo_001.jpg}
 \caption{A Jefferson Lab FADC250 VXS module.}
 \label{fig:fadc}
 }
@@ -756,21 +754,27 @@ Converter (TDC). The 1/3 of the signal is fed to a single channel of 16-channel 
 Two 20-slot VXS crates with 14 (for top ECal) and 13 (for bottom ECal) FADC bards were employed for the test run. 
 
 The FADCs store 12-bit digitized samples at 250~MHz in 8~$\mu$s deep pipelines. 
-When a trigger is received, the appropriate part of the pipeline is accessed for the readout. HPS used FADCs in the integration mode. A predefined number of samples of the signal that exceeds a predefined threshold have been summed and stored in 17-bit register for readout. The number of samples for integration was defined by two parameters that could be set separately, the number of samples integrated before the signal crossed threshold ($NSB$) and  the number of samples integrated after the signal crossed threshold ($NSA$), see Fig.\ref{fig:hps_trigger_data}. 
-This scheme significantly compresses the data input 
-to the FADC. During data analysis, a pedestal value is subtracted to obtain the actual summed energy.
-
-For various reasons only 385 out of 442 modules (87\%) were operational during the test run. The readout threshold was set to $70$ MeV, the number of samples before and after the threshold crossing were NSB=5 and NSA=30, respectively. 
-
+When a trigger is received, the appropriate part of the pipeline is accessed for the readout. HPS used 
+FADCs in the integration mode. A predefined number of samples of the signal that exceeds a predefined 
+threshold have been summed and stored in 17-bit register for readout. The number of samples for 
+integration was defined by two parameters that could be set separately, the number of samples 
+integrated before the signal crossed threshold ($NSB$) and  the number of samples integrated after the 
+signal crossed threshold ($NSA$), see Fig.\ref{fig:hps_trigger_data}. 
 \begin{figure}[]
 \begin{center}
 {\small
-\includegraphics[width=8cm]{figures/fadc_datapath_diagram.png}
-\caption{\small{FADC data paths}}
+\includegraphics[width=7cm]{figures/fadc_datapath_diagram.png}
+\caption{\small{FADC data paths.}}
 \label{fig:hps_trigger_data}
 }
 \end{center}
 \end{figure}
+This scheme significantly compresses the data input to the FADC. During data analysis, a pedestal 
+value is subtracted to obtain the actual summed energy.
+
+For various reasons only 385 out of 442 modules (87\%) were operational during the test run. The 
+readout threshold was set to $70$ MeV, the number of samples before and after the threshold crossing 
+were 5 and 30, respectively. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -789,17 +793,9 @@ to all detector sub-systems to read out a selected event.
 
 The HPS test run trigger system is designed to select \ee{} events efficiently by 
 using information from the ECal. The trigger looks for time coincidences of clusters in the top and bottom 
-half of the ECal. The trigger system can be broken down into three sections (see 
-Fig.~\ref{fig:hps_trigger_cal}):
- \begin{itemize}
- \item FADC (pulse finding): samples and digitizes the signal pulses from each detector channel. 
-Sends the measured pulse energy and arrival time to the Crate Trigger Processor (CTP),
-\item CTP (cluster finding): groups FADC pulses from each half of the ECal into clusters. 
-The cluster energy and arrival time are sent to the Sub-System Processor (SSP),
- \item SSP (cluster pair finding): searches for time coincidences of pairs of clusters from 
-the top and bottom half of the ECal and applies topological selections.
- \end{itemize}
- \begin{figure}[t]
+half of the ECal. The trigger system can be broken down into three sections as shown in 
+Fig.~\ref{fig:hps_trigger_cal}:
+ \begin{figure}[b]
 \begin{center}
 {\small
  \includegraphics[width=8cm]{figures/hps_trigger_cal}
@@ -812,12 +808,19 @@ the sub-detectors.}
 }
 \end{center}
  \end{figure}
-The time coincidence window of pairs of clusters in the top and bottom half of the ECal are 
-programmable with 4~ns resolution. 
+ \begin{itemize}
+ \item FADC (pulse finding): samples and digitizes the signal pulses from each detector channel. 
+Sends the measured pulse energy and arrival time to the Crate Trigger Processor (CTP),
+\item CTP (cluster finding): groups FADC pulses from each half of the ECal into clusters. 
+The cluster energy and arrival time are sent to the Sub-System Processor (SSP),
+ \item SSP (cluster pair finding): searches for time coincidences of pairs of clusters from 
+the top and bottom half of the ECal and applies topological selections.
+ \end{itemize}
 
-As described above, the first stage of the trigger logic is incorporated into the 
-FPGA's on the FADC boards. The trigger  
-integrates using a "time-over-threshold" window, see Fig. \ref{fig:hps_trigger_data}.
+The time coincidence window of pairs of clusters in the top and bottom half of the ECal are 
+programmable with 4~ns resolution.  As described above, the first stage of the trigger logic is 
+incorporated into the FPGA's on the FADC boards. The trigger  
+integrates using a "time-over-threshold" window as explained in Fig. \ref{fig:hps_trigger_data}.
 For triggering purposes, every channel has: 
 \begin{itemize}
 % \item number of samples integrated before the threshold crossing (NSB),
@@ -909,7 +912,7 @@ The six samples of the APV25 shaper output
 are fitted to an ideal $CR-RC$ function to extract the amplitude and the $t_0$ of the hit. 
 The typical pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape} also demonstrates that the SVT 
 was well timed in to the trigger with the rise of the pulse at the 3rd sampling point.
-\begin{figure}[h]
+\begin{figure}[]
 \begin{center}
 {\small
 	\includegraphics[width=6cm]{figures/run1351_110513_samples_L1_top.pdf}
@@ -927,10 +930,10 @@ the characteristic Landau shape as expected, see Fig.~\ref{fig:cluster_pulse}.
 A noise level between $1.1-1.5\times 10^{3}$ electrons was established through multiple calibration 
 runs giving a signal to noise ratio of $21-25$. Lab-based radioactive source tests was used to 
 provide the absolute charge normalization.
-\begin{figure}[h]
+\begin{figure}[]
 \begin{center}
 {\small
-	\includegraphics[width=6cm]{figures/run1351_mip_small.pdf}
+	\includegraphics[width=7cm]{figures/run1351_mip_small.pdf}
     	\caption{ The cluster charge distribution for hits associated with a track. }
 	\label{fig:cluster_pulse}
 }
@@ -942,13 +945,13 @@ average of the fitted $t_0$ channel times. The $t_0$-resolution is studied by co
 time with the average of all cluster hit times on the track, the ``track time'', which has the expected jitter 
 due to clock phase and trigger, approximately 25~ns. Figure~\ref{fig:tracktime} shows the residual to the individual cluster 
 times. 
-\begin{figure}[h]
+\begin{figure}[]
 \begin{center}
 {\small
-	\includegraphics[width=6cm]{figures/t0_resolution_run1351_110513.pdf}
+	\includegraphics[width=6cm]{figures/test_run_1351_hit_time_corrected_top_layer2.pdf}
 	\caption{
 	The cluster time residual for a representative sensor relative to the track time (see text for more 
-	details). \color{red}{\bf Fix axis.} }
+	details). }
 	\label{fig:tracktime}
 }
 \end{center}
@@ -967,10 +970,10 @@ the number of good tracks with a hit close to the extrapolated intersection of a
 excluded from the track fit itself. Tracks which intersect regions with known bad channels or very close to 
 in the edge region are excluded in the calculation of the single hit efficiency. The hit efficiency, see 
 Fig.~\ref{fig:hit_efficiency}, was measured to be above 98\% and fairly uniform across the SVT.
-\begin{figure}[h]
+\begin{figure}[]
 \begin{center}
 {\small
-    	\includegraphics[width=7cmh]{figures/single_hit_efficiency_Omar_11192013.pdf}
+    	\includegraphics[width=7cm]{figures/single_hit_efficiency_Omar_11192013.pdf}
         \caption{ The hit reconstruction efficiency as a function of detector layer.}
 	\label{fig:hit_efficiency}
 }
@@ -995,7 +998,7 @@ tracker; Fig.~\ref{fig:pair_kin} shows the invariant mass and ratio of electron 
 electron and positron. 
  \begin{center}
 {\small
-\begin{figure*}[ht]
+\begin{figure*}[t]
    \includegraphics[width=5cm]{figures/h_trk_top_px_h_trk_top_px_trigsel4hit_pair1351_twotrkfilt-v6-paper}
    \includegraphics[width=5cm]{figures/h_invM_h_invM_trigsel4hit_pair1351_twotrkfilt-v6-paper}
    \includegraphics[width=5cm]{figures/h_sumE_h_sumE_trigsel4hit_pair1351_twotrkfilt-v6-paper}
@@ -1022,7 +1025,7 @@ approach of the momentum vectors extrapolated in the upstream direction from our
 taking into account the measured fringe field of the PS magnet. 
  \begin{center}
 {\small
-	 \begin{figure*}[ht]
+	 \begin{figure*}[t]
 	% Plot info:
 	% TestRun-v6 geometry, twotrkfilter, trigsel, hps-java-1.8-SNAPSHOT, 4hits, chi2<10
 	\includegraphics[width=5cm]{figures/h_vtx_fr_x_h_vtx_x_trigsel4hit_pair1351_twotrkfilt-v6-paper}
@@ -1146,8 +1149,8 @@ as well as cluster multiplicity.
 Occupancies close to the beam create many of the key challenges in the HPS experiment
 and determine the limits of sensitivity to low \Aprime{} masses.
 These occupancies are dominated by electrons which have multiple Coulomb scattered (MCS) 
-to relatively large angles in the target. Because HPS is sensitive to scattering angles far out on the tail of the 
-MCS distribution, well beyond the angles important in other experiments, care must be taken
+to relatively large angles in the target. Because HPS is sensitive to scattering angles far out on the tail of 
+the MCS distribution, well beyond the angles important in other experiments, care must be taken
 to ensure our simulations are correct in this regime.  
 
 \subsection{Multiple Coulomb Scattering Models}
@@ -1156,17 +1159,18 @@ One of the main goals of the HPS Test was to evaluate the description of the tai
 to gain further confidence in the expected detector occupancy in the full HPS experiment. 
 Previous studies of multiple scattering angles show good agreement with the \moliere{} 
 theory~\cite{Moliere:1948zz} for a wide range 
-of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467}. We have verified that 
-the angular distribution $F(\theta)$ in the differential cross section $d\sigma = F( \theta) d(\cos\theta) d\phi$ 
-for the \egs{}~\cite{egs5} simulation program show good agreement with \moliere{}'s analytical formula as 
-formulated by Bethe~\cite{Bethe:1953va}. 
-The small angle approximation was also shown to be in agreement with the theory formulated by Gaudsmit and 
-Saunderson~\cite{Goudsmit:1940zza,Goudsmit:1940zz} that is valid for any angle. 
+of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467}. We have verified 
+that the angular distribution $F(\theta)$ in the differential cross section 
+$d\sigma = F( \theta) d(\cos\theta) d\phi$ for the \egs{}~\cite{egs5} simulation program show good 
+agreement with \moliere{}'s analytical formula as formulated by Bethe~\cite{Bethe:1953va}. 
+The small angle approximation was also shown to be in agreement with the theory formulated by 
+Gaudsmit and Saunderson~\cite{Goudsmit:1940zza,Goudsmit:1940zz} that is valid for any angle. 
 While \egs{} uses the more complex and time consuming \moliere{} 
 formula, the default physics list of \geant{} uses the so-called Urban model, an approximation with two, 
 continuously joined, functions to take into account 
-small and large angle scattering. Due to the explicit function in large angle approximation used by \geant{} 
-we expect that \geant{} will overestimate the angular distribution at angles larger than a few mrad.
+small and large angle scattering. Due to the explicit function in large angle approximation used by 
+\geant{} we expect that \geant{} will overestimate the angular distribution at angles larger than a few 
+mrad.
 
 
 Figure~\ref{fig:schematic_testrun_vs_erun} gives a schematic view of the main differences 
@@ -1186,14 +1190,8 @@ despite the fact that all data was taken with a photon beam.
 \subsection{Running Conditions}
 
 Data was taken at three different converter thicknesses with a beam current varying between 
-$30-70$~nA, see~Tab.~\ref{tab:currents}.  The photon beam line during the test run produced a relatively 
-large fraction of pairs 
-originating upstream of the converter. This contribution was measured during data taking 
-with ``empty'' converter runs i.e. removing the converter but with all other conditions 
-the same. 
-The upstream background measured in the ``empty'' converter runs was subtracted 
-from the other runs, properly normalized using the measured integrated currents.
-\begin{table}
+$30-70$~nA, see~Tab.~\ref{tab:currents}.  
+\begin{table}[t]
 \begin{center}
 {\small
 \begin{tabular}{|c|c|c|}
@@ -1211,28 +1209,28 @@ Converter thickness & Duration &  $e^-$ on converter \\
 0    & 1279  &   88.1 \\ %88079.6  \\
 \hline
 \end{tabular}
+}
 \caption{Measured integrated currents for the dedicated photon runs.}
 \label{tab:currents}
-}
 \end{center}
 \end{table}
+The photon beam line during the test run produced a relatively 
+large fraction of pairs 
+originating upstream of the converter. This contribution was measured during data taking 
+with ``empty'' converter runs i.e. removing the converter but with all other conditions 
+the same. 
+The upstream background measured in the ``empty'' converter runs was subtracted 
+from the other runs, properly normalized using the measured integrated currents.
+
 
 
 \subsection{Measured Angular Distributions}
-
-
-
 
 For this analysis, we measure angular distribution of electrons and positrons using the ECal.
 Cluster reconstruction was done using the algorithm described in Sec.~\ref{sec:trigger} build 
 clusters around seed hits (hits above a ``seed'' energy threshold and with greater energy than any 
 neighboring hits), and add all neighboring hits above an ``add'' energy threshold.
-Hit energy is calibrated by matching track momentum to cluster energy, as described in Sec.~\ref{sec:ecal_calibration}.
-
-
-The measured 
-angular distribution in the ECal for the three converter thicknesses are shown in 
-Fig.~\ref{fig:ang_distr_data} (left). 
+Hit energy is calibrated by matching track momentum to cluster energy, as described in Sec.~\ref{sec:ecal_calibration}. The measured angular distribution in the ECal for the three converter thicknesses are shown in Fig.~\ref{fig:ang_distr_data}. 
 \begin{figure}[]
 \begin{center}
 {\small
@@ -1245,8 +1243,7 @@ Fig.~\ref{fig:ang_distr_data} (left).
 \end{center}
 \end{figure}
 The data has been normalized to the integrated beam current and the background has been 
-subtracted. 
-The background fraction for the there converter thicknesses was 16\%, 52\% and 71\% 
+subtracted. The background fraction for the there converter thicknesses was 16\%, 52\% and 71\% 
 for converter thicknesses of 1.6\%, 0.45\% and 0.18\%, respectively. The background fraction was also 
 cross-checked by pointing back tracks reconstructed in the SVT to identify the fraction of tracks not emanating from the converter. 
 %This can be seen in Fig.~\ref{fig:extrapol_converter} (bottom) where small 
@@ -1261,43 +1258,37 @@ the modeling of the MCS. \egs{}~\cite{egs5} is used to generate
 the electromagnetic interactions in the converter while \geant{} is used to simulate the particles after the 
 converter.  Figure~\ref{fig:ang_distr_dataMC} shows the angular distribution comparing data and 
 \egs{} normalized to 1~s of beam at 90~nA beam current with a converter thickness of 1.6\%. 
-\begin{center}
+Reasonable agreement is obtained in the most important region close to the beam. There is a hint of a 
+slightly different slope of the data at larger angles; this difference is covered by systematic uncertainties.  
+The total rates for each converter thickness is shown in Fig.~\ref{fig:rate_vs_thickness} and summarized 
+in Tab.~\ref{tab:ang_distr_dataMC}.
+\begin{figure}[]
 {\small
-	\begin{figure}[]
-%	\begin{figure*}[t]
-	\includegraphics[ scale=0.25]{figures/dataMC_1351_Hit_Y_top_norm_bkgsub.png}
-%	\includegraphics[ scale=0.25]{figures/dataMC_1354_Hit_Y_top_norm_bkgsub.png}
-%	\includegraphics[ scale=0.25]{figures/dataMC_1353_Hit_Y_top_norm_bkgsub.png}
+	\begin{center}
+	\includegraphics[ width=7cm]{figures/dataMC_1351_Hit_Y_top_norm_bkgsub.png}
 	\caption{Comparison between the observed and predicted angular distribution using \egs{} for a 
 	converter thickness of 1.6\%. Similar agreement is found for 0.45\% and 0.18\% converter thicknesses. 
 	Only statistical uncertainties are shown. }
 	\label{fig:ang_distr_dataMC}
-%	\end{figure*}
-	\end{figure}
-}
 \end{center}
-Reasonable agreement is obtained in the most important region close to the beam. There is a hint of a 
-slightly different slope of the data at larger angles; this difference is covered by systematic uncertainties.  The 
-total rates for each converter thickness is shown in Fig.~\ref{fig:rate_vs_thickness} and summarized in 
-Tab.~\ref{tab:ang_distr_dataMC}.
+}
+\end{figure}
+\begin{figure}[]
 \begin{center}
 {\small
-	\begin{figure}[]
-%	\begin{figure*}[]
-	%\includegraphics[ scale=0.3]{figures/dataMC_geant4.png}
-	\includegraphics[ scale=0.3]{figures/dataMC_egs.png}
-	\caption{The measured rate as a function of converter thickness for data and \egs{} simulation of MCS in 	the converter.} 
+	\includegraphics[ width=7cm]{figures/dataMC_egs.png}
+	\caption{The measured rate as a function of converter thickness for data and \egs{} simulation 
+	of MCS in 	the converter.} 
 	\label{fig:rate_vs_thickness}
-%	\end{figure*}
-	\end{figure}
 }
 \end{center}
+\end{figure}
 The total systematic uncertainty was estimated to be between 10-18\% depending on the run including:  
 a 5\% uncertainty on the integrated current normalization, alignment of the ECal, uncertainty from the 
 background normalization, and limited Monte Carlo statistics.  
 \begin{center}
-{\small
 \begin{table}
+{\small
 \begin{tabular}{|l|c|c|c|}
 \hline
 Converter (\% r.l.) & 1.60 & 0.45 &	0.18 \\
@@ -1311,9 +1302,9 @@ Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\
 \end{tabular}
 \caption{ Observed and predicted number of events for 1~s of beam at 90~nA for three different converter 
 thicknesses. The uncertainty on the prediction includes systematic uncertainties. }
+}
 \label{tab:ang_distr_dataMC}
 \end{table}
-}
 \end{center}
 
 \subsection{Conclusion}
