@@ -933,7 +933,8 @@ provide the absolute charge normalization.
 \begin{figure}[]
 \begin{center}
 {\small
-	\includegraphics[width=7cm]{figures/run1351_mip_small.pdf}
+	%\includegraphics[width=7cm]{figures/run1351_mip_small.pdf}
+	\includegraphics[width=7cm]{figures/mip_top_layer_2.png}
     	\caption{ The cluster charge distribution for hits associated with a track. }
 	\label{fig:cluster_pulse}
 }
@@ -948,7 +949,7 @@ times.
 \begin{figure}[]
 \begin{center}
 {\small
-	\includegraphics[width=6cm]{figures/test_run_1351_hit_time_corrected_top_layer2.pdf}
+	\includegraphics[width=7cm]{figures/test_run_1351_hit_time_corrected_top_layer2_mod.pdf}
 	\caption{
 	The cluster time residual for a representative sensor relative to the track time (see text for more 
 	details). }
@@ -1079,7 +1080,7 @@ Fig.~\ref{fig:gains}.
 {\small
 \begin{figure}[]
 \begin{center}
-	\includegraphics[width=7cm]{figures/h_ep_data_h_ep_mc_dataMC_v5_1351_goodregion_notrkcuts.pdf}
+	\includegraphics[width=7cm]{figures/h_ep_data_0_h_ep_MC_0_dataMC_1351-v6-v6gains_2-trig-top-cl600reg0.pdf}
 	\caption{The ECal energy over track momentum ratio comparing data and simulation} 
 	\label{fig:gains}
 \end{center}
@@ -1113,23 +1114,24 @@ and where there was exactly one probe cluster in the ECal half under study. We t
 efficiency as the fraction of tagged events that fired the trigger in the probe half as a function of the 
 probe cluster energy, shown in Fig.~\ref{fig:turnon}. As a cross-check, the turn-on from the trigger 
 threshold was measured to be 1280 in units of ADC counts as expected. The threshold was not 
-perfectly sharp because of uncertainties in the conversion from readout to trigger hits described above, 
-but based on comparisons with simulation we found that the trigger worked exactly as specified.
+perfectly sharp because of uncertainties in the conversion from readout to trigger hits described 
+above, but based on comparisons with simulation we found that the trigger worked exactly as 
+specified.
 \begin{figure}[ht]
 \begin{center}
 {\small
-	\includegraphics[width=7cm]{figures/top_turn_on__bottom_tag_E}
-	\caption{Trigger turn-on in the top half of the ECal (bottom is similar) for data and simulation as a 
-	function of probe cluster energy.}
+	\includegraphics[width=7cm]{figures/h_cl_E_probedata_eff_h_cl_E_probeMC_eff_dataMC_1351-v7-trig-tagBot.pdf}
+	\caption{Trigger efficiency in both halves of the ECal for data and simulation as a 
+	function of cluster energy.}
 \label{fig:turnon}
 }
 \end{center}
 \end{figure}
-The trigger turn-on is slow and reaches an uneven plateau just below $1$ GeV for two reasons;  gain 
-variations between different crystals lead to the threshold variations and the nonlinearity of the 
-time-over-threshold integral means that the effective threshold is higher for clusters that span multiple 
-crystals. The effective trigger threshold is therefore dependent on position and energy of the particle 
-as well as cluster multiplicity. 
+The trigger turn-on is slow and reaches an uneven plateau just below 1~GeV for two reasons;  
+gain variations between different crystals lead to the threshold variations and the nonlinearity of 
+the time-over-threshold integral means that the effective threshold is higher for clusters that span 
+multiple crystals. The effective trigger threshold is therefore dependent on position and energy of 
+the particle as well as cluster multiplicity. 
 %Overall the trigger appears to have functioned exactly as intended. 
 %Changes planned for physics running (constant integration window and per-crystal gain calibration 
 %constants for the trigger) will solve both of the issues that led to threshold variations in the Test run.
