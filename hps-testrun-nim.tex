@@ -424,8 +424,7 @@ Each of the layers is comprised of a pair of closely-spaced silicon microstrip s
 to-back to form a module. A 100~mrad stereo angle is used in the first three layers to provide higher-
 resolution 3D space points for vertexing.  Using 50~mrad in the last two layers breaks the tracking 
 degeneracy of having five identical layers and minimizes fakes from ghost hits to improve pattern 
-recognition. Altogether, this layout comprises 20 sensors and hybrids and 100 APV25 chips for a 
-total of 12780 readout channels. 
+recognition. Altogether, the SVTcomprises 20 sensors for a total of 12780 readout channels. 
 %=======================
 \begin{center}
 \begin{table}[ht]
@@ -485,45 +484,36 @@ integrated cable runs are clearly seen.} }
 %=======================
 
 \subsection{Components}
-The sensors for the SVT are selected according to a number of requirements.  First, the sensors must be 
-radiation tolerant to approximately $1.5\times10^{14}$~\fluenceunit{} for a six month run.  This 
-corresponds to about 4~MHz/mm$^2$, so the sensor and readout technology must be capable of handling 
-very high local occupancies. Since sensitivity is limited by multiple scattering, a material budget of less 
-than 1\% $X_0$/layer is imperative and far less is desirable. To achieve the required vertex resolution  
-single-hit resolutions better than XXXX~$\mu$m are required. Finally, the sensor technology must 
-be mature and readily available at low cost.  Silicon microstrips are the best match to these requirements, and 
-a supply of appropriate microstrip sensors purchased from the Hamamatsu Photonics Corporation for the 
-Run 2b upgrade of the D\O experiment~\cite{Denisov:2001aa} are readily available. 
-These are $p+$-on-$n$, single sided, AC coupled, 
-polysilicon-biased sensors fabricated on $<100>$ silicon and have 30 (60) micron sense (readout) pitch 
-over their $4\times10$~cm$^2$ surface. Although a maximum bias of 350~V is specified, the vast majority are 
-operable to 1000~V and therefore remain fully depleted to a dose of approximately 
-$1.5\times10^{14}$~\fluenceunit{}.
+The sensors for the SVT are $p+$-on-$n$, single sided, AC coupled, polysilicon-biased microstrip 
+sensors fabricated on $<100>$ silicon and have 30 (60) micron sense (readout) pitch over their 
+$4\times10$~cm$^2$ surface. This sensor technology was selected to match the requirement of 
+a $<1$\% $X_0$ per layer, single-hit resolution better than 50~$\mu$m and tolerant of a radiation 
+dose of approximately $1.5\times10^{14}$~\fluenceunit{} for a six month run. The sensors 
+were purchased from the Hamamatsu Photonics Corporation for the cancelled 
+Run 2b upgrade of the D\O~experiment~\cite{Denisov:2001aa} which satisfied the requirement that 
+the technology must be mature and available within the time and budget constraints.
 
 %\subsubsection{Front-end Electronics}
-Because the regions of high occupancy are small spots in two dimensions, only a short length of any one 
-strip see a significant occupancy, and the strips in that region act as long pixels. However, the rates are still 
-very high and lowering the peak occupancy in the sensors to approximately 1\% for tracking requires a 
-trigger window and tagging of hit times to roughly 8~ns.  The FADC 
-readout for the ECal and muon system are capable of this (see Sec.~\ref{sec:fadc}), but achieving 
-$2\sigma$ efficiency for 
-silicon hits then requires 2~ns time resolution for the hits in the SVT. This performance can be achieved with 
-the APV25 readout ASIC developed for the CMS experiment at CERN~\cite{French:2001xb}.  When 
-operated in ``multi-peak mode", the APV25 captures successive samples of the output of the shaper in sets 
-of three at a sampling rate of approximately 40~MHz.  
-By fitting the known $CR$-$RC$ shaping curve to these samples, the initial time of the hit can be 
-determined to a precision of 2~ns for S/N$>25$, an achievable figure with our sensors if read out 
-individually~\cite{Friedl:2009zz}.  For the SVT, six-sample readout and the shortest possible shaping time 
-(35~ns) will be used to best distinguish hits that overlap in time.
-The APV25 ASICs are hosted on simple FR4 hybrids since these hybrids and their cooling system are 
-outside the tracking volume.  Along with the sensors, these are assembled into half-modules, one for each 
-tracking view, with a short cable pigtail to provide power and configuration to the modules and signal 
-readout. 
+Despite having only small spots with very high occupancy (up to 4~MHz/mm$^2$) closest to the primary 
+beam, see Fig.~\ref{fig:radiation}, the rates are still high and lowering the peak occupancy to 
+approximately 1\% for tracking requires a trigger window and hit time tagging of roughly 8~ns. The 
+ECal readout and trigger described in Sec.~\ref{sec:fadc} can achieve such resolution. To reach this 
+performance the sensors for the SVT are readout by the APV25 ASIC developed for the CMS 
+experiment at CERN~\cite{French:2001xb}. The APV25 can capture two successive samples of three 
+of the output of the shaper at a sampling rate of approximately 40~MHz.  By fitting the known 
+$CR$-$RC$ shaping curve to these samples, the initial time of the hit can be determined to a precision 
+of 2~ns for S/N$\approx25$~\cite{Friedl:2009zz}.  For electron beam running, six-sample readout and 
+the shortest possible shaping time (35~ns) is used to best distinguish hits that overlap in time.
+The APV25 ASICs are hosted on simple FR4 hybrid readout boards, outside the tracking volume, with a 
+short twisted-pair pigtail cable to provide power and configuration and signal readout. Along with a 
+single sensor, these are glued to a polyamide-laminated carbon fiber composite backing making 
+up a half-module. A window is machined in the carbon fiber leaving only a frame around the periphery 
+of the silicon to minimize material. A 50~$\mu$m sheet of polyamide is laminated to the surface of the 
+carbon fiber with 1~mm overhang at all openings to ensure good isolation between the backside of the 
+sensor, carrying high-voltage bias, and the carbon fiber which is held near ground. 
 
-%\subsubsection{Support Structure and Cooling}
-
-The sensor modules for the SVT consist of a pair of identical half-modules, sandwiched back-to-back around 
-an aluminum cooling block at one end and a similar PEEK spacer block at the other. 
+The sensor modules for the SVT consist of a pair of identical half-modules, sandwiched back-to-back 
+around an aluminum cooling block at one end and a similar PEEK spacer block at the other. 
 Figure~\ref{fig:tracker_module} shows a single module after assembly.
 %=======================
 \begin{figure}[htp]
@@ -536,106 +526,98 @@ Figure~\ref{fig:tracker_module} shows a single module after assembly.
 \end{figure}
 %=======================
 The cooling block provides the primary mechanical support for the module as well as cooling via copper 
-tubes pressed into grooves in the plates. The spacer block defines the spacing between the sensors at the 
-far end of the module, stiffens the module structure, and improves the stability of the sensor alignments.  
+tubes pressed into grooves in the plates. The spacer block defines the spacing between the sensors at 
+the far end of the module, stiffens the module structure, and improves the stability of the sensor 
+alignment.  The average support material in the tracking volume is approximately 0.06\% $X_{0}$ per 
+double-sided module for a total material budget of 0.7\% per layer.
 
-The total power consumption of the five APV25 chips mounted on 
-the hybrid readout board is about 2~W. Since heating from the leakage current is only significant at a 
-single small spot on the sensor, the 
-dominant heat load on the sensor, even after irradiation, is radiant heat from the inside wall of the vacuum 
-chamber, less than 0.5~W per sensor. The total power consumption budget of about 40~W is removed by a 
-water/glycol mixture circulated through a flexible manifold attached to the cupper tubes in the cooling blocks. 
-During the Test run the sensors where operated at around $23^{\circ}$C with a total mass flow of 
-about XXXXg/s. 
+The total SVT power consumption budget of about 50~W is removed by a water/glycol mixture 
+circulated through a flexible manifold attached to the copper tubes in the cooling blocks. During the Test 
+run the sensors where operated at around $23^{\circ}$C. The power consumption is dominated by five 
+APV25 ASICs on each hybrid board consuming approximately 2~W, radiant heat load is less than 
+0.5~W per sensor and leakage current is only significant in a small spot after irradiation.  
 
-Each half module consists of a single sensor and a hybrid electronic readout board glued to a 
-polyamide-laminated carbon fiber composite backing.  A window is machined in the carbon fiber leaving 
-only a frame 
-around the periphery of the silicon to minimize material. A 50~$\mu$m sheet of polyamide is laminated to 
-the surface of the carbon fiber with 1 mm overhang at all openings to ensure good isolation between the 
-backside of the sensor, carrying high-voltage bias, and the carbon fiber which is held near ground.  The 
-average support material in the tracking volume is approximately 0.06\% $X_{0}$ per double-sided module 
-for a total material budget of 0.7\% per layer.
+
 
 
 
 \subsection{Digitization, Event Building and Data Transmission}
 \label{sec:svt_daq}
-The SVT data acquisition (DAQ) based on the Reconfigurable Cluster Element (RCE) and Cluster 
-Interconnect (CI) concept developed at SLAC as generic building blocks for DAQ systems in high energy 
-physics. The RCE is a generic computational building block, housed on a separate daughter card called 
+The SVT data acquisition (DAQ) is based on the Reconfigurable Cluster Element (RCE) and cluster 
+interconnect concept developed at SLAC as generic building blocks for DAQ systems. 
+The RCE is a generic computational building block, housed on a separate daughter card called 
 Data Processing Module (DPM), that are realized on an ATCA front board called the Cluster On Board 
 (COB), see Fig.~\ref{fig:cob}.
  \begin{figure}[]
 \begin{center}
 {\small
 	\includegraphics[width=6cm]{figures/svt_daq_module}
-	\caption{Picture of the SVT DAQ COB board with four data processing daughter cards visible.}
+	\caption{The SVT DAQ COB board with four data processing daughter cards visible on the left side.}
 	\label{fig:cob}
 }
 \end{center}
 \end{figure}
-The Gen-I RCE used in the Test run consisted of a Virtex~5 FPGA with 1~GB of DDR3 RAM. 
-The outputs of 12 SVT half-modules are digitized on the Rear-Transition-Module (RTM), a custom board on the back side of the ATCA crate, interfacing the HPS readout to the generic DAQ components on the COB. 
-A pre-amplifier converts the APV25 differential current output to a different voltage output scaled to the sensitive 
-range of a 14-bit ADC operating at the system clock of 41.667~MHz. 
-The RTM is organized into four sections with each section supporting three SVT half-module hybrids (15 
-APV25 channels). The RTM also includes a 4-channel Fiber Optic module and supporting logic which can be 
-used to interface to the JLab trigger system supervisor.
-Each section of the RTM, up to three hybrids, is input to a DPM which apply thresholds for data reduction and 
-organizes the sample data into UDP datagrams. The DPM also hosts an I2C controller used to configure and 
-monitor the APV25 chips on those three hybrids. A single ATCA crate with two COB cards was used, one 
-supporting four DPMs and one supporting 3 DPMs and one DPM that is configured as the trigger and data 
-transmission module. The two COB cards and their DPMs are interconnected with a 10Gb/s switch 
-card~\cite{Larsen:2011zb} which 
-also hosts two 1Gb/s Ethernet interfaces to the external SVT DAQ PC.  
+The first generation RCE used in the Test run consisted of a Virtex~5 FPGA with 1~GB of DDR3 RAM. 
+A schematic overview of the system is shown in Fig.~\ref{fig:svtdaq}. 
+ \begin{figure}[]
+\begin{center}
+{\small
+	\includegraphics[width=6cm]{figures/svt_daq_module}
+	\caption{Block diagram overview of the SVT DAQ.}
+	\label{fig:svtdaq}
+}
+\end{center}
+\end{figure}
+The outputs of 12 SVT half-modules are digitized on the Rear-Transition-Module (RTM), a custom board 
+on the back side of the ATCA crate, interfacing the HPS readout to the generic DAQ components on the 
+COB. A pre-amplifier converts the APV25 differential current output to a different voltage output scaled to 
+the sensitive range of a 14-bit ADC operating at the system clock of 41.667~MHz. The RTM is organized 
+into four sections with each section supporting three SVT half-module hybrids (15 APV25 ASICs). The 
+RTM also includes a 4-channel fiber optic module and supporting logic which is used to interface 
+to the JLab trigger system supervisor. Each section of the RTM is input to a DPM which apply thresholds 
+for data reduction and organizes the sample data into UDP datagrams. The DPM also hosts an I$^{2}$C 
+controller used to configure and monitor the APV25 ASICs. A single ATCA crate with two COB cards 
+was used, one supporting four DPMs and one supporting 3 DPMs and one DPM that is configured as 
+the trigger and data transmission module. The two COB cards and their DPMs are interconnected with a 
+10Gb/s switch card~\cite{Larsen:2011zb} which also hosts two 1Gb/s Ethernet interfaces to the external 
+SVT DAQ PC.  
 
-The external PC supports three network interfaces; two standard 1Gb/s Ethernet and one custom low latency 
-data reception card. The first Ethernet interface is used for slow control and monitoring of the 8 DPM modules. 
-The second Ethernet interface serves as the interface to the JLAB data acquisition system. The third custom low 
-latency network interface is used to receive data from the SVT ATCA crate and supports a low latency, reliable 
-TTL trigger acknowledge interface to the trigger DPM. This PC hosts the SVT control and monitoring software 
-as well as the JLab read out controller (ROC) application described in more detail in Sec.~\ref{sec:daq}.
+The external PC supports three network interfaces; two standard 1Gb/s Ethernet and one custom low 
+latency data reception card. The first is used for slow control and monitoring of the 8 
+DPM modules and the second serves as the interface to the JLAB data acquisition system. The third 
+custom low latency network interface is used to receive data from the ATCA crate and supports a low 
+latency, reliable TTL trigger acknowledge interface to the trigger DPM. This PC hosts the SVT control 
+and monitoring software as well as the JLab Read Out Controller (ROC) application described in more 
+detail in Sec.~\ref{sec:daq}.
 
-This system is capable of operating up to 20~kHz and XXXX~MB/s which is well in line with the rates 
-expected and observed during the HPS Test run.
+While trigger rates during the Test run was significantly lower this system was tested at trigger rates up 
+to 20~kHz and 50~MB/s.
 
 
 \subsection{Production, Assembly and Shipping}
 
-%Hybrid readout boards and half-modules were assembled at SLAC.  Mounting APV25 chips and all wirebonding and QA testing were performed at University of California, Santa Cruz. 
-
-Of the sensors tested during production, 90\% were capable of 1000~V bias voltage without breakdown. 
-Hybrids underwent quick QA testing and each half-module was run at low temperature ($\approx5^{\circ}$ C) and 
-fully characterized for pedestals, gains, noise and time response after assembly.  
-%All 29 production modules were assembled between mid-February and the end of March, 2012.  Module yields were excellent for such a small production.  Of 165 APV chips acquired, 150 were used to assemble 30 production hybrids, of which 29 passed QA testing.  
-Of 29 half-modules built, 28 passed 
-QA testing, leaving 8 spare modules after completion of the SVT.  Full-module assembly and 
-mechanical surveys were performed at SLAC
-% in early April 2012 
-before final assembly, testing and shipping of the SVT to JLab
-% on April 11.  
-A custom shipping container with nested crates and redundant isolation for shock and vibration 
-%, based on experience from FNAL~\cite{shipping},
-was built in order to safely send the partly assembled SVT to JLab. 
-% The two fully assembled SVT halves were attached to a baseplate supported by four wire-rope isolators. This plate, covered by a lexan cover for cleanliness, was mounted inside an inner box surrounded by 4 inches of Polyurethane foam to complete the two-spring construction. 
-At JLab, the entire SVT was integrated with the full DAQ and the power supplies 
-%for the first time in the clean room, 
-before moving the module-loaded support plates to Hall~B for final mechanical assembly and installation inside of the 
-vacuum chamber.
-% on April 19, 2012.   
+%Of the sensors tested during production, 90\% were capable of 1000~V bias voltage without breakdown. 
+Hybrids with APV25 ASICs underwent quick qualification testing and each half-module was run at low 
+temperature ($\approx5^{\circ}$ C) and fully characterized for pedestals, gains, noise and time response 
+after assembly.  Of 29 half-modules built, 28 passed qualification testing, leaving 8 spare modules after 
+completion of the SVT, all capable of 1000~V bias voltage without breakdown.  Full-module assembly 
+and mechanical surveys were performed at SLAC before final assembly, testing and shipping of the 
+SVT to JLab. A custom shipping container with nested crates and redundant isolation for shock and 
+vibration was built in order to safely send the partly assembled SVT to JLab. At JLab, the entire SVT was 
+integrated with the full DAQ and the power supplies before moving the module-loaded support plates to 
+Hall B for final mechanical assembly and installation inside of the vacuum chamber.
 
 \subsection{Alignment}
-The SVT was aligned using a combination of optical, laser and touch probe surveys at SLAC and JLab. The 
-optical survey of individual modules with precision of a few $\mu$m are combined with a touch-probe survey 
-of the overall SVT support structure, with 25-100~$\mu$m precision, to locate the silicon sensor layers with 
-respect to the support plates and the mechanical survey balls on the base plate.
-After full assembly and installation of the SVT at JLab, a mechanical survey of the SVT base plate position 
-inside the pair spectrometer vacuum chamber is used to determine the global position of the SVT with 
-respect to CEBAF beam line. 
-The resulting survey-based alignment has the position of the silicon sensors correct to within a few hundred 
-microns. A more sophisticated global track-based alignment technique to reach the final alignment precision 
-is being developed.
+The SVT was aligned using a combination of optical, laser and touch probe surveys at SLAC and JLab. 
+The optical survey of individual modules with precision of a few $\mu$m are combined with a 
+touch-probe survey of the overall SVT support structure, with 25-100~$\mu$m precision, to locate the 
+silicon sensor layers with respect to the support plates and the mechanical survey balls on the base 
+plate. After full assembly and installation of the SVT at JLab, a mechanical survey of the SVT base plate 
+position inside the pair spectrometer vacuum chamber is used to determine the global position of the 
+SVT with respect to CEBAF beam line. The resulting survey-based alignment has the position of the 
+silicon sensors correct to within a few hundred microns measured from tracks in the Test run data. 
+A more sophisticated global track-based alignment technique to reach final alignment precision 
+well below 50~$\mu$m is being developed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
