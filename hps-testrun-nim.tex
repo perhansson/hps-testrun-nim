@@ -626,29 +626,25 @@ well below 50~$\mu$m is being developed.
 \section{Electromagnetic Calorimeter}
 \label{sec:ecal}
 
-The electromagnetic calorimeter, installed downstream of the tracker, performs two essential functions for the experiment: provides a trigger to DAQ system and 
-is used in the analysis for electron identification. 
-%The device is highly segmented. It is fast, able to readout at rates comparable to those in the tracker, and able to provide good spatial and energy information to the trigger electronics. Like the tracker, the electromagnetic calorimeter is split to avoid impinging on the “dead zone”. The beam and radiative secondaries pass between the two of the calorimeter in vacuum, to avoid generating unnecessary backgrounds.
-%Step\subsection{Purpose and Design Requirements}
-%StepThe electromagnetic calorimeter (ECal) provide the trigger for the data acquisition and will be used for electron identification during the data analysis. The ECal is positioned after the analyzing dipole magnet and cover the full acceptance region of the SVT. It consist of two halves, split in the horizontal beam plane. The gap between upper and lower parts, $XXXX$~mrad (15mrad for electron running),  as seen from the target location, is necessary to avoid the "dead zone" where occupancy and radiation prevents any instrumentation to be situated.  
-The energy of electrons of interest in HPS experiment will be in the range 
-$0.5-6.5$~GeV. The ECal modules must have sufficient radiation lengths to absorb the full energy of these 
-scattered electrons, have fine enough granularity to handle a high rate of electromagnetic 
-background and survive large doses of radiation, especially near the beam plane. In addition, it needs to 
-have excellent hit time resolution, $<10$~ns, in order to beat down beam backgrounds.  
-
-Requirements of a compact design, operation at high radiation and high rate environment, in the presence of a 
-high magnetic field are fulfilled by a lead-tungstate (PbWO$_{4}$) crystal calorimeter with magnetic field 
-resistant Avalanche Photodiode (APD) readout.  Such calorimeter has been operational in the inner 
-part of the CLAS detector for experiments in Hall-B at JLab since 2005 and meet all requirements set by 
-HPS. The modules from this calorimeter have been subsequently repurposed for the ECal. 
+The electromagnetic calorimeter (ECal), installed downstream of the PS dipole magnet, performs two 
+essential 
+functions for the experiment: it provides a trigger signal to select what events to read out from the 
+detector sub-systems and is used in the analysis to identify electrons and positrons. 
+The technology and design choices are largely driven by the need for a compact forward design 
+covering the SVT \Aprime acceptance and able to fully absorb 
+electrons and positrons with energy between $0.5$-$6.5$~GeV, fine granularity and signal 
+readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background and remain operable 
+after a radiation dose larger than $X$~MRad. The lead-tungstate (PbOW$_{4}$) crystal inner 
+calorimeter of the CLAS detector [REFERENCE] in operation since 2005 in Hall B meet all the 
+requirements set by HPS. The modules from this calorimeter have been subsequently repurposed for 
+HPS. 
 
 
 \subsection{Components}
 
-%Step\subsubsection{PbWO$_4$ Crystals}
-The HPS test run ECal uses PbWO$_{4}$ crystals, APDs, and preamplifier boards from the inner calorimeter (IC) of the CLAS detector\cite{2008erhm.conf..421N}.  In Figure~\ref{fig:ecal-module} a schematic view of the module assembly is shown. Lead-tungstate crystals are $160$ mm long and are tapered with front face of $13.3\times13.3$~mm$^2$, tapered to $16\times16$~mm$^2$ at the rear face. The crystals were fabricated with very tight tolerances: $19~\mu$m for 13.3~mm dimension and $13~\mu$m for the 16~mm dimension. Each crystal is wrapped in VM2000 multilayer polymer mirror film.
-The APDs (Hamamatsu S8664-55) with $5\times5$~mm$^2$ active area and $75\%$ quantum efficiency were glued on the rear face of the crystals using MeltMount 1.7 thermal plastic adhesive. The low gain of APDs ($\sim 200$) was compensated with custom made preamplifier boards, which provide factor 2000 amplification of the ADP signal. 
+The ECal module shown in Fig.~\ref{fig:ecal-module} is based on a tapered 160~mm long 
+lead-tungstate (PbWO$_{4}$) crystal with a $13.3\times13.3$~mm$^2$ ($16\times16$~mm$^2$) front 
+(rear) face wrapped in VM2000 multilayer polymer mirror film. 
 \begin{figure}[]
 \begin{center}
 {\small
@@ -658,77 +654,76 @@ The APDs (Hamamatsu S8664-55) with $5\times5$~mm$^2$ active area and $75\%$ quan
 }
 \end{center}
 \end{figure}
+The scintillation light, approximately $X$ photoelectrons/MeV, is readout by a 
+5$\times$5~mm$^2$ Hamamatsu S8664-55 Avalanche Photodiode (APD) with 75\% quantum 
+efficiency glued to the rear face surface using MeltMount 1.7 thermal plastic adhesive. 
+The low gain of APDs ($\sim 200$) was compensated with custom made preamplifier boards, which 
+provide factor of 2000 amplification of the APD signal.
 
 \subsection{Layout}
+Similar to the SVT, the ECal is built in two separate halves that are mirror reflections of one another 
+about the plane of the nominal electron beam to avoid interfering with the 15~mrad "dead zone". 
+As shown in Fig.~\ref{fig:ecal}, the 221 modules, supported by aluminum support frames, in each half 
+are arranged in rectangular formation with 5 layers and 46 crystals/layer except for the layer closest to 
+the beam where 9 modules were removed to allow a larger opening for the outgoing electron and 
+photon beams. Each half was enclosed in a temperature controlled box ($<1^{\circ}$~F stability and 
+$<4^{\circ}$~F uniformity) to stabilize the crystal light yield and the operation of the APDs and its 
+preamplifiers. Four printed circuit boards mounted on the backplane penetrated the enclosure and was 
+used to supply the $\pm 5$~V 
+operating voltage for the preamplifiers and the 400~V bias voltage to the APDs and to read out signals 
+from the APDs. Each half of the ECal was divided into 12 bias voltage groups with a gain uniformity 
+of about 20\%. 
 
-Like the tracker, the electromagnetic calorimeter is split into two parts, beam-up and beam-down, to avoid impinging on the “dead zone”. The two parts of the Ecal are separated by a vacuum chamber, see Fig.~\ref{fig:ecal}. The beam and radiative secondaries pass between the two parts in vacuum, to avoid generating unnecessary backgrounds. The crystal modules in each part are arranged in rectangular formation, as shown in top panel of Fig.~\ref{fig:ecal}. There are 5 layers in each formation. Each layer has $46$ crystals except for the layers closest to the beam 
-plane where 9 modules were removed to allow a larger opening for the outgoing electron and photon beams. 
-In order to have stable light yield from crystals, and stable operation of APDs and preamplifiers, the module assembly of each ECal part was enclosed inside a temperature controlled box. 
-
-Inside the box PbWO$_{4}$ crystals were supported by aluminum frames stacked on top of each other.  The bias voltage for APDs ($\sim 400$ V), the low voltage for preamplifiers ($\pm 5$ V), and the signals from APDs were transmitted in and out of the enclosure through a backplane called motherboard. The $221$ modules in each part of the ECal were divided into two low voltage groups and 12 bias voltage groups. Modules in bias voltage groups were selected to have gain uniformity of $\sim 20\%$.  
-
-During the test run ECal was mounted downstream of the analyzing dipole magnet at the distance of about $147$~cm from the 
-upstream edge of the magnet. 
-%The two ECal modules are positioned just above and below the ECal vacuum chamber as shown in bottom panel of Fig.~\ref{fig:ecal}. 
-%The primary electron beam, scattered electrons and bremsstrahlung photons pass through the system in vacuum. 
-The gap between innermost edge of the crystals of two parts was $7.4$~cm, centered on the beam plane. The temperature stability of the system during the test run was better than $1^\circ~$F, the temperature uniformity inside the box was better than  $4^\circ~$F. 
+During the Test run, both halves were held in place by four vertical bars attached to an above rail, 
+placing the front face of the crystals 147~cm from the upstream edge of the magnet and with a 
+8.7~cm gap between the innermost edge of the crystals in the two halves.
 \begin{center}
 {\small
 \begin{figure*}[htb]
 \includegraphics[width=0.45\textwidth]{figures/ECal}
 \includegraphics[width=0.45\textwidth]{figures/ecal_picture_beamline}
-%\includegraphics[width=7cm]{figures/ecal_vacuumchamber.pdf}
-%\includegraphics[width=7cm]{figures/ecal_assembly}
-\caption{Layout of PbWO$_{4}$ modules in two halves of the ECal (left) and the ECal assembly on the beam line (right). }
+\caption{Rendered layout view (left) and the ECal assembly on the beam line (right).}
 \label{fig:ecal}
 \end{figure*}
 }
 \end{center}
-%Step \subsubsection{Support Structure}
-%Step In order to stabilize the calorimeter's performance, the crystals, APDs, and amplifiers are enclosed within a temperature controlled environment, held constant at the level of .
-%Step\subsubsection{Avalanche Photodiode Readout and Preamplifiers}
-%Step\label{sec:apd}
-%StepAvalanche Photodiodes (APD) S8664-55 produced by Hamamatsu Corp. are used as photodetectors. They have a $5\times5$~mm$^2$ active area and quantum efficiency of about 75\%. Single APDs were centered on the back ends of the crystals using MeltMount 1.7 thermal plastic adhesive. The low? amplitude signals of APDs are amplified using custom?made preamplifier boards. 
-%The gain uniformity of the APDs is on the order of XXXX\%; with APD high voltage bias varying by as much as 100V. Since only a limited number of high voltage channels were available during the test, 10 channels were grouped together with an attempt to group modules with similar gains. 
+
 
 \subsection{Signal readout}
 \label{sec:fadc}
-
-ECal signal readout was organized as follows: the amplified APD signal from the motherboard is sent to a $2:1$ signal splitter. After the split, 2/3 of the signal is sent a discriminator then to a Time-to-Digital 
-Converter (TDC). The 1/3 of the signal is fed to a single channel of 16-channel JLAB Flash Amplitude-to-Digital Converter (FADC250), see Fig.\ref{fig:fadc} \cite{fadc}.  
-\begin{figure}[t]
+After a 2:1 signal splitter, $1/3$ of an amplified APD signal ($2/3$ is sent to a timing module) is fed to a 
+single channel of a JLab flash ADC (FADC) board~\cite{fadc}, 
+see Fig~.\ref{fig:fadc}.
+\begin{figure}[]
 \begin{center}
 {\small
 \includegraphics[width=5cm]{figures/FADC250_Photo_001.jpg}
-\caption{A Jefferson Lab FADC250 VXS module.}
+\caption{The JLab FADC250 VXS module.}
 \label{fig:fadc}
 }
 \end{center}
 \end{figure}
-Two 20-slot VXS crates with 14 (for top ECal) and 13 (for bottom ECal) FADC bards were employed for the test run. 
-
-The FADCs store 12-bit digitized samples at 250~MHz in 8~$\mu$s deep pipelines. 
-When a trigger is received, the appropriate part of the pipeline is accessed for the readout. HPS used 
-FADCs in the integration mode. A predefined number of samples of the signal that exceeds a predefined 
-threshold have been summed and stored in 17-bit register for readout. The number of samples for 
-integration was defined by two parameters that could be set separately, the number of samples 
-integrated before the signal crossed threshold ($NSB$) and  the number of samples integrated after the 
-signal crossed threshold ($NSA$), see Fig.\ref{fig:hps_trigger_data}. 
+The FADC boards are high speed VXS modules digitizing up to 16 APD signals 
+at 250~MHz and storing samples in 8~$\mu$s deep pipelines with 12-bit resolution. 
+When a trigger is received, the part 
+of the pipeline from 5 samples before and 30 after the signal crossed $\approx70$~MeV threshold are 
+summed and stored in a 17-bit register for readout as described in Fig.~\ref{fig:hps_trigger_data}.
+This scheme significantly compresses the data output of the FADC. During offline data analysis, a 
+calibrated pedestal value is subtracted to obtain the actual summed energy.
+Two 20-slot VXS crates with 14 (13) FADC boards were employed in the Test run to read out the top 
+(bottom) half of the ECal.
+In the Test run 385 out of 442 modules (87\%) was used in offline reconstruction, 39 modules were 
+disabled or not read out (no FADC channel available, no APD bias voltage or masked out due to 
+excessive noise) and 18 was masked offline due to noise. 
 \begin{figure}[]
 \begin{center}
 {\small
 \includegraphics[width=7cm]{figures/fadc_datapath_diagram.png}
-\caption{\small{FADC data paths.}}
+\caption{The two different readout modes of the FADC used in the Test run.}
 \label{fig:hps_trigger_data}
 }
 \end{center}
 \end{figure}
-This scheme significantly compresses the data input to the FADC. During data analysis, a pedestal 
-value is subtracted to obtain the actual summed energy.
-
-For various reasons only 385 out of 442 modules (87\%) were operational during the test run. The 
-readout threshold was set to $70$ MeV, the number of samples before and after the threshold crossing 
-were 5 and 30, respectively. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
