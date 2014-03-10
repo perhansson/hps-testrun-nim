@@ -345,7 +345,7 @@ the HPS Test setup on the beam line. The SVT was installed inside the Hall B pai
 spectrometer magnet (PS) vacuum chamber with the ECal mounted downstream of it. Both the 
 SVT and the ECal were retracted off the beam plane compared to nominal electron beam runing to 
 allow clean passage of the photon beam through the system. 
-\begin{figure}[ht]
+\begin{figure}[]
     \includegraphics[width=0.5\textwidth]{figures/HPS_dimensions}
 \caption{\small{Layout of the HPS parasitic run.} }
 \label{fig:hpstest_layout}
@@ -355,15 +355,45 @@ The photon beam was generated in the interaction of $5.5$~GeV electrons with a $
 gold radiator located $\approx~9$~m upstream of the PS. The primary beam and scattered 
 electrons are deflected away from detectors by the dipole magnet of the photon tagging system. 
 During the dedicated HPS Test run period, the collimated (6.4~mm diameter), photon beam passes 
-through the aluminum PS pair converter and later the HPS system as shown schematically in Fig.~\ref{fig:schematic_testrun_vs_erun}.
-\begin{figure}[ht]
+through the aluminum PS pair converter and later the HPS system as illustrated in 
+Fig.~\ref{fig:schematic_testrun_vs_erun}.
+\begin{figure}[]
 \includegraphics[ width=7cm]{figures/photon_vs_electron_beam_schematic.png}
-\caption{\small{Schematic comparison of HPS Test run photon beam compared to the HPS electron beam.}}\label{fig:schematic_testrun_vs_erun}
+\caption{\small{Illustrative comparison of HPS Test run photon beam compared to the HPS electron 
+beam.}}
+\label{fig:schematic_testrun_vs_erun}
 \end{figure}
 The PS pair converter was located $\approx~77$~cm upstream of the first layer of the SVT.
-Data was taken on different converters (empty, $1.8\times 10^{-3}~X_0$ , $4.5\times 10^{-3}~X_0$ 
-and $1.6 \times 10^{-2}~X_0$) and repeated with the reverse field setting of the PS dipole magnet.
-
+ 
+magnet. Data was taken on three different converter thicknesses with a beam current varying between 
+30-70~nA and repeated with the reverse field setting of the PS dipole magnet.
+\begin{table}[]
+\begin{center}
+{\small
+\begin{tabular}{|c|c|c|}
+\hline
+Converter thickn. & Duration &  $e^-$ on converter \\
+ (\%$X_0$) & (s) & ($\mu$C)    \\   
+\hline
+%\hline
+1.6   & 911 &   24.4 \\ %24385.9     \\ %27 nA
+%\hline
+0.18   & 2640 &   193.5 \\ % 193508.9  \\  %73 nA
+%\hline
+0.45  & 2149 &     140.7 \\ %  140709.9  \\ %65.5 nA
+%\hline
+0    & 1279  &   88.1 \\ %88079.6  \\
+\hline
+\end{tabular}
+}
+\caption{Measured integrated currents for the dedicated photon runs.}
+\label{tab:currents}
+\end{center}
+\end{table}
+The photon beam line during the test run produced a relatively large fraction of pairs 
+originating upstream of the converter position. This contribution was measured during data taking 
+with ``empty'' converter runs i.e. removing the converter but with all other conditions the same. 
+The runs taken during the dedicated HPS Test run is summarized in Tab.~\ref{tab:currents}.
 
 
 
@@ -376,18 +406,6 @@ The Silicon Vertex Tracker (SVT) enables efficient reconstruction of charged par
 determination of their trajectories. These measurements allow \Aprime{} decays to be distinguished 
 from background via simultaneous estimation of the invariant mass of \ee{} decay products and the 
 position of decay vertexes downstream of the target. 
-
-%Track reconstruction is also important for energy scale calibration of the electromagnetic calorimeter due to the better momentum resolution of tracks compared to clusters in the calorimeter.
-
-%\subsection{SVT Requirements and Constraints}
-%The primary goal was to demonstrate that the technology and design approach 
-%chosen for the SVT was sound for running in the challenging environment at JLab. 
-%Nevertheless, a secondary but 
-%important aspect was that, after proving the technical concepts,  the apparatus would have the 
-%capability to discover \Aprime{} events. The implication was that the design of the SVT in the 
-%HPS Test apparatus would be subject to almost the same constraints and requirements as the full 
-%experiment except for certain aspects regarding longevity and robustness subject to cost, beam time 
-%and construction and design time constraints for the Test run. 
 
 The design of the SVT is primarily driven by direct physics requirement and constraints from the 
 environment at the interaction region. The \Aprime decay products 
@@ -745,7 +763,7 @@ Data Processing Module (DPM), that are realized on an ATCA front board called th
 \begin{center}
 {\small
 	\includegraphics[width=6cm]{figures/svt_daq_module}
-	\caption{The SVT DAQ COB board with four data processing daughter cards visible on the left side.}
+	\caption{The SVT DAQ COB board with four data processing daughter cards (DPMs) visible on the left side.}
 	\label{fig:cob}
 }
 \end{center}
@@ -755,7 +773,7 @@ A schematic overview of the system is shown in Fig.~\ref{fig:svtdaq}.
  \begin{figure}[]
 \begin{center}
 {\small
-	\includegraphics[width=6cm]{figures/svt_daq_module}
+	\includegraphics[width=8cm]{figures/svt-daq-sketch}
 	\caption{Block diagram overview of the SVT DAQ.}
 	\label{fig:svtdaq}
 }
@@ -962,67 +980,90 @@ taking into account the measured fringe field of the PS dipole magnet.
 \subsection{ECal Performance}
 \label{sec:ecal_calibration}
 
-The integrated pulse of the each channel was converted to energy by first 
-subtracting the pedestal and then applying a conversion factor to convert ADC counts to energy. 
+The integrated pulse of each FADC channel was converted to energy by  
+subtracting a pedestal and apply a conversion factor to convert ADC counts to energy. 
 The pedestals are measured using special runs where each trigger records 100 samples of signals from 
 the APDs with 4~ns between each sample. The pedestals were extracted from the 
 part of the window before the actual hit in the calorimeter. After subtracting the pedestal, modules with 
-integrated pulse above a threshold are clustered using a simple algorithm similar to the one deployed 
-for the trigger (see Sec.~\ref{sec:trigger}). Due to the high effective readout threshold of $73$~MeV the 
-average number of modules in a cluster was $\sim 3$ and the simple clustering algorithm worked well 
-for reconstruction of the detected shower energy. An average noise level of approximately 15~MeV 
-was measured in special pedestal runs. 
+integrated pulse energy of about 73~MeV are clustered using a simple algorithm similar to the one 
+deployed for the trigger (see Sec.~\ref{sec:trigger}). Due to the high effective readout threshold of 
+$73$~MeV the average number of crystals in a cluster was $\sim 3$ and the simple clustering algorithm 
+worked well for reconstruction of the detected shower energy. An average noise level of approximately 
+15~MeV was measured in special pedestal runs. 
 
 The ratio of the ECal cluster energy $E$ to the momentum $p$ of a matched track in the SVT was used 
 to determine the conversion factors from ADC counts to energy. To compare data and simulation, all 
-inoperable or noisy channels in the SVT and ECal was disabled in both data and simulation; any 
+inoperable or noisy channels in the SVT and ECal was disabled in both data and simulation so that any 
 efficiency or bias that affect the data should be reflected in the simulation. 
-%Furthermore, a conversion factor calibration is performed to equalize the gains of  each channel.  simulation to those observed in data by comparing .  The ``weighted $E/p$'' for each crystal is computed, 
-representing the average $E/p$ for clusters that include the crystal
+%Furthermore, a conversion factor calibration is performed to equalize the gains of  each channel. 
+%simulation to those observed in data by comparing .  The ``weighted $E/p$'' for each crystal is %computed, 
+%representing the average $E/p$ for clusters that include the crystal
 % $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$.
-Iteratively, conversion coefficients for each module is adjusted until the $E/p$ ratio in data and 
-simulation are similar. The distribution of the $E/p$ ratio in data and simulation can be seen in 
+Iteratively, conversion coefficients for each crystal is adjusted until the $E$/$p$ ratio in data and 
+simulation are similar. The distribution of the $E$/$p$ ratio in data and simulation are compared in 
 Fig.~\ref{fig:gains}. 
 {\small
 \begin{figure}[]
 \begin{center}
 	\includegraphics[width=7cm]{figures/h_ep_data_0_h_ep_MC_0_dataMC_1351-v6-v6gains_2-trig-top-cl600reg0.pdf}
-	\caption{The ECal energy over track momentum ratio comparing data and simulation} 
+	\caption{The ECal energy over track momentum ratio ($E$/$p$) comparing data and simulation} 
 	\label{fig:gains}
 \end{center}
 \end{figure}
 }
-The peak position of the distribution indicates the sampling fraction of the ECal, 
-the fraction of the incident particle energy measured in the cluster. The width and tails of the distribution 
+The peak position of the distribution indicates the sampling fraction of the ECal, the fraction of the 
+incident particle energy measured in the cluster. The width and tails of the distribution 
 in data indicates imperfect calibration and noise of the ECal modules. This level of calibration and the 
-agreement with simulation was found to be sufficient for the multiple scattering analysis using 
-normalized event rates described in Sec.~\ref{sec:mcs}.
-
-%These gains can then be used to convert from the ADC counts reported by the FADC in each channels to the energy deposited in the crystals. In order to find the energy of the incident particle one also needs to know the  the fraction of incident energy that is deposited in the cluster or "sampling fraction". 
-%The sampling fraction is parameterized from simulation that show that it is approximately 0.9 for the ECal. The weighted $E/p$ shown in Fig.~\ref{fig:gains} is an approximate measurement of the sampling fraction of that part of the ECal but is position- (somewhat smaller at the edges) and energy-dependent because of the high readout thresholds (explaining the low value compared to 0.9). Since the sampling fraction is not needed to normalize event rates it was not applied in the multiple scattering analysis in Sec.~\ref{sec:mcs}.
+agreement with simulation was found to be sufficient to study normalized event rates on the Test run.
 
 
+\subsection{Multiple Coulomb Scattering Distributions}
+One of the main goals of the HPS Test run was to evaluate the description of the tails of the 
+multiple Coulomb scattering to gain further confidence in the expected detector occupancy in the full HPS 
+experiment. Those occupancies have been evaluated using \egs{}~\cite{egs5} simulation program 
+whose \moliere{} formulation of multiple scattering show good agreement with previous studies 
+for a wide range of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} . 
+Despite all data taken with a photon beam in the Test run, the angular distribution of the pair 
+produced electron and positron emerging from the converter with different converter thickness can 
+be used to study the varying multiple Coulomb scattering contribution (pair production angle is constant). 
+Restricting clusters to a well calibrated region of the ECal we observe, within our systematic 
+uncertainties , good agreement with the rates predicted by \egs{}, see Tab.~\ref{tab:ang_distr_dataMC}.
+%\begin{center}
+\begin{table}
+{\small
+\begin{tabular}{|l|c|c|c|}
+\hline
+\bf Converter (\%~$X_0$) & \bf 1.60 & \bf 0.45 &	\bf 0.18 \\
+\hline
+EGS5 &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
+\hline
+GEANT4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
+\hline
+Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\						
+\hline
+\end{tabular}
+\caption{ Observed and predicted number of events for 1~s of beam at 90~nA for three different converter 
+thicknesses. The uncertainty on the prediction includes systematic uncertainties from ECal alignment, background normalization, beam current normalization and limited statistics in the simulation.}
+}
+\label{tab:ang_distr_dataMC}
+\end{table}
+%\end{center}
 
 
 \subsection{Trigger Performance}
-The trigger and DAQ integrate pulses from the ECal modules differently to measure the energy 
-deposited in the each crystal. The trigger integrates the pulse using a time-over-threshold window, and 
-the DAQ readout integrates using a fixed-size window (5 samples before and 30 samples after a 
-threshold crossing). For every event, the trigger reports the trigger decision as a bit mask (top half, 
-bottom half or both) and the time the trigger fired. The trigger performance was studied by simulating the 
+As described in Sec.~\ref{sec:fadc} and shown in Fig.~\ref{fig:hps_trigger_data} the energy from each 
+crystals are measured differently in the trigger and what is readout from the ECal. 
+The trigger performance was studied by simulating the 
 trigger for each event and comparing to how the events were actually triggered.
-First, we simulate the FADC readout board to convert from readout hits (with fixed-size window 
+First, we simulate the FADC trigger path by converting from readout hits (with fixed-size window 
 integration) to trigger hits (time-over-threshold integration). Secondly, the CTP clustering 
-algorithm and the trigger decision is simulated before we compare the trigger decision and trigger time 
-to what was reported by the actual trigger. To eliminate trigger bias, we use a tag and probe method. To 
-study the trigger performance in one half of the ECal, we select events which triggered the other half 
-and where there was exactly one probe cluster in the ECal half under study. We then measure trigger 
-efficiency as the fraction of tagged events that fired the trigger in the probe half as a function of the 
-probe cluster energy, shown in Fig.~\ref{fig:turnon}. As a cross-check, the turn-on from the trigger 
-threshold was measured to be 1280 in units of ADC counts as expected. The threshold was not 
-perfectly sharp because of uncertainties in the conversion from readout to trigger hits described 
-above, but based on comparisons with simulation we found that the trigger worked exactly as 
-specified.
+algorithm and the trigger decision from the SSP is simulated before we compare the trigger decision 
+and trigger time to what was reported by the actual trigger. For every event, the trigger reports the trigger 
+decision as a bit mask (top half, bottom half or both) and the time the trigger fired. To eliminate trigger 
+bias, we use a tag and probe method: to study the trigger performance in one half of the ECal, we select 
+events which triggered the other half and where there was exactly one probe cluster in the ECal half 
+under study. We then measure trigger efficiency as the fraction of tagged events that fired the trigger in 
+the probe half as a function of the probe cluster energy, shown in Fig.~\ref{fig:turnon}. 
 \begin{figure}[ht]
 \begin{center}
 {\small
@@ -1038,9 +1079,12 @@ gain variations between different crystals lead to the threshold variations and 
 the time-over-threshold integral means that the effective threshold is higher for clusters that span 
 multiple crystals. The effective trigger threshold is therefore dependent on position and energy of 
 the particle as well as cluster multiplicity. 
-%Overall the trigger appears to have functioned exactly as intended. 
-%Changes planned for physics running (constant integration window and per-crystal gain calibration 
-%constants for the trigger) will solve both of the issues that led to threshold variations in the Test run.
+
+As a cross-check, the turn-on from the trigger threshold was measured to be 1280 in units of ADC counts 
+as expected. The threshold was not perfectly sharp because of uncertainties in the conversion from 
+readout to trigger hits described above, but based on comparisons with simulation we found that the 
+trigger worked exactly as specified.
+
 
 
 
@@ -1052,172 +1096,172 @@ the particle as well as cluster multiplicity.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Multiple Coulomb Scattering Distributions}
-\label{sec:mcs}
-Occupancies close to the beam create many of the key challenges in the HPS experiment
-and determine the limits of sensitivity to low \Aprime{} masses.
-These occupancies are dominated by electrons which have multiple Coulomb scattered (MCS) 
-to relatively large angles in the target. Because HPS is sensitive to scattering angles far out on the tail of 
-the MCS distribution, well beyond the angles important in other experiments, care must be taken
-to ensure our simulations are correct in this regime.  
-
-\subsection{Multiple Coulomb Scattering Models}
-
-One of the main goals of the HPS Test was to evaluate the description of the tails of the MCS
-to gain further confidence in the expected detector occupancy in the full HPS experiment. 
-Previous studies of multiple scattering angles show good agreement with the \moliere{} 
-theory~\cite{Moliere:1948zz} for a wide range 
-of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467}. We have verified 
-that the angular distribution $F(\theta)$ in the differential cross section 
-$d\sigma = F( \theta) d(\cos\theta) d\phi$ for the \egs{}~\cite{egs5} simulation program show good 
-agreement with \moliere{}'s analytical formula as formulated by Bethe~\cite{Bethe:1953va}. 
-The small angle approximation was also shown to be in agreement with the theory formulated by 
-Gaudsmit and Saunderson~\cite{Goudsmit:1940zza,Goudsmit:1940zz} that is valid for any angle. 
-While \egs{} uses the more complex and time consuming \moliere{} 
-formula, the default physics list of \geant{} uses the so-called Urban model, an approximation with two, 
-continuously joined, functions to take into account 
-small and large angle scattering. Due to the explicit function in large angle approximation used by 
-\geant{} we expect that \geant{} will overestimate the angular distribution at angles larger than a few 
-mrad.
-
-
-Figure~\ref{fig:schematic_testrun_vs_erun} gives a schematic view of the main differences 
-between the photon and electron beam setup. 
-The angular distribution of the pair produced electron and positron emerging 
-from the converter in the test run has comparable contributions from {\it i)} the pair production angle
-and {\it ii)} the MCS of the electron and positron in the converter after production. By measuring the 
-scattering rate at several different converter thicknesses we can vary the contribution from MCS 
-while the contribution from the pair production angle is constant. This allows us to confirm our model of MCS 
-despite the fact that all data was taken with a photon beam.
-
-
-\subsection{Running Conditions}
-
-Data was taken at three different converter thicknesses with a beam current varying between 
-$30-70$~nA, see~Tab.~\ref{tab:currents}.  
-\begin{table}[t]
-\begin{center}
-{\small
-\begin{tabular}{|c|c|c|}
-\hline
-Converter thickness & Duration &  $e^-$ on converter \\
- (\%$X_0$) & (s) & ($\mu$C)    \\   
-\hline
+%\section{Multiple Coulomb Scattering Distributions}
+%\label{sec:mcs}
+%Occupancies close to the beam create many of the key challenges in the HPS experiment
+%and determine the limits of sensitivity to low \Aprime{} masses.
+%These occupancies are dominated by electrons which have multiple Coulomb scattered (MCS) 
+%to relatively large angles in the target. Because HPS is sensitive to scattering angles far out on the tail of 
+%the MCS distribution, well beyond the angles important in other experiments, care must be taken
+%to ensure our simulations are correct in this regime.  
+%
+%\subsection{Multiple Coulomb Scattering Models}
+%
+%One of the main goals of the HPS Test was to evaluate the description of the tails of the MCS
+%to gain further confidence in the expected detector occupancy in the full HPS experiment. 
+%Previous studies of multiple scattering angles show good agreement with the \moliere{} 
+%theory~\cite{Moliere:1948zz} for a wide range 
+%of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467}. We have verified 
+%that the angular distribution $F(\theta)$ in the differential cross section 
+%$d\sigma = F( \theta) d(\cos\theta) d\phi$ for the \egs{}~\cite{egs5} simulation program show good 
+%agreement with \moliere{}'s analytical formula as formulated by Bethe~\cite{Bethe:1953va}. 
+%The small angle approximation was also shown to be in agreement with the theory formulated by 
+%Gaudsmit and Saunderson~\cite{Goudsmit:1940zza,Goudsmit:1940zz} that is valid for any angle. 
+%While \egs{} uses the more complex and time consuming \moliere{} 
+%formula, the default physics list of \geant{} uses the so-called Urban model, an approximation with two, 
+%continuously joined, functions to take into account 
+%small and large angle scattering. Due to the explicit function in large angle approximation used by 
+%\geant{} we expect that \geant{} will overestimate the angular distribution at angles larger than a few 
+%mrad.
+%
+%
+%Figure~\ref{fig:schematic_testrun_vs_erun} gives a schematic view of the main differences 
+%between the photon and electron beam setup. 
+%The angular distribution of the pair produced electron and positron emerging 
+%from the converter in the test run has comparable contributions from {\it i)} the pair production angle
+%and {\it ii)} the MCS of the electron and positron in the converter after production. By measuring the 
+%scattering rate at several different converter thicknesses we can vary the contribution from MCS 
+%while the contribution from the pair production angle is constant. This allows us to confirm our model of MCS 
+%despite the fact that all data was taken with a photon beam.
+%
+%
+%\subsection{Running Conditions}
+%
+%Data was taken at three different converter thicknesses with a beam current varying between 
+%$30-70$~nA, see~Tab.~\ref{tab:currents}.  
+%\begin{table}[t]
+%\begin{center}
+%{\small
+%\begin{tabular}{|c|c|c|}
 %\hline
-1.6   & 911 &   24.4 \\ %24385.9     \\ %27 nA
+%Converter thickness & Duration &  $e^-$ on converter \\
+% (\%$X_0$) & (s) & ($\mu$C)    \\   
 %\hline
-0.18   & 2640 &   193.5 \\ % 193508.9  \\  %73 nA
+%%\hline
+%1.6   & 911 &   24.4 \\ %24385.9     \\ %27 nA
+%%\hline
+%0.18   & 2640 &   193.5 \\ % 193508.9  \\  %73 nA
+%%\hline
+%0.45  & 2149 &     140.7 \\ %  140709.9  \\ %65.5 nA
+%%\hline
+%0    & 1279  &   88.1 \\ %88079.6  \\
 %\hline
-0.45  & 2149 &     140.7 \\ %  140709.9  \\ %65.5 nA
+%\end{tabular}
+%}
+%\caption{Measured integrated currents for the dedicated photon runs.}
+%\label{tab:currents}
+%\end{center}
+%\end{table}
+%The photon beam line during the test run produced a relatively 
+%large fraction of pairs 
+%originating upstream of the converter. This contribution was measured during data taking 
+%with ``empty'' converter runs i.e. removing the converter but with all other conditions 
+%the same. 
+%The upstream background measured in the ``empty'' converter runs was subtracted 
+%from the other runs, properly normalized using the measured integrated currents.
+%
+%
+%
+%\subsection{Measured Angular Distributions}
+%
+%For this analysis, we measure angular distribution of electrons and positrons using the ECal.
+%Cluster reconstruction was done using the algorithm described in Sec.~\ref{sec:trigger} build 
+%clusters around seed hits (hits above a ``seed'' energy threshold and with greater energy than any 
+%neighboring hits), and add all neighboring hits above an ``add'' energy threshold.
+%Hit energy is calibrated by matching track momentum to cluster energy, as described in Sec.~\ref{sec:ecal_calibration}. The measured angular distribution in the ECal for the three converter thicknesses are shown in Fig.~\ref{fig:ang_distr_data}. 
+%\begin{figure}[]
+%\begin{center}
+%{\small
+%%	\includegraphics[ width=7cm]{figures/rate_ecalrow_raw.png}
+%	\includegraphics[ width=7cm]{figures/rate_ecalrow_norm_subtr.png}
+%	\caption{Measured vertical angular distributions after integrated beam current 
+%	normalization and background subtraction.}
+%	\label{fig:ang_distr_data}
+%}
+%\end{center}
+%\end{figure}
+%The data has been normalized to the integrated beam current and the background has been 
+%subtracted. The background fraction for the there converter thicknesses was 16\%, 52\% and 71\% 
+%for converter thicknesses of 1.6\%, 0.45\% and 0.18\%, respectively. The background fraction was also 
+%cross-checked by pointing back tracks reconstructed in the SVT to identify the fraction of tracks not emanating from the converter. 
+%%This can be seen in Fig.~\ref{fig:extrapol_converter} (bottom) where small 
+%%satellite peaks at $\pm 10$~mm can be identified as tracks from the upstream background. The angular distribution, after normalization and subtracting the upstream background, are shown in 
+%%Fig.~\ref{fig:ang_distr_data} (right).  
+%We also checked that the contribution from photons to our triggered 
+%sample was less than 2\% (without angular selections which would further reduce the contribution).
+%
+%
+%These measured angular distributions are compared to simulation to validate 
+%the modeling of the MCS. \egs{}~\cite{egs5} is used to generate 
+%the electromagnetic interactions in the converter while \geant{} is used to simulate the particles after the 
+%converter.  Figure~\ref{fig:ang_distr_dataMC} shows the angular distribution comparing data and 
+%\egs{} normalized to 1~s of beam at 90~nA beam current with a converter thickness of 1.6\%. 
+%Reasonable agreement is obtained in the most important region close to the beam. There is a hint of a 
+%slightly different slope of the data at larger angles; this difference is covered by systematic uncertainties.  
+%The total rates for each converter thickness is shown in Fig.~\ref{fig:rate_vs_thickness} and summarized 
+%in Tab.~\ref{tab:ang_distr_dataMC}.
+%\begin{figure}[]
+%{\small
+%	\begin{center}
+%	\includegraphics[ width=7cm]{figures/dataMC_1351_Hit_Y_top_norm_bkgsub.png}
+%	\caption{Comparison between the observed and predicted angular distribution using \egs{} for a 
+%	converter thickness of 1.6\%. Similar agreement is found for 0.45\% and 0.18\% converter thicknesses. 
+%	Only statistical uncertainties are shown. }
+%	\label{fig:ang_distr_dataMC}
+%\end{center}
+%}
+%\end{figure}
+%\begin{figure}[]
+%\begin{center}
+%{\small
+%	\includegraphics[ width=7cm]{figures/dataMC_egs.png}
+%	\caption{The measured rate as a function of converter thickness for data and \egs{} simulation 
+%	of MCS in 	the converter.} 
+%	\label{fig:rate_vs_thickness}
+%}
+%\end{center}
+%\end{figure}
+%The total systematic uncertainty was estimated to be between 10-18\% depending on the run including:  
+%a 5\% uncertainty on the integrated current normalization, alignment of the ECal, uncertainty from the 
+%background normalization, and limited Monte Carlo statistics.  
+%\begin{center}
+%\begin{table}
+%{\small
+%\begin{tabular}{|l|c|c|c|}
 %\hline
-0    & 1279  &   88.1 \\ %88079.6  \\
-\hline
-\end{tabular}
-}
-\caption{Measured integrated currents for the dedicated photon runs.}
-\label{tab:currents}
-\end{center}
-\end{table}
-The photon beam line during the test run produced a relatively 
-large fraction of pairs 
-originating upstream of the converter. This contribution was measured during data taking 
-with ``empty'' converter runs i.e. removing the converter but with all other conditions 
-the same. 
-The upstream background measured in the ``empty'' converter runs was subtracted 
-from the other runs, properly normalized using the measured integrated currents.
-
-
-
-\subsection{Measured Angular Distributions}
-
-For this analysis, we measure angular distribution of electrons and positrons using the ECal.
-Cluster reconstruction was done using the algorithm described in Sec.~\ref{sec:trigger} build 
-clusters around seed hits (hits above a ``seed'' energy threshold and with greater energy than any 
-neighboring hits), and add all neighboring hits above an ``add'' energy threshold.
-Hit energy is calibrated by matching track momentum to cluster energy, as described in Sec.~\ref{sec:ecal_calibration}. The measured angular distribution in the ECal for the three converter thicknesses are shown in Fig.~\ref{fig:ang_distr_data}. 
-\begin{figure}[]
-\begin{center}
-{\small
-%	\includegraphics[ width=7cm]{figures/rate_ecalrow_raw.png}
-	\includegraphics[ width=7cm]{figures/rate_ecalrow_norm_subtr.png}
-	\caption{Measured vertical angular distributions after integrated beam current 
-	normalization and background subtraction.}
-	\label{fig:ang_distr_data}
-}
-\end{center}
-\end{figure}
-The data has been normalized to the integrated beam current and the background has been 
-subtracted. The background fraction for the there converter thicknesses was 16\%, 52\% and 71\% 
-for converter thicknesses of 1.6\%, 0.45\% and 0.18\%, respectively. The background fraction was also 
-cross-checked by pointing back tracks reconstructed in the SVT to identify the fraction of tracks not emanating from the converter. 
-%This can be seen in Fig.~\ref{fig:extrapol_converter} (bottom) where small 
-%satellite peaks at $\pm 10$~mm can be identified as tracks from the upstream background. The angular distribution, after normalization and subtracting the upstream background, are shown in 
-%Fig.~\ref{fig:ang_distr_data} (right).  
-We also checked that the contribution from photons to our triggered 
-sample was less than 2\% (without angular selections which would further reduce the contribution).
-
-
-These measured angular distributions are compared to simulation to validate 
-the modeling of the MCS. \egs{}~\cite{egs5} is used to generate 
-the electromagnetic interactions in the converter while \geant{} is used to simulate the particles after the 
-converter.  Figure~\ref{fig:ang_distr_dataMC} shows the angular distribution comparing data and 
-\egs{} normalized to 1~s of beam at 90~nA beam current with a converter thickness of 1.6\%. 
-Reasonable agreement is obtained in the most important region close to the beam. There is a hint of a 
-slightly different slope of the data at larger angles; this difference is covered by systematic uncertainties.  
-The total rates for each converter thickness is shown in Fig.~\ref{fig:rate_vs_thickness} and summarized 
-in Tab.~\ref{tab:ang_distr_dataMC}.
-\begin{figure}[]
-{\small
-	\begin{center}
-	\includegraphics[ width=7cm]{figures/dataMC_1351_Hit_Y_top_norm_bkgsub.png}
-	\caption{Comparison between the observed and predicted angular distribution using \egs{} for a 
-	converter thickness of 1.6\%. Similar agreement is found for 0.45\% and 0.18\% converter thicknesses. 
-	Only statistical uncertainties are shown. }
-	\label{fig:ang_distr_dataMC}
-\end{center}
-}
-\end{figure}
-\begin{figure}[]
-\begin{center}
-{\small
-	\includegraphics[ width=7cm]{figures/dataMC_egs.png}
-	\caption{The measured rate as a function of converter thickness for data and \egs{} simulation 
-	of MCS in 	the converter.} 
-	\label{fig:rate_vs_thickness}
-}
-\end{center}
-\end{figure}
-The total systematic uncertainty was estimated to be between 10-18\% depending on the run including:  
-a 5\% uncertainty on the integrated current normalization, alignment of the ECal, uncertainty from the 
-background normalization, and limited Monte Carlo statistics.  
-\begin{center}
-\begin{table}
-{\small
-\begin{tabular}{|l|c|c|c|}
-\hline
-Converter (\% r.l.) & 1.60 & 0.45 &	0.18 \\
-\hline
-EGS5 &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
-\hline
-GEANT4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
-\hline
-Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\						
-\hline
-\end{tabular}
-\caption{ Observed and predicted number of events for 1~s of beam at 90~nA for three different converter 
-thicknesses. The uncertainty on the prediction includes systematic uncertainties. }
-}
-\label{tab:ang_distr_dataMC}
-\end{table}
-\end{center}
-
-\subsection{Conclusion}
-In summary, the accurate modeling of the MCS is fundamental to estimate occupancies and trigger rates 
-for HPS. \egs{} predicts the correct angular distribution across all converter thicknesses as expected while 
-\geant{}, using the so-called Urban model for multiple scattering overestimates the rates; with the disagreement 
-increasing  with larger converter thickness. This preliminary result verifies similar studies [] and gives confidence 
-in our modeling of the MCS 
-using \egs{} for evaluating the physics reach of HPS.
+%Converter (\% r.l.) & 1.60 & 0.45 &	0.18 \\
+%\hline
+%EGS5 &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
+%\hline
+%GEANT4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
+%\hline
+%Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\						
+%\hline
+%\end{tabular}
+%\caption{ Observed and predicted number of events for 1~s of beam at 90~nA for three different converter 
+%thicknesses. The uncertainty on the prediction includes systematic uncertainties. }
+%}
+%\label{tab:ang_distr_dataMC}
+%\end{table}
+%\end{center}
+%
+%\subsection{Conclusion}
+%In summary, the accurate modeling of the MCS is fundamental to estimate occupancies and trigger rates 
+%for HPS. \egs{} predicts the correct angular distribution across all converter thicknesses as expected while 
+%\geant{}, using the so-called Urban model for multiple scattering overestimates the rates; with the disagreement 
+%increasing  with larger converter thickness. This preliminary result verifies similar studies [] and gives confidence 
+%in our modeling of the MCS 
+%using \egs{} for evaluating the physics reach of HPS.
 
 
 
@@ -1226,9 +1270,13 @@ using \egs{} for evaluating the physics reach of HPS.
 
 
 \section{Summary and Outlook}
-
-%This paper reviewed 
-The HPS Test Run experiment, using a simplified version of the apparatus planned for the full HPS experiment in a parasitic photon beam, demonstrated the feasibility of the detector technologies proposed for the HPS silicon tracker, ECal, and data acquisition systems. Performance from each of these subsystems has been shown to be adequate to conduct the full experiment successfully. A measurement of the normalized trigger rates from a photon conversion target confirmed expectations from simulation, giving credance to estimates of the trigger rates and the detector backgrounds expected in electron beam running.  
+The HPS Test experiment, using a simplified version of the apparatus planned for the full HPS 
+experiment in a parasitic photon beam, demonstrated the feasibility of the detector technologies 
+proposed for the silicon vertex tracker, electromagnetic calorimeter, and data acquisition systems. 
+Performance from each of these subsystems has been shown to be adequate to conduct the full 
+experiment successfully. Studies of multiple Coloumb scattering tails of electrons and positrons from 
+photon conversions further backs expectations from simulation, giving credance to estimates of the 
+detector backgrounds expected in electron beam running for HPS.  
 
 %The test run achieved the following detector performance:\begin
 %{enumerate}
