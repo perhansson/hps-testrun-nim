@@ -813,39 +813,36 @@ to the JLab computing facility for long-term storage. For the Test run, both the
 
 \subsection{SVT Performance}
 
-During the duration of the test run all SVT modules and APV25 chips were configured to their 
+For the duration of the Test run all SVT modules and APV25 chips were configured to their 
 nominal operating points~\cite{Jones:1069892} with all sensors reverse-biased at 180~V.  The 
-sensors were operated within a temperature range of  $20-24^\circ$C 
-throughout the test run. 
-Throughout the duration of the test run, approximately 97\% of the 12,780 SVT channels were found to
-be operating normally. The fraction of dead or noisy channels varied from 2.4\% to 4.7\%.  
-Most of these were due to misconfigured readout chips (2--4 misconfigured chips out of 100 ), 
-a known noisy half-module and a couple of known noisy readout chips. 
+sensors were operated within a temperature range of  $20-24^\circ$C.
+Approximately 97\% of the 12,780 SVT channels were found to
+be operating normally;  the fraction of dead or noisy channels varied from 2.4\% to 4.7\% throughout 
+the Test run. Most of these were due to 2-4 misconfigured APV25 ASICs, a known noisy 
+half-module and a couple of known APV25 ASICs. 
 
 
 \subsubsection{Cluster and Hit Reconstruction}
 
-After a trigger is received, six samples of the corresponding output of the APV25 shaper circuit are digitized. The samples from every channel on a sensor surviving the 
-data reduction algorithm (see Sec.~\ref{sec:svt_daq}) are the basis for offline hit reconstruction. 
-The six samples of the APV25 shaper output 
-are fitted to an ideal $CR-RC$ function to extract the amplitude and the $t_0$ of the hit. 
-The typical pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape} also demonstrates that the SVT 
-was well timed in to the trigger with the rise of the pulse at the 3rd sampling point.
+After a trigger is received, six samples of the corresponding output of the APV25 ASIC shaper circuit are 
+digitized. The six pedestal-subtracted samples from every channel in the SVT are the basis for offline hit 
+reconstruction. The typical pulse shape obtained shown in Fig.~\ref{fig:pulse_shape} also 
+demonstrates that the SVT was well timed in to the trigger with the rise of the pulse at the 3rd sampling 
+point.
 \begin{figure}[]
 \begin{center}
 {\small
 	\includegraphics[width=6cm]{figures/run1351_110513_samples_L1_top.pdf}
-	\caption{The six pedestal subtracted samples from individual channels associated with a hit on a 
-	track.}
+	\caption{Accumulation of six pedestal-subtracted samples from individual SVT channels associated 
+	with hits on tracks.}
 	\label{fig:pulse_shape}
 }
 \end{center}
 \end{figure}
-
 These hits are passed through a simple clustering algorithm which forms clusters by grouping adjacent 
-strips. The position of a cluster on the sensor is determined by the amplitude-weighted mean.
+strips with the position of a cluster on the sensor determined by the amplitude-weighted mean.
 With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associated with a track follow 
-the characteristic Landau shape as expected, see Fig.~\ref{fig:cluster_pulse}.  
+the characteristic Landau shape, see Fig.~\ref{fig:cluster_pulse}.  
 A noise level between $1.1-1.5\times 10^{3}$ electrons was established through multiple calibration 
 runs giving a signal to noise ratio of $21-25$. Lab-based radioactive source tests was used to 
 provide the absolute charge normalization.
@@ -860,36 +857,37 @@ provide the absolute charge normalization.
 \end{center}
 \end{figure}
 
-After clustering hits on a sensor, the hit time for each cluster is computed as the amplitude-weighted 
-average of the fitted $t_0$ channel times. The $t_0$-resolution is studied by comparing the cluster hit 
-time with the average of all cluster hit times on the track, the ``track time'', which has the expected jitter 
-due to clock phase and trigger, approximately 25~ns. Figure~\ref{fig:tracktime} shows the residual to the individual cluster 
-times. 
+
+In order to find the time and amplitude of each hit, $t_0$,  the six samples from each channel are fitted to 
+an ideal $CR-RC$ function. After clustering hits on a sensor, the hit time for each cluster is computed as 
+the amplitude-weighted average of the individually fitted $t_0$ on each channel. The $t_0$-resolution is 
+studied by comparing the cluster hit time with the average of all cluster hit times on the track, 
+see Fig.~\ref{fig:tracktime}, which has the expected jitter due to clock phase and trigger, 
+approximately 25~ns. 
 \begin{figure}[]
 \begin{center}
 {\small
 	\includegraphics[width=7cm]{figures/test_run_1351_hit_time_corrected_top_layer2_mod.pdf}
 	\caption{
-	The cluster time residual for a representative sensor relative to the track time (see text for more 
-	details). }
+	The residual of individual cluster times with the average of all clusters on the track. }
 	\label{fig:tracktime}
 }
 \end{center}
 \end{figure}
 After correcting for offsets from each sensor (time-of-flight, clock phase) and accounting for the 
 correlation between the $t_0$ and track time,  the extracted $t_0$ resolution is 2.6~ns. This is somewhat 
-worse than the approximately 2~ns resolution expected which we attribute to the true 
+worse than the approximately 2~ns resolution expected for S/N~25 which we attribute to the true 
 pulse shape differing from our idealized fit function which will be improved in the future. Reducing the 
-APV25 pulse shaping time will also improve time resolution. These results show that we can operate 
-with the six sample readout mode of the APV25 chip and achieve time resolution adequate for pileup 
-rejection during electron running in the HPS experiment. 
+APV25 ASIC pulse shaping time will also improve time resolution. 
+These results show that we can operate with the six sample readout mode of the APV25 chip and 
+achieve time resolution adequate for pileup rejection during electron running in HPS. 
 
 While occupancy was slightly larger than expected, good agreement between data and simulation was 
 found after taking into account dead or noisy channels. The hit efficiency was estimated by measuring 
 the number of good tracks with a hit close to the extrapolated intersection of a given sensor that was 
 excluded from the track fit itself. Tracks which intersect regions with known bad channels or very close to 
-in the edge region are excluded in the calculation of the single hit efficiency. The hit efficiency, see 
-Fig.~\ref{fig:hit_efficiency}, was measured to be above 98\% and fairly uniform across the SVT.
+in the edge region are excluded. The hit efficiency, see Fig.~\ref{fig:hit_efficiency}, was measured to be 
+above 98\% and fairly uniform across the SVT.
 \begin{figure}[]
 \begin{center}
 {\small
@@ -901,7 +899,7 @@ Fig.~\ref{fig:hit_efficiency}, was measured to be above 98\% and fairly uniform 
 \end{figure}
 The spatial resolution of similar microstrip sensors is well established by test beam data, against which 
 the charge deposition model in the simulation is validated.  This resolution can be parameterized as a 
-function of the total signal to single-strip noise (S/N) and the crossing angle of tracks through the sensor.  
+function of the total signal to single-strip noise and the crossing angle of tracks through the sensor.  
 The single-hit resolution for charged particles with signal to noise ratio above 20, as demonstrated 
 here, is relatively constant at approximately 6~$\mu$m for tracks that enters approximately normal to the 
 sensors as in HPS.
@@ -911,11 +909,9 @@ sensors as in HPS.
 \subsubsection{Momentum and Vertexing Resolution}
 
 By selecting \ee{} pairs from the triggered events we are able to study basic distributions of pair 
-production kinematics and in particular those related to our vertex performance. Pairs of opposite charge 
-tracks, one in the top and one in the bottom half of the SVT, with momentum larger than 400~MeV were 
-selected. The pair production kinematics are relatively well reproduced given the alignment of the 
-tracker; Fig.~\ref{fig:pair_kin} shows the invariant mass and ratio of electron momentum over the sum of 
-electron and positron. 
+production kinematics. Pairs of opposite charge tracks, one in the top and one in the bottom half of the 
+SVT, with momentum larger than 400~MeV were selected. The pair production kinematics are relatively 
+well reproduced given the alignment of the tracker as shown in Fig.~\ref{fig:pair_kin}. 
  \begin{center}
 {\small
 \begin{figure*}[t]
@@ -927,22 +923,23 @@ electron and positron.
 \end{figure*}
 }
 \end{center}
-We estimate the accuracy of the SVT momentum scale and resolution by looking at the agreement 
+The expected momentum resolution from simulation is between 4-5\% 
+for tracks in the momentum range of the Test run. This is significantly smaller than the accuracy at 
+which we're able estimate the scale and resolution in the Test run. By looking at the agreement 
 between data and simulation in the shape of the kinematic distributions for single- and two track 
-events.  By adjusting the overall momentum scale and smearing the simulated events with a 
+events and adjusting the overall momentum scale and smearing simulated events with a 
 Gaussian resolution we estimate an uncertainty of 10\% on both the momentum scale and 
-resolution in the Test run. The expected momentum resolution from simulation is between 4-5\% 
-for tracks in the momentum range of the Test run.
+resolution.
 
 For the vertexing performance the foremost difference compared to electron beam running is that the 
-target was located approximately 67~cm from our nominal target position; giving almost collinear tracks 
-in the detector. This degrades the vertex resolution along the 
-beam line compared to that expected in an electron beam with tracks from the nominal target position. 
+target was located approximately 67~cm upstream from our nominal target position; giving almost 
+collinear tracks in the detector. This degrades the vertex resolution along the 
+beam line compared to that expected in an electron beam with nominal target position. 
 Furthermore, tails of the vertex distributions are impossible to study with the finite data sample obtained 
 in the Test run. Nevertheless, useful information can still be 
 obtained by studying the vertex distributions. Figure~\ref{fig:vtx_pos} shows the distance of closest 
 approach of the momentum vectors extrapolated in the upstream direction from our analyzing magnet, 
-taking into account the measured fringe field of the PS magnet. 
+taking into account the measured fringe field of the PS dipole magnet. 
  \begin{center}
 {\small
 	 \begin{figure*}[t]
@@ -952,28 +949,18 @@ taking into account the measured fringe field of the PS magnet.
 	\includegraphics[width=5cm]{figures/h_vtx_fr_y_h_vtx_y_trigsel4hit_pair1351_twotrkfilt-v6-paper}
 	\includegraphics[width=5cm]{figures/h_vtx_fr_z_h_vtx_z_trigsel4hit_pair1351_twotrkfilt-v6-paper}
 	\caption{ Vertex position represented by the distance of closest approach of the extrapolated 
-	momentum vectors upstream of the PS magnet taking into account the measured fringe field. The 
-	overall shift from zero in the x-direction is due to a 30~mrad rotation of the SVT with respect to the 
-	beam line.}
+	momentum vectors upstream of the PS dipole magnet taking into account the measured fringe field. 
+	The overall shift from zero in the x-direction is due to a 30~mrad rotation of the SVT with respect to 
+	the beam line.}
 	\label{fig:vtx_pos}
 \end{figure*}
 }
 \end{center}
-%While the tails of the vertex distribution expected in electron beam running is not accessible here the 
-%fact that the core is relatively well described provides confidence of the description of the amount of 
-%material and the model used for simulating multiple scattering in the target.  
-%These are crucial for benchmarking the HPS \Aprime{} physics reach since both the mass and vertex 
-%resolution that determine the sensitivity are limited by multiple scattering.
-
-
-
 
 
 
 \subsection{ECal Performance}
 \label{sec:ecal_calibration}
-
-%step Of 442 modules, 39 were disabled or disconnected and were not read out by the DAQ. 13 of these were not read out because of a shortage of FADC readout boards (see Sec.~\ref{sec:fadc}).The remainder either had no HV bias on the APD, or were disabled in the FADC software due to noise. In the data, we identified two types of abnormal channels. One FADC was not sending trigger signals correctly, resulting in low efficiency. This affected the 13 channels read out by that FADC. 5 channels were diagnosed as noisy because they  had a high incidence of hits out of coincidence with the trigger. A large number of channels were originally misidentified as noisy because they had much higher hit occupancy than neighboring channels. Gain calibration shows that these channels have high gain (and thus lower energy threshold) but are otherwise normal. The abnormal channels were ignored in analysis in order to simplify comparison with Monte Carlo. This leaves 385 useful channels---87\% of the ECal.
 
 The integrated pulse of the each channel was converted to energy by first 
 subtracting the pedestal and then applying a conversion factor to convert ADC counts to energy. 
