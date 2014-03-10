@@ -541,57 +541,6 @@ APV25 ASICs on each hybrid board consuming approximately 2~W, radiant heat load 
 
 
 
-\subsection{Digitization, Event Building and Data Transmission}
-\label{sec:svt_daq}
-The SVT data acquisition (DAQ) is based on the Reconfigurable Cluster Element (RCE) and cluster 
-interconnect concept developed at SLAC as generic building blocks for DAQ systems. 
-The RCE is a generic computational building block, housed on a separate daughter card called 
-Data Processing Module (DPM), that are realized on an ATCA front board called the Cluster On Board 
-(COB), see Fig.~\ref{fig:cob}.
- \begin{figure}[]
-\begin{center}
-{\small
-	\includegraphics[width=6cm]{figures/svt_daq_module}
-	\caption{The SVT DAQ COB board with four data processing daughter cards visible on the left side.}
-	\label{fig:cob}
-}
-\end{center}
-\end{figure}
-The first generation RCE used in the Test run consisted of a Virtex~5 FPGA with 1~GB of DDR3 RAM. 
-A schematic overview of the system is shown in Fig.~\ref{fig:svtdaq}. 
- \begin{figure}[]
-\begin{center}
-{\small
-	\includegraphics[width=6cm]{figures/svt_daq_module}
-	\caption{Block diagram overview of the SVT DAQ.}
-	\label{fig:svtdaq}
-}
-\end{center}
-\end{figure}
-The outputs of 12 SVT half-modules are digitized on the Rear-Transition-Module (RTM), a custom board 
-on the back side of the ATCA crate, interfacing the HPS readout to the generic DAQ components on the 
-COB. A pre-amplifier converts the APV25 differential current output to a different voltage output scaled to 
-the sensitive range of a 14-bit ADC operating at the system clock of 41.667~MHz. The RTM is organized 
-into four sections with each section supporting three SVT half-module hybrids (15 APV25 ASICs). The 
-RTM also includes a 4-channel fiber optic module and supporting logic which is used to interface 
-to the JLab trigger system supervisor. Each section of the RTM is input to a DPM which apply thresholds 
-for data reduction and organizes the sample data into UDP datagrams. The DPM also hosts an I$^{2}$C 
-controller used to configure and monitor the APV25 ASICs. A single ATCA crate with two COB cards 
-was used, one supporting four DPMs and one supporting 3 DPMs and one DPM that is configured as 
-the trigger and data transmission module. The two COB cards and their DPMs are interconnected with a 
-10Gb/s switch card~\cite{Larsen:2011zb} which also hosts two 1Gb/s Ethernet interfaces to the external 
-SVT DAQ PC.  
-
-The external PC supports three network interfaces; two standard 1Gb/s Ethernet and one custom low 
-latency data reception card. The first is used for slow control and monitoring of the 8 
-DPM modules and the second serves as the interface to the JLAB data acquisition system. The third 
-custom low latency network interface is used to receive data from the ATCA crate and supports a low 
-latency, reliable TTL trigger acknowledge interface to the trigger DPM. This PC hosts the SVT control 
-and monitoring software as well as the JLab Read Out Controller (ROC) application described in more 
-detail in Sec.~\ref{sec:daq}.
-
-While trigger rates during the Test run was significantly lower this system was tested at trigger rates up 
-to 20~kHz and 50~MB/s.
 
 
 \subsection{Production, Assembly and Shipping}
@@ -706,7 +655,8 @@ see Fig~.\ref{fig:fadc}.
 The FADC boards are high speed VXS modules digitizing up to 16 APD signals 
 at 250~MHz and storing samples in 8~$\mu$s deep pipelines with 12-bit resolution. 
 When a trigger is received, the part 
-of the pipeline from 5 samples before and 30 after the signal crossed $\approx70$~MeV threshold are 
+of the pipeline from 5 samples before and 30 after the signal crossed a programmable 
+threshold (for the Test run this was set to $\approx70$~MeV) are 
 summed and stored in a 17-bit register for readout as described in Fig.~\ref{fig:hps_trigger_data}.
 This scheme significantly compresses the data output of the FADC. During offline data analysis, a 
 calibrated pedestal value is subtracted to obtain the actual summed energy.
@@ -718,7 +668,7 @@ excessive noise) and 18 was masked offline due to noise.
 \begin{figure}[]
 \begin{center}
 {\small
-\includegraphics[width=7cm]{figures/fadc_datapath_diagram.png}
+\includegraphics[width=8cm]{figures/fadc_datapath_diagram.png}
 \caption{The two different readout modes of the FADC used in the Test run.}
 \label{fig:hps_trigger_data}
 }
@@ -731,19 +681,16 @@ excessive noise) and 18 was masked offline due to noise.
 
 \section{Trigger and Data Acquisition}
 
-The HPS Test apparatus DAQ handles the acquisition of data from two sub-detectors: the 
-SVT and the ECal, with two DAQ architectures. The SVT is readout with Advanced 
-Telecom Communications Architecture (ATCA) hardware while the ECal uses VXS based 
-hardware. The trigger system receives input from the ECal and distributes a trigger signal 
-to all detector sub-systems to read out a selected event. 
-
+The DAQ system handles acquisition of data from the ECal and SVT sub-detectors  with 
+two DAQ architectures. The SVT DAQ is based on Advanced Telecom Communications Architecture 
+(ATCA) hardware while the ECal uses VXS based hardware. Data from the sub-detectors are only 
+readout when a trigger signal from the trigger system is received formed on input from the ECal. 
 \subsection{Trigger system}
 \label{sec:trigger}
 
-The HPS test run trigger system is designed to select \ee{} events efficiently by 
-using information from the ECal. The trigger looks for time coincidences of clusters in the top and bottom 
-half of the ECal. The trigger system can be broken down into three sections as shown in 
-Fig.~\ref{fig:hps_trigger_cal}:
+The trigger system is designed to select time coincidences of electromagnetic clusters in the 
+top and bottom halves of the ECal. Figure~\ref{fig:hps_trigger_cal} shows a schematic overview 
+of each stage of the system. 
  \begin{figure}[b]
 \begin{center}
 {\small
@@ -757,81 +704,104 @@ the sub-detectors.}
 }
 \end{center}
  \end{figure}
- \begin{itemize}
- \item FADC (pulse finding): samples and digitizes the signal pulses from each detector channel. 
-Sends the measured pulse energy and arrival time to the Crate Trigger Processor (CTP),
-\item CTP (cluster finding): groups FADC pulses from each half of the ECal into clusters. 
-The cluster energy and arrival time are sent to the Sub-System Processor (SSP),
- \item SSP (cluster pair finding): searches for time coincidences of pairs of clusters from 
-the top and bottom half of the ECal and applies topological selections.
- \end{itemize}
-
-The time coincidence window of pairs of clusters in the top and bottom half of the ECal are 
-programmable with 4~ns resolution.  As described above, the first stage of the trigger logic is 
-incorporated into the FPGA's on the FADC boards. The trigger  
-integrates using a "time-over-threshold" window as explained in Fig. \ref{fig:hps_trigger_data}.
-For triggering purposes, every channel has: 
-\begin{itemize}
-% \item number of samples integrated before the threshold crossing (NSB),
- %\item number of samples integrated after the  threshold crossing (NSA),
- \item a trigger threshold, measured in ADC counts, 
- \item an offset, 
- \item a conversion factor to convert ADC counts into energy in MeV, from $50$ to $\sim1500$~MeV, with 5-bit accuracy 
- \item an energy threshold discriminator to provide aminimum energy cutoff
- \end{itemize}
-Note that the threshold for the trigger path can be set independently from the readout threshold.
-The offset is subtracted from ADC samples before they are integrated.  
-The values reported to the CTP are the 5-bit pulse energy and the 3-bit time at which the 
-pulse crossed the threshold. Data from every channel is sent to the CTP every 32~ns. With the available 
-3-bit time information, the CTP looks for time coincidences of crystal signals within an 8~ns window (the 
-limit is 4~ns).
-The cluster finding algorithm is fast and makes use of the parallel processing capability of the FPGA's by 
-simultaneously searching for 125 clusters, up to 3x3 in size, across the calorimeter crystal array, and it 
-performs the following tasks:
-\begin{itemize}
-\item Adds together the energy for every 3x3 square of channels in the ECal
-\item Hits are added together if their leading edges occurred within a programmable number of 4~ns 
-clock cycles  (HPS test run used 8~ns coincidence time interval).
-\item If the 3x3 energy sum is larger than the programmable cluster energy threshold and the sum is 
-greater than any neighboring 3x3 windows, the CTP reports the cluster parameters to the SSP. 
-\end{itemize}
-The CTP evaluates all the hits in its half of the calorimeter every 4~ns. A programmable time window is 
-used to allow hits that are slightly out of time with each other to be considered as part of a cluster sum. 
-This is done by reporting hits when they occur and then reporting them again for the next $N$ number of 
-4~ns clock cycles, where $N \in [0,7]$. This is useful to deal with skew and jitter that develop from the 
-detector, cabling, and electronics. As described above, the CTP only selects the 3x3 window with the 
-highest energy sum of its neighbors. This filtering is applied to deal with overlapping clusters and cases 
-where the cluster is larger than a 3x3 window.
-
-The final trigger decision is made by CTPs and the SSP is passed to the Trigger Supervisor (TS). The TS 
-generates all necessary signals and controls the entire DAQ system readout through the Trigger 
-Interface (TI) units. The TI units are installed in every crate that participate in the readout process. 
+Each channel on the FADC board have an 
+independent data path to send a 5-bit pulse energy and 3-bit pulse arrival time information to a 
+trigger processing board (CTP) in the same crate every 32~ns. Contrary to the readout path 
+described in Sec.~\ref{sec:fadc}, this energy is a pedestal subtracted time-over-threshold sum with 
+programmable offsets and minimum threshold discriminator for each channel. With input from all 
+FADC channels, i.e. one half of the ECal, the CTP performs cluster finding and calculates cluster 
+energy, shape and timing information. The 3x3 fixed-window, highly parallel, FPGA-based cluster 
+algorithm simultaneously searches for up to 125 clusters with energy sum larger than 
+the programmable energy threshold (in the Test run this was $\approx270$~MeV). Crystals in the 
+fixed-window are included in the sum if the leading edges of the pulses occurred within a 8~ns time 
+window (4~ns minimum). To take into account with clock skew and jitter throughout the system 
+clustering algorithm can allow crystal hits from $N\in[0,7]$ previous or future 4~ns clock cycles to 
+contribute to the cluster sum.  A separate sub-system board (SSP) receives the clusters (only the 
+highest energy 3x3 window to deal with overlapping and very large clusters) from 
+the top and bottom half CTP every 32~ns and searches for pairs of clusters in a 8~ns wide 
+trigger window. The trigger supervisor (TS) generates all the necessary signals and controls the 
+entire DAQ system readout through the trigger interface units installed in every crate that participate 
+in the readout process. 
 
 The trigger system is free-running and driven by the 250~MHz global clock and has essentially zero 
 dead time at the occupancies expected for HPS. The Trigger Supervisor can apply dead time if 
 necessary, for example on a `busy' or `full' condition from the front-end electronics. The system is 
-designed to handle trigger rates above 50~kHz and has a latency set to $\approx 3~\mu$s to match that 
-required by the SVT APV25 chip. 
+designed to handle trigger rates above 50~kHz and has a latency set to $\approx 3~\mu$s to match 
+that required by the SVT APV25 ASIC. During the Test run, for the most part the trigger system 
+required only a single cluster in either the top or bottom Ecal halves and tested to above 100~kHz 
+trigger rates with low thresholds. 
 
-During the test run, for the most part the trigger system required only a single cluster in either the top or 
-bottom Ecal module. It was tested to work up to 20 kHz trigger rates. 
 
-\subsection{Data Acquisition and Online Computing}
+
+\subsection{SVT Data Acquisition}
+%igitization, Event Building and Data Transmission}
+\label{sec:svt_daq}
+The SVT DAQ is based on the Reconfigurable Cluster Element (RCE) and cluster 
+interconnect concept developed at SLAC as generic building blocks for DAQ systems. 
+The RCE is a generic computational building block, housed on a separate daughter card called 
+Data Processing Module (DPM), that are realized on an ATCA front board called the Cluster On Board 
+(COB), see Fig.~\ref{fig:cob}.
+ \begin{figure}[]
+\begin{center}
+{\small
+	\includegraphics[width=6cm]{figures/svt_daq_module}
+	\caption{The SVT DAQ COB board with four data processing daughter cards visible on the left side.}
+	\label{fig:cob}
+}
+\end{center}
+\end{figure}
+The first generation RCE used in the Test run consisted of a Virtex~5 FPGA with 1~GB of DDR3 RAM. 
+A schematic overview of the system is shown in Fig.~\ref{fig:svtdaq}. 
+ \begin{figure}[]
+\begin{center}
+{\small
+	\includegraphics[width=6cm]{figures/svt_daq_module}
+	\caption{Block diagram overview of the SVT DAQ.}
+	\label{fig:svtdaq}
+}
+\end{center}
+\end{figure}
+The analog outputs of up to 12 SVT half-modules (60 APV25 ASICs) are digitized on the Rear-Transition-
+Module (RTM), a custom board 
+on the back side of the ATCA crate, interfacing the HPS readout to the generic DAQ components on the 
+COB. A pre-amplifier converts the APV25 differential current output to a different voltage output scaled to 
+the sensitive range of a 14-bit ADC operating at the system clock of 41.667~MHz. The RTM is organized 
+into four sections with each section supporting three SVT half-module hybrids (15 APV25 ASICs). The 
+RTM also includes a 4-channel fiber optic module and supporting logic which is used to interface 
+to the JLab trigger system supervisor. Each section of the RTM is input to a DPM which apply thresholds 
+for data reduction and organizes the sample data into UDP datagrams. The DPM also hosts an I$^{2}$C 
+controller used to configure and monitor the APV25 ASICs. A single ATCA crate with two COB cards 
+was used, one supporting four DPMs and one supporting 3 DPMs and one DPM that is configured as 
+the trigger and data transmission module. The two COB cards and their DPMs are interconnected with a 
+10Gb/s switch card~\cite{Larsen:2011zb} which also hosts two 1Gb/s Ethernet interfaces to the external 
+SVT DAQ PC.  
+
+The external PC supports three network interfaces; two standard 1Gb/s Ethernet and one custom low 
+latency data reception card. The first is used for slow control and monitoring of the 8 
+DPM modules and the second serves as the interface to the JLAB data acquisition system. The third 
+custom low latency network interface is used to receive data from the ATCA crate and supports a low 
+latency, reliable TTL trigger acknowledge interface to the trigger DPM. This PC hosts the SVT control 
+and monitoring software as well as the Read Out Controller application used to interface with the 
+JLab DAQ.
+
+While trigger rates during the Test run was significantly lower this system was tested at trigger rates up 
+to 20~kHz and 50~MB/s.
+
+
+
+
+\subsection{General Data Acquisition and Online Computing}
 \label{sec:daq}
-For the ECal, every VXS crate contains a Readout Controller (ROC)
-that collects digitized information, processes it, and sends it on to the Event Builder (EB). The ROC is a 
-single blade Intel-based CPU module running DAQ software under CentOS Linux OS. For the SVT 
-ATCA system, the ROC application runs on an embedded processor situated on the ATCA main board. 
-The EB assembles information from the SVT and ECal ROCs into a single event which is passed to the 
-Event Recorder (ER) that writes it to a RAID5-based data storage system capable of handling up to 
-100~MB/s. The EB and other critical components run on multicore Intel-based multi-CPU servers. The 
-DAQ network system is a network router providing high-speed connections between the DAQ 
-components and the JLab computing facility. The SVT ROC, which must handle large data volumes, has 
-a 10~Gbit/s link to the network router, while a 1~Gbit/s link is adequate for the ECal. A 10~Gbit/s uplink 
-to the JLab computing facility is used for long-term storage.
-
-The SVT DAQ is described in more detail in Sec.~\ref{sec:svt_daq}.
-
+Every crate participating in the readout process contains a Readout Controller (ROC) that 
+collects digitized information, processes it, and sends it on to the event builder. For the ECal, both 
+VXS crates run ROC applications in a single blade Intel-based CPU module running under CentOS 
+Linux OS. For the SVT DAQ, the ROC application runs on the external PC under RHEL. 
+The event builder assembles information from the ROCs into a single event which is passed to the 
+event recorder that writes it to a RAID5-based data storage system capable of handling up to 
+100~MB/s. The event builder and other critical components run on multicore Intel-based multi-CPU 
+servers. The DAQ network system is a network router providing 10Gbit/s high-speed connection 
+to the JLab computing facility for long-term storage. For the Test run, both the SVT and ECal ROC had a 
+1Gbit/s link to the network router.
 
 
 
