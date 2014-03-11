@@ -726,17 +726,18 @@ the sub-detectors.}
 \end{center}
  \end{figure}
 Each channel on the FADC board have an 
-independent data path to send a 5-bit pulse energy and 3-bit pulse arrival time information to a 
-trigger processing board (CTP) in the same crate every 32~ns. Contrary to the readout path 
+independent data path to send 5-bit pulse energy and 3-bit pulse arrival time information every 32~ns 
+to a 
+trigger processing board (CTP) in the same crate every. Contrary to the readout path 
 described in Sec.~\ref{sec:fadc}, this energy is a pedestal subtracted time-over-threshold sum with 
 programmable offsets and minimum threshold discriminator for each channel. With input from all 
 FADC channels, i.e. one half of the ECal, the CTP performs cluster finding and calculates cluster 
 energy, shape and timing information. The 3x3 fixed-window, highly parallel, FPGA-based cluster 
 algorithm simultaneously searches for up to 125 clusters with energy sum larger than 
-the programmable energy threshold (in the Test run this was $\approx270$~MeV). Crystals in the 
-fixed-window are included in the sum if the leading edges of the pulses occurred within a 8~ns time 
-window (4~ns minimum). To take into account with clock skew and jitter throughout the system 
-clustering algorithm can allow crystal hits from $N\in[0,7]$ previous or future 4~ns clock cycles to 
+the programmable energy threshold ($\approx270$~MeV). Crystals in the 
+fixed-window are included in the sum if the leading edge of the pulse occurred within a 8~ns time 
+window (4~ns minimum). To take into account clock skew and jitter throughout the system, the
+clustering algorithm can allow for crystal hits from up to seven previous or future 4~ns clock cycles to 
 contribute to the cluster sum.  A separate sub-system board (SSP) receives the clusters (only the 
 highest energy 3x3 window to deal with overlapping and very large clusters) from 
 the top and bottom half CTP every 32~ns and searches for pairs of clusters in a 8~ns wide 
@@ -745,12 +746,12 @@ entire DAQ system readout through the trigger interface units installed in every
 in the readout process. 
 
 The trigger system is free-running and driven by the 250~MHz global clock and has essentially zero 
-dead time at the occupancies expected for HPS. The Trigger Supervisor can apply dead time if 
+dead time at the occupancies expected for HPS. The trigger supervisor can apply dead time if 
 necessary, for example on a `busy' or `full' condition from the front-end electronics. The system is 
 designed to handle trigger rates above 50~kHz and has a latency set to $\approx 3~\mu$s to match 
 that required by the SVT APV25 ASIC. During the Test run, for the most part the trigger system 
-required only a single cluster in either the top or bottom Ecal halves and tested to above 100~kHz 
-trigger rates with low thresholds. 
+required only a single cluster in either the top or bottom Ecal halves and was tested to above 100~kHz 
+trigger rates by lowering thresholds. 
 
 
 
@@ -1022,16 +1023,17 @@ agreement with simulation was found to be sufficient to study normalized event r
 
 
 \subsection{Multiple Coulomb Scattering Distributions}
+\label{sec:mcs}
 One of the main goals of the Test run was to evaluate the description of the tails of the 
 multiple Coulomb scattering to gain further confidence in the expected detector occupancy in the full HPS 
 experiment. Those occupancies have been evaluated using \egs{}~\cite{egs5} simulation program 
 whose \moliere{} formulation of multiple scattering show good agreement with previous studies 
-for a wide range of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} . 
+for a wide range of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467}. 
 Despite all data taken with a photon beam in the Test run, the angular distribution of the pair 
 produced electron and positron emerging from the converter with different converter thickness can 
 be used to study the varying multiple Coulomb scattering contribution (pair production angle is constant). 
 Restricting clusters to a well calibrated region of the ECal we observe, within our systematic 
-uncertainties , good agreement with the rates predicted by \egs{}, see Tab.~\ref{tab:ang_distr_dataMC}.
+uncertainties , good agreement with the rates predicted by \egs{}, see Tab.~\ref{tab:mcs}.
 %\begin{center}
 \begin{table}
 {\small
@@ -1049,7 +1051,7 @@ Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\
 \caption{ Observed and predicted number of events for 1~s of beam at 90~nA for three different converter 
 thicknesses. The uncertainty on the prediction includes systematic uncertainties from ECal alignment, background normalization, beam current normalization and limited statistics in the simulation.}
 }
-\label{tab:ang_distr_dataMC}
+\label{tab:mcs}
 \end{table}
 %\end{center}
 
