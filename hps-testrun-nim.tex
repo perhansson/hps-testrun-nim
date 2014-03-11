@@ -196,8 +196,23 @@ $\epsilon$ is in the range of $10^{-3} -10^{-5}$. [REFERENCE]. This range of par
 electroproduction~\cite{Bjorken:2009mm}, but require large data sets and good mass resolution
 to identify a small mass peak above the copious QED background at very small production 
 angles. At small couplings, \Aprime's become long-lived, so detection of a displaced decay 
-vertex can reject the prompt QED background and boost experimental sensitivity.  These production 
-and kinematics poses stringent constraint on the detector requirements:
+vertex can reject the prompt QED background and boost experimental sensitivity.  
+
+The HPS experiment~\cite{HPS_proposal_2010} uses both invariant mass and 
+vertex signatures by placing a $\approx 1$~m long silicon tracking and vertexing detector 10~cm 
+downstream  of a 0.25\%~$\chi_0$ tungsten target inside a dipole magnet. The experiment runs at high 
+rates (up to 50kHz), exploiting the 
+100\% duty cycle of the Thomas Jefferson National Accelerator Facility (JLab) CEBAF accelerator to 
+accumulate the need statistics. The trigger is provided by a fast electromagnetic calorimeter just 
+downstream of the tracking detector. 
+
+The HPS Test apparatus, a simplified version of the HPS experiment, was proposed and 
+approved at Thomas Jefferson National Accelerator Facility (JLab) as the first stage of HPS. 
+Its purposes included demonstrating that the apparatus and data acquisition systems are 
+technically feasible and that the trigger rates and occupancies encountered in electron-beam 
+running are as simulated. Given dedicated running time with electron beams, the HPS Test Run 
+apparatus is capable of searching for heavy photons in unexplored regions of parameter space.    
+The stringent constraints on the detector requirements therefore also applied to the Test detector:
 \begin{itemize}
 \item large and uniform acceptance in the forward region close to the beam in order to catch boosted 
 \Aprime{} decay products,
@@ -214,29 +229,16 @@ backgrounds,
 \item detector components that can survive and efficiently operate in a high radiation environment 
 with local doses exceeding $100$~Mrad.
 \end{itemize}
-The HPS experiment~\cite{HPS_proposal_2010} uses both invariant mass and 
-vertex signatures by placing a $\approx 1$~m long silicon tracking and vertexing detector 10~cm 
-downstream  of a 0.25\%~$\chi_0$ tungsten target inside a dipole magnet. The experiment runs at high 
-rates (up to 50kHz), exploiting the 
-100\% duty cycle of the Thomas Jefferson National Accelerator Facility (JLab) CEBAF accelerator to 
-accumulate the need statistics. The trigger is provided by a fast electromagnetic calorimeter just 
-downstream of the tracking detector. 
 
 
-The HPS Test apparatus, a simplified version of the full HPS experiment, was proposed and 
-approved at Thomas Jefferson National Accelerator Facility (JLab) as the first stage of the HPS 
-experiment. Its purposes included demonstrating that the apparatus and data acquisition systems are 
-technically feasible and that the trigger rates and occupancies encountered in electron-beam 
-running are as simulated. Given dedicated running time with electron beams, the HPS Test Run 
-apparatus is capable of searching for heavy photons in unexplored regions of parameter space.    
-The HPS Test apparatus was installed on April 19, 2012, and ran parasitically with the HDice 
+The Test apparatus was installed on April 19, 2012, and ran parasitically with the HDice 
 experiment~\cite{HDice}, using its photon beam, until May 18. The JLab run schedule 
 precluded any dedicated electron beam running, but the HPS Test Run was allowed a short and 
 valuable dedicated run with the photon beam. Most technologies used in the Test apparatus will 
 be used in the HPS detector with some improvements to each of the systems; both from lessons 
 learned during running of the Test run but also from less schedule and budget constraints. 
 
-This paper reviews the HPS Test Run apparatus; documents the performance of the trigger, 
+This paper reviews the HPS Test apparatus; documents the performance of the trigger, 
 data acquisition, silicon tracking detector, and the electromagnetic calorimeter at the level assumed 
 in calculating the physics reach of the HPS experiment. 
 
@@ -307,7 +309,7 @@ ECal & $15<\theta_{y} < XXXX$ & 442 & 12 & 4~ns & 1 & $1.3\times1.3$~cm$^2$  & $
 \end{table*}
 \end{center}
 %\end{multicols}
-A rendering of the HPS Test apparatus installed on the beam line is shown in 
+A rendering of the apparatus installed on the beam line is shown in 
 Fig.~\ref{fig:testrundetector} and an overview of the coverage, segmentation and performance is 
 given in Tab.~\ref{tab:detector-overview}.  
 
@@ -341,7 +343,7 @@ the ECal. The system was designed to run at up to 20~kHz trigger rate.
 The HPS Test run studied multiple Coulomb scattering of electrons and positrons from 
 bremsstrahlung photons produced in the Hall B tagged photon facility. 
 Figure~\ref{fig:hpstest_layout} shows the layout of 
-the HPS Test setup on the beam line. The SVT was installed inside the Hall B pair 
+the setup on the beam line. The SVT was installed inside the Hall B pair 
 spectrometer magnet (PS) vacuum chamber with the ECal mounted downstream of it. Both the 
 SVT and the ECal were retracted off the beam plane compared to nominal electron beam runing to 
 allow clean passage of the photon beam through the system. 
@@ -365,7 +367,8 @@ beam.}}
 \end{figure}
 The PS pair converter was located $\approx~77$~cm upstream of the first layer of the SVT.
  
-magnet. Data was taken on three different converter thicknesses with a beam current varying between 
+ 
+ Data was taken on three different converter thicknesses with a beam current varying between 
 30-70~nA and repeated with the reverse field setting of the PS dipole magnet.
 \begin{table}[]
 \begin{center}
@@ -393,7 +396,7 @@ Converter thickn. & Duration &  $e^-$ on converter \\
 The photon beam line during the test run produced a relatively large fraction of pairs 
 originating upstream of the converter position. This contribution was measured during data taking 
 with ``empty'' converter runs i.e. removing the converter but with all other conditions the same. 
-The runs taken during the dedicated HPS Test run is summarized in Tab.~\ref{tab:currents}.
+The runs taken during the time dedicated to HPS Test is summarized in Tab.~\ref{tab:currents}.
 
 
 
@@ -781,7 +784,8 @@ A schematic overview of the system is shown in Fig.~\ref{fig:svtdaq}.
 \end{figure}
 The analog outputs of up to 12 SVT half-modules (60 APV25 ASICs) are digitized on the Rear-Transition-
 Module (RTM), a custom board 
-on the back side of the ATCA crate, interfacing the HPS readout to the generic DAQ components on the 
+on the back side of the ATCA crate, interfacing the HPS-specific readout to the generic DAQ components 
+on the 
 COB. A pre-amplifier converts the APV25 differential current output to a different voltage output scaled to 
 the sensitive range of a 14-bit ADC operating at the system clock of 41.667~MHz. The RTM is organized 
 into four sections with each section supporting three SVT half-module hybrids (15 APV25 ASICs). The 
@@ -1018,7 +1022,7 @@ agreement with simulation was found to be sufficient to study normalized event r
 
 
 \subsection{Multiple Coulomb Scattering Distributions}
-One of the main goals of the HPS Test run was to evaluate the description of the tails of the 
+One of the main goals of the Test run was to evaluate the description of the tails of the 
 multiple Coulomb scattering to gain further confidence in the expected detector occupancy in the full HPS 
 experiment. Those occupancies have been evaluated using \egs{}~\cite{egs5} simulation program 
 whose \moliere{} formulation of multiple scattering show good agreement with previous studies 
