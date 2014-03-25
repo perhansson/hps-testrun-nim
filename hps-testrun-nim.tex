@@ -375,7 +375,7 @@ The PS pair converter was located $\approx~77$~cm upstream of the first layer of
 {\small
 \begin{tabular}{|c|c|c|}
 \hline
-Converter thickn. & Duration &  $e^-$ on converter \\
+Converter thickn. & Duration &  $e^-$ on radiator \\
  (\%$X_0$) & (s) & ($\mu$C)    \\   
 \hline
 %\hline
@@ -422,16 +422,16 @@ that the active region of a sensor can be placed as close to 1.5 mm from the cen
 defining the 15 mrad ``dead zone" mentioned previously, to maximize low-mass \Aprime acceptance 
 with decay products nearly collinear with the beam axis. At the edge of this ``dead zone," the 
 radiation dose approaches $10^{15}$ electrons/cm$^2$/month, or roughly 
-$3 \times 10^{14}$~\fluenceunit{}/month~\cite{Rashevskaya:2002nd}, as shown in 
-Fig.~\ref{fig:radiation},  requiring the sensors to be actively cooled.
+$3 \times 10^{14}$~\fluenceunit{}/month~\cite{Rashevskaya:2002nd}, 
+requiring the sensors to be actively cooled.
 % and~\ref{fig:rates}.
 %===================
-\begin{figure}[]
-\includegraphics[width=7cm]{figures/radiation}
-\label{fig:radiation}
-\caption{{\small Simulation of the electron fluence 10~cm downstream of the target in the active region 
-of the SVT ($|Y|>0.15~$mm) looking downstream; electrons bend towards $+x$.}}
-\end{figure}
+%\begin{figure}[]
+%\includegraphics[width=7cm]{figures/radiation}
+%\label{fig:radiation}
+%\caption{{\small Simulation of the electron fluence 10~cm downstream of the target in the active region 
+%of the SVT ($|Y|>0.15~$mm) looking downstream; electrons bend towards $+x$.}}
+%\end{figure}
 Meanwhile, very low-energy delta rays from 
 beam-gas interactions multiply the density of background hits, so the SVT must operate inside the 
 beam vacuum.  Finally, in order to protect the sensors, the detector must be movable so that it can be 
@@ -516,7 +516,7 @@ the technology must be mature and available within the time and budget constrain
 
 %\subsubsection{Front-end Electronics}
 Despite having only small spots with very high occupancy (up to 4~MHz/mm$^2$) closest to the primary 
-beam, see Fig.~\ref{fig:radiation}, the rates are still high and lowering the peak occupancy to 
+beam, the rates are still high and lowering the peak occupancy to 
 approximately 1\% for tracking requires a trigger window and hit time tagging of roughly 8~ns. The 
 ECal readout and trigger described in Sec.~\ref{sec:fadc} can achieve such resolution. To reach this 
 performance the sensors for the SVT are readout by the APV25 ASIC developed for the CMS 
@@ -648,37 +648,36 @@ During the Test run, both halves were held in place by four vertical bars attach
 placing the front face of the crystals 147~cm from the upstream edge of the magnet and with a 
 8.7~cm gap between the innermost edge of the crystals in the two halves.
 {\small
-\begin{figure*}[htb]
+\begin{figure}[]
 \begin{center}
 \includegraphics[width=0.45\textwidth]{figures/ECal}
-\includegraphics[width=0.45\textwidth]{figures/ecal_picture_beamline}
-\caption{Rendered layout view (left) and the ECal assembly on the beam line (right).}
+%\includegraphics[width=0.45\textwidth]{figures/ecal_picture_beamline}
+\caption{Rendered layout view of the ECal looking downstream.}
 \label{fig:ecal}
 \end{center}
-\end{figure*}
+\end{figure}
 }
 
 
 \subsection{Signal readout}
 \label{sec:fadc}
 After a 2:1 signal splitter, $1/3$ of an amplified APD signal ($2/3$ is sent to a timing module) is fed to a 
-single channel of a JLab flash ADC (FADC) board~\cite{fadc}, 
-see Fig~.\ref{fig:fadc}.
-\begin{figure}[]
-\begin{center}
-{\small
-\includegraphics[width=4cm]{figures/FADC250_Photo_001.jpg}
-\caption{The JLab FADC250 VXS module.}
-\label{fig:fadc}
-}
-\end{center}
-\end{figure}
+single channel of a JLab flash ADC (FADC) board~\cite{fadc}.
+%\begin{figure}[]
+%\begin{center}
+%{\small
+%\includegraphics[width=4cm]{figures/FADC250_Photo_001.jpg}
+%\caption{The JLab FADC250 VXS module.}
+%\label{fig:fadc}
+%}
+%\end{center}
+%\end{figure}
 The FADC boards are high speed VXS modules digitizing up to 16 APD signals 
 at 250~MHz and storing samples in 8~$\mu$s deep pipelines with 12-bit resolution. 
 When a trigger is received, the part 
 of the pipeline from 5 samples before and 30 after the signal crossed a programmable 
 threshold (for the Test run this was set to $\approx70$~MeV) are 
-summed and stored in a 17-bit register for readout as described in Fig.~\ref{fig:hps_trigger_data}.
+summed and stored in a 17-bit register for readout.
 This scheme significantly compresses the data output of the FADC. During offline data analysis, a 
 calibrated pedestal value is subtracted to obtain the actual summed energy.
 Two 20-slot VXS crates with 14 (13) FADC boards were employed in the Test run to read out the top 
@@ -686,21 +685,22 @@ Two 20-slot VXS crates with 14 (13) FADC boards were employed in the Test run to
 In the Test run 385 out of 442 modules (87\%) was used in offline reconstruction, 39 modules were 
 disabled or not read out (no FADC channel available, no APD bias voltage or masked out due to 
 excessive noise) and 18 was masked offline due to noise. 
-\begin{figure}[]
-\begin{center}
-{\small
-\includegraphics[width=8cm]{figures/fadc_datapath_diagram.png}
-\caption{The two different readout modes of the FADC used in the Test run.}
-\label{fig:hps_trigger_data}
-}
-\end{center}
-\end{figure}
+%\begin{figure}[]
+%\begin{center}
+%{\small
+%\includegraphics[width=8cm]{figures/fadc_datapath_diagram.png}
+%\caption{The two different readout modes of the FADC used in the Test run.}
+%\label{fig:hps_trigger_data}
+%}
+%\end{center}
+%\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Trigger and Data Acquisition}
+\label{sec:triggerdaq}
 
 The DAQ system handles acquisition of data from the ECal and SVT sub-detectors  with 
 two DAQ architectures. The SVT DAQ is based on Advanced Telecom Communications Architecture 
@@ -807,9 +807,13 @@ latency, reliable TTL trigger acknowledge interface to the trigger DPM. This PC 
 and monitoring software as well as the Read Out Controller application used to interface with the 
 JLab DAQ.
 
-While trigger rates during the Test run was significantly lower this system was tested at trigger rates up 
-to 20~kHz and 50~MB/s.
+In order to minimize cable length for the analog APV25 output signal the ATCA crate was located 
+approximately 1~m from the beam line, next to our cable vacuum feed troughs.   
+Before shielding with lead-blankets was arranged, we observed two failures of normally reliable ATCA 
+crate power supplies, time-correlated to beam instabilities. 
 
+While trigger rates during the Test run was significantly lower this system was tested at trigger rates up 
+to 20~kHz and 50~MB/s. 
 
 
 
@@ -865,20 +869,21 @@ point.
 These hits are passed through a simple clustering algorithm which forms clusters by grouping adjacent 
 strips with the position of a cluster on the sensor determined by the amplitude-weighted mean.
 With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associated with a track follow 
-the characteristic Landau shape, see Fig.~\ref{fig:cluster_pulse}.  
+the characteristic Landau shape. 
+%, see Fig.~\ref{fig:cluster_pulse}.  
 A noise level between $1.1-1.5\times 10^{3}$ electrons was established through multiple calibration 
 runs giving a signal to noise ratio of $21-25$. Lab-based radioactive source tests was used to 
 provide the absolute charge normalization.
-\begin{figure}[]
-\begin{center}
-{\small
-	%\includegraphics[width=7cm]{figures/run1351_mip_small.pdf}
-	\includegraphics[width=7cm]{figures/mip_top_layer_2.png}
-    	\caption{ The cluster charge distribution for hits associated with a track. }
-	\label{fig:cluster_pulse}
-}
-\end{center}
-\end{figure}
+%\begin{figure}[]
+%\begin{center}
+%{\small
+%	%\includegraphics[width=7cm]{figures/run1351_mip_small.pdf}
+%	\includegraphics[width=7cm]{figures/mip_top_layer_2.png}
+%    	\caption{ The cluster charge distribution for hits associated with a track. }
+%	\label{fig:cluster_pulse}
+%}
+%\end{center}
+%\end{figure}
 
 
 In order to find the time and amplitude of each hit, $t_0$,  the six samples from each channel are fitted to 
@@ -935,6 +940,14 @@ By selecting \ee{} pairs from the triggered events we are able to study basic di
 production kinematics. Pairs of opposite charge tracks, one in the top and one in the bottom half of the 
 SVT, with momentum larger than 400~MeV were selected. The pair production kinematics are relatively 
 well reproduced given the alignment of the tracker as shown in Fig.~\ref{fig:pair_kin}. 
+
+The expected momentum resolution from simulation is between 4-5\% 
+for tracks in the momentum range of the Test run. This is significantly smaller than the accuracy at 
+which we're able estimate the scale and resolution in the Test run. By looking at the agreement 
+between data and simulation in the shape of the kinematic distributions for single- and two track 
+events and adjusting the overall momentum scale and smearing simulated events with a 
+Gaussian resolution we estimate an uncertainty of 10\% on both the momentum scale and 
+resolution.
  \begin{center}
 {\small
 \begin{figure*}[t]
@@ -946,39 +959,50 @@ well reproduced given the alignment of the tracker as shown in Fig.~\ref{fig:pai
 \end{figure*}
 }
 \end{center}
-The expected momentum resolution from simulation is between 4-5\% 
-for tracks in the momentum range of the Test run. This is significantly smaller than the accuracy at 
-which we're able estimate the scale and resolution in the Test run. By looking at the agreement 
-between data and simulation in the shape of the kinematic distributions for single- and two track 
-events and adjusting the overall momentum scale and smearing simulated events with a 
-Gaussian resolution we estimate an uncertainty of 10\% on both the momentum scale and 
-resolution.
-
-For the vertexing performance the foremost difference compared to electron beam running is that the 
-target was located approximately 67~cm upstream from our nominal target position; giving almost 
-collinear tracks in the detector. This degrades the vertex resolution along the 
-beam line compared to that expected in an electron beam with nominal target position. 
-Furthermore, tails of the vertex distributions are impossible to study with the finite data sample obtained 
-in the Test run. Nevertheless, useful information can still be 
-obtained by studying the vertex distributions. Figure~\ref{fig:vtx_pos} shows the distance of closest 
-approach of the momentum vectors extrapolated in the upstream direction from our analyzing magnet, 
-taking into account the measured fringe field of the PS dipole magnet. 
- \begin{center}
+In the Test run, as well as in electron running with HPS, the dominating source of uncertainty in the 
+tracking and vertexing is multiple Coulomb scattering. For the vertexing performance the foremost 
+difference compared to electron beam running is that the target was located approximately 67~cm 
+upstream from our nominal target position; giving almost collinear tracks in the detector. The increased 
+lever arm over which tracks are extrapolated widens the resolution with up to a factor of eight (depending 
+on momentum) compared to what is achieved at the nominal electron target position for HPS. 
+Figure~\ref{fig:impact_param} shows the horizontal and vertical positions of the extrapolated track at the 
+converter position. 
 {\small
-	 \begin{figure*}[t]
+	 \begin{figure}[]
+ \begin{center}
 	% Plot info:
 	% TestRun-v6 geometry, twotrkfilter, trigsel, hps-java-1.8-SNAPSHOT, 4hits, chi2<10
-	\includegraphics[width=5cm]{figures/h_vtx_fr_x_h_vtx_x_trigsel4hit_pair1351_twotrkfilt-v6-paper}
-	\includegraphics[width=5cm]{figures/h_vtx_fr_y_h_vtx_y_trigsel4hit_pair1351_twotrkfilt-v6-paper}
-	\includegraphics[width=5cm]{figures/h_vtx_fr_z_h_vtx_z_trigsel4hit_pair1351_twotrkfilt-v6-paper}
-	\caption{ Vertex position represented by the distance of closest approach of the extrapolated 
-	momentum vectors upstream of the PS dipole magnet taking into account the measured fringe field. 
-	The overall shift from zero in the x-direction is due to a 30~mrad rotation of the SVT with respect to 
-	the beam line.}
-	\label{fig:vtx_pos}
-\end{figure*}
-}
+	\includegraphics[width=7cm]{figures/h_trk_top_fr_conv_z_h_trk_top_conv_z_dataMC_twotrksel.png}
+	\includegraphics[width=7cm]{figures/h_trk_top_fr_conv_y_h_trk_top_conv_y_dataMC_twotrksel.png}
+	\caption{ Vertical (top) and horizontal (bottom) extrapolated track position at the converter position 
+	taking into account the measured fringe field. }
+	\label{fig:impact_param}
 \end{center}
+\end{figure}
+}
+While residual alignment show small shifts good agreement on the widths between data and simulated 
+events, indicating a good understanding of our material budget and distribution in the SVT.  
+%Furthermore, tails of the vertex distributions are impossible to study with the finite data sample obtained 
+%in the Test run. Nevertheless, useful information can still be 
+%obtained by studying the vertex distributions. Figure~\ref{fig:vtx_pos} shows the distance of closest 
+%approach of the momentum vectors extrapolated in the upstream direction from our analyzing magnet, 
+%taking into account the measured fringe field of the PS dipole magnet. 
+ %\begin{center}
+%{\small
+%	 \begin{figure*}[t]
+%	% Plot info:
+%	% TestRun-v6 geometry, twotrkfilter, trigsel, hps-java-1.8-SNAPSHOT, 4hits, chi2<10
+%	\includegraphics[width=5cm]{figures/h_vtx_fr_x_h_vtx_x_trigsel4hit_pair1351_twotrkfilt-v6-paper}
+%	\includegraphics[width=5cm]{figures/h_vtx_fr_y_h_vtx_y_trigsel4hit_pair1351_twotrkfilt-v6-paper}
+%	\includegraphics[width=5cm]{figures/h_vtx_fr_z_h_vtx_z_trigsel4hit_pair1351_twotrkfilt-v6-paper}
+%	\caption{ Vertex position represented by the distance of closest approach of the extrapolated 
+%	momentum vectors upstream of the PS dipole magnet taking into account the measured fringe field. 
+%	The overall shift from zero in the x-direction is due to a 30~mrad rotation of the SVT with respect to 
+%	the beam line.}
+%	\label{fig:vtx_pos}
+%\end{figure*}
+%}
+%\end{center}
 
 
 
@@ -995,6 +1019,7 @@ deployed for the trigger (see Sec.~\ref{sec:trigger}). Due to the high effective
 $73$~MeV the average number of crystals in a cluster was $\sim 3$ and the simple clustering algorithm 
 worked well for reconstruction of the detected shower energy. An average noise level of approximately 
 15~MeV was measured in special pedestal runs. 
+
 
 The ratio of the ECal cluster energy $E$ to the momentum $p$ of a matched track in the SVT was used 
 to determine the conversion factors from ADC counts to energy. To compare data and simulation, all 
@@ -1022,43 +1047,11 @@ in data indicates imperfect calibration and noise of the ECal modules. This leve
 agreement with simulation was found to be sufficient to study normalized event rates on the Test run.
 
 
-\subsection{Multiple Coulomb Scattering Distributions}
-\label{sec:mcs}
-One of the main goals of the Test run was to evaluate the description of the tails of the 
-multiple Coulomb scattering to gain further confidence in the expected detector occupancy in the full HPS 
-experiment. Those occupancies have been evaluated using \egs{}~\cite{egs5} simulation program 
-whose \moliere{} formulation of multiple scattering show good agreement with previous studies 
-for a wide range of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467}. 
-Despite all data taken with a photon beam in the Test run, the angular distribution of the pair 
-produced electron and positron emerging from the converter with different converter thickness can 
-be used to study the varying multiple Coulomb scattering contribution (pair production angle is constant). 
-Restricting clusters to a well calibrated region of the ECal we observe, within our systematic 
-uncertainties , good agreement with the rates predicted by \egs{}, see Tab.~\ref{tab:mcs}.
-%\begin{center}
-\begin{table}
-{\small
-\begin{tabular}{|l|c|c|c|}
-\hline
-\bf Converter (\%~$X_0$) & \bf 1.60 & \bf 0.45 &	\bf 0.18 \\
-\hline
-EGS5 &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
-\hline
-GEANT4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
-\hline
-Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\						
-\hline
-\end{tabular}
-\caption{ Observed and predicted number of events for 1~s of beam at 90~nA for three different converter 
-thicknesses. The uncertainty on the prediction includes systematic uncertainties from ECal alignment, background normalization, beam current normalization and limited statistics in the simulation.}
-}
-\label{tab:mcs}
-\end{table}
-%\end{center}
 
 
 \subsection{Trigger Performance}
-As described in Sec.~\ref{sec:fadc} and shown in Fig.~\ref{fig:hps_trigger_data} the energy from each 
-crystals are measured differently in the trigger and what is readout from the ECal. 
+As described above the energy from each 
+crystal is measured differently in the trigger and what is readout from the ECal. 
 The trigger performance was studied by simulating the 
 trigger for each event and comparing to how the events were actually triggered.
 First, we simulate the FADC trigger path by converting from readout hits (with fixed-size window 
@@ -1092,7 +1085,43 @@ readout to trigger hits described above, but based on comparisons with simulatio
 trigger worked exactly as specified.
 
 
-
+\subsection{Trigger Rate Comparisons}
+\label{sec:mcs}
+Trigger rates observed in the Test run are dominated by multiple scattered pair-produced \ee pairs in the 
+converter. In simulated events, the rate of triggers depend on the modeling of the pairs angular distribution 
+and the sub-sequent multiple Coulomb scattering in the converter. Rates from different converter 
+thicknesses are used to study the varying multiple Coulomb scattering contribution (pair production 
+angle is constant). Restricting clusters to a well calibrated region of the ECal and subtracting the 
+"no converter" background we see agreement with the rates predicted by the \egs{} simulation 
+program, see Tab.~\ref{tab:mcs}.
+%\begin{center}
+\begin{table}
+{\small
+\begin{tabular}{|l|c|c|c|}
+\hline
+\bf Converter (\%~$X_0$) & \bf 1.60 & \bf 0.45 &	\bf 0.18 \\
+\hline
+EGS5 &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
+\hline
+GEANT4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
+\hline
+Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\						
+\hline
+\end{tabular}
+\caption{ Observed and predicted number of events for 1~s of beam at 90~nA for three different converter 
+thicknesses. The uncertainty on the prediction includes systematic uncertainties from ECal alignment, background normalization, beam current normalization and limited statistics in the simulation.}
+}
+\label{tab:mcs}
+\end{table}
+%\end{center}
+This gives further confidence that the dominant source of background occupancy for HPS, multiple Coulomb 
+scattered beam electrons, is well described. 
+%One of the main goals of the Test run was to evaluate the description of the tails of the 
+%multiple Coulomb scattering to gain further confidence in the expected detector occupancy in the full HPS 
+%experiment. Those occupancies have been evaluated using \egs{}~\cite{egs5} simulation program 
+%whose \moliere{} formulation of multiple scattering show good agreement with previous studies 
+%for a wide range of materials and projectiles~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467}. 
+%Despite all data taken with a photon beam in the Test run, 
 
 
 
@@ -1344,6 +1373,13 @@ detector backgrounds expected in electron beam running for HPS.
 
 
 \section{Acknowledgements}
+The authors are grateful for the support from Hall~B at JLab and especially Hall~B technicians 
+for support during installation and decommissioning. They also would like to commend the CEBAF 
+personnel for achieving good performance when we needed it; the last few hours of operating CEBAF6. 
+The tremendous support from home institutions and supporting staff also needs praise from the authors. 
+
+This work has been supported by the US Department of Energy. 
+
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
