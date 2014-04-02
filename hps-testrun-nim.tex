@@ -364,8 +364,9 @@ beam.}}
 The PS pair converter was located $\approx~77$~cm upstream of the first layer of the SVT.
  
  
- Data was taken on three different converter thicknesses with a beam current varying between 
-30-70~nA and repeated with the reverse field setting of the PS dipole magnet.
+ Data was taken on three different converter thicknesses with photon fluxes between 
+ 1.1-2.6$\times10^{8}$/s ($0.55<$E$_\gamma<5.5$~GeV) at beam currents varying between 
+ 30-90~nA and repeated with the reverse field setting of the PS dipole magnet.
 \begin{table}[]
 \begin{center}
 {\small
@@ -933,17 +934,15 @@ sensors as in HPS.
 \subsubsection{Momentum and Vertexing Resolution}
 
 By selecting \ee{} pairs from the triggered events we are able to study basic distributions of pair 
-production kinematics. Pairs of opposite charge tracks, one in the top and one in the bottom half of the 
-SVT, with momentum larger than 400~MeV were selected. The pair production kinematics are relatively 
-well reproduced given the alignment of the tracker as shown in Fig.~\ref{fig:pair_kin}. 
+production kinematics. Pairs of oppositely charged tracks, one in the top and one in the bottom half of 
+the SVT, with momentum larger than 400~MeV were selected. The pair production kinematics are 
+relatively well reproduced as shown in Fig.~\ref{fig:pair_kin}. 
 
-The expected momentum resolution from simulation is between 4-5\% 
-for tracks in the momentum range of the Test run. This is significantly smaller than the accuracy at 
-which we're able estimate the scale and resolution in the Test run. By looking at the agreement 
+The expected momentum resolution from simulation is between 4-5\% for tracks in the momentum 
+range of the Test run. By looking at the agreement 
 between data and simulation in the shape of the kinematic distributions for single- and two track 
 events and adjusting the overall momentum scale and smearing simulated events with a 
-Gaussian resolution we estimate an uncertainty of 10\% on both the momentum scale and 
-resolution.
+Gaussian resolution we estimate an agreement with the nominal scale and resolution to within 10\%.
  \begin{center}
 {\small
 \begin{figure*}[t]
@@ -955,7 +954,7 @@ resolution.
 \end{figure*}
 }
 \end{center}
-In the Test run, as well as in electron running with HPS, the dominating source of uncertainty in the 
+In the Test run, as well as in electron running with HPS, the dominant source of uncertainty in the 
 tracking and vertexing is multiple Coulomb scattering. For the vertexing performance the foremost 
 difference compared to electron beam running is that the target was located approximately 67~cm 
 upstream from our nominal target position; giving almost collinear tracks in the detector. The increased 
@@ -977,7 +976,9 @@ converter position.
 \end{figure}
 }
 While residual alignment show small shifts good agreement on the widths between data and simulated 
-events, indicating a good understanding of our material budget and distribution in the SVT.  
+events, indicating a good understanding of our material budget and distribution in the SVT.  Having 
+the dominant contribution to the vertex resolution approximately right demonstrates that the resolution 
+in HPS, with a target at 10~cm, will be as calculated.
 %Furthermore, tails of the vertex distributions are impossible to study with the finite data sample obtained 
 %in the Test run. Nevertheless, useful information can still be 
 %obtained by studying the vertex distributions. Figure~\ref{fig:vtx_pos} shows the distance of closest 
@@ -1032,7 +1033,8 @@ Fig.~\ref{fig:gains}.
 \begin{figure}[]
 \begin{center}
 	\includegraphics[width=7cm]{figures/h_ep_data_0_h_ep_MC_0_dataMC_1351-v6-v6gains_2-trig-top-cl600reg0.pdf}
-	\caption{The ECal energy over track momentum ratio ($E$/$p$) comparing data and simulation} 
+	\caption{The ECal energy over track momentum ratio ($E$/$p$) comparing data and simulation 
+	for inclusive events in the top half of the ECal.} 
 	\label{fig:gains}
 \end{center}
 \end{figure}
@@ -1083,9 +1085,10 @@ trigger worked exactly as specified.
 
 \subsection{Trigger Rate Comparisons}
 \label{sec:mcs}
-Trigger rates observed in the Test run are dominated by multiple scattered pair-produced \ee pairs in the 
-converter. In simulated events, the rate of triggers depend on the modeling of the pairs angular distribution 
-and the sub-sequent multiple Coulomb scattering in the converter. Rates from different converter 
+Trigger rates observed in the Test run are dominated by multiple Coulomb scattered \ee pairs in the 
+converter. In simulated events, the rate of triggers depend on the modeling of the pairs angular 
+distribution and the subsequent multiple Coulomb scattering in the converter. Rates from different 
+converter 
 thicknesses are used to study the varying multiple Coulomb scattering contribution (pair production 
 angle is constant). Restricting clusters to a well calibrated region of the ECal and subtracting the 
 "no converter" background we see agreement with the rates predicted by the \egs{} simulation 
