@@ -138,23 +138,27 @@
 
 
 \begin{abstract}
-Construction and design of the Heavy Photon Search (HPS) experiment, designed to search for an 
-\ee resonance from heavy photon production in a fixed-target setup at the Thomas Jefferson 
-Accelerator Facility (JLab), is ongoing. As a first stage, a test apparatus was constructed and 
-operated at JLab to demonstrate that the apparatus and data acquisition systems are technically 
-feasible and that the trigger rates and occupancies encountered in electron-beam running are as 
-simulated. Given dedicated running time with electron beams, the HPS Test apparatus is 
-capable of searching for heavy photons in unexplored regions of parameter space.  Charged 
-particle tracks are measured with a compact forward silicon microstrip detector and 
-electromagnetic showers from electrons and photons are detected in a dense array of 
-PbWO$_{4}$ crystals. To allow clean passage of the scattered intense electron beam after 
-the thin tungsten target foil while keeping sensitivity to low-mass heavy photons,  the sensitive region 
-of the detectors are place at $\pm 15$~mrad with respect to the horizontal beam plane. 
+The  Heavy Photon Search (HPS), an experiment to search for a hidden sector photon in fixed target 
+electroproduction, is preparing for installation at the Thomas Jefferson National Accelerator Facility 
+(JLab) in the Fall of 2014.  As the first stage of this project, the HPS Test run apparatus was 
+constructed and operated in 2012 to demonstrate the experiment's technical feasibility and to  confirm 
+that the trigger rates and occupancies are as expected. This paper describes the Test Run apparatus 
+and readout electronics and its performance. In this setting, a heavy photon can be identified as a 
+narrow\ee  mass peak above the trident background or as a decay vertex displaced from
+the production target, so charged particle tracking and vertexing are needed for its detection. In the 
+HPS Test run, charged particles are measured
+with a compact forward silicon microstrip vertex/tracker inside a dipole magnet. Electromagnetic 
+showers are detected in a PbW0$_{4}$ 
+crystal calorimeter situated behind the magnet used to trigger the experiment and identify 
+electrons and positrons. Both detectors are placed close to the 
+beam line and split top-bottom. This arrangement  provides sensitivity to low-mass heavy photons,  
+allows clear  passage of the unscattered beam, 
+and avoids the spray of degraded electrons coming from the target. 
 The discrimination between prompt and displaced \ee pairs requires the first layer of silicon 
-sensors to be placed only 10~cm behind the target and 0.5~mm from the beam. 
-The HPS Test apparatus included the high-speed trigger and data acquisition needed for 
-running with electron beams. Details of the layout and performance of the Test detectors and 
-associated readout electronics are presented. 
+sensors be placed only 10~cm downstream of the target. The expected signal is small, and the 
+trident background huge, so the experiment requires very large statistics. Accordingly, the
+HPS Test run utilizes  high-rate readout and data acquisition electronics and a fast trigger to
+perfectly exploit the essentially 100\% duty cycle of the CEBAF accelerator.
 \end{abstract}
 
 \begin{keyword}
@@ -181,38 +185,39 @@ silicon microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dark pho
 %% main text
 \section{Introduction}
 \label{introduction}
-Heavy photons, aka "hidden sector" or "dark" photons, or from here on \Aprime{}, are particles with 
-mass $10-1000$~MeV 
-which couple weakly to the Standard Model photon~\cite{Holdom:1985ag}, so can be radiated by 
-electrons, and can decay 
-into \ee pairs, albeit at rates far below those of QED trident processes. They have been suggested by 
-numerous Beyond Standard Model theories and as an explanation of the current muonic $g-2$ 
-anomaly, and may couple directly to hidden sector particles that may constitute all or some of the 
-dark matter~\cite{ArkaniHamed:2008qn}. 
+The heavy photon (\Aprime{}), aka a "hidden sector" or "dark" photon, is a particle with mass 
+$10-1000$~MeV which couples weakly to electric charge by mixing with the Standard Model 
+photon~\cite{Holdom:1985ag}. Consequently, it can be radiated by electrons and subsequently decay 
+into \ee pairs, albeit at rates far below those of QED trident processes. Heavy photons have been 
+suggested by numerous Beyond Standard Model theories `\cite{Essig:2013lka}, to explain the 
+discrepancy 
+between theory and experiment of the muon's $g-2$ ~\cite{Pospelov:2008zw}, and as a possible 
+explanation of recent astrophysical anomalies.  Heavy photons  couple directly to  hidden sector 
+particles with "dark" or "hidden sector" charge; these particles
+could constitute all or some of the dark matter~\cite{ArkaniHamed:2008qn}. 
 Current phenomenology highlights the $20-1000$~MeV/c$^{2}$ mass range, and 
-suggests that \Aprime's couple to electric charge with strength $\epsilon$e, where 
-$\epsilon$ is in the range of $10^{-3} -10^{-5}$. [REFERENCE]. This range of parameters makes 
-\Aprime{} searches viable in moderate energy fixed target 
-electroproduction~\cite{Bjorken:2009mm}, but require large data sets and good mass resolution
-to identify a small mass peak above the copious QED background at very small production 
-angles. At small couplings, \Aprime's become long-lived, so detection of a displaced decay 
-vertex can reject the prompt QED background and boost experimental sensitivity.  
+suggests that  the coupling to electric charge, $\epsilon$e, has $\epsilon$ in the range of 
+$10^{-3} -10^{-5}$. [REFERENCE]. This range of parameters makes \Aprime{} searches viable in 
+medium energy fixed target electroproduction~\cite{Bjorken:2009mm}, but requires large data sets and 
+good mass resolution to identify a small mass peak above the copious QED background. At small 
+couplings, \Aprime's become long-lived, so detection of a displaced decay vertex can reject the prompt 
+QED background and boost experimental sensitivity.  
 
-The HPS experiment~\cite{HPS_proposal_2010} uses both invariant mass and 
-vertex signatures by placing a $\approx 1$~m long silicon tracking and vertexing detector 10~cm 
-downstream  of a 0.25\%~$\chi_0$ tungsten target inside a dipole magnet. The experiment runs at high 
-rates (up to 50kHz), exploiting the 
-100\% duty cycle of the Thomas Jefferson National Accelerator Facility (JLab) CEBAF accelerator to 
-accumulate the need statistics. The trigger is provided by a fast electromagnetic calorimeter just 
-downstream of the tracking detector. 
+The HPS experiment~\cite{HPS_proposal_2010} uses both invariant mass and secondary
+vertex signatures to search for A's. It uses  a $\approx 1$~m long silicon tracking and vertexing detector
+inside a dipole magnet to measure charged particle trajectories and a fast electromagnetic calorimeter 
+just downstream of the magnet to provide a trigger and identify electrons. The experiment utilizes very 
+high rate front end electronics and runs at high trigger rates (up to 50kHz), exploiting the 100\% duty 
+cycle of the Thomas Jefferson National Accelerator Facility (JLab) CEBAF accelerator to accumulate 
+the needed statistics. 
 
 The HPS Test apparatus, a simplified version of the HPS experiment, was proposed and 
 approved at Thomas Jefferson National Accelerator Facility (JLab) as the first stage of HPS. 
 Its purposes included demonstrating that the apparatus and data acquisition systems are 
-technically feasible and that the trigger rates and occupancies encountered in electron-beam 
+technically feasible and  the trigger rates and occupancies to be  encountered in electron-beam 
 running are as simulated. Given dedicated running time with electron beams, the HPS Test Run 
 apparatus is capable of searching for heavy photons in unexplored regions of parameter space.    
-The stringent constraints on the detector requirements therefore also applied to the Test detector:
+The key design criteria for HPS and the HPS Test Run are the same:
 \begin{itemize}
 \item large and uniform acceptance in the forward region close to the beam in order to catch boosted 
 \Aprime{} decay products,
@@ -231,35 +236,21 @@ with local doses exceeding $100$~Mrad.
 \end{itemize}
 
 
-The Test apparatus was installed on April 19, 2012, and ran parasitically with the HDice 
-experiment~\cite{HDice}, using its photon beam, until May 18. The JLab run schedule 
+The Test apparatus was installed on April 19, 2012, and ran parasitically in the photon beam of the HDice 
+experiment~\cite{HDice} until May 18. The JLab run schedule 
 precluded any dedicated electron beam running, but the HPS Test Run was allowed a short and 
-valuable dedicated run with the photon beam. Most technologies used in the Test apparatus will 
-be used in the HPS detector with some improvements to each of the systems; both from lessons 
-learned during running of the Test run but also from less schedule and budget constraints. 
-
+valuable dedicated run at the end of scheduled CEBAF running. This final running provided
+enough data to demonstrate the functionality of the apparatus, document its performance, and
+explore trigger rates, as shown below. 
 This paper reviews the HPS Test apparatus; documents the performance of the trigger, 
 data acquisition, silicon tracking detector, and the electromagnetic calorimeter at the level assumed 
 in calculating the physics reach of the HPS experiment. 
 
 
 
-
-%Of particular importance, data from the dedicated photon beam running has been used to 
-%compare the measured trigger rates with those expected in simulation. The Test Run trigger rate is 
-%almost entirely due to photons which have converted to \ee pairs in a thin target upstream of HPS 
-%and it 
-%is sensitive to their multiple Coulomb scattering in the conversion target.  During electron beam 
-%running, 
-%the tails of the multiply Coulomb scattered primary beam are the dominant source of occupancy in %the 
-%tracker and trigger rate in the electromagnetic calorimeter. 
-%The trigger rates in the Test Run are also sensitive to the tails of the multiple Coulomb
-%scattering distribution. Good agreement between the measured and simulated rates confirms
-%our understanding of multiple Coulomb scattering and 
-%the reliability of the background simulation used to benchmark the physics reach of the HPS 
-%experiment. 
-
-
+This paper reviews the HPS Test apparatus; documents the performance of the trigger, 
+data acquisition, silicon tracking detector, and the electromagnetic calorimeter at the level assumed 
+in calculating the physics reach of the HPS experiment. 
 
 
 
@@ -275,17 +266,21 @@ in calculating the physics reach of the HPS experiment.
 \end{figure*}
 }
 The HPS Test apparatus was designed to run in Hall~B at JLab using the CEBAF electron beam, a 
-499~MHz beam, at an energy of 2.2 and 6.6~GeV and currents between 200 and 600~nA.  
+499~MHz beam, at an energies of 2.2 and 6.6~GeV and currents between 200 and 600~nA.  
 The overall design of the experiment follows from the kinematics of \Aprime{} production which 
-typically results in final state particles within a few degrees of the incoming beam, especially at low 
+typically results in a final state particle within a few degrees of the incoming beam, especially at low 
 $m_{\textrm{A}^\prime}$. Detectors must therefore be placed close to the beam. 
-The intense electron beam and the degraded electrons after the target are spread out horizontally by 
-the analyzing magnet constitute a "dead zone" which must be completely avoided. The apparatus is 
-split vertically $15$~mrad above and below the beam plane and the beam is transported in vacuum 
-to minimize beam-gas interaction backgrounds. Even so, background occupancy in the detectors 
-remain high and are dominated by the degraded primary beam, so high rate detectors, a fast trigger, 
+The intense electron beam enlarges downstream after multiple scattering in the target and electrons 
+which have radiated in the target disperse horizontally in the field of the analyzing magnet. Together 
+they constitute a "wall of flame" which must be completely avoided. Accordingly, 
+the apparatus is split vertically to avoid a "dead zone", the region within $\pm 15$~mrad of the beam 
+plane. In addition, the beam is transported in vacuum through the tracker to minimize beam-gas 
+interaction backgrounds. Even with these precautions, the occupancies of sensors near the beam 
+plane are high, dominated by the
+multiple Coulomb scattering of the primary beam, so high rate detectors, a fast trigger, 
 and excellent time tagging are required to minimize their impact.  
-At masses below $2 m_\mu$ only decays to electrons are allowed, so the key trigger comes from a PbWO$_{4}$ crystal calorimeter. 
+The trigger comes from a highly-segmented  PbWO$_{4}$ crystal calorimeter located just downstream 
+of the dipole magnet. 
  %\begin{multicols}{2}
 \begin{center}
 \begin{table*}[t]
@@ -313,27 +308,28 @@ A rendering of the apparatus installed on the beam line is shown in
 Fig.~\ref{fig:testrundetector} and an overview of the coverage, segmentation and performance is 
 given in Tab.~\ref{tab:detector-overview}.  
 
-The silicon tracking and vertexing detector for HPS Test, or SVT, operates in an existing vacuum 
-chamber inside the pair spectrometer analyzing magnet in Hall B at JLab.  There are five 
-measurement stations, or ``layers,'' placed immediately downstream of the target. Each layer 
+The silicon tracking and vertexing detector for HPS Test, or SVT, resides in a vacuum 
+chamber inside the pair spectrometer analyzing magnet in Hall B at JLab. The SVT has five 
+measurement stations, or ``layers,'' beginning10 cm downstream of the target. Each layer 
 comprises a pair of closely-spaced silicon microstrip sensors responsible for measuring a single 
 coordinate, or ``view.'' Introduction of a small (50 or 100~mrad) stereo angle between the two 
 sensors of each layer provides three-dimensional tracking and vertexing throughout the acceptance 
-of the detector with one redundant layer. Each layer In order to accommodate the dead zone, the 
-SVT is built in two halves that are mirror reflections of one another about the plane of the nominal 
-electron beam.  Each layer in one half are supported on a common support plate with independent 
-cooling and readout. 
+of the detecto. In order to accommodate the dead zone, the 
+SVT is built in two halves that are approximately mirror reflections of one another about the plane of the 
+nominal electron beam.  Each layer in one half is supported on a common support plate with 
+independent cooling and readout. 
 
-Each half of the electromagnetic calorimeter, or ECal, consists of 221 PbWO$_4$ crystals arranged 
-in rectangular formation. There are five rows with 46 modules in each row except the row closest to 
-the beam plane which has 37. The light from each crystal 
-is read out by Avalanche Photodiode (APD) glued on the back surface of the crystal. 
-Signals from the APDs were amplified using custom-made amplifier boards before being sent to the 
-readout electronics.  
+The electomagnetic calorimeter (ECal) is also split into two halves. Each half of the ECal consists of 
+221 PbWO$_4$ crystals arranged in rectangular formation. There are five rows with 46 modules in 
+each row except the row closest to the beam plane which has 37. The light from each crystal 
+is read out by an Avalanche Photodiode (APD) glued on the back surface of the crystal. 
+Signals from the APDs are amplified using custom-made amplifier boards before being sent to the 
+data acquisition electronics.
 
 The  Data Acquisition system combines two architectures, the Advanced Telecom Communications 
 Architecture (ATCA) based SVT readout system and VXS based digitization and triggering system for 
 the ECal. The system was designed to run at up to 20~kHz trigger rate.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -845,16 +841,16 @@ nominal operating points~\cite{Jones:1069892} with all sensors reverse-biased at
 sensors were operated within a temperature range of  $20-24^\circ$C.
 Approximately 97\% of the 12,780 SVT channels were found to
 be operating normally;  the fraction of dead or noisy channels varied from 2.4\% to 4.7\% throughout 
-the Test run. Most of these were due to 2-4 misconfigured APV25 ASICs, a known noisy 
-half-module and a couple of known APV25 ASICs. 
+the Test run. Most of these losses were due to 2-4 misconfigured APV25 ASICs, a known noisy 
+half-module and problems in two particular APV25 ASICs. 
 
 
 \subsubsection{Cluster and Hit Reconstruction}
 
-After a trigger is received, six samples of the corresponding output of the APV25 ASIC shaper circuit are 
-digitized. The six pedestal-subtracted samples from every channel in the SVT are the basis for offline hit 
-reconstruction. The typical pulse shape obtained shown in Fig.~\ref{fig:pulse_shape} also 
-demonstrates that the SVT was well timed in to the trigger with the rise of the pulse at the 3rd sampling 
+After a trigger is received, the amplitude  of every  APV25 analoge output  is sampled and digitized in 
+six consecutive time bins, separated by roughly 25~ns.  
+The typical pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape}. As the figure demonstrates,  
+the SVT was well timed-in to the trigger with the rise of the pulse at the 3rd sampling 
 point.
 \begin{figure}[]
 \begin{center}
@@ -886,11 +882,11 @@ provide the absolute charge normalization.
 %\end{figure}
 
 
-In order to find the time and amplitude of each hit, $t_0$,  the six samples from each channel are fitted to 
-an ideal $CR-RC$ function. After clustering hits on a sensor, the hit time for each cluster is computed as 
-the amplitude-weighted average of the individually fitted $t_0$ on each channel. The $t_0$-resolution is 
-studied by comparing the cluster hit time with the average of all cluster hit times on the track, 
-see Fig.~\ref{fig:tracktime}, which has the expected jitter due to clock phase and trigger, 
+In order to find the time, $t_0$, and amplitude of each hit, the six samples from each channel are fitted 
+to an ideal $CR-RC$ function. After clustering hits on a sensor, the hit time for each cluster is computed 
+as the amplitude-weighted average of the individually fitted $t_0$ on each channel. The 
+$t_0$-resolution is studied by comparing the cluster hit time with the average of all cluster hit times on 
+the track, see Fig.~\ref{fig:tracktime}, which has the expected jitter due to clock phase and trigger, 
 approximately 25~ns. 
 \begin{figure}[]
 \begin{center}
