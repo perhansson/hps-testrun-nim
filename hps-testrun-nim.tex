@@ -266,7 +266,7 @@ in calculating the physics reach of the HPS experiment.
 \end{figure*}
 }
 The HPS Test apparatus was designed to run in Hall~B at JLab using the CEBAF electron beam, a 
-499~MHz beam, at an energies of 2.2 and 6.6~GeV and currents between 200 and 600~nA.  
+499~MHz beam, at energies of 2.2 and 6.6~GeV and currents between 200 and 600~nA.  
 The overall design of the experiment follows from the kinematics of \Aprime{} production which 
 typically results in a final state particle within a few degrees of the incoming beam, especially at low 
 $m_{\textrm{A}^\prime}$. Detectors must therefore be placed close to the beam. 
@@ -309,12 +309,12 @@ Fig.~\ref{fig:testrundetector} and an overview of the coverage, segmentation and
 given in Tab.~\ref{tab:detector-overview}.  
 
 The silicon tracking and vertexing detector for HPS Test, or SVT, resides in a vacuum 
-chamber inside the pair spectrometer analyzing magnet in Hall B at JLab. The SVT has five 
+chamber inside the Pair Spectrometer (PS) dipole magnet in Hall B at JLab. The SVT has five 
 measurement stations, or ``layers,'' beginning10 cm downstream of the target. Each layer 
 comprises a pair of closely-spaced silicon microstrip sensors responsible for measuring a single 
 coordinate, or ``view.'' Introduction of a small (50 or 100~mrad) stereo angle between the two 
 sensors of each layer provides three-dimensional tracking and vertexing throughout the acceptance 
-of the detecto. In order to accommodate the dead zone, the 
+of the detector. In order to accommodate the dead zone, the 
 SVT is built in two halves that are approximately mirror reflections of one another about the plane of the 
 nominal electron beam.  Each layer in one half is supported on a common support plate with 
 independent cooling and readout. 
@@ -340,7 +340,7 @@ The HPS Test run studied multiple Coulomb scattering of electrons and positrons 
 bremsstrahlung photons produced in the Hall B tagged photon facility. 
 Figure~\ref{fig:hpstest_layout} shows the layout of 
 the setup on the beam line. The SVT was installed inside the Hall B pair 
-spectrometer magnet (PS) vacuum chamber with the ECal mounted downstream of it. Both the 
+spectrometer magnet vacuum chamber with the ECal mounted downstream of it. Both the 
 SVT and the ECal were retracted off the beam plane compared to nominal electron beam runing to 
 allow clean passage of the photon beam through the system. 
 \begin{figure}[]
@@ -353,7 +353,7 @@ The photon beam was generated in the interaction of $5.5$~GeV electrons with a $
 gold radiator located $\approx~9$~m upstream of the PS. The primary beam and scattered 
 electrons are deflected away from detectors by the dipole magnet of the photon tagging system. 
 During the dedicated HPS Test run period, the collimated (6.4~mm diameter), photon beam passes 
-through the aluminum PS pair converter and later the HPS system as illustrated in 
+through the gold PS pair converter and later the HPS system as illustrated in 
 Fig.~\ref{fig:schematic_testrun_vs_erun}.
 \begin{figure}[]
 \includegraphics[ width=7cm]{figures/photon_vs_electron_beam_schematic.png}
@@ -621,16 +621,16 @@ lead-tungstate (PbWO$_{4}$) crystal with a $13.3\times13.3$~mm$^2$ ($16\times16$
 }
 \end{center}
 \end{figure}
-The scintillation light, approximately $X$ photoelectrons/MeV, is readout by a 
+The scintillation light, approximately $3$ photoelectrons/MeV, is readout by a 
 5$\times$5~mm$^2$ Hamamatsu S8664-55 Avalanche Photodiode (APD) with 75\% quantum 
 efficiency glued to the rear face surface using MeltMount 1.7 thermal plastic adhesive. 
 The low gain of APDs ($\sim 200$) was compensated with custom made preamplifier boards, which 
-provide factor of 2000 amplification of the APD signal.
+provide factor of $2600$ amplification of the APD signal.
 
 \subsection{Layout}
 Similar to the SVT, the ECal is built in two separate halves that are mirror reflections of one another 
 about the plane of the nominal electron beam to avoid interfering with the 15~mrad "dead zone". 
-As shown in Fig.~\ref{fig:ecal}, the 221 modules, supported by aluminum support frames, in each half 
+As shown in Fig.~\ref{fig:ecal}, the 221 modules in each half, supported by aluminum support frames, 
 are arranged in rectangular formation with 5 layers and 46 crystals/layer except for the layer closest to 
 the beam where 9 modules were removed to allow a larger opening for the outgoing electron and 
 photon beams. Each half was enclosed in a temperature controlled box ($<1^{\circ}$~F stability and 
@@ -658,8 +658,9 @@ placing the front face of the crystals 147~cm from the upstream edge of the magn
 
 \subsection{Signal readout}
 \label{sec:fadc}
-After a 2:1 signal splitter, $1/3$ of an amplified APD signal ($2/3$ is sent to a timing module) is fed to a 
-single channel of a JLab flash ADC (FADC) board~\cite{fadc}.
+After a 2:1 signal splitter, $1/3$ of an amplified APD signal is fed to a 
+single channel of a JLab flash ADC (FADC) board~\cite{fadc}. $2/3$ of the signal is sent to a 
+discriminator module and then to a TDC for a timing measurement. 
 %\begin{figure}[]
 %\begin{center}
 %{\small
@@ -731,7 +732,7 @@ Contrary to the readout path
 described in Sec.~\ref{sec:fadc}, this energy is a pedestal subtracted time-over-threshold sum with 
 programmable offsets and minimum threshold discriminator for each channel. With input from all 
 FADC channels, i.e. one half of the ECal, the CTP performs cluster finding and calculates cluster 
-energy, shape and timing information. The 3x3 fixed-window, highly parallel, FPGA-based cluster 
+energy and timing information. The 3x3 fixed-window, highly parallel, FPGA-based cluster 
 algorithm simultaneously searches for up to 125 clusters with energy sum larger than 
 the programmable energy threshold ($\approx270$~MeV). Crystals in the 
 fixed-window are included in the sum if the leading edge of the pulse occurred within a 32~ns time 
@@ -1010,7 +1011,7 @@ resolution in HPS, with a target at 10~cm, will be as calculated.
 \label{sec:ecal_calibration}
 
 The integrated pulse of each FADC channel was converted to energy by  
-subtracting a pedestal and apply a conversion factor to convert ADC counts to energy. 
+subtracting a pedestal and applying a conversion factor to convert ADC counts to energy. 
 The pedestals are measured using special runs where each trigger records 100 samples of signals 
 from the APDs with 4~ns between each sample. The pedestals were extracted from the 
 part of the window before the actual hit in the calorimeter. Modules with signal above the threshold  
@@ -1045,7 +1046,7 @@ Fig.~\ref{fig:gains}.
 The peak position of the distribution indicates the sampling fraction of the ECal, the fraction of the 
 incident particle energy measured in the cluster. The width and tails of the distribution 
 in data indicates imperfect calibration and noise of the ECal modules. This level of calibration and the 
-agreement with simulation was found to be sufficient to study normalized event rates on the Test run.
+agreement with simulation was found to be sufficient to study normalized event rates in the Test run.
 
 
 
@@ -1377,10 +1378,11 @@ detector backgrounds expected in electron beam running for HPS.
 
 
 \section{Acknowledgements}
-The authors are grateful for the support from Hall~B at JLab and especially Hall~B technicians 
-for support during installation and decommissioning. They also would like to commend the CEBAF 
-personnel for achieving good performance when we needed it; the last few hours of operating CEBAF6. 
-The tremendous support from home institutions and supporting staff also needs praise from the authors. 
+The authors are grateful for the support from Hall~B at JLab and especially the Hall~B engineering 
+group for support during installation and decommissioning. They also would like to commend the 
+CEBAF personnel for good beam performance; the last few hours of operating CEBAF6. 
+The tremendous support from home institutions and supporting staff also needs praise from the 
+authors. 
 
 This work has been supported by the US Department of Energy. 
 
