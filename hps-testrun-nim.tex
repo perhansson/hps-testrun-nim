@@ -725,17 +725,17 @@ the sub-detectors.}
 Each channel on the FADC board have an 
 independent data path to send 5-bit pulse energy and 3-bit pulse arrival time information every 32~ns 
 to a 
-trigger processing board (CTP) in the same crate every. Contrary to the readout path 
+trigger processing board (CTP) in the same crate. Contrary to the readout path 
 described in Sec.~\ref{sec:fadc}, this energy is a pedestal subtracted time-over-threshold sum with 
 programmable offsets and minimum threshold discriminator for each channel. With input from all 
 FADC channels, i.e. one half of the ECal, the CTP performs cluster finding and calculates cluster 
 energy, shape and timing information. The 3x3 fixed-window, highly parallel, FPGA-based cluster 
 algorithm simultaneously searches for up to 125 clusters with energy sum larger than 
 the programmable energy threshold ($\approx270$~MeV). Crystals in the 
-fixed-window are included in the sum if the leading edge of the pulse occurred within a 8~ns time 
-window (4~ns minimum). To take into account clock skew and jitter throughout the system, the
-clustering algorithm can allow for crystal hits from up to seven previous or future 4~ns clock cycles to 
-contribute to the cluster sum.  A separate sub-system board (SSP) receives the clusters (only the 
+fixed-window are included in the sum if the leading edge of the pulse occurred within a 32~ns time 
+window to take into account clock skew and jitter throughout the system.
+%, the clustering algorithm can allow for crystal hits from up to seven previous or future 4~ns clock %cycles to contribute to the cluster sum.  
+A separate sub-system board (SSP) receives the clusters (only the 
 highest energy 3x3 window to deal with overlapping and very large clusters) from 
 the top and bottom half CTP every 32~ns and searches for pairs of clusters in a 8~ns wide 
 trigger window. The trigger supervisor (TS) generates all the necessary signals and controls the 
@@ -747,8 +747,8 @@ dead time at the occupancies expected for HPS. The trigger supervisor can apply 
 necessary, for example on a `busy' or `full' condition from the front-end electronics. The system is 
 designed to handle trigger rates above 50~kHz and has a latency set to $\approx 3~\mu$s to match 
 that required by the SVT APV25 ASIC. During the Test run, for the most part the trigger system 
-required only a single cluster in either the top or bottom Ecal halves and was tested to above 100~kHz 
-trigger rates by lowering thresholds. 
+required only a single cluster in either the top or bottom Ecal halves and was tested to trigger rates 
+above 100~kHz by lowering thresholds. 
 
 
 
@@ -805,7 +805,7 @@ and monitoring software as well as the Read Out Controller application used to i
 JLab DAQ.
 
 In order to minimize cable length for the analog APV25 output signal the ATCA crate was located 
-approximately 1~m from the beam line, next to our cable vacuum feed troughs.   
+approximately 1~m from the beam line, next to our cable vacuum feed-troughs.   
 Before shielding with lead-blankets was arranged, we observed two failures of normally reliable ATCA 
 crate power supplies, time-correlated to beam instabilities. 
 
@@ -818,7 +818,7 @@ to 20~kHz and 50~MB/s.
 \label{sec:daq}
 Every crate participating in the readout process contains a Readout Controller (ROC) that 
 collects digitized information, processes it, and sends it on to the event builder. For the ECal, both 
-VXS crates run ROC applications in a single blade Intel-based CPU module running under CentOS 
+VXS crates run ROC applications in a single blade Intel-based CPU module running CentOS 
 Linux OS. For the SVT DAQ, the ROC application runs on the external PC under RHEL. 
 The event builder assembles information from the ROCs into a single event which is passed to the 
 event recorder that writes it to a RAID5-based data storage system capable of handling up to 
@@ -852,7 +852,7 @@ After a trigger is received, the amplitude  of every  APV25 analoge output  is s
 six consecutive time bins, separated by roughly 25~ns.  
 The typical pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape}. As the figure demonstrates,  
 the SVT was well timed-in to the trigger with the rise of the pulse at the 3rd sampling 
-point.
+point. Note that in the Test run the APV25 ASICs were operating with a 50~ns shaping time.  
 \begin{figure}[]
 \begin{center}
 {\small
@@ -887,8 +887,7 @@ In order to find the time, $t_0$, and amplitude of each hit, the six samples fro
 to an ideal $CR-RC$ function. After clustering hits on a sensor, the hit time for each cluster is computed 
 as the amplitude-weighted average of the individually fitted $t_0$ on each channel. The 
 $t_0$-resolution is studied by comparing the cluster hit time with the average of all cluster hit times on 
-the track, see Fig.~\ref{fig:tracktime}, which has the expected jitter due to clock phase and trigger, 
-approximately 25~ns. 
+the track, see Fig.~\ref{fig:tracktime}. 
 \begin{figure}[]
 \begin{center}
 {\small
@@ -1008,14 +1007,14 @@ in HPS, with a target at 10~cm, will be as calculated.
 
 The integrated pulse of each FADC channel was converted to energy by  
 subtracting a pedestal and apply a conversion factor to convert ADC counts to energy. 
-The pedestals are measured using special runs where each trigger records 100 samples of signals from 
-the APDs with 4~ns between each sample. The pedestals were extracted from the 
-part of the window before the actual hit in the calorimeter. After subtracting the pedestal, modules with 
-integrated pulse energy of about 73~MeV are clustered using a simple algorithm similar to the one 
+The pedestals are measured using special runs where each trigger records 100 samples of signals 
+from the APDs with 4~ns between each sample. The pedestals were extracted from the 
+part of the window before the actual hit in the calorimeter. Modules with signal above the threshold  
+are clustered using a simple algorithm similar to the one 
 deployed for the trigger (see Sec.~\ref{sec:trigger}). Due to the high effective readout threshold of 
-$73$~MeV the average number of crystals in a cluster was $\sim 3$ and the simple clustering algorithm 
-worked well for reconstruction of the detected shower energy. An average noise level of approximately 
-15~MeV was measured in special pedestal runs. 
+73~MeV the average number of crystals in a cluster was $\sim 3$ and the simple clustering 
+algorithm worked well for reconstruction of the detected shower energy. An average noise level of 
+approximately 15~MeV was measured in special pedestal runs. 
 
 
 The ratio of the ECal cluster energy $E$ to the momentum $p$ of a matched track in the SVT was used 
@@ -1052,12 +1051,8 @@ As described above the energy from each
 crystal is measured differently in the trigger and what is readout from the ECal. 
 The trigger performance was studied by simulating the 
 trigger for each event and comparing to how the events were actually triggered.
-First, we simulate the FADC trigger path by converting from readout hits (with fixed-size window 
-integration) to trigger hits (time-over-threshold integration). Secondly, the CTP clustering 
-algorithm and the trigger decision from the SSP is simulated before we compare the trigger decision 
-and trigger time to what was reported by the actual trigger. For every event, the trigger reports the trigger 
-decision as a bit mask (top half, bottom half or both) and the time the trigger fired. To eliminate trigger 
-bias, we use a tag and probe method: to study the trigger performance in one half of the ECal, we select 
+To eliminate trigger bias, we use a tag and probe method: to study the trigger performance in one half 
+of the ECal, we select 
 events which triggered the other half and where there was exactly one probe cluster in the ECal half 
 under study. We then measure trigger efficiency as the fraction of tagged events that fired the trigger in 
 the probe half as a function of the probe cluster energy, shown in Fig.~\ref{fig:turnon}. 
@@ -1077,9 +1072,14 @@ the time-over-threshold integral means that the effective threshold is higher fo
 multiple crystals. The effective trigger threshold is therefore dependent on position and energy of 
 the particle as well as cluster multiplicity. 
 
-As a cross-check, the turn-on from the trigger threshold was measured to be 1280 in units of ADC counts 
-as expected. The threshold was not perfectly sharp because of uncertainties in the conversion from 
-readout to trigger hits described above, but based on comparisons with simulation we found that the 
+As a cross-check we simulate the FADC trigger path by converting from readout hits (with fixed-size 
+window integration) to trigger hits (time-over-threshold integration). The CTP clustering 
+algorithm and the trigger decision from the SSP is simulated before we compare the trigger decision 
+and trigger time to what was reported by the actual trigger. For every event, the trigger reports the 
+trigger decision as a bit mask (top half, bottom half or both) and the time the trigger fired.
+The turn-on from the trigger threshold was measured to be 1280 in units of ADC counts as expected. 
+The threshold was not perfectly sharp because of uncertainties in the conversion from readout to trigger 
+hits described above, but based on comparisons with simulation we found that the 
 trigger worked exactly as specified.
 
 
