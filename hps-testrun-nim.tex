@@ -327,8 +327,8 @@ Signals from the APDs are amplified using custom-made amplifier boards before be
 data acquisition electronics.
 
 The  Data Acquisition system combines two architectures, the Advanced Telecom Communications 
-Architecture (ATCA) based SVT readout system and VXS based digitization and triggering system for 
-the ECal. The system was designed to run at up to 20~kHz trigger rate.
+Architecture (ATCA) based SVT readout system and VMEbus Switched Serial (VXS) based digitization 
+and triggering system for the ECal. The system was designed to run at up to 20~kHz trigger rate.
 
 
 
@@ -407,7 +407,7 @@ determination of their trajectories. These measurements allow \Aprime{} decays t
 from background via simultaneous estimation of the invariant mass of \ee{} decay products and the 
 position of decay vertexes downstream of the target. 
 
-The design of the SVT is primarily driven by direct physics requirement and constraints from the 
+The design of the SVT is primarily driven by direct physics requirements and constraints from the 
 environment at the interaction region. The \Aprime decay products 
 have momenta in the range of 1~GeV, so multiple scattering dominates mass and vertexing 
 uncertainties for any possible material budget, so the SVT must minimize the amount of 
@@ -602,9 +602,9 @@ covering the SVT \Aprime acceptance and able to fully absorb
 electrons and positrons with energy between $0.5$-$6.5$~GeV, fine granularity and signal 
 readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background and remain operable 
 after a radiation dose larger than $X$~MRad. The lead-tungstate (PbOW$_{4}$) crystal inner 
-calorimeter of the CLAS detector [REFERENCE] in operation since 2005 in Hall B meet all the 
-requirements set by HPS. The modules from this calorimeter have been subsequently repurposed for 
-HPS. 
+calorimeter of the CLAS detector~\cite{2008erhm.conf..421N} in operation since 2005 in Hall B meets 
+all the requirements set by HPS. The modules from this calorimeter have been subsequently 
+repurposed for HPS. 
 
 
 \subsection{Components}
@@ -635,11 +635,11 @@ are arranged in rectangular formation with 5 layers and 46 crystals/layer except
 the beam where 9 modules were removed to allow a larger opening for the outgoing electron and 
 photon beams. Each half was enclosed in a temperature controlled box ($<1^{\circ}$~F stability and 
 $<4^{\circ}$~F uniformity) to stabilize the crystal light yield and the operation of the APDs and its 
-preamplifiers. Four printed circuit boards mounted on the backplane penetrated the enclosure and was 
-used to supply the $\pm 5$~V 
-operating voltage for the preamplifiers and the 400~V bias voltage to the APDs and to read out signals 
-from the APDs. Each half of the ECal was divided into 12 bias voltage groups with a gain uniformity 
-of about 20\%. 
+preamplifiers. 
+Four printed circuit boards mounted on the backplane penetrated the enclosure and was used to 
+supply the $\pm 5$~V operating voltage for the preamplifiers, 400~V bias voltage to the APDs, and to 
+read out signals from the APDs. Each half of the ECal was divided into 12 bias voltage groups with a 
+gain uniformity of about 20\%. 
 
 During the Test run, both halves were held in place by four vertical bars attached to an above rail, 
 placing the front face of the crystals 147~cm from the upstream edge of the magnet and with a 
@@ -674,14 +674,15 @@ at 250~MHz and storing samples in 8~$\mu$s deep pipelines with 12-bit resolution
 When a trigger is received, the part 
 of the pipeline from 5 samples before and 30 after the signal crossed a programmable 
 threshold (for the Test run this was set to $\approx70$~MeV) are 
-summed and stored in a 17-bit register for readout.
+summed and stored in a 17-bit register for readout. In addition a 4~ns resolution timestamp of the 
+threshold crossing is reported in the readout for each pulse.
 This scheme significantly compresses the data output of the FADC. During offline data analysis, a 
 calibrated pedestal value is subtracted to obtain the actual summed energy.
 Two 20-slot VXS crates with 14 (13) FADC boards were employed in the Test run to read out the top 
 (bottom) half of the ECal.
-In the Test run 385 out of 442 modules (87\%) was used in offline reconstruction, 39 modules were 
+In the Test run 385 out of 442 modules (87\%) were used in offline reconstruction, 39 modules were 
 disabled or not read out (no FADC channel available, no APD bias voltage or masked out due to 
-excessive noise) and 18 was masked offline due to noise. 
+excessive noise) and 18 were masked offline due to noise. 
 %\begin{figure}[]
 %\begin{center}
 %{\small
@@ -701,7 +702,8 @@ excessive noise) and 18 was masked offline due to noise.
 
 The DAQ system handles acquisition of data from the ECal and SVT sub-detectors  with 
 two DAQ architectures. The SVT DAQ is based on Advanced Telecom Communications Architecture 
-(ATCA) hardware while the ECal uses VXS based hardware. Data from the sub-detectors are only 
+(ATCA) hardware while the ECal uses VMEbus Switched Serial (VXS) based hardware. Data from the 
+sub-detectors are only 
 readout when a trigger signal from the trigger system is received formed on input from the ECal. 
 \subsection{Trigger system}
 \label{sec:trigger}
@@ -722,10 +724,10 @@ the sub-detectors.}
 }
 \end{center}
  \end{figure}
-Each channel on the FADC board have an 
-independent data path to send 5-bit pulse energy and 3-bit pulse arrival time information every 32~ns 
-to a 
-trigger processing board (CTP) in the same crate. Contrary to the readout path 
+Each channel on the FADC board has an independent data path to send 5-bit pulse energy and 3-bit 
+pulse arrival time information every 32~ns to a trigger processing board (CTP), which is in the same 
+crate. The 3-bit pulse arrival time allows the trigger to know the pulse timing at 4~ns resolution. 
+Contrary to the readout path 
 described in Sec.~\ref{sec:fadc}, this energy is a pedestal subtracted time-over-threshold sum with 
 programmable offsets and minimum threshold discriminator for each channel. With input from all 
 FADC channels, i.e. one half of the ECal, the CTP performs cluster finding and calculates cluster 
@@ -734,13 +736,12 @@ algorithm simultaneously searches for up to 125 clusters with energy sum larger 
 the programmable energy threshold ($\approx270$~MeV). Crystals in the 
 fixed-window are included in the sum if the leading edge of the pulse occurred within a 32~ns time 
 window to take into account clock skew and jitter throughout the system.
-%, the clustering algorithm can allow for crystal hits from up to seven previous or future 4~ns clock %cycles to contribute to the cluster sum.  
-A separate sub-system board (SSP) receives the clusters (only the 
-highest energy 3x3 window to deal with overlapping and very large clusters) from 
-the top and bottom half CTP every 32~ns and searches for pairs of clusters in a 8~ns wide 
-trigger window. The trigger supervisor (TS) generates all the necessary signals and controls the 
-entire DAQ system readout through the trigger interface units installed in every crate that participate 
-in the readout process. 
+The CTP only accepts clusters with the highest energy 3x3 window locally to deal with overlapping and 
+very large clusters. The sub-system board (SSP) receives the clusters from the top and bottom half CTP 
+at a maximum of 250MHz and searches for pairs of clusters in a 8 ns wide coincidence window. The 
+SSP sends triggers to the trigger supervisor (TS), which generates all the necessary signals and 
+controls the entire DAQ system readout through the trigger interface units installed in every crate that 
+participate in the readout process.
 
 The trigger system is free-running and driven by the 250~MHz global clock and has essentially zero 
 dead time at the occupancies expected for HPS. The trigger supervisor can apply dead time if 
