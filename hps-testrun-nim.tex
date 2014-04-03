@@ -834,7 +834,7 @@ to the JLab computing facility for long-term storage. For the Test run, both the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Performance}
+\section{Reconstruction and Performance}
 
 \subsection{SVT Performance}
 
@@ -849,11 +849,12 @@ half-module and problems in two particular APV25 ASICs.
 
 \subsubsection{Cluster and Hit Reconstruction}
 
-After a trigger is received, the amplitude  of every  APV25 analoge output  is sampled and digitized in 
+After a trigger is received, the amplitude  of every  APV25 analogue output is sampled and digitized in 
 six consecutive time bins, separated by roughly 25~ns.  
-The typical pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape}. As the figure demonstrates,  
+The typical, pedestal subtracted, pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape}. 
+As the figure demonstrates,  
 the SVT was well timed-in to the trigger with the rise of the pulse at the 3rd sampling 
-point. Note that in the Test run the APV25 ASICs were operating with a 50~ns shaping time.  
+point.  
 \begin{figure}[]
 \begin{center}
 {\small
@@ -864,6 +865,9 @@ point. Note that in the Test run the APV25 ASICs were operating with a 50~ns sha
 }
 \end{center}
 \end{figure}
+In order to find the time, $t_0$, and amplitude of each hit, the six samples from each channel are fitted 
+to an ideal $CR-RC$ function. Note that in the Test run the APV25 ASICs were operating with a 50~ns 
+shaping time. 
 These hits are passed through a simple clustering algorithm which forms clusters by grouping adjacent 
 strips with the position of a cluster on the sensor determined by the amplitude-weighted mean.
 With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associated with a track follow 
@@ -872,23 +876,20 @@ the characteristic Landau shape.
 A noise level between $1.1-1.5\times 10^{3}$ electrons was established through multiple calibration 
 runs giving a signal to noise ratio of $21-25$. Lab-based radioactive source tests was used to 
 provide the absolute charge normalization.
-%\begin{figure}[]
-%\begin{center}
-%{\small
-%	%\includegraphics[width=7cm]{figures/run1351_mip_small.pdf}
-%	\includegraphics[width=7cm]{figures/mip_top_layer_2.png}
-%    	\caption{ The cluster charge distribution for hits associated with a track. }
-%	\label{fig:cluster_pulse}
-%}
-%\end{center}
-%\end{figure}
-
-
-In order to find the time, $t_0$, and amplitude of each hit, the six samples from each channel are fitted 
-to an ideal $CR-RC$ function. After clustering hits on a sensor, the hit time for each cluster is computed 
+\begin{figure}[]
+\begin{center}
+{\small
+	%\includegraphics[width=7cm]{figures/run1351_mip_small.pdf}
+	\includegraphics[width=7cm]{figures/mip_top_layer_2.png}
+    	\caption{ The cluster charge distribution for hits associated with track follow the characteristic 		Landau shape. }
+	\label{fig:cluster_pulse}
+}
+\end{center}
+\end{figure}
+After clustering hits on a sensor, the hit time for each cluster is computed 
 as the amplitude-weighted average of the individually fitted $t_0$ on each channel. The 
-$t_0$-resolution is studied by comparing the cluster hit time with the average of all cluster hit times on 
-the track, see Fig.~\ref{fig:tracktime}. 
+$t_0$ resolution is studied by comparing the cluster hit time with the average of all cluster hit times on 
+the track shown in Fig.~\ref{fig:tracktime}. 
 \begin{figure}[]
 \begin{center}
 {\small
@@ -903,16 +904,16 @@ After correcting for offsets from each sensor (time-of-flight, clock phase) and 
 correlation between the $t_0$ and track time,  the extracted $t_0$ resolution is 2.6~ns. This is somewhat 
 worse than the approximately 2~ns resolution expected for S/N~25 which we attribute to the true 
 pulse shape differing from our idealized fit function which will be improved in the future. Reducing the 
-APV25 ASIC pulse shaping time will also improve time resolution. 
+APV25 ASIC pulse shaping time to 35~ns will also improve time resolution. 
 These results show that we can operate with the six sample readout mode of the APV25 chip and 
 achieve time resolution adequate for pileup rejection during electron running in HPS. 
 
-While occupancy was slightly larger than expected, good agreement between data and simulation was 
-found after taking into account dead or noisy channels. The hit efficiency was estimated by measuring 
+Good agreement between observed and simulated occupancies after taking into account dead or 
+noisy channels. The hit reconstruction efficiency was estimated by measuring 
 the number of good tracks with a hit close to the extrapolated intersection of a given sensor that was 
-excluded from the track fit itself. Tracks which intersect regions with known bad channels or very close to 
-in the edge region are excluded. The hit efficiency, see Fig.~\ref{fig:hit_efficiency}, was measured to be 
-above 98\% and fairly uniform across the SVT.
+excluded from the track fit itself. Tracks which intersect regions with known bad channels or very close 
+to in the edge region are excluded. The hit reconstruction efficiency, see Fig.~\ref{fig:hit_efficiency}, 
+was measured to be above 98\% and fairly uniform across the SVT.
 \begin{figure}[]
 \begin{center}
 {\small
@@ -922,6 +923,8 @@ above 98\% and fairly uniform across the SVT.
 }
 \end{center}
 \end{figure}
+
+
 The spatial resolution of similar microstrip sensors is well established by test beam data, against which 
 the charge deposition model in the simulation is validated.  This resolution can be parameterized as a 
 function of the total signal to single-strip noise and the crossing angle of tracks through the sensor.  
@@ -939,10 +942,10 @@ the SVT, with momentum larger than 400~MeV were selected. The pair production ki
 relatively well reproduced as shown in Fig.~\ref{fig:pair_kin}. 
 
 The expected momentum resolution from simulation is between 4-5\% for tracks in the momentum 
-range of the Test run. By looking at the agreement 
-between data and simulation in the shape of the kinematic distributions for single- and two track 
-events and adjusting the overall momentum scale and smearing simulated events with a 
-Gaussian resolution we estimate an agreement with the nominal scale and resolution to within 10\%.
+range of the Test run. 
+
+By comparing the shapes of the kinematic distributions for single- and two track events between data 
+and simulation we estimate an agreement with the nominal scale and resolution to within 10\%.
  \begin{center}
 {\small
 \begin{figure*}[t]
@@ -975,10 +978,10 @@ converter position.
 \end{center}
 \end{figure}
 }
-While residual alignment show small shifts good agreement on the widths between data and simulated 
-events, indicating a good understanding of our material budget and distribution in the SVT.  Having 
-the dominant contribution to the vertex resolution approximately right demonstrates that the resolution 
-in HPS, with a target at 10~cm, will be as calculated.
+While residual alignment show small shifts, the good agreement  between data and simulated 
+events of the widths indicates a good understanding of the material budget and distribution in the SVT.  
+Having  the dominant contribution to the vertex resolution approximately right demonstrates that the 
+resolution in HPS, with a target at 10~cm, will be as calculated.
 %Furthermore, tails of the vertex distributions are impossible to study with the finite data sample obtained 
 %in the Test run. Nevertheless, useful information can still be 
 %obtained by studying the vertex distributions. Figure~\ref{fig:vtx_pos} shows the distance of closest 
@@ -1020,21 +1023,21 @@ approximately 15~MeV was measured in special pedestal runs.
 
 The ratio of the ECal cluster energy $E$ to the momentum $p$ of a matched track in the SVT was used 
 to determine the conversion factors from ADC counts to energy. To compare data and simulation, all 
-inoperable or noisy channels in the SVT and ECal was disabled in both data and simulation so that any 
-efficiency or bias that affect the data should be reflected in the simulation. 
+inoperable or noisy channels in the SVT and ECal were disabled in both data and simulation so that 
+any efficiency or bias that affect the data should be reflected in the simulation. 
 %Furthermore, a conversion factor calibration is performed to equalize the gains of  each channel. 
 %simulation to those observed in data by comparing .  The ``weighted $E/p$'' for each crystal is %computed, 
 %representing the average $E/p$ for clusters that include the crystal
 % $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$.
-Iteratively, conversion coefficients for each crystal is adjusted until the $E$/$p$ ratio in data and 
-simulation are similar. The distribution of the $E$/$p$ ratio in data and simulation are compared in 
+Iteratively, conversion coefficients for each crystal were adjusted until the $E$/$p$ ratio in data and 
+simulation were similar. The distribution of the $E$/$p$ ratio in data and simulation are compared in 
 Fig.~\ref{fig:gains}. 
 {\small
 \begin{figure}[]
 \begin{center}
 	\includegraphics[width=7cm]{figures/h_ep_data_0_h_ep_MC_0_dataMC_1351-v6-v6gains_2-trig-top-cl600reg0.pdf}
 	\caption{The ECal energy over track momentum ratio ($E$/$p$) comparing data and simulation 
-	for inclusive events in the top half of the ECal.} 
+	for single cluster triggers in the top half of the ECal.} 
 	\label{fig:gains}
 \end{center}
 \end{figure}
@@ -1048,7 +1051,7 @@ agreement with simulation was found to be sufficient to study normalized event r
 
 
 \subsection{Trigger Performance}
-As described above the energy from each 
+As described above in Sec.~\ref{sec:triggerdaq}, the energy from each 
 crystal is measured differently in the trigger and what is readout from the ECal. 
 The trigger performance was studied by simulating the 
 trigger for each event and comparing to how the events were actually triggered.
@@ -1086,7 +1089,7 @@ trigger worked exactly as specified.
 
 \subsection{Trigger Rate Comparisons}
 \label{sec:mcs}
-Trigger rates observed in the Test run are dominated by multiple Coulomb scattered \ee pairs in the 
+Trigger rates observed in the Test run are dominated by multiple Coulomb scattered \ee{} pairs in the 
 converter. In simulated events, the rate of triggers depend on the modeling of the pairs angular 
 distribution and the subsequent multiple Coulomb scattering in the converter. Rates from different 
 converter 
@@ -1108,7 +1111,7 @@ GEANT4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
 Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\						
 \hline
 \end{tabular}
-\caption{ Observed and predicted number of events for 1~s of beam at 90~nA for three different converter 
+\caption{ Observed and predicted event rate (in Hz) normalized to 90~nA for three different converter 
 thicknesses. The uncertainty on the prediction includes systematic uncertainties from ECal alignment, background normalization, beam current normalization and limited statistics in the simulation.}
 }
 \label{tab:mcs}
