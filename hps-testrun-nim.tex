@@ -142,11 +142,11 @@ The  Heavy Photon Search (HPS), an experiment to search for a hidden sector phot
 electroproduction, is preparing for installation at the Thomas Jefferson National Accelerator Facility 
 (JLab) in the Fall of 2014.  As the first stage of this project, the HPS Test Run apparatus was 
 constructed and operated in 2012 to demonstrate the experiment's technical feasibility and to  confirm 
-that the trigger rates and occupancies are as expected. This paper describes the HPS Test Run apparatus 
-and readout electronics and its performance. In this setting, a heavy photon can be identified as a 
-narrow \ee{}  mass peak above the trident background or as a decay vertex displaced from
-the production target, so charged particle tracking and vertexing are needed for its detection. In the 
-HPS Test Run, charged particles are measured
+that the trigger rates and occupancies are as expected. This paper describes the HPS Test Run 
+apparatus and readout electronics and its performance. In this setting, a heavy photon can be identified 
+as a narrow \ee{}  mass peak above the trident background or as a narrow mass peak with a decay 
+vertex displaced from the production target, so charged particle tracking and vertexing are needed for 
+its detection. In the HPS Test Run, charged particles are measured
 with a compact forward silicon microstrip tracker inside a dipole magnet. Electromagnetic 
 showers are detected in a PbW0$_{4}$ 
 crystal calorimeter situated behind the magnet used to trigger the experiment and identify 
@@ -157,8 +157,8 @@ and avoids the spray of degraded electrons coming from the target.
 The discrimination between prompt and displaced \ee{} pairs requires the first layer of silicon 
 sensors be placed only 10~cm downstream of the target. The expected signal is small, and the 
 trident background huge, so the experiment requires very large statistics. Accordingly, the
-HPS Test Run utilizes  high-rate readout and data acquisition electronics and a fast trigger to
-perfectly exploit the essentially 100\% duty cycle of the CEBAF accelerator.
+HPS Test Run utilizes  high-rate readout and data acquisition electronics and a fast trigger to exploit 
+the essentially 100\% duty cycle of the CEBAF accelerator.
 \end{abstract}
 
 \begin{keyword}
@@ -187,15 +187,16 @@ silicon microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dark pho
 %% main text
 \section{Introduction}
 \label{introduction}
-The heavy photon (\Aprime{}), aka a "hidden sector" or "dark" photon, is a particle with mass 
+The heavy photon (\Aprime{}), aka a ``hidden sector'' or ``dark'' photon, is a particle with mass 
 $10-1000$~MeV which couples weakly to electric charge by mixing with the Standard Model 
 photon~\cite{Holdom:1985ag}. Consequently, it can be radiated by electrons and subsequently decay 
 into \ee{} pairs, albeit at rates far below those of QED trident processes. Heavy photons have been 
 suggested by numerous beyond Standard Model theories~\cite{Essig:2013lka}, to explain the 
 discrepancy 
 between theory and experiment of the muon's $g-2$ ~\cite{Pospelov:2008zw}, and as a possible 
-explanation of recent astrophysical anomalies.  Heavy photons  couple directly to  hidden sector 
-particles with "dark" or "hidden sector" charge; these particles
+explanation of recent astrophysical 
+anomalies~\cite{Adriani:2008zr,FermiLAT:2011ab,Aguilar:2013qda}.  Heavy photons  couple directly to  
+hidden sector particles with "dark" or "hidden sector" charge; these particles
 could constitute all or some of the dark matter~\cite{ArkaniHamed:2008qn}. 
 Current phenomenology highlights the $20-1000$~MeV/c$^{2}$ mass range, and 
 suggests that  the coupling to electric charge, $\epsilon$e, has $\epsilon$ in the range of 
@@ -213,7 +214,7 @@ high rate front end electronics and runs at high trigger rates (up to 50kHz), ex
 cycle of the Thomas Jefferson National Accelerator Facility (JLab) CEBAF accelerator to accumulate 
 the needed statistics. 
 
-The HPS Test Run apparatus, a simplified version of the HPS experiment, was proposed and 
+The HPS Test Run, using a simplified version of the HPS apparatus, was proposed and 
 approved at JLab as the first stage of HPS. 
 Its purposes included demonstrating that the apparatus and data acquisition systems are 
 technically feasible and  the trigger rates and occupancies to be encountered in electron-beam 
@@ -241,18 +242,15 @@ with local doses exceeding 100~Mrad.
 The HPS Test Run apparatus was installed on April 19, 2012, and ran parasitically in the photon beam of the HDice 
 experiment~\cite{HDice} until May 18. The JLab run schedule 
 precluded any dedicated electron beam running, but the HPS Test Run was allowed a short and 
-valuable dedicated run at the end of scheduled CEBAF running. This final running provided
-enough data to demonstrate the functionality of the apparatus, document its performance, and
+valuable dedicated photon beam run at the end of scheduled CEBAF running. This final running 
+provided enough data to demonstrate the functionality of the apparatus, document its performance, and
 explore trigger rates, as shown below. 
-This paper reviews the HPS Test Run apparatus; documents the performance of the trigger, 
-data acquisition, silicon tracking detector, and the electromagnetic calorimeter at the level assumed 
-in calculating the physics reach of the HPS experiment. 
+
+This paper reviews the HPS Test Run apparatus, documenting the performance of the trigger, 
+data acquisition, silicon tracking detector, and the electromagnetic calorimeter at the level required for 
+calculating the physics reach of the HPS experiment. 
 
 
-
-This paper reviews the HPS Test Run apparatus; documents the performance of the trigger, 
-data acquisition, silicon tracking detector, and the electromagnetic calorimeter at the level assumed 
-in calculating the physics reach of the HPS experiment. 
 
 
 
@@ -268,7 +266,7 @@ in calculating the physics reach of the HPS experiment.
 \end{figure*}
 }
 The HPS Test Run apparatus was designed to run in Hall~B at JLab using the CEBAF electron beam, a 
-499~MHz beam, at energies of 2.2 and 6.6~GeV and currents between 200 and 600~nA.  
+499~MHz beam, at energies between 2.2 and 6.6~GeV and currents between 200 and 600~nA.  
 The overall design of the experiment follows from the kinematics of \Aprime{} production which 
 typically results in a final state particle within a few degrees of the incoming beam, especially at low 
 $m_{\Aprime{}}$. Detectors must therefore be placed close to the beam. 
@@ -311,7 +309,8 @@ Fig.~\ref{fig:testrundetector} and an overview of the coverage, segmentation and
 given in Tab.~\ref{tab:detector-overview}.  
 
 The silicon vertex tracking and vertexing detector for HPS Test Run, or SVT, resides in a vacuum 
-chamber inside the Pair Spectrometer (PS) dipole magnet in Hall B at JLab. The SVT has five 
+chamber inside the Pair Spectrometer (PS) dipole magnet in Hall B at JLab. The magnetic field 
+strength was 0.5~T oriented vertically throughout the run. The SVT has five 
 measurement stations, or ``layers,'' beginning 10 cm downstream of the target. Each layer 
 comprises a pair of closely-spaced silicon microstrip sensors responsible for measuring a single 
 coordinate, or ``view''. Introduction of a small (50 or 100~mrad) stereo angle between the two 
@@ -338,9 +337,10 @@ and triggering system for the ECal. The system was designed to run at up to 20~k
 
 
 \section{The HPS Test Run Beamline}
-The HPS Test Run studied multiple Coulomb scattering of electrons and positrons from 
-bremsstrahlung photons produced in the Hall B tagged photon facility. 
-Figure~\ref{fig:hpstest_layout} shows the layout of 
+Since an electron beam was unavailable, the HPS Test Run detected the electrons and positrons 
+produced by interactions of the secondary photon beam with a thin foil just upstream of the detectors.  
+The HPS Test Run studied the performance of the detectors and the multiple coulomb scattering of the 
+electrons and positrons. Figure~\ref{fig:hpstest_layout} shows the layout of 
 the setup on the beam line. The SVT was installed inside the Hall B pair 
 spectrometer magnet vacuum chamber with the ECal mounted downstream of it. Both the 
 SVT and the ECal were retracted off the beam plane compared to nominal electron beam running to 
@@ -355,7 +355,7 @@ allow clean passage of the photon beam through the system.
 The photon beam was generated in the interaction of $5.5$~GeV electrons with a $10^{-4}~X_0$ 
 gold radiator located $\approx~9$~m upstream of the PS. The primary beam and scattered 
 electrons are deflected away from detectors by the dipole magnet of the photon tagging system. 
-During the dedicated HPS Test Run period, the collimated (6.4~mm diameter), photon beam passes 
+During the dedicated HPS Test Run period, the collimated (6.4~mm diameter) photon beam passes 
 through the PS pair converter gold foil and later the HPS system as illustrated in 
 Fig.~\ref{fig:schematic_testrun_vs_erun}.
 \begin{figure}[]
@@ -367,9 +367,9 @@ beam.}}
 The PS pair converter was located $\approx~77$~cm upstream of the first layer of the SVT.
  
  
- Data was taken on three different converter thicknesses with photon fluxes between 
- 0.4-1.3$\times10^{8}$/s ($0.55<$E$_\gamma<5.5$~GeV) at beam currents varying between 
- 30-90~nA and repeated with the reverse field setting of the PS dipole magnet.
+ Data was taken on three different converter thicknesses with photon fluxes between 0.4 and 
+ $1.3\times10^8$/s at photon energies between 0.55 and 5.5 GeV produced by a 30 to 90 nA electron 
+ beam. Data was measured for both polarities of the PS dipole magnet.'
 \begin{table}[]
 \begin{center}
 {\small
@@ -393,9 +393,9 @@ Converter thickn. & Duration &  $e^-$ on radiator \\
 \label{tab:currents}
 \end{center}
 \end{table}
-The photon beam line during the HPS Test Run produced a relatively large fraction of pairs 
+The photon beam line during the HPS Test Run produced a relatively large number of \ee{} pairs 
 originating upstream of the converter position. This contribution was measured during data taking 
-with ``empty'' converter runs i.e. removing the converter but with all other conditions the same. 
+with ``empty'' converter runs, i.e. removing the converter but with all other conditions the same. 
 The runs taken during the time dedicated to HPS Test Run is summarized in Tab.~\ref{tab:currents}.
 
 
