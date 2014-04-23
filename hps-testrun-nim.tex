@@ -144,11 +144,11 @@ electroproduction, is preparing for installation at the Thomas Jefferson Nationa
 constructed and operated in 2012 to demonstrate the experiment's technical feasibility and to  confirm 
 that the trigger rates and occupancies are as expected. This paper describes the HPS Test Run 
 apparatus and readout electronics and its performance. In this setting, a heavy photon can be identified 
-as a narrow \ee{}  mass peak above the trident background or as a narrow mass peak with a decay 
-vertex displaced from the production target, so charged particle tracking and vertexing are needed for 
-its detection. In the HPS Test Run, charged particles are measured
-with a compact forward silicon microstrip tracker inside a dipole magnet. Electromagnetic 
-showers are detected in a PbW0$_{4}$ 
+as a narrow peak in the \ee{} invariant mass spectrum, above the trident background or as a narrow  
+invariant mass peak with a decay vertex displaced from the production target, so charged particle 
+tracking and vertexing are needed for its detection. 
+In the HPS Test Run, charged particles are measured with a compact forward silicon microstrip tracker 
+inside a dipole magnet. Electromagnetic showers are detected in a PbW0$_{4}$ 
 crystal calorimeter situated behind the magnet used to trigger the experiment and identify 
 electrons and positrons. Both detectors are placed close to the 
 beam line and split top-bottom. This arrangement  provides sensitivity to low-mass heavy photons,  
@@ -158,7 +158,7 @@ The discrimination between prompt and displaced \ee{} pairs requires the first l
 sensors be placed only 10~cm downstream of the target. The expected signal is small, and the 
 trident background huge, so the experiment requires very large statistics. Accordingly, the
 HPS Test Run utilizes  high-rate readout and data acquisition electronics and a fast trigger to exploit 
-the essentially 100\% duty cycle of the CEBAF accelerator.
+the essentially 100\% duty cycle of the CEBAF accelerator at JLab.
 \end{abstract}
 
 \begin{keyword}
@@ -188,7 +188,7 @@ silicon microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dark pho
 \section{Introduction}
 \label{introduction}
 The heavy photon (\Aprime{}), aka a ``hidden sector'' or ``dark'' photon, is a particle with mass 
-$10-1000$~MeV which couples weakly to electric charge by mixing with the Standard Model 
+$10-1000$~MeV/c$^{2}$ which couples weakly to electric charge by mixing with the Standard Model 
 photon~\cite{Holdom:1985ag}. Consequently, it can be radiated by electrons and subsequently decay 
 into \ee{} pairs, albeit at rates far below those of QED trident processes. Heavy photons have been 
 suggested by numerous beyond Standard Model theories~\cite{Essig:2013lka}, to explain the 
@@ -196,7 +196,7 @@ discrepancy
 between theory and experiment of the muon's $g-2$ ~\cite{Pospelov:2008zw}, and as a possible 
 explanation of recent astrophysical 
 anomalies~\cite{Adriani:2008zr,FermiLAT:2011ab,Aguilar:2013qda}.  Heavy photons  couple directly to  
-hidden sector particles with "dark" or "hidden sector" charge; these particles
+hidden sector particles with ``dark'' or ``hidden sector'' charge; these particles
 could constitute all or some of the dark matter~\cite{ArkaniHamed:2008qn}. 
 Current phenomenology highlights the $20-1000$~MeV/c$^{2}$ mass range, and 
 suggests that  the coupling to electric charge, $\epsilon$e, has $\epsilon$ in the range of 
@@ -207,12 +207,12 @@ couplings, \Aprime{} become long-lived, so detection of a displaced decay vertex
 QED background and boost experimental sensitivity.  
 
 The HPS experiment~\cite{HPS_proposal_2010} uses both invariant mass and secondary
-vertex signatures to search for \Aprime{}. It uses  a $\approx 1$~m long silicon tracking and vertexing detector
+vertex signatures to search for \Aprime{}. It uses  a $\approx 1$~m long silicon tracking and vertexing 
+detector
 inside a dipole magnet to measure charged particle trajectories and a fast electromagnetic calorimeter 
 just downstream of the magnet to provide a trigger and identify electrons. The experiment utilizes very 
-high rate front end electronics and runs at high trigger rates (up to 50kHz), exploiting the 100\% duty 
-cycle of the Thomas Jefferson National Accelerator Facility (JLab) CEBAF accelerator to accumulate 
-the needed statistics. 
+high-rate front-end electronics and runs at high trigger rates (up to 50kHz), exploiting the 100\% duty 
+cycle of the JLab CEBAF accelerator to accumulate the needed statistics. 
 
 The HPS Test Run, using a simplified version of the HPS apparatus, was proposed and 
 approved at JLab as the first stage of HPS. 
@@ -226,16 +226,16 @@ The key design criteria for HPS and the HPS Test Run are the same:
 \Aprime{} decay products,
 \item beam passage through the apparatus in vacuum, to eliminate direct interactions with the 
 detector and minimize beam gas interactions, 
+\item detector components that can survive and efficiently operate in a high radiation environment 
+with local doses exceeding 100~Mrad.
+\item high-rate electronics with excellent timing resolution to minimize out of time backgrounds,
 \item a flexible, redundant and efficient trigger selecting electron and positron pairs at rates up to 
 50~kHz,
+\item data handling rates of 100~MB/s to permanent storage,
 \item excellent track reconstruction efficiency for electrons and positrons,
 \item good angular and momentum resolution to reconstruct invariant mass precisely,
 \item excellent vertex resolution to discriminate displaced \Aprime{} decays from prompt QED 
 backgrounds,
-\item high rate electronics with excellent timing resolution to minimize out of time backgrounds,
-\item data handling rates of 100~MB/s to permanent storage,
-\item detector components that can survive and efficiently operate in a high radiation environment 
-with local doses exceeding 100~Mrad.
 \end{itemize}
 
 
@@ -265,19 +265,19 @@ calculating the physics reach of the HPS experiment.
 \end{center}
 \end{figure*}
 }
-The HPS Test Run apparatus was designed to run in Hall~B at JLab using the CEBAF electron beam, a 
-499~MHz beam, at energies between 2.2 and 6.6~GeV and currents between 200 and 600~nA.  
+The HPS Test Run apparatus was designed to run in Hall~B at JLab using the CEBAF 499MHz 
+electron beam at energies between 2.2 and 6.6~GeV and currents between 200 and 600~nA.  
 The overall design of the experiment follows from the kinematics of \Aprime{} production which 
 typically results in a final state particle within a few degrees of the incoming beam, especially at low 
 $m_{\Aprime{}}$. Detectors must therefore be placed close to the beam. 
 The intense electron beam enlarges downstream after multiple scattering in the target and electrons 
 which have radiated in the target disperse horizontally in the field of the analyzing magnet. Together 
-they constitute a "wall of flame" which must be completely avoided. Accordingly, 
-the apparatus is split vertically to avoid a "dead zone", the region within $\pm 15$~mrad of the beam 
+they constitute a ``wall of flame'' which must be completely avoided. Accordingly, 
+the apparatus is split vertically to avoid a ``dead zone'', the region within $\pm 15$~mrad of the beam 
 plane. In addition, the beam is transported in vacuum through the tracker to minimize beam-gas 
 interaction backgrounds. Even with these precautions, the occupancies of sensors near the beam 
 plane are high, dominated by the
-multiple Coulomb scattering of the primary beam, so high rate detectors, a fast trigger, 
+multiple Coulomb scattering of the primary beam, so high-rate detectors, a fast trigger, 
 and excellent time tagging are required to minimize their impact.  
 The trigger comes from a highly-segmented  lead-tungstate (PbWO$_{4}$) crystal calorimeter located just 
 downstream of the dipole magnet. 
@@ -291,7 +291,7 @@ downstream of the dipole magnet.
 System & Coverage & \# channels & ADC & Time resolution & \# layers & Segmentation & Performance \\
  & (mrad) &  & (bit) & (ns) &  &  &  \\
 \hline
-SVT & $15<\theta_{y} < 70$ & 12800 & 14 & $\approx 2$~ns & 5  & $\approx 120~\mu$m $r-\phi$ & $\sigma_{d0,y}  \approx 100~\mu$m \\
+SVT & $15<\theta_{y} < 70$ & 12780 & 14 & $\approx 2$~ns & 5  & $\approx 120~\mu$m $r-\phi$ & $\sigma_{d0,y}  \approx 100~\mu$m \\
 & (5 hits) &  &  &  & (stereo layers) & $\approx 6~\mu$m $z$ & $\sigma_{d0,x} \approx 300~\mu$m \\
 & &  &  &  &  &  & $\sigma_{d0,z}\approx 1$~mm \\
 \hline
@@ -308,7 +308,7 @@ A rendering of the apparatus installed on the beam line is shown in
 Fig.~\ref{fig:testrundetector} and an overview of the coverage, segmentation and performance is 
 given in Tab.~\ref{tab:detector-overview}.  
 
-The silicon vertex tracking and vertexing detector for HPS Test Run, or SVT, resides in a vacuum 
+The silicon vertex tracking and vertexing detector for the HPS Test Run, or SVT, resides in a vacuum 
 chamber inside the Pair Spectrometer (PS) dipole magnet in Hall B at JLab. The magnetic field 
 strength was 0.5~T oriented vertically throughout the run. The SVT has five 
 measurement stations, or ``layers,'' beginning 10 cm downstream of the target. Each layer 
@@ -379,13 +379,13 @@ Converter thickn. & Duration &  $e^-$ on radiator \\
  (\%$X_0$) & (s) & ($\mu$C)    \\   
 \hline
 %\hline
-1.6   & 911 &   24.4 \\ %24385.9     \\ %27 nA
+0    & 1279  &   88.1 \\ %88079.6  \\
 %\hline
 0.18   & 2640 &   193.5 \\ % 193508.9  \\  %73 nA
 %\hline
 0.45  & 2149 &     140.7 \\ %  140709.9  \\ %65.5 nA
 %\hline
-0    & 1279  &   88.1 \\ %88079.6  \\
+1.6   & 911 &   24.4 \\ %24385.9     \\ %27 nA
 \hline
 \end{tabular}
 }
@@ -405,7 +405,7 @@ The runs taken during the time dedicated to HPS Test Run is summarized in Tab.~\
 \section{Silicon Vertex Tracker}
 \label{svt}
 
-The Silicon Vertex Tracker (SVT) enables efficient reconstruction of charged particles and precision 
+The Silicon Vertex Tracker (SVT) enables efficient reconstruction of charged particles and precise 
 determination of their trajectories. These measurements allow \Aprime{} decays to be distinguished 
 from background via simultaneous estimation of the invariant mass of \ee{} decay products and the 
 position of decay vertexes downstream of the target. 
@@ -413,14 +413,14 @@ position of decay vertexes downstream of the target.
 The design of the SVT is primarily driven by direct physics requirements and constraints from the 
 environment at the interaction region. The \Aprime{} decay products 
 have momenta in the range of 1~GeV, so multiple scattering dominates mass and vertexing 
-uncertainties for any possible material budget, so the SVT must minimize the amount of 
+uncertainties for any possible material budget. The SVT must therefore minimize the amount of 
 material in the tracking volume. The signal yield for long-lived \Aprime{} is very small, so 
-the rejection of prompt vertexes must be exceedingly pure, on the order of $10^{-7}$, in order to 
+the rejection of prompt vertices must be exceedingly pure, on the order of $10^{-7}$, in order to 
 eliminate all prompt backgrounds. To achieve the required vertexing performance the first layer of the 
 SVT must be placed no more than about 10~cm downstream of the target. At that distance, it is found 
-that the active region of a sensor can be placed as close to 1.5~mm from the center of the beam, 
-defining the 15~mrad ``dead zone" mentioned previously, to maximize low-mass \Aprime{} acceptance 
-with decay products nearly collinear with the beam axis. At the edge of this ``dead zone," the 
+that the active region of a sensor can be placed as close as 1.5~mm from the center of the beam, 
+defining the 15~mrad ``dead zone'' mentioned previously, to maximize low-mass \Aprime{} acceptance 
+with decay products nearly collinear with the beam axis. At the edge of this ``dead zone'', the 
 radiation dose approaches $10^{15}$~electrons/cm$^2$/month, or roughly 
 $3 \times 10^{14}$~\fluenceunit{}/month~\cite{Rashevskaya:2002nd}, 
 requiring the sensors to be actively cooled.
@@ -508,7 +508,7 @@ integrated cable runs are clearly seen.} }
 The sensors for the SVT are $p+$-on-$n$, single sided, AC coupled, polysilicon-biased microstrip 
 sensors fabricated on $<100>$ silicon and have 30 (60)~$\mu$m sense (readout) pitch over their 
 $4\times10$~cm$^2$ surface. This sensor technology was selected to match the requirement of 
-a $<1$\% $X_0$ per layer, single-hit resolution better than 50~$\mu$m and tolerant of a radiation 
+$<1$\% $X_0$ per layer, single-hit resolution better than 50~$\mu$m and tolerance of a radiation 
 dose of approximately $1.5\times10^{14}$~\fluenceunit{} for a six month run. The sensors 
 were purchased from the Hamamatsu Photonics Corporation for the cancelled 
 Run 2b upgrade of the D\O~experiment~\cite{Denisov:2001aa} which satisfied the requirement that 
@@ -553,8 +553,9 @@ alignment.  The average support material in the tracking volume is approximately
 double-sided module for a total material budget of 0.7\% per layer.
 
 The total SVT power consumption budget of about 50~W is removed by a water/glycol mixture 
-circulated through a flexible manifold attached to the copper tubes in the cooling blocks. During the Test 
-run the sensors where operated at around $23^{\circ}$C. The power consumption is dominated by five 
+circulated through a flexible manifold attached to the copper tubes in the cooling blocks. During the 
+HPS Test Run the sensors were operated at around $23^{\circ}$~C. The power consumption is 
+dominated by five 
 APV25 ASICs on each hybrid board consuming approximately 2~W, radiant heat load is less than 
 0.5~W per sensor and leakage current is only significant in a small spot after irradiation.  
 
@@ -579,12 +580,12 @@ Hall B for final mechanical assembly and installation inside of the vacuum chamb
 
 \subsection{Alignment}
 The SVT was aligned using a combination of optical, laser and touch probe surveys at SLAC and JLab. 
-The optical survey of individual modules with precision of a few $\mu$m are combined with a 
+The optical survey of individual modules with a precision of a few $\mu$m was combined with a 
 touch-probe survey of the overall SVT support structure, with 25-100~$\mu$m precision, to locate the 
 silicon sensor layers with respect to the support plates and the mechanical survey balls on the base 
 plate. After full assembly and installation of the SVT at JLab, a mechanical survey of the SVT base plate 
 position inside the pair spectrometer vacuum chamber is used to determine the global position of the 
-SVT with respect to CEBAF beam line. The resulting survey-based alignment has the position of the 
+SVT with respect to the CEBAF beam line. The resulting survey-based alignment has the position of the 
 silicon sensors correct to within a few hundred microns measured from tracks in the HPS Test Run 
 data. A more sophisticated global track-based alignment technique to reach final alignment precision 
 well below 50~$\mu$m is being developed.
@@ -618,27 +619,27 @@ PbWO$_{4}$ crystal with a $13.3\times13.3$~mm$^2$ ($16\times16$~mm$^2$) front
 \begin{center}
 {\small
 \includegraphics[width=7cm]{figures/ecal-module-schematic.png}
-\caption{Schematic vied of an ECal module.}
+\caption{A schematic view of an ECal module.}
 \label{fig:ecal-module}
 }
 \end{center}
 \end{figure}
-The scintillation light, approximately $3$ photoelectrons/MeV, is readout by a 
+The scintillation light, approximately $3$ photoelectrons/MeV, is read out by a 
 5$\times$5~mm$^2$ Hamamatsu S8664-55 Avalanche Photodiode (APD) with 75\% quantum 
 efficiency glued to the rear face surface using MeltMount 1.7 thermal plastic adhesive. 
-The low gain of APDs ($\sim 200$) was compensated with custom made preamplifier boards, which 
+The low gain of APDs ($\sim 200$) was compensated with custom-made preamplifier boards, which 
 provide a factor of $2333$ amplification of the APD signal.
 
 \subsection{Layout}
 Similar to the SVT, the ECal is built in two separate halves that are mirror reflections of one another 
-about the plane of the nominal electron beam to avoid interfering with the 15~mrad "dead zone". 
+about the plane of the nominal electron beam to avoid interfering with the 15~mrad ``dead zone''. 
 As shown in Fig.~\ref{fig:ecal}, the 221 modules in each half, supported by aluminum support frames, 
 are arranged in rectangular formation with 5 layers and 46 crystals/layer except for the layer closest to 
 the beam where 9 modules were removed to allow a larger opening for the outgoing electron and 
 photon beams. Each half was enclosed in a temperature controlled box ($<1^{\circ}$~F stability and 
 $<4^{\circ}$~F uniformity) to stabilize the crystal light yield and the operation of the APDs and its 
 preamplifiers. 
-Four printed circuit boards mounted on the backplane penetrated the enclosure and was used to 
+Four printed circuit boards mounted on the backplane penetrated the enclosure and were used to 
 supply the $\pm 5$~V operating voltage for the preamplifiers, 400~V bias voltage to the APDs, and to 
 read out signals from the APDs. Each half of the ECal was divided into 12 bias voltage groups with a 
 gain uniformity of about 20\%. 
@@ -675,7 +676,7 @@ discriminator module and then to a TDC for a timing measurement.
 The FADC boards are high speed VXS modules digitizing up to 16 APD signals 
 at 250~MHz and storing samples in 8~$\mu$s deep pipelines with 12-bit resolution. 
 When a trigger is received, the part 
-of the pipeline from 5 samples before and 30 after the signal crossed a programmable 
+of the pipeline from 5 samples before and 30 after the signal which crossed a programmable 
 threshold (for the HPS Test Run this was set to $\approx70$~MeV) are 
 summed and stored in a 17-bit register for readout. In addition a 4~ns resolution timestamp of the 
 threshold crossing is reported in the readout for each pulse.
@@ -706,8 +707,7 @@ excessive noise) and 18 were masked offline due to noise.
 The DAQ system handles acquisition of data from the ECal and SVT sub-detectors  with 
 two DAQ architectures. The SVT DAQ is based on Advanced Telecom Communications Architecture 
 (ATCA) hardware while the ECal uses VMEbus Switched Serial (VXS) based hardware. Data from the 
-sub-detectors are only readout when a trigger signal from the trigger system is received formed on 
-input from the ECal. 
+sub-detectors are only readout when a trigger signal from the trigger system is received.
 
 \subsection{Trigger system}
 \label{sec:trigger}
@@ -731,7 +731,7 @@ Each channel on the FADC board has an independent data path to send 5-bit pulse 
 pulse arrival time information every 32~ns to a trigger processing board (CTP), which is in the same 
 crate. The 3-bit pulse arrival time allows the trigger to know the pulse timing at 4~ns resolution. 
 Contrary to the readout path 
-described in Sec.~\ref{sec:fadc}, this energy is a pedestal subtracted time-over-threshold sum with 
+described in Sec.~\ref{sec:fadc}, this energy is a pedestal-subtracted time-over-threshold sum with 
 programmable offsets and minimum threshold discriminator for each channel. With input from all 
 FADC channels, i.e. one half of the ECal, the CTP performs cluster finding and calculates cluster 
 energy and timing information. The 3x3 fixed-window, highly parallel, FPGA-based cluster 
@@ -791,7 +791,7 @@ differential current output to a different voltage output scaled to the sensitiv
 operating at the system clock of 41.667~MHz. The RTM is organized 
 into four sections with each section supporting three SVT half-module hybrids (15 APV25 ASICs). The 
 RTM also includes a 4-channel fiber optic module and supporting logic which is used to interface 
-to the JLab trigger system supervisor. Each section of the RTM is input to a DPM which apply 
+to the JLab trigger system supervisor. Each section of the RTM is input to a DPM which applies 
 thresholds for data reduction and organizes the sample data into UDP datagrams. The DPM also hosts 
 an I$^{2}$C controller used to configure and monitor the APV25 ASICs. A single ATCA crate with two 
 COB cards was used, one supporting four DPMs and one supporting 3 DPMs and one DPM that is 
@@ -799,10 +799,10 @@ configured as the trigger and data transmission module. The two COB cards and th
 interconnected with a 10~Gb/s switch card~\cite{Larsen:2011zb} which also hosts two 1Gb/s Ethernet 
 interfaces to the external SVT DAQ PC.  
 
-The external PC supports three network interfaces; two standard 1~Gb/s Ethernet and one custom low 
-latency data reception card. The first is used for slow control and monitoring of the 8 
+The external PC supports three network interfaces; two standard 1~Gb/s Ethernet and one custom 
+low-latency data reception card. The first is used for slow control and monitoring of the 8 
 DPM modules and the second serves as the interface to the JLAB data acquisition system. The third 
-custom low latency network interface is used to receive data from the ATCA crate and supports a low 
+custom low-latency network interface is used to receive data from the ATCA crate and supports a low 
 latency, reliable TTL trigger acknowledge interface to the trigger DPM. This PC hosts the SVT control 
 and monitoring software as well as the Read Out Controller application used to interface with the 
 JLab DAQ.
@@ -812,8 +812,8 @@ approximately 1~m from the beam line, next to our cable vacuum feed-troughs.
 Before shielding with lead-blankets was arranged, we observed two failures of normally reliable ATCA 
 crate power supplies, time-correlated to beam instabilities. 
 
-While trigger rates during the HPS Test Run was significantly lower this system was tested at trigger rates up 
-to 20~kHz and 50~MB/s. 
+Although trigger rates during the HPS Test Run were significantly lower, this system was tested at 
+trigger rates up to 20~kHz and 50~MB/s. 
 
 
 
@@ -875,7 +875,7 @@ With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associate
 the characteristic Landau shape. 
 %, see Fig.~\ref{fig:cluster_pulse}.  
 A noise level between $1.1-1.5\times 10^{3}$ electrons was established through multiple calibration 
-runs giving a signal to noise ratio of $21-25$. Lab-based radioactive source tests was used to 
+runs giving a signal to noise ratio of $21-25$. Lab-based radioactive source tests were used to 
 provide the absolute charge normalization.
 \begin{figure}[]
 \begin{center}
@@ -909,11 +909,11 @@ the APV25 ASIC pulse shaping time to 35~ns will also improve time resolution.
 These results show that we can operate with the six sample readout mode of the APV25 chip and 
 achieve time resolution adequate for pileup rejection during electron running in HPS. 
 
-Good agreement between observed and simulated occupancies after taking into account dead or 
+Good agreement was obtained between observed and simulated occupancies after taking into account dead or 
 noisy channels. The hit reconstruction efficiency was estimated by measuring 
 the number of good tracks with a hit close to the extrapolated intersection of a given sensor that was 
 excluded from the track fit itself. Tracks which intersect regions with known bad channels or very close 
-to in the edge region are excluded. The hit reconstruction efficiency, see Fig.~\ref{fig:hit_efficiency}, 
+to the edge region are excluded. The hit reconstruction efficiency, see Fig.~\ref{fig:hit_efficiency}, 
 was measured to be above 98\% and fairly uniform across the SVT.
 \begin{figure}[]
 \begin{center}
@@ -978,7 +978,7 @@ at the converter position.
 \end{center}
 \end{figure}
 }
-While residual alignment show small shifts, the good agreement  between data and simulated 
+While residual alignments show small shifts, the good agreement  between data and simulated 
 events of the widths indicates a good understanding of the material budget and distribution in the SVT.  
 Having  the dominant contribution to the vertex resolution approximately right demonstrates that the 
 resolution in HPS, with a target at 10~cm, will be as calculated.
@@ -1079,7 +1079,7 @@ the particle as well as cluster multiplicity.
 
 As a cross-check we simulate the FADC trigger path by converting from readout hits (with fixed-size 
 window integration) to trigger hits (time-over-threshold integration). The CTP clustering 
-algorithm and the trigger decision from the SSP is simulated before we compare the trigger decision 
+algorithm and the trigger decision from the SSP are simulated before we compare the trigger decision 
 and trigger time to what was reported by the actual trigger. For every event, the trigger reports the 
 trigger decision as a bit mask (top half, bottom half or both) and the time the trigger fired.
 The turn-on from the trigger threshold was measured to be 1280 in units of ADC counts as expected. 
@@ -1095,9 +1095,7 @@ converter. In simulated events, the rate of triggers depend on the modeling of t
 distribution and the subsequent multiple Coulomb scattering in the converter. Rates from different 
 converter 
 thicknesses are used to study the varying multiple Coulomb scattering contribution (pair production 
-angle is constant). Restricting clusters to a well calibrated region of the ECal and subtracting the 
-"no converter" background we see agreement with the rates predicted by the \egs{} simulation 
-program, see Tab.~\ref{tab:mcs}.
+angle is constant). 
 %\begin{center}
 \begin{table}
 {\small
@@ -1115,9 +1113,12 @@ Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\
 \caption{ Observed and predicted event rate (in Hz) normalized to 90~nA for three different converter 
 thicknesses. The uncertainty on the prediction includes systematic uncertainties from ECal alignment, background normalization, beam current normalization and limited statistics in the simulation.}
 }
-\label{tab:mcs}
+\label{tab:results}
 \end{table}
 %\end{center}
+Restricting clusters to a well calibrated region of the ECal and subtracting the ``no converter'' 
+background we see agreement with the rates predicted by the \egs{} simulation 
+program, see Tab.~\ref{tab:results}.
 This gives further confidence that the dominant source of background occupancy for HPS, multiple 
 Coulomb scattered beam electrons, is well 
 described~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} . 
@@ -1380,7 +1381,7 @@ detector backgrounds expected in electron beam running for HPS.
 \section{Acknowledgements}
 The authors are grateful for the support from Hall~B at JLab and especially the Hall~B engineering 
 group for support during installation and decommissioning. They also would like to commend the 
-CEBAF personnel for good beam performance; the last few hours of operating CEBAF6. 
+CEBAF personnel for good beam performance, especially the last few hours of operating CEBAF6. 
 The tremendous support from home institutions and supporting staff also needs praise from the 
 authors. 
 
