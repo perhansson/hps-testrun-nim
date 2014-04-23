@@ -305,8 +305,8 @@ ECal & $15<\theta_{y} < 60$ & 442 & 12 & 4~ns & 1 & $1.33\times1.33$~cm$^2$  & $
 \end{center}
 %\end{multicols}
 A rendering of the apparatus installed on the beam line is shown in 
-Fig.~\ref{fig:testrundetector} and an overview of the coverage, segmentation and performance is 
-given in Tab.~\ref{tab:detector-overview}.  
+Figure~\ref{fig:testrundetector} and an overview of the coverage, segmentation and performance is 
+given in Table~\ref{tab:detector-overview}.  
 
 The silicon vertex tracking and vertexing detector for the HPS Test Run, or SVT, resides in a vacuum 
 chamber inside the Pair Spectrometer (PS) dipole magnet in Hall B at JLab. The magnetic field 
@@ -357,7 +357,7 @@ gold radiator located $\approx~9$~m upstream of the PS. The primary beam and sca
 electrons are deflected away from detectors by the dipole magnet of the photon tagging system. 
 During the dedicated HPS Test Run period, the collimated (6.4~mm diameter) photon beam passes 
 through the PS pair converter gold foil and later the HPS system as illustrated in 
-Fig.~\ref{fig:schematic_testrun_vs_erun}.
+Figure~\ref{fig:schematic_testrun_vs_erun}.
 \begin{figure}[]
 \includegraphics[ width=7cm]{figures/photon_vs_electron_beam_schematic.png}
 \caption{\small{Illustrative comparison of HPS Test Run photon beam compared to the HPS electron 
@@ -396,7 +396,7 @@ Converter thickn. & Duration &  $e^-$ on radiator \\
 The photon beam line during the HPS Test Run produced a relatively large number of \ee{} pairs 
 originating upstream of the converter position. This contribution was measured during data taking 
 with ``empty'' converter runs, i.e. removing the converter but with all other conditions the same. 
-The runs taken during the time dedicated to HPS Test Run is summarized in Tab.~\ref{tab:currents}.
+The runs taken during the time dedicated to HPS Test Run is summarized in Table~\ref{tab:currents}.
 
 
 
@@ -440,7 +440,7 @@ retracted during periods of uncertain beam conditions.
 
 
 \subsection{Layout}
-The layout of the SVT is summarized in Tab.~\ref{tab:trk} and rendered in Fig.~\ref{fig:tracker_model}. 
+The layout of the SVT is summarized in Table~\ref{tab:trk} and rendered in Figure~\ref{fig:tracker_model}. 
 Each of the layers is comprised of a pair of closely-spaced silicon microstrip sensors mounted back-
 to-back to form a module. A 100~mrad stereo angle is used in the first three layers to provide higher-
 resolution 3D space points for vertexing.  Using 50~mrad in the last two layers breaks the tracking 
@@ -612,7 +612,7 @@ repurposed for HPS.
 
 \subsection{Components}
 
-The ECal module shown in Fig.~\ref{fig:ecal-module} is based on a tapered 160~mm long 
+The ECal module shown in Figure~\ref{fig:ecal-module} is based on a tapered 160~mm long 
 PbWO$_{4}$ crystal with a $13.3\times13.3$~mm$^2$ ($16\times16$~mm$^2$) front 
 (rear) face wrapped in VM2000 multilayer polymer mirror film. 
 \begin{figure}[]
@@ -633,7 +633,7 @@ provide a factor of $2333$ amplification of the APD signal.
 \subsection{Layout}
 Similar to the SVT, the ECal is built in two separate halves that are mirror reflections of one another 
 about the plane of the nominal electron beam to avoid interfering with the 15~mrad ``dead zone''. 
-As shown in Fig.~\ref{fig:ecal}, the 221 modules in each half, supported by aluminum support frames, 
+As shown in Figure~\ref{fig:ecal}, the 221 modules in each half, supported by aluminum support frames, 
 are arranged in rectangular formation with 5 layers and 46 crystals/layer except for the layer closest to 
 the beam where 9 modules were removed to allow a larger opening for the outgoing electron and 
 photon beams. Each half was enclosed in a temperature controlled box ($<1^{\circ}$~F stability and 
@@ -763,7 +763,7 @@ The SVT DAQ is based on the Reconfigurable Cluster Element (RCE) and cluster
 interconnect concept developed at SLAC as generic building blocks for DAQ systems. 
 The RCE is a generic computational building block, housed on a separate daughter card called 
 Data Processing Module (DPM), that are realized on an ATCA front board called the Cluster On Board 
-(COB), see Fig.~\ref{fig:cob}.
+(COB), see Figure~\ref{fig:cob}.
  \begin{figure}[]
 \begin{center}
 {\small
@@ -774,7 +774,7 @@ Data Processing Module (DPM), that are realized on an ATCA front board called th
 \end{center}
 \end{figure}
 The first generation RCE used in the HPS Test Run consisted of a Virtex~5 FPGA with 1~GB of DDR3 RAM. 
-A schematic overview of the system is shown in Fig.~\ref{fig:svtdaq}. 
+A schematic overview of the system is shown in Figure~\ref{fig:svtdaq}. 
  \begin{figure}[]
 \begin{center}
 {\small
@@ -853,7 +853,7 @@ half-module and problems in two particular APV25 ASICs.
 
 After a trigger is received, the amplitude  of every  APV25 analogue output is sampled and digitized in 
 six consecutive time bins, separated by roughly 25~ns.  
-The typical, pedestal subtracted, pulse shape obtained is shown in Fig.~\ref{fig:pulse_shape}. 
+The typical, pedestal subtracted, pulse shape obtained is shown in Figure~\ref{fig:pulse_shape}. 
 As the figure demonstrates,  the SVT was well timed-in to the trigger with the rise of the pulse at the 3rd 
 sampling point.  
 \begin{figure}[]
@@ -873,7 +873,7 @@ grouping adjacent strips with the position of a cluster on the sensor determined
 amplitude-weighted mean.
 With a linear gain up to $\approx 3$~MIPs, the cluster charge for hits associated with a track follow 
 the characteristic Landau shape. 
-%, see Fig.~\ref{fig:cluster_pulse}.  
+%, see Figure~\ref{fig:cluster_pulse}.  
 A noise level between $1.1-1.5\times 10^{3}$ electrons was established through multiple calibration 
 runs giving a signal to noise ratio of $21-25$. Lab-based radioactive source tests were used to 
 provide the absolute charge normalization.
@@ -890,7 +890,7 @@ provide the absolute charge normalization.
 After clustering hits on a sensor, the hit time for each cluster is computed 
 as the amplitude-weighted average of the individually fitted $t_0$ on each channel. The 
 $t_0$ resolution is studied by comparing the cluster hit time with the average of all cluster hit times on 
-the track shown in Fig.~\ref{fig:tracktime}. 
+the track shown in Figure~\ref{fig:tracktime}. 
 \begin{figure}[]
 \begin{center}
 {\small
@@ -913,7 +913,7 @@ Good agreement was obtained between observed and simulated occupancies after tak
 noisy channels. The hit reconstruction efficiency was estimated by measuring 
 the number of good tracks with a hit close to the extrapolated intersection of a given sensor that was 
 excluded from the track fit itself. Tracks which intersect regions with known bad channels or very close 
-to the edge region are excluded. The hit reconstruction efficiency, see Fig.~\ref{fig:hit_efficiency}, 
+to the edge region are excluded. The hit reconstruction efficiency, see Figure~\ref{fig:hit_efficiency}, 
 was measured to be above 98\% and fairly uniform across the SVT.
 \begin{figure}[]
 \begin{center}
@@ -940,7 +940,7 @@ the sensors as in HPS.
 By selecting \ee{} pairs from the triggered events we are able to study basic distributions of pair 
 production kinematics. Pairs of oppositely charged tracks, one in the top and one in the bottom half of 
 the SVT, with momentum larger than 400~MeV were selected. The pair production kinematics are 
-relatively well reproduced as shown in Fig.~\ref{fig:pair_kin}. 
+relatively well reproduced as shown in Figure~\ref{fig:pair_kin}. 
 
 The expected momentum resolution from simulation is between 4-5\% for tracks in the momentum 
 range of the HPS Test Run. By comparing the shapes of the kinematic distributions for single- and two 
@@ -1031,7 +1031,7 @@ any efficiency or bias that affect the data should be reflected in the simulatio
 % $\frac{\sum_j w_{j,i}}{\sum_j\frac{P_j}{E_j}w_{j,i}}$.
 Iteratively, conversion coefficients for each crystal were adjusted until the $E$/$p$ ratio in data and 
 simulation were similar. The distribution of the $E$/$p$ ratio in data and simulation are compared in 
-Fig.~\ref{fig:gains}. 
+Figure~\ref{fig:gains}. 
 {\small
 \begin{figure}[]
 \begin{center}
@@ -1060,7 +1060,7 @@ To eliminate trigger bias, we use a tag and probe method: to study the trigger p
 of the ECal, we select 
 events which triggered the other half and where there was exactly one probe cluster in the ECal half 
 under study. We then measure trigger efficiency as the fraction of tagged events that fired the trigger in 
-the probe half as a function of the probe cluster energy, shown in Fig.~\ref{fig:turnon}. 
+the probe half as a function of the probe cluster energy, shown in Figure~\ref{fig:turnon}. 
 \begin{figure}[ht]
 \begin{center}
 {\small
@@ -1118,7 +1118,7 @@ thicknesses. The uncertainty on the prediction includes systematic uncertainties
 %\end{center}
 Restricting clusters to a well calibrated region of the ECal and subtracting the ``no converter'' 
 background we see agreement with the rates predicted by the \egs{} simulation 
-program, see Tab.~\ref{tab:results}.
+program, see Table~\ref{tab:results}.
 This gives further confidence that the dominant source of background occupancy for HPS, multiple 
 Coulomb scattered beam electrons, is well 
 described~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} . 
@@ -1179,7 +1179,7 @@ described~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} .
 %\subsection{Running Conditions}
 %
 %Data was taken at three different converter thicknesses with a beam current varying between 
-%$30-70$~nA, see~Tab.~\ref{tab:currents}.  
+%$30-70$~nA, see~Table~\ref{tab:currents}.  
 %\begin{table}[t]
 %\begin{center}
 %{\small
@@ -1219,7 +1219,7 @@ described~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} .
 %Cluster reconstruction was done using the algorithm described in Sec.~\ref{sec:trigger} build 
 %clusters around seed hits (hits above a ``seed'' energy threshold and with greater energy than any 
 %neighboring hits), and add all neighboring hits above an ``add'' energy threshold.
-%Hit energy is calibrated by matching track momentum to cluster energy, as described in Sec.~\ref{sec:ecal_calibration}. The measured angular distribution in the ECal for the three converter thicknesses are shown in Fig.~\ref{fig:ang_distr_data}. 
+%Hit energy is calibrated by matching track momentum to cluster energy, as described in Sec.~\ref{sec:ecal_calibration}. The measured angular distribution in the ECal for the three converter thicknesses are shown in Figure~\ref{fig:ang_distr_data}. 
 %\begin{figure}[]
 %\begin{center}
 %{\small
@@ -1235,9 +1235,9 @@ described~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} .
 %subtracted. The background fraction for the there converter thicknesses was 16\%, 52\% and 71\% 
 %for converter thicknesses of 1.6\%, 0.45\% and 0.18\%, respectively. The background fraction was also 
 %cross-checked by pointing back tracks reconstructed in the SVT to identify the fraction of tracks not emanating from the converter. 
-%%This can be seen in Fig.~\ref{fig:extrapol_converter} (bottom) where small 
+%%This can be seen in Figure~\ref{fig:extrapol_converter} (bottom) where small 
 %%satellite peaks at $\pm 10$~mm can be identified as tracks from the upstream background. The angular distribution, after normalization and subtracting the upstream background, are shown in 
-%%Fig.~\ref{fig:ang_distr_data} (right).  
+%%Figure~\ref{fig:ang_distr_data} (right).  
 %We also checked that the contribution from photons to our triggered 
 %sample was less than 2\% (without angular selections which would further reduce the contribution).
 %
@@ -1249,8 +1249,8 @@ described~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} .
 %\egs{} normalized to 1~s of beam at 90~nA beam current with a converter thickness of 1.6\%. 
 %Reasonable agreement is obtained in the most important region close to the beam. There is a hint of a 
 %slightly different slope of the data at larger angles; this difference is covered by systematic uncertainties.  
-%The total rates for each converter thickness is shown in Fig.~\ref{fig:rate_vs_thickness} and summarized 
-%in Tab.~\ref{tab:ang_distr_dataMC}.
+%The total rates for each converter thickness is shown in Figure~\ref{fig:rate_vs_thickness} and summarized 
+%in Table~\ref{tab:ang_distr_dataMC}.
 %\begin{figure}[]
 %{\small
 %	\begin{center}
