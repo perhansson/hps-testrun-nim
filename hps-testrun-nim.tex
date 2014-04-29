@@ -851,11 +851,13 @@ half-module and problems in two particular APV25 ASICs.
 
 \subsubsection{Cluster and Hit Reconstruction}
 
-After a trigger is received, the amplitude  of every  APV25 analogue output is sampled and digitized in 
-six consecutive time bins, separated by roughly 25~ns.  
+After a trigger is received, the amplitude of every  APV25 analogue output is sampled and digitized in 
+six consecutive time bins, separated by roughly 25~ns.  A data reduction algorithm is applied 
+requiring three out of six samples to be above two times the noise level and that the third sample is 
+larger than the second or that the fourth sample is larger than the third.
 The typical, pedestal subtracted, pulse shape obtained is shown in Figure~\ref{fig:pulse_shape}. 
 As the figure demonstrates,  the SVT was well timed-in to the trigger with the rise of the pulse at the 3rd 
-sampling point.  
+sampling point. 
 \begin{figure}[]
 \begin{center}
 {\small
