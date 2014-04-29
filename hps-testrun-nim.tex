@@ -149,7 +149,7 @@ invariant mass peak with a decay vertex displaced from the production target, so
 tracking and vertexing are needed for its detection. 
 In the HPS Test Run, charged particles are measured with a compact forward silicon microstrip tracker 
 inside a dipole magnet. Electromagnetic showers are detected in a PbW0$_{4}$ 
-crystal calorimeter situated behind the magnet used to trigger the experiment and identify 
+crystal calorimeter situated behind the magnet,  and are used to trigger the experiment and identify 
 electrons and positrons. Both detectors are placed close to the 
 beam line and split top-bottom. This arrangement  provides sensitivity to low-mass heavy photons,  
 allows clear  passage of the unscattered beam, 
@@ -187,15 +187,15 @@ silicon microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dark pho
 %% main text
 \section{Introduction}
 \label{introduction}
-The heavy photon (\Aprime{}), aka a ``hidden sector'' or ``dark'' photon, is a particle with mass 
-$10-1000$~MeV/c$^{2}$ which couples weakly to electric charge by mixing with the Standard Model 
+The heavy photon (\Aprime{}), aka a ``hidden sector'' or ``dark'' photon, is a massive particle which 
+couples weakly to electric charge by mixing with the Standard Model 
 photon~\cite{Holdom:1985ag}. Consequently, it can be radiated by electrons and subsequently decay 
 into \ee{} pairs, albeit at rates far below those of QED trident processes. Heavy photons have been 
 suggested by numerous beyond Standard Model theories~\cite{Essig:2013lka}, to explain the 
 discrepancy 
 between theory and experiment of the muon's $g-2$ ~\cite{Pospelov:2008zw}, and as a possible 
 explanation of recent astrophysical 
-anomalies~\cite{Adriani:2008zr,FermiLAT:2011ab,Aguilar:2013qda}.  Heavy photons  couple directly to  
+anomalies~\cite{Adriani:2008zr,FermiLAT:2011ab,Aguilar:2013qda}.  Heavy photons couple directly to  
 hidden sector particles with ``dark'' or ``hidden sector'' charge; these particles
 could constitute all or some of the dark matter~\cite{ArkaniHamed:2008qn}. 
 Current phenomenology highlights the $20-1000$~MeV/c$^{2}$ mass range, and 
@@ -329,7 +329,7 @@ data acquisition electronics.
 
 The  Data Acquisition system combines two architectures, the Advanced Telecom Communications 
 Architecture (ATCA) based SVT readout system and VMEbus Switched Serial (VXS) based digitization 
-and triggering system for the ECal. The system was designed to run at up to 20~kHz trigger rate.
+and triggering system for the ECal.
 
 
 
@@ -813,8 +813,9 @@ Before shielding with lead-blankets was arranged, we observed two failures of no
 crate power supplies, time-correlated to beam instabilities. 
 
 Although trigger rates during the HPS Test Run were significantly lower, this system was tested at 
-trigger rates up to 20~kHz and 50~MB/s. 
-
+trigger rates up to 20~kHz and 50~MB/s.  With optimized event blocking and improved ethernet 
+bandwidth, together with utilizing the overlapping readout and trigger functionality of the APV25, the 
+system is capable of being read out at 50~kHz trigger rate.
 
 
 \subsection{General Data Acquisition and Online Computing}
@@ -910,8 +911,8 @@ achieve time resolution adequate for pileup rejection during electron running in
 \end{center}
 \end{figure}
 
-Good agreement was obtained between observed and simulated occupancies after taking into account dead or 
-noisy channels. The hit reconstruction efficiency was estimated by measuring 
+Good agreement was obtained between observed and simulated occupancies after taking into account 
+dead or noisy channels. The hit reconstruction efficiency was estimated by measuring 
 the number of good tracks with a hit close to the extrapolated intersection of a given sensor that was 
 excluded from the track fit itself. Tracks which intersect regions with known bad channels or pass very 
 close to the edge region are excluded. The hit reconstruction efficiency, see Figure~\ref{fig:hit_efficiency}, 
