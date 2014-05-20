@@ -163,7 +163,7 @@ the essentially 100\% duty cycle of the CEBAF accelerator at JLab.
 
 \begin{keyword}
 %% keywords here, in the form: keyword \sep keyword
-silicon microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dark photon \sep hidden sector \sep electromagnetic calorimeter
+silicon \sep microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dark photon \sep hidden sector \sep electromagnetic calorimeter
 %% MSC codes here, in the form: \MSC code \sep code
 %% or \MSC[2008] code \sep code (2000 is the default)
 
@@ -173,10 +173,10 @@ silicon microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dark pho
  
  \linenumbers
  
+%\clearpage
+%\tableofcontents
 \clearpage
-\tableofcontents
-\clearpage
-\newpage
+%\newpage
 \newpage
 
 %%
@@ -203,12 +203,12 @@ suggests that  the coupling to electric charge, $\epsilon$e, has $\epsilon$ in t
 $10^{-3} -10^{-5}$. This range of parameters makes \Aprime{} searches viable in 
 medium energy fixed target electroproduction~\cite{Bjorken:2009mm}, but requires large data sets and 
 good mass resolution to identify a small mass peak above the copious QED background. At small 
-couplings, \Aprime{} become long-lived, so detection of a displaced decay vertex can reject the prompt 
+couplings, the \Aprime{} become long-lived, so detection of a displaced decay vertex can reject the prompt 
 QED background and boost experimental sensitivity.  
 
 The HPS experiment~\cite{HPS_proposal_2010} uses both invariant mass and secondary
-vertex signatures to search for \Aprime{}. It uses  a $\approx 1$~m long silicon tracking and vertexing 
-detector
+vertex signatures to search for \Aprime{}. It uses  a $\approx 1$~m long silicon tracking and 
+vertexing detector
 inside a dipole magnet to measure charged particle trajectories and a fast electromagnetic calorimeter 
 just downstream of the magnet to provide a trigger and identify electrons. The experiment utilizes very 
 high-rate front-end electronics and runs at high trigger rates (up to 50kHz), exploiting the 100\% duty 
@@ -259,7 +259,7 @@ calculating the physics reach of the HPS experiment.
 {\small
 \begin{figure*}[t]
 \begin{center}
-    \includegraphics[width=0.8\textwidth]{figures/hps_testrun_rendering}
+    \includegraphics[width=0.8\textwidth]{figures/hps_testrun_rendering_2}
 \caption{Rendering of the HPS Test Run apparatus installed on the beam line.}
 \label{fig:testrundetector}
 \end{center}
@@ -285,18 +285,25 @@ downstream of the dipole magnet.
 \begin{center}
 \begin{table*}[t]
 {\small
-\caption{Overview of the coverage, segmentation and performance of the HPS Test Run detector. }
+\caption{Overview of the coverage, segmentation and performance of the HPS Test Run detector. The $\sigma_{d_0}$ is the track impact parameter resolution of the SVT at the nominal electron target position.  $\sigma_{pos}$ is the estimated position resolution perpendicular to the strip direction on the silicon sensors of the SVT.}
 \begin{tabular}{lccccccc}
 \hline 
-System & Coverage & \# channels & ADC & Time resolution & \# layers & Segmentation & Performance \\
- & (mrad) &  & (bit) & (ns) &  &  &  \\
+System & Coverage & \# channels & ADC & \# layers & Segmentation & Time resolution  & Performance \\
+ & (mrad) &  & (bit) & &  & (ns)  &  \\
 \hline
-SVT & $15<\theta_{y} < 70$ & 12780 & 14 & $\approx 2$~ns & 5  & $\approx 120~\mu$m $r-\phi$ & $\sigma_{d0,y}  \approx 100~\mu$m \\
-& (5 hits) &  &  &  & (stereo layers) & $\approx 6~\mu$m $z$ & $\sigma_{d0,x} \approx 300~\mu$m \\
-& &  &  &  &  &  & $\sigma_{d0,z}\approx 1$~mm \\
+SVT & $15<\theta_{y} < 70$ & 12780 & 14 & 5    & $30~\mu$m (sense) & $2.5$& $\sigma_{d0,y}  \approx 100~\mu$m \\
+& (5 hits) &  &  & (stereo layers) & $60~\mu$m (readout)  & & $\sigma_{d0,x} \approx 300~\mu$m \\
+& &  &  &  & ($\sigma_{pos} \approx 6~\mu$m) &  & $\sigma_{d0,z}\approx 1$~mm \\
 \hline
-ECal & $15<\theta_{y} < 60$ & 442 & 12 & 4~ns & 1 & $1.33\times1.33$~cm$^2$  & $\sigma(E)/E \approx 4.5\%$ \\ 
- &  &  &  &  &  & $1.6\times1.6$~cm$^2$  &  \\ 
+ECal & $15<\theta_{y} < 60$ & 442 & 12  & 1  & $1.33\times1.33$~cm$^2$ & 4  & $\sigma(E)/E \approx 4.5\%$ \\ 
+ &  &  &   &  & $1.6\times1.6$~cm$^2$  & (trigger)&  \\ 
+
+%SVT & $15<\theta_{y} < 70$ & 12780 & 14 & 5    & $\approx 120~\mu$m ($r-\phi$) & $\approx 2$& $\sigma_{d0,y}  \approx 100~\mu$m \\
+%& (5 hits) &  &  & (stereo layers) & $\approx 6~\mu$m ($z$)  & & $\sigma_{d0,x} \approx 300~\mu$m \\
+%& &  &  &  &  &  & $\sigma_{d0,z}\approx 1$~mm \\
+%\hline
+%ECal & $15<\theta_{y} < 60$ & 442 & 12  & 1  & $1.33\times1.33$~cm$^2$ & 4  & $\sigma(E)/E \approx 4.5\%$ \\ 
+% &  &  &   &  & $1.6\times1.6$~cm$^2$  & (trigger)&  \\ 
 \hline
 \end{tabular}
 \label{tab:detector-overview}
@@ -308,7 +315,7 @@ A rendering of the apparatus installed on the beam line is shown in
 Figure~\ref{fig:testrundetector} and an overview of the coverage, segmentation and performance is 
 given in Table~\ref{tab:detector-overview}.  
 
-The silicon vertex tracking and vertexing detector for the HPS Test Run, or SVT, resides in a vacuum 
+The silicon tracking and vertexing detector for the HPS Test Run, or SVT, resides in a vacuum 
 chamber inside the Pair Spectrometer (PS) dipole magnet in Hall B at JLab. The magnetic field 
 strength was 0.5~T oriented vertically throughout the run. The SVT has five 
 measurement stations, or ``layers,'' beginning 10 cm downstream of the target. Each layer 
@@ -347,7 +354,7 @@ SVT and the ECal were retracted off the beam plane compared to nominal electron 
 allow clean passage of the photon beam through the system. 
 \begin{figure}[]
 %    \includegraphics[width=0.5\textwidth]{figures/HPS_dimensions}
-    \includegraphics[width=0.45\textwidth]{figures/hps-testrun-beamline-edited2}
+    \includegraphics[width=0.45\textwidth]{figures/hps-testrun-beamline-edited3}
 \caption{\small{Layout of the HPS parasitic run.} }
 \label{fig:hpstest_layout}
 \end{figure}
@@ -405,8 +412,8 @@ The runs taken during the time dedicated to HPS Test Run are summarized in Table
 \label{svt}
 
 The Silicon Vertex Tracker (SVT) enables efficient reconstruction of charged particles and precise 
-determination of their trajectories. These measurements allow \Aprime{} decays to be distinguished 
-from background via simultaneous estimation of the invariant mass of \ee{} decay products and the 
+determination of their trajectories. This allow \Aprime{} decays to be distinguished 
+from background via simultaneous measurements of the invariant mass of \ee{} decay products and the 
 position of decay vertices downstream of the target. 
 
 The design of the SVT is primarily driven by direct physics requirements and constraints from the 
@@ -432,9 +439,9 @@ requiring the sensors to be actively cooled.
 %of the SVT ($|Y|>0.15~$mm) looking downstream; electrons bend towards $+x$.}}
 %\end{figure}
 Meanwhile, very low-energy delta rays from 
-beam-gas interactions multiply the density of background hits, so the SVT must operate inside the 
+beam-gas interactions would multiply the density of background hits, so the SVT must operate inside the 
 beam vacuum.  Finally, in order to protect the sensors, the detector must be movable so that it can be 
-retracted during periods of uncertain beam conditions.  
+retracted during periods of uncertain beam conditions or beam tuning.  
 
 
 
@@ -508,8 +515,8 @@ The sensors for the SVT are $p+$-on-$n$, single-sided, AC-coupled, polysilicon-b
 sensors fabricated on $<$100$>$ silicon and have 30 (60)~$\mu$m sense (readout) pitch over their 
 $4\times10$~cm$^2$ surface. This sensor technology was selected to match the requirement of 
 $<1$\% $X_0$ per layer, single-hit resolution better than 50~$\mu$m and tolerance of a radiation 
-dose of approximately $1.5\times10^{14}$~\fluenceunit{} for a six month run. The sensors 
-were purchased from the Hamamatsu Photonics Corporation for the cancelled 
+dose of approximately $1.5\times10^{14}$~\fluenceunit{} for a six month run. The sensors, produced by 
+Hamamatsu Photonics Corporation, were originally meant for the cancelled 
 Run 2b upgrade of the D\O~experiment~\cite{Denisov:2001aa} which satisfied the requirement that 
 the technology must be mature and available within the time and budget constraints.
 
@@ -526,7 +533,7 @@ of 2~ns for S/N$\approx$25~\cite{Friedl:2009zz}.  For electron beam running, six
 the shortest possible shaping time (35~ns) is used to best distinguish hits that overlap in time.
 The APV25 ASICs are hosted on simple FR4 hybrid readout boards, outside the tracking volume, with a 
 short twisted-pair pigtail cable to provide power and configuration and signal readout. Along with a 
-single sensor, these are glued to a polyamide-laminated carbon fiber composite backing making 
+single sensor, these are glued to a polyimide-laminated carbon fiber composite backing making 
 up a half-module. A window is machined in the carbon fiber leaving only a frame around the periphery 
 of the silicon to minimize material. A 50~$\mu$m sheet of polyamide is laminated to the surface of the 
 carbon fiber with 1~mm overhang at all openings to ensure good isolation between the back side of the 
@@ -603,9 +610,9 @@ the detector sub-systems and is used in the analysis to identify electrons and p
 The technology and design choices are largely driven by the need for a compact forward design 
 covering the SVT \Aprime{} acceptance and able to fully absorb 
 electrons and positrons with energy between $0.5$-$6.5$~GeV.  It needs granularity and signal 
-readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background and be radiation hard. 
+readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background and to be radiation hard. 
 The PbWO$_{4}$ crystal inner 
-calorimeter of the CLAS detector~\cite{2008erhm.conf..421N}, in operation since 2005 in Hall B, meets 
+calorimeter of the CLAS detector~\cite{clas_ecal,clas_ecal2,clas_thesis}, in operation since 2005 in Hall B, meets 
 all the requirements set by HPS. The modules from this calorimeter have been subsequently 
 repurposed for HPS. 
 
@@ -751,7 +758,7 @@ dead time at the occupancies expected for HPS. The trigger supervisor can apply 
 necessary, for example on a `busy' or `full' condition from the front-end electronics. The system is 
 designed to handle trigger rates above 50~kHz and has a latency set to $\approx 3~\mu$s to match 
 that required by the SVT APV25 ASIC. During the HPS Test Run, for the most part the trigger system 
-required only a single cluster in either the top or bottom Ecal halves and was tested to trigger rates 
+required only a single cluster in either the top or bottom ECal halves and was tested to trigger rates 
 above 100~kHz by lowering thresholds. 
 
 
@@ -896,7 +903,7 @@ the track shown in Figure~\ref{fig:tracktime}.
 After correcting for offsets from each sensor (time-of-flight and clock phase) and accounting for the 
 correlation between the $t_0$ and track time,  the extracted $t_0$ resolution is 2.6~ns. This is 
 somewhat worse than the approximately 2~ns resolution expected for S/N$=$25 which we attribute to the 
-true pulse shape differing from our idealized fit function which will be improved in the future. Reducing 
+true pulse shape differing from our idealized fit function which will be improved in the future~\cite{Friedl2007385}. Reducing 
 the APV25 ASIC pulse shaping time to 35~ns will also improve time resolution. 
 These results show that we can operate with the six sample readout mode of the APV25 chip and 
 achieve time resolution adequate for pileup rejection during electron running in HPS. 
@@ -915,7 +922,7 @@ Good agreement was obtained between observed and simulated occupancies after tak
 dead or noisy channels. The hit reconstruction efficiency was estimated by measuring 
 the number of good tracks with a hit close to the extrapolated intersection of a given sensor that was 
 excluded from the track fit itself. Tracks which intersect regions with known bad channels or pass very 
-close to the edge region are excluded. The hit reconstruction efficiency, see Figure~\ref{fig:hit_efficiency}, 
+close to the edge region were excluded. The hit reconstruction efficiency, see Figure~\ref{fig:hit_efficiency}, 
 was measured to be above 98\% and fairly uniform across the SVT.
 \begin{figure}[]
 \begin{center}
@@ -1074,7 +1081,7 @@ the probe half as a function of the probe cluster energy, shown in Figure~\ref{f
 }
 \end{center}
 \end{figure}
-The trigger turn-on is slow and reaches an uneven plateau just below 1~GeV for two reasons;  
+The trigger turn-on is slow and reaches an uneven plateau at about 700~MeV for two reasons;  
 gain variations between different crystals lead to the threshold variations and the nonlinearity of 
 the time-over-threshold integral means that the effective threshold is higher for clusters that span 
 multiple crystals. The effective trigger threshold is therefore dependent on position and energy of 
@@ -1097,7 +1104,8 @@ converter. In simulated events, the rate of triggers depend on the modeling of t
 distribution and the subsequent multiple Coulomb scattering in the converter. Rates from different 
 converter 
 thicknesses are used to study the varying multiple Coulomb scattering contribution (pair production 
-angle is constant). 
+angular distribution is constant), and are compared with Geant4~\cite{Agostinelli2003250} standard multiple 
+scattering model and EGS5~\cite{egs5}. 
 %\begin{center}
 \begin{table}
 \label{results}
@@ -1108,7 +1116,7 @@ angle is constant).
 \hline
 EGS5 &	1162 $\pm$ 112 &	255 $\pm$ 28 &	94 $\pm$ 17	\\
 \hline
-GEANT4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
+Geant4 & 2633 $\pm$ 250 & 	371 $\pm$ 38 &	114 $\pm$ 18 \\
 \hline
 Observed 	& 1064 $\pm$ 2 & 196 $\pm$ 1 &	92 $\pm$ 1 \\						
 \hline
@@ -1124,7 +1132,8 @@ program,
 see Table~\ref{results}.
 This gives further confidence that the dominant source of background occupancy for HPS, multiple 
 Coulomb scattered beam electrons, is well 
-described~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} . 
+described.
+%~\cite{Attwood:2005zz,Shen:1978ha,Gottschalk1993467} . 
 %One of the main goals of the HPS Test Run was to evaluate the description of the tails of the 
 %multiple Coulomb scattering to gain further confidence in the expected detector occupancy in the full HPS 
 %experiment. Those occupancies have been evaluated using \egs{}~\cite{egs5} simulation program 
