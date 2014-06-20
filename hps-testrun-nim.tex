@@ -53,7 +53,8 @@
 %% for the whole article with \linenumbers after \end{frontmatter}.
 \usepackage{lineno}
 
-\usepackage{url}
+%\usepackage{url}
+\usepackage{hyperref}
 
 %% natbib.sty is loaded by default. However, natbib options can be
 %% provided with \biboptions{...} command. Following options are
@@ -171,8 +172,9 @@ silicon \sep microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dar
 
 \end{keyword}
 
+
 \end{frontmatter}
- 
+
 % \linenumbers
  
 %\clearpage
@@ -191,15 +193,15 @@ silicon \sep microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dar
 \label{introduction}
 The heavy photon (\Aprime{}), aka a ``hidden sector'' or ``dark'' photon, is a massive particle which 
 couples weakly to electric charge by mixing with the Standard Model 
-photon~\cite{Holdom:1985ag}. Consequently, it can be radiated by electrons and subsequently decay 
+photon~\cite{Holdom:1985ag,Galison:1983pa}. Consequently, it can be radiated by electrons and subsequently decay 
 into \ee{} pairs, albeit at rates far below those of QED trident processes. Heavy photons have been 
 suggested by numerous beyond Standard Model theories~\cite{Essig:2013lka}, to explain the 
 discrepancy 
 between theory and experiment of the muon's $g-2$ ~\cite{Pospelov:2008zw}, and as a possible 
 explanation of recent astrophysical 
-anomalies~\cite{Adriani:2008zr,FermiLAT:2011ab,Aguilar:2013qda}.  Heavy photons couple directly to  
-hidden sector particles with ``dark'' or ``hidden sector'' charge; these particles
-could constitute all or some of the dark matter~\cite{ArkaniHamed:2008qn}. 
+anomalies, e.g.~\cite{Adriani:2008zr,FermiLAT:2011ab,Aguilar:2013qda}.  
+Heavy photons couple directly to  hidden sector particles with ``dark'' or ``hidden sector'' charge; these 
+particles could constitute all or some of the dark matter, e.g.~\cite{ArkaniHamed:2008qn,Pospelov:2008jd}. 
 Current phenomenology highlights the $20-1000$~MeV/c$^{2}$ mass range, and 
 suggests that  the coupling to electric charge, $\epsilon$e, has $\epsilon$ in the range of 
 $10^{-3} -10^{-5}$. This range of parameters makes \Aprime{} searches viable in 
@@ -616,7 +618,7 @@ PbWO$_{4}$ crystal with a $13.3\times13.3$~mm$^2$ ($16\times16$~mm$^2$) front
 \label{fig:ecal-module}}
 \end{center}
 \end{figure}
-The scintillation light, approximately $3$ photoelectrons/MeV, is read out by a 
+The scintillation light, approximately $8$ photoelectrons/MeV, is read out by a 
 5$\times$5~mm$^2$ Hamamatsu S8664-55 Avalanche Photodiode (APD) with 75\% quantum 
 efficiency glued to the rear face surface using MeltMount 1.7 thermal plastic adhesive. 
 The low gain of APDs ($\sim 200$) was compensated with custom-made preamplifier boards, which 
@@ -1076,7 +1078,10 @@ CEBAF personnel for good beam performance, especially the last few hours of oper
 The tremendous support from home institutions and supporting staff also needs praise from the 
 authors. 
 
-This work has been supported by the US Department of Energy. 
+This work has been supported by the US Department of Energy. Rouven Essig is supported in part by the 
+Department of Energy Early Career research program DESC0008061 and by a Sloan Foundation 
+Research Fellowship.
+
 
 
 %% The Appendices part is started with the command \appendix;
