@@ -53,8 +53,6 @@
 %% for the whole article with \linenumbers after \end{frontmatter}.
 \usepackage{lineno}
 
-%\usepackage{url}
-\usepackage{hyperref}
 
 %% natbib.sty is loaded by default. However, natbib options can be
 %% provided with \biboptions{...} command. Following options are
@@ -78,6 +76,9 @@
 % \biboptions{}
 
 % HPS stuff
+%\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
 \usepackage{color}
 %\usepackage{multicol}
 \newcommand{\Aprime}{A\ensuremath{^\prime}}
@@ -87,12 +88,28 @@
 \newcommand{\egs}{{\sc EGS5}}
 \newcommand{\moliere}{Moli\`{e}re}
 %\include{affiliations}
+\fancypagestyle{firststyle}
+{
+  \fancyhf{}  % clear all header and footer fields
+  \fancyhead[R]{SLAC-PUB-xxxx}  % puts the text on the top Right side
+}
+%\pagestyle{firststyle}
+%\pagestyle{fancy}
+
+\makeatletter
+\let\ps@plain\ps@fancy 
+\makeatother
+
 
 \journal{Nuclear Physics B}
 
 \begin{document}
 
+\thispagestyle{firststyle}
+
+
 \begin{frontmatter}
+
 
 %% Title, authors and addresses
 
@@ -115,8 +132,18 @@
 %% \address{Address\fnref{label3}}
 %% \fntext[label3]{}
 
-\title{The Heavy Photon Search Test Detector}
 
+
+%\title{The Heavy Photon Search Test Detector}
+\title{
+\begin{flushleft}
+%       \mbox{\textmd{ \normalsize -PUB-13/020 }}
+        \mbox{\textmd{ \normalsize SLAC-PUB-15999 }}
+       \end{flushleft}
+{
+The Heavy Photon Search Test Detector
+}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% use optional labels to link authors explicitly to addresses:
@@ -137,7 +164,6 @@
 %\address[label1]{Lule\aa~Hockey}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 \begin{abstract}
