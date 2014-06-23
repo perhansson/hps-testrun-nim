@@ -78,7 +78,7 @@
 % HPS stuff
 %\usepackage{url}
 \usepackage{hyperref}
-\usepackage{fancyhdr}
+%\usepackage{fancyhdr}
 \usepackage{color}
 %\usepackage{multicol}
 \newcommand{\Aprime}{A\ensuremath{^\prime}}
@@ -88,25 +88,10 @@
 \newcommand{\egs}{{\sc EGS5}}
 \newcommand{\moliere}{Moli\`{e}re}
 %\include{affiliations}
-\fancypagestyle{firststyle}
-{
-  \fancyhf{}  % clear all header and footer fields
-  \fancyhead[R]{SLAC-PUB-xxxx}  % puts the text on the top Right side
-}
-%\pagestyle{firststyle}
-%\pagestyle{fancy}
-
-\makeatletter
-\let\ps@plain\ps@fancy 
-\makeatother
-
 
 \journal{Nuclear Physics B}
 
 \begin{document}
-
-\thispagestyle{firststyle}
-
 
 \begin{frontmatter}
 
