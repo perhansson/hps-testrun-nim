@@ -262,7 +262,7 @@ resolution 2~mrad/$p$(GeV/c)) for $B$$=$0.5~T,
 0.5 (1.7)~GeV/c. This gives a decay length resolution of about 1~mm for a 100~MeV/c$^2$ \Aprime{}.
 \item PbWO$_{4}$ electromagnetic calorimeter energy resolution $\Delta E/E$$\leq$$5\%$/$\sqrt{E}$ and transverse
 segmentation $\sim$1.5~cm (Moliere radius in PbWO$_{4}$).  The energy resolution for triggering is less 
-stringent ($\Delta E/E$$\leq$$10\%$/$\sqrt{E}$) because the electrons and positrons of interest are relatively hard. 
+stringent because the electrons and positrons of interest are relatively hard. 
 The good segmentation provides good spatial resolution and guarantees minimal shower overlap with background hits.
 \end{itemize}
 
@@ -349,7 +349,7 @@ nominal electron beam.  Each layer in one half is supported on a common support 
 independent cooling and readout. 
 
 The electomagnetic calorimeter (ECal) is also split into two halves. Each half of the ECal consists of 
-221 PbWO$_4$ crystals arranged in rectangular formation. There are five rows with 46 modules in 
+221 PbWO$_4$ crystals arranged in rectangular formation. There are five rows with 46 crystals in 
 each row except the row closest to the beam plane which has 37. The light from each crystal 
 is read out by an Avalanche Photodiode (APD) glued on the back surface of the crystal. 
 Signals from the APDs are amplified using custom-made amplifier boards before being sent to the 
@@ -451,14 +451,11 @@ beam-gas interactions would multiply the density of background hits, so the SVT 
 beam vacuum.  Finally, in order to protect the sensors, the detector must be movable so that it can be 
 retracted during periods of uncertain beam conditions or beam tuning.  
 
-Good mass resolution is needed across the interesting mass range to discover the \Aprime{} 
-signal on top of the copious QED background in the bump-hunt search. Track momentum and angular 
-resolution of 4-5\% and 1-4~mrad (across the momentum range in the non-bend 
-plane which dominates the measurement), respectively, translates into a 2.5\% mass resolution for \Aprime{} 
-decay opening angles between 15-70~mrad~\cite{HPS_proposal_2010}. With multiple scattering dominating 
-both mass and vertexing uncertainties, spatial hit 
-resolution less than 50~$\mu$m are required in the non-bend plane in the first few layers which dominates 
-the vertexing performance and about twice that in the non-bend plane. 
+A mass resolution of 2.5\% is adequate to extend a bump-hunt search for an \Aprime{} into virgin territory. 
+For running at 2.2~GeV, this translates into a requirement for track momentum ($p$) resolution of 4-5\% and 
+angular resolution of 2~mrad/$p$(GeV/c)~\cite{HPS_proposal_2010}. 
+Multiple coulomb scattering dominates both the mass and vertexing uncertainties, relaxing 
+the spatial hit resolution requirement to $<100~\mu$m (50~$\mu$m) in the bend (non-bend) plane.
 
 High background occupancies, up to 4~MHz$/$mm$^{2}$ locally,  in the region closest to the beam result 
 from beam electrons undergoing multiple scattering in the target. These background hits are rejected by  
@@ -629,12 +626,13 @@ The electromagnetic calorimeter (ECal), installed downstream of the PS dipole ma
 essential functions for the experiment: it provides a trigger signal to select what events to read out from 
 the detector sub-systems and is used in the analysis to identify electrons and positrons. 
 The technology and design choices are largely driven by the need for a compact forward design 
-covering the SVT \Aprime{} acceptance and able to fully absorb 
-electrons and positrons with energy between $0.5$-$6.5$~GeV. It needs granularity and signal 
-readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background and to be radiation hard. 
-While the trigger for \Aprime{} events is largely insensitive to the energy resolution, in order to have the 
-possibility to improve the energy resolution from the SVT measurement  
-$\sigma(E)$/$E$$<$4.5\%/$\sqrt(E)$ is needed. 
+covering the SVT \Aprime{} 
+acceptance and able to measure the energy and positions of electrons and positrons with energy between
+$0.5$-$6.5$~GeV. It needs granularity and signal 
+readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background and radiation hardness. 
+Even modest energy resolution ($\sim$10-20\%/$\sqrt{E}$) is adequate for triggering. HPS requires better 
+energy resolution, $\sigma(E)$/$E$$<$5\%/$\sqrt{E}$, so that the ECal energy measurement can be used in 
+combination with that from the SVT to improve the overall momentum resolution.
 
 The PbWO$_{4}$ crystal inner calorimeter of the CLAS detector~\cite{clas_ecal,clas_ecal2,clas_thesis}, in 
 operation since 2005 in Hall B, meets all the requirements set by HPS. The modules from this calorimeter have been subsequently 
@@ -671,12 +669,12 @@ PbWO$_{4}$ crystal with a $13.3\times13.3$~mm$^2$ ($16\times16$~mm$^2$) front
 The scintillation light yield, approximately $120$ photons/MeV, is read out by a 
 5$\times$5~mm$^2$ Hamamatsu S8664-55 Avalanche Photodiode (APD) with 75\% quantum 
 efficiency glued to the rear face surface using MeltMount 1.7 thermal plastic adhesive. This 
-results in about 8 photoelectrons/MeV which needs to be amplified before fed into the FADC for digitization and 
+results in about eight photoelectrons/MeV which needs to be amplified before being fed into the FADC for digitization and 
 processing. The maximum energy deposited in a crystal is expected to be 4.2~GeV which needs to 
 match the input range of the FADC. The relatively low gain of the APD ($\sim$200) was compensated with 
 custom-made preamplifier boards, that provide further amplification to match the 2~V dynamic range of the 
-FADC. With a total noise level of about 10~MeV and a resolution of about 1~ADC/MeV the ADC resolution 
-fulfills the requirements from HPS.
+FADC. With a total noise level of about 10~MeV and a resolution of about 1~ADC count/MeV the ADC 
+resolution fulfills the requirements from HPS.
 
 \subsection{Layout}
 Similar to the SVT, the ECal is built in two separate halves that are mirror reflections of one another 
@@ -712,7 +710,7 @@ discriminator module and then to a TDC for a timing measurement.
 The FADC boards are high speed VXS modules digitizing up to 16 APD signals 
 at 250~MHz and storing samples in 8~$\mu$s deep pipelines with 12-bit resolution. 
 When a trigger is received, the part 
-of the pipeline from 5 samples before and 30 after the signal which crossed a programmable 
+of the pipeline from five samples before and 30 after the signal which crossed a programmable 
 threshold (for the HPS Test Run this was set to $\approx70$~MeV) are 
 summed and stored in a 17-bit register for readout. In addition a 4~ns resolution timestamp of the 
 threshold crossing is reported in the readout for each pulse.
@@ -735,12 +733,11 @@ sub-detectors are only read out when a trigger signal from the trigger system is
 
 \subsection{Trigger system}
 \label{sec:trigger}
-The trigger system is designed to select time coincidences of electromagnetic clusters in the 
-top and bottom halves of the ECal satisfying loose kinematic selections optimized on simulated \Aprime{} 
-events to further reduce the rate. The trigger system need to be essentially dead time free, handle rates up to 
-50~kHz and importantly supply a trigger time relative to the beam bunches with 8~ns to reduce the 
-background from out-of-time hits in the high occupancy regions of the SVT.  Figure~\ref{fig:hps_trigger_cal} 
-shows a schematic overview of each stage of the system. 
+The trigger system is designed to select time coincidences of electromagnetic clusters in the top and bottom 
+halves of the ECal which satisfy kinematic conditions satisfied by \Aprime{} decays and minimize backgrounds.
+The trigger system needs to be essentially dead-time free, handle rates up to 50~kHz, and supply a trigger 
+signal within 8~ns of the actual event time in order to minimize backgrounds from out-of-time hits in the SVT. 
+Figure~\ref{fig:hps_trigger_cal} shows a schematic overview of each stage of the system. 
  \begin{figure}[b]
 \begin{center}
  \includegraphics[width=8cm]{hps_trigger_cal}
@@ -867,9 +864,9 @@ a 1~Gb/s link to the network router.
 \section{Reconstruction and Performance}
 
 While dedicated electron beam was precluded for the HPS Test Run the short dedicated photon beam run 
-allowed the study of some of the key performance parameters for HPS and also explore the expected 
-trigger rates during electron beam running. This section documents the performance and discusses the 
-results implication for HPS.
+allowed the study of some of the key performance parameters for HPS and the trigger rates expected during 
+electron beam running. This section documents the performance and discusses the implications of these 
+results for HPS.
 
 \subsection{SVT Performance}
 
@@ -892,8 +889,8 @@ resolution of 2~ns to efficiently reject out-of-time hits in HPS. Both the hit t
 APV25 ASIC pulse shape, and the spatial position reconstruction rely on having S/N around 25 for the 
 sensors used in HPS. 
 
-After a trigger is received, the amplitude of every APV25 analogue output is sampled and digitized in 
-six consecutive time bins, separated by roughly 25~ns.  A data reduction algorithm is applied 
+After a trigger is received, the amplitude of every APV25 is sampled and digitized in the six consecutive time 
+bins associated with the trigger time. A data reduction algorithm is applied 
 requiring three out of six samples to be above two times the noise level and that the third sample is 
 larger than the second or that the fourth sample is larger than the third.
 The typical, pedestal subtracted, pulse shape obtained is shown in Figure~\ref{fig:pulse_shape}. 
@@ -972,7 +969,7 @@ and vertex resolutions required for HPS.
 
 \subsubsection{Momentum and Vertexing Resolution}
 Good track reconstruction performance is crucial to HPS. Simulations show that track momentum resolution 
-of 4-5\% is needed to reach the expected \Aprime{} mass resolution. The precise reconstruction of the 
+of 4-5\% is needed to achieve the desired \Aprime{} mass resolution. The precise reconstruction of the 
 production vertex to reject prompt QED background requires impact parameter resolutions between 
 100-250~$\mu$m for tracks between 0.5-1.7~GeV/c. These key performance parameters where studied 
 in the HPS Test Run by selecting \ee{} pairs from photon conversions. Pairs of oppositely charged tracks, 
@@ -981,9 +978,8 @@ and basic distributions of pair production kinematics were studied.
 The kinematics are relatively well reproduced as shown in Figure~\ref{fig:pair_kin}. 
 
 The expected momentum resolution from simulation is between 4-5\% for tracks in the momentum 
-range of the HPS Test Run. By comparing, between data and simulation, the shapes of the kinematic 
-distributions for single- and two-track events, we estimate an agreement with the nominal scale and 
-resolution to within 10\%.
+range of the HPS Test Run. By comparing the shapes of the kinematic distributions for data and simulation, we 
+estimate an agreement with the nominal scale and resolution to within 10\%.
  \begin{center}
 \begin{figure*}[t]
 \includegraphics[width=5cm]{h_trk_top_px_h_trk_top_px_trigsel4hit_pair1351_twotrkfilt-v6-paper-mod}
@@ -995,8 +991,9 @@ resolution to within 10\%.
 \end{center}
 In the HPS Test Run, as well as in electron running with HPS, the dominant source of uncertainty in the 
 tracking and vertexing is multiple Coulomb scattering. For the vertexing performance the foremost 
-difference compared to electron beam running is that the target was located approximately 67~cm 
-upstream from our nominal target position; giving almost collinear tracks in the detector. The increased 
+difference between the HPS Test Run and HPS is that the HPS Test Run target is 67~cm further upstream, 
+so tracks must be extrapolated nearly eight times as far as in HPS; giving almost collinear tracks in the 
+detector. The increased 
 lever arm over which tracks are extrapolated widens the resolution with up to a factor of eight 
 (depending on momentum) compared to what is achieved at the nominal electron target position for 
 HPS. Figure~\ref{fig:impact_param} shows the horizontal and vertical positions of the extrapolated track 
@@ -1032,7 +1029,7 @@ from the APDs with 4~ns between each sample. The pedestals were extracted from t
 part of the window before the actual hit in the calorimeter. Modules with signal above the threshold  
 are clustered using a simple algorithm similar to the one 
 deployed for the trigger (see Sec.~\ref{sec:trigger}). Due to the high effective crystal readout threshold 
-of 73~MeV the average number of crystals in a cluster was $\sim 3$ and the simple clustering 
+of 73~MeV the average number of crystals in a cluster was only about three and the simple clustering 
 algorithm worked well for reconstruction of the detected shower energy. An average noise level of 
 approximately 15~MeV per crystal was measured in special pedestal runs. 
 
@@ -1052,18 +1049,18 @@ Figure~\ref{fig:gains}.
 	\label{fig:gains}}
 \end{center}
 \end{figure}
-The peak position of the distribution indicates the sampling fraction of the ECal, the fraction of the 
-incident particle energy measured in the cluster. The width and tails of the distribution 
-in data indicates imperfect calibration and noise of the ECal modules. This level of calibration and the 
-agreement with simulation was found to be sufficient to study normalized event rates in the 
-HPS Test Run. 
+The peak of the distribution, at $E$/$p$~0.7, gives the sampling fraction of the ECal, the fraction of the 
+incident particle energy measured in the cluster. The width of the distribution in data is greater than that in 
+simulation, indicating that the measured energy resolution is worse than the 5\%/$\sqrt{E}$  assumed in the 
+simulation. Even so, the measured energy resolution was found to be adequate for studies of the trigger rates, 
+which don't depend sensitively on the low energy threshold. The good agreement between data and 
+simulation for the track momentum cutoff at low values of momentum in Figure~\ref{fig:pair_kin} confirms this.
 
 Since the \Aprime{} trigger in HPS is relatively insensitive to the energy resolution this level of performance 
-would be adequate. However, improvements are needed to achieve the expected energy resolution in HPS ($<4.5\%/\sqrt{E}$). The noise and and thresholds need to be closer to 10~MeV the 
-thresholds will  be lowered and a more elaborate calibration technique needs to be employed. In addition the number of 
-working channels needs to be improved by equipping the detector new and complete electronics for each 
-channel.
-
+would be adequate. However, improvements are needed to achieve the expected energy resolution in HPS 
+($<4.5\%/\sqrt{E}$). The noise and and thresholds need to be closer to 10~MeV and a more elaborate 
+calibration technique needs to be employed to suppress the large tails in the $E$/$p$ distribution further. 
+In addition, the fraction of working channels needs significant improvement.
 
 \subsection{Trigger Performance}
 As described above in Sec.~\ref{sec:triggerdaq}, the energy from each 
