@@ -157,7 +157,7 @@ electroproduction, is preparing for installation at the Thomas Jefferson Nationa
 constructed and operated in 2012 to demonstrate the experiment's technical feasibility and to  confirm 
 that the trigger rates and occupancies are as expected. This paper describes the HPS Test Run 
 apparatus and readout electronics and its performance. In this setting, a heavy photon can be identified 
-as a narrow peak in the \ee{} invariant mass spectrum, above the trident background or as a narrow  
+as a narrow peak in the \ee{} invariant mass spectrum above the trident background or as a narrow  
 invariant mass peak with a decay vertex displaced from the production target, so charged particle 
 tracking and vertexing are needed for its detection. 
 In the HPS Test Run, charged particles are measured with a compact forward silicon microstrip tracker 
@@ -196,7 +196,7 @@ silicon \sep microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dar
 %%
 %% Start line numbering here if you want
 %%
-\linenumbers
+%\linenumbers
 
 %% main text
 \section{Introduction}
@@ -221,8 +221,8 @@ couplings, the \Aprime{} becomes long-lived, so detection of a displaced decay v
 QED background and boost experimental sensitivity.  
 
 The HPS experiment~\cite{HPS_proposal_2010} is preparing for installation in Hall-B at JLab in the Fall of 
-2014 and searches for electro-produced A? when 2.2-6.6 GeV electrons from the JLab CEBAF accelerator 
-interact with Tungsten nuclei in a thin (0.25\% R.L.) target foil. The HPS experiment uses both 
+2014 to search for heavy photons by directing the 2.2-6.6~GeV CEBAF12 electron beam onto a thin 
+(0.25\% $X_{0}$) Tungsten target foil. The HPS experiment uses both 
 invariant mass and secondary vertex signatures to search for \Aprime{} decays into \ee{} pairs. 
 At CEBAF energies, the \Aprime{} decay products are boosted along the beam axis with small opening angles.
 For couplings $\epsilon << 10^{-3}$,  \Aprime{} decay lengths range from millimeters to tens of centimeters and 
@@ -234,7 +234,7 @@ momenta and decay vertex positions. A fast PbWO$_{4}$ electromagnetic calorimete
 magnet provides the trigger and electron identification. Both the silicon tracker and the ECal have $\sim$ns 
 timing resolution, which eliminates much of the out-of-time background from multiple scattered beam electrons.  
 Fast front end electronics and high trigger and data rate capability and the effectively 100\% duty cycle of the 
-CEBAF accelerator allow HPS to accumulate the very large statistics needed to be sensitive to the highly 
+CEBAF accelerator allows HPS to accumulate the very large statistics needed to be sensitive to the highly 
 suppressed production of heavy photons.
 
 The HPS Test Run, using a simplified version of the HPS apparatus, was proposed and 
@@ -250,10 +250,10 @@ Therefore, key design criteria and requirements for HPS and the HPS Test Run app
 detector and minimize beam gas interactions, 
 \item detector components that can survive and efficiently operate in a high radiation environment 
 with some localized doses at the 100~Mrad level,
-\item high-rate electronics, handling trigger rates up to 50 klHz and data rates of 100 MB/s to permanent 
+\item high-rate electronics, handling trigger rates up to 50~kHz and data rates of 100~MB/s to permanent 
 storage, 
 \item a flexible, redundant and efficient trigger for selecting electron and positron pairs,
-capable of handling rates up to 50 kHz,
+capable of handling rates up to 50~kHz,
 \item hit reconstruction efficiency higher than 99\% and average track reconstruction efficiency higher than 98\% for electrons and positrons,
 \item 2~ns hit time resolution in the silicon vertex tracker, 
 \item A' mass resolution of 2.5\% or better, which translates to momentum resolution of 4.5\% and angular 
@@ -268,7 +268,8 @@ The good segmentation provides good spatial resolution and guarantees minimal sh
 
 The HPS Test Run apparatus was installed on April 19, 2012, and ran parasitically in the photon beam of the HDice 
 experiment~\cite{HDice} until May 18. The JLab run schedule 
-precluded any dedicated electron beam running, but the HPS Test Run was allowed an 8h dedicated photon beam run at the end of scheduled CEBAF running. During this dedicated 
+precluded any dedicated electron beam running, but the HPS Test Run was allowed an eight hour 
+dedicated photon beam run at the end of scheduled CEBAF running. During this dedicated 
 period, \ee{} pairs, produced in a gold foil upstream of the experiment, were studied. With no dedicated 
 electron beam running, it was not possible to search for an A'. However, the final running
 provided enough data to demonstrate the functionality of the apparatus, document its performance, and 
@@ -580,7 +581,7 @@ The total SVT power consumption budget of about 50~W is removed by a water/glyco
 circulated through a flexible manifold attached to the copper tubes in the cooling blocks. During the 
 HPS Test Run the sensors were operated at around $23^{\circ}$~C. The power consumption is 
 dominated by five 
-APV25 ASICs on each hybrid board consuming approximately 2~W, radiant heat load is less than 
+APV25 ASICs on each hybrid board consuming approximately 2~W, the radiant heat load is less than 
 0.5~W per sensor and leakage current is only significant in a small spot after irradiation.  
 
 
@@ -624,13 +625,13 @@ well below 50~$\mu$m is being developed.
 
 The electromagnetic calorimeter (ECal), installed downstream of the PS dipole magnet, performs two 
 essential functions for the experiment: it provides a trigger signal to select what events to read out from 
-the detector sub-systems and is used in the analysis to identify electrons and positrons. 
+the detector sub-systems and is used to identify electrons and positrons. 
 The technology and design choices are largely driven by the need for a compact forward design 
 covering the SVT \Aprime{} 
 acceptance and able to measure the energy and positions of electrons and positrons with energy between
 $0.5$-$6.5$~GeV. It needs granularity and signal 
 readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background and radiation hardness. 
-Even modest energy resolution ($\sim$10-20\%/$\sqrt{E}$) is adequate for triggering. HPS requires better 
+Even modest energy resolution is adequate for triggering. HPS requires better 
 energy resolution, $\sigma(E)$/$E$$<$5\%/$\sqrt{E}$, so that the ECal energy measurement can be used in 
 combination with that from the SVT to improve the overall momentum resolution.
 
@@ -736,7 +737,7 @@ sub-detectors are only read out when a trigger signal from the trigger system is
 The trigger system is designed to select time coincidences of electromagnetic clusters in the top and bottom 
 halves of the ECal which satisfy kinematic conditions satisfied by \Aprime{} decays and minimize backgrounds.
 The trigger system needs to be essentially dead-time free, handle rates up to 50~kHz, and supply a trigger 
-signal within 8~ns of the actual event time in order to minimize backgrounds from out-of-time hits in the SVT. 
+signal which jitters $<8$~ns from the actual event time in order to minimize backgrounds from out-of-time hits in the SVT. 
 Figure~\ref{fig:hps_trigger_cal} shows a schematic overview of each stage of the system. 
  \begin{figure}[b]
 \begin{center}
@@ -833,7 +834,7 @@ JLab DAQ.
 
 In order to minimize cable length for the analog APV25 output signal the ATCA crate was located 
 approximately 1~m from the beam line, next to our cable vacuum feed-throughs.   
-Before shielding with lead-blankets was arranged, we observed two failures of normally reliable ATCA 
+Before shielding with lead-blankets and borated polyethylene was arranged, we observed two failures of normally reliable ATCA 
 crate power supplies, time-correlated to beam instabilities. 
 
 Although trigger rates during the HPS Test Run were significantly lower, this system was tested at 
@@ -944,8 +945,8 @@ achieve time resolution adequate for pileup rejection during electron running in
 
 Good agreement was obtained between observed and simulated occupancies after taking into account 
 dead or noisy channels. The hit reconstruction efficiency was estimated by measuring 
-the number of good tracks with a hit close to the extrapolated intersection of a given sensor that was 
-excluded from the track fit itself. Tracks which intersect regions with known bad channels or pass very 
+the number of good tracks with a hit close to the interpolated position on a given sensor that was excluded 
+from the track fit. Tracks which intersect regions with known bad channels or pass very 
 close to the edge region were excluded. The hit reconstruction efficiency, see Figure~\ref{fig:hit_efficiency}, 
 was measured to be above 98\% and fairly uniform across the SVT. 
 \begin{figure}[]
@@ -992,9 +993,9 @@ estimate an agreement with the nominal scale and resolution to within 10\%.
 In the HPS Test Run, as well as in electron running with HPS, the dominant source of uncertainty in the 
 tracking and vertexing is multiple Coulomb scattering. For the vertexing performance the foremost 
 difference between the HPS Test Run and HPS is that the HPS Test Run target is 67~cm further upstream, 
-so tracks must be extrapolated nearly eight times as far as in HPS; giving almost collinear tracks in the 
+so tracks must be extrapolated nearly eight times as far as in HPS, giving almost collinear tracks in the 
 detector. The increased 
-lever arm over which tracks are extrapolated widens the resolution with up to a factor of eight 
+lever arm over which tracks are extrapolated worsens the resolution up to a factor of eight 
 (depending on momentum) compared to what is achieved at the nominal electron target position for 
 HPS. Figure~\ref{fig:impact_param} shows the horizontal and vertical positions of the extrapolated track 
 at the converter position. 
@@ -1049,23 +1050,21 @@ Figure~\ref{fig:gains}.
 	\label{fig:gains}}
 \end{center}
 \end{figure}
-The peak of the distribution, at $E$/$p$~0.7, gives the sampling fraction of the ECal, the fraction of the 
-incident particle energy measured in the cluster. The width of the distribution in data is greater than that in 
-simulation, indicating that the measured energy resolution is worse than the 5\%/$\sqrt{E}$  assumed in the 
-simulation. Even so, the measured energy resolution was found to be adequate for studies of the trigger rates, 
-which don't depend sensitively on the low energy threshold. The good agreement between data and 
-simulation for the track momentum cutoff at low values of momentum in Figure~\ref{fig:pair_kin} confirms this.
+The peak of the distribution, at $E/p\sim0.7$, gives the sampling fraction of the ECal, the fraction of the 
+incident particle energy measured in the cluster. The width of the distribution indicates the energy 
+resolution, which is worse than the required 4.5\%/$\sqrt{E}$ for HPS due to high thresholds. 
+The width in data is greater than that in simulation due to non-uniformity of the calibration of different parts 
+of the ECal. 
 
-Since the \Aprime{} trigger in HPS is relatively insensitive to the energy resolution this level of performance 
-would be adequate. However, improvements are needed to achieve the expected energy resolution in HPS 
-($<4.5\%/\sqrt{E}$). The noise and and thresholds need to be closer to 10~MeV and a more elaborate 
-calibration technique needs to be employed to suppress the large tails in the $E$/$p$ distribution further. 
-In addition, the fraction of working channels needs significant improvement.
+The \Aprime{} trigger in HPS is relatively insensitive to the energy of the clusters and this level of 
+performance would be adequate. However, improvements are needed to achieve the expected energy 
+resolution in HPS ($<4.5\%/\sqrt{E}$). The noise and and thresholds need to be closer to 10~MeV and a 
+more elaborate calibration technique needs to be employed to suppress the large tails in the $E$/$p$ 
+distribution further. In addition, the fraction of working channels needs significant improvement.
 
 \subsection{Trigger Performance}
-As described above in Sec.~\ref{sec:triggerdaq}, the energy from each 
-crystal is measured differently in the trigger and what is readout from the ECal. 
-The trigger performance was studied by simulating the 
+As described above in Sec.~\ref{sec:triggerdaq}, the energy from each crystal is determined slightly 
+differently in the trigger and in the readout. The trigger performance was studied by simulating the 
 trigger for each event and comparing to how the events were actually triggered.
 To eliminate trigger bias, we use a tag and probe method: to study the trigger performance in one half 
 of the ECal, we select 
@@ -1084,7 +1083,8 @@ The trigger turn-on is slow and reaches an uneven plateau at about 700~MeV for t
 gain variations between different crystals lead to the threshold variations and the nonlinearity of 
 the time-over-threshold integral means that the effective threshold is higher for clusters that span 
 multiple crystals. The effective trigger threshold is therefore dependent on position and energy of 
-the particle as well as cluster multiplicity. 
+the particle as well as cluster multiplicity. For HPS the trigger cluster threshold will be set at a lower 
+value. 
 
 As a cross-check we simulate the FADC trigger path by converting from readout hits (with fixed-size 
 window integration) to trigger hits (time-over-threshold integration). The CTP clustering 
@@ -1098,7 +1098,7 @@ trigger worked exactly as specified.
 
 
 \subsection{Trigger Rate Comparisons}
-Trigger rates observed in the HPS Test Run are dominated by multiple Coulomb scattered \ee{} pairs in the 
+Trigger rates observed in the HPS Test Run are dominated by \ee{} pairs produced in the 
 converter. In simulated events, the rate of triggers depend on the modeling of the pairs' angular 
 distribution and the subsequent multiple Coulomb scattering in the converter. Rates from different 
 converter 
