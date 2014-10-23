@@ -201,11 +201,11 @@ silicon \sep microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dar
 %% main text
 \section{Introduction}
 \label{introduction}
-The heavy photon (\Aprime{}), aka a ``hidden sector'' or ``dark'' photon, is a massive particle which 
+The heavy photon (\Aprime{}), aka a ``hidden sector'' or ``dark'' photon, is a massive gauge boson which 
 couples weakly to electric charge by mixing with the Standard Model 
 photon~\cite{Holdom:1985ag,Galison:1983pa}. Consequently, it can be radiated by electrons and subsequently decay 
 into \ee{} pairs, albeit at rates far below those of QED trident processes. Heavy photons have been 
-suggested by numerous beyond Standard Model theories~\cite{Essig:2013lka}, to explain the 
+suggested by numerous beyond Standard Model theories~\cite{Essig:2013lka} to explain the 
 discrepancy 
 between theory and experiment of the muon's $g-2$ ~\cite{Pospelov:2008zw}, and as a possible 
 explanation of recent astrophysical 
@@ -217,26 +217,25 @@ suggests that  the coupling to electric charge, $\epsilon$e, has $\epsilon$ in t
 $10^{-3} -10^{-5}$. This range of parameters makes \Aprime{} searches viable in 
 medium energy fixed target electroproduction~\cite{Bjorken:2009mm}, but requires large data sets and 
 good mass resolution to identify a small mass peak above the copious QED background. At small 
-couplings, the \Aprime{} become long-lived, so detection of a displaced decay vertex can reject the prompt 
+couplings, the \Aprime{} becomes long-lived, so detection of a displaced decay vertex can reject the prompt 
 QED background and boost experimental sensitivity.  
 
-The HPS experiment~\cite{HPS_proposal_2010} is preparing for installation in Hall-B at JLab in the Fall 
-of 2014. It searches for electro-produced \Aprime{} in interactions between electrons and nuclei in a thin 
-(0.25\% R.L.) Tungsten target foil. The electrons are supplied by the nearly continuous JLab CEBAF 
-beam with energy between 2.2 and 6.6~GeV. The HPS experiment uses both 
-invariant mass and secondary vertex signatures to search for \Aprime{} decaying into \ee{} pairs. In the 
-interesting mass and coupling range, the decay products are boosted along the beam axis with small 
-opening angles and decay lengths ranging from mm's to tens of cm's requiring HPS to operate tracking 
-detectors down to 15~mrad opening angle only 10~cm behind the target. HPS employs a $\approx 1$~m long 
-silicon tracking and vertexing detector
-inside a dipole magnet to measure charged particle trajectories and find the decay vertex position of oppositely 
-charged pairs. A fast electromagnetic calorimeter sits just downstream of the magnet to provide a trigger and 
-identify electrons. To overcome the 
-background occupancy from multiple scattered beam electrons both detectors have excellent timing 
-resolution and the experiment utilizes very high-rate 
-front-end electronics. HPS is designed to run at  high trigger and data throughput rates in order to exploit the 
-499~MHz bunch structure,  100\% duty 
-cycle, of the JLab CEBAF accelerator to accumulate the needed statistics. 
+The HPS experiment~\cite{HPS_proposal_2010} is preparing for installation in Hall-B at JLab in the Fall of 
+2014 and searches for electro-produced A? when 2.2-6.6 GeV electrons from the JLab CEBAF accelerator 
+interact with Tungsten nuclei in a thin (0.25\% R.L.) target foil. The HPS experiment uses both 
+invariant mass and secondary vertex signatures to search for \Aprime{} decays into \ee{} pairs. 
+At CEBAF energies, the \Aprime{} decay products are boosted along the beam axis with small opening angles.
+For couplings $\epsilon << 10^{-3}$,  \Aprime{} decay lengths range from millimeters to tens of centimeters and 
+beyond. Accordingly the tracking detectors cover opening angles down to 15~mrad and are placed just 10~cm 
+downstream of the target.
+
+HPS employs a 90~cm long silicon tracking and vertexing detector located inside a dipole magnet to measure 
+momenta and decay vertex positions. A fast PbWO$_{4}$ electromagnetic calorimeter downstream of the 
+magnet provides the trigger and electron identification. Both the silicon tracker and the ECal have $\sim$ns 
+timing resolution, which eliminates much of the out-of-time background from multiple scattered beam electrons.  
+Fast front end electronics and high trigger and data rate capability and the effectively 100\% duty cycle of the 
+CEBAF accelerator allow HPS to accumulate the very large statistics needed to be sensitive to the highly 
+suppressed production of heavy photons.
 
 The HPS Test Run, using a simplified version of the HPS apparatus, was proposed and 
 approved at JLab as the first stage of HPS. 
@@ -246,36 +245,38 @@ running are as simulated. Given dedicated running time with electron beams, the 
 apparatus is capable of searching for heavy photons in unexplored regions of parameter space.    
 Therefore, key design criteria and requirements for HPS and the HPS Test Run apparatus are the same:
 \begin{itemize}
-\item uniform acceptance between 15 and $\approx$70~mrad in the forward region to catch boosted decay products close to the beam, 
+\item uniform acceptance between 15 and approximately 70~mrad in the forward region to catch boosted decay products close to the beam, 
 \item beam passage through the apparatus in vacuum, to eliminate direct interactions with the 
 detector and minimize beam gas interactions, 
 \item detector components that can survive and efficiently operate in a high radiation environment 
-with local doses exceeding 100~Mrad.
-\item high-rate electronics with trigger rates up to 50~kHz and data handling rates of 100~MB/s to permanent storage, 
-\item a flexible, redundant and efficient trigger selecting electron and positron pairs at rates up to 
-50~kHz,
+with some localized doses at the 100~Mrad level,
+\item high-rate electronics, handling trigger rates up to 50 klHz and data rates of 100 MB/s to permanent 
+storage, 
+\item a flexible, redundant and efficient trigger for selecting electron and positron pairs,
+capable of handling rates up to 50 kHz,
 \item hit reconstruction efficiency higher than 99\% and average track reconstruction efficiency higher than 98\% for electrons and positrons,
-\item excellent hit time resolution to reject out-of-time background hits in the nearly continuous CEBAF 
-beam; 2~ns for hits on tracks in a 8~ns trigger window, 
-\item momentum and angular resolution better than 4.5\% and 1 to 4~mrad (across the track momentum 
-range in non-bend direction), respectively, to reach \Aprime{} 
-mass resolution of 2.5\% or less across the interesting mass range, 
+\item 2~ns hit time resolution in the silicon vertex tracker, 
+\item A' mass resolution of 2.5\% or better, which translates to momentum resolution of 4.5\% and angular 
+resolution 2~mrad/$p$(GeV/c)) for $B$$=$0.5~T,
 \item resolution of distance of closest approach to the beam axis less than 250 (100)~$\mu$m for tracks with 
-0.5 (1.7)~GeV/c momentum to achieve a Gaussian vertex resolution down to 1~mm at high masses to 
-discriminate displaced \Aprime{} decays from prompt QED backgrounds,
+0.5 (1.7)~GeV/c. This gives a decay length resolution of about 1~mm for a 100~MeV/c$^2$ \Aprime{}.
+\item PbWO$_{4}$ electromagnetic calorimeter energy resolution $\Delta E/E$$\leq$$5\%$/$\sqrt{E}$ and transverse
+segmentation $\sim$1.5~cm (Moliere radius in PbWO$_{4}$).  The energy resolution for triggering is less 
+stringent ($\Delta E/E$$\leq$$10\%$/$\sqrt{E}$) because the electrons and positrons of interest are relatively hard. 
+The good segmentation provides good spatial resolution and guarantees minimal shower overlap with background hits.
 \end{itemize}
 
 The HPS Test Run apparatus was installed on April 19, 2012, and ran parasitically in the photon beam of the HDice 
 experiment~\cite{HDice} until May 18. The JLab run schedule 
-precluded any dedicated electron beam running, but the HPS Test Run was allowed a short ($\approx$6h) 
-and valuable dedicated photon beam run at the end of scheduled CEBAF running. During this dedicated 
-period, \ee{} pairs, produced in a gold foil upstream of the 
-experiment, where studied. This dedicated running provided valuable data to demonstrate the functionality of 
-the apparatus, document its performance, and explore trigger rates, as shown below. 
+precluded any dedicated electron beam running, but the HPS Test Run was allowed an 8h dedicated photon beam run at the end of scheduled CEBAF running. During this dedicated 
+period, \ee{} pairs, produced in a gold foil upstream of the experiment, were studied. With no dedicated 
+electron beam running, it was not possible to search for an A'. However, the final running
+provided enough data to demonstrate the functionality of the apparatus, document its performance, and 
+explore trigger rates, as shown below.
 
 This paper reviews the HPS Test Run apparatus, documenting the performance of the trigger, 
 data acquisition, silicon tracking and vertex detector, and the electromagnetic calorimeter at, or close 
-to, the level required for calculating the physics reach of the HPS experiment. 
+to, the level required for the HPS experiment. 
 
 
 
