@@ -227,13 +227,15 @@ beam with energy between 2.2 and 6.6~GeV. The HPS experiment uses both
 invariant mass and secondary vertex signatures to search for \Aprime{} decaying into \ee{} pairs. In the 
 interesting mass and coupling range, the decay products are boosted along the beam axis with small 
 opening angles and decay lengths ranging from mm's to tens of cm's requiring HPS to operate tracking 
-detectors down to 15~mrad opening angle only 10~cm behind the target. It employs a $\approx 1$~m long 
+detectors down to 15~mrad opening angle only 10~cm behind the target. HPS employs a $\approx 1$~m long 
 silicon tracking and vertexing detector
-inside a dipole magnet to measure and vertex charged particle trajectories and a fast electromagnetic 
-calorimeter just downstream of the magnet to provide a trigger and identify electrons. To overcome the 
+inside a dipole magnet to measure charged particle trajectories and find the decay vertex position of oppositely 
+charged pairs. A fast electromagnetic calorimeter sits just downstream of the magnet to provide a trigger and 
+identify electrons. To overcome the 
 background occupancy from multiple scattered beam electrons both detectors have excellent timing 
 resolution and the experiment utilizes very high-rate 
-front-end electronics and runs at high trigger rates, exploiting the 499~MHz bunch structure,  100\% duty 
+front-end electronics. HPS is designed to run at  high trigger and data throughput rates in order to exploit the 
+499~MHz bunch structure,  100\% duty 
 cycle, of the JLab CEBAF accelerator to accumulate the needed statistics. 
 
 The HPS Test Run, using a simplified version of the HPS apparatus, was proposed and 
@@ -268,9 +270,8 @@ experiment~\cite{HDice} until May 18. The JLab run schedule
 precluded any dedicated electron beam running, but the HPS Test Run was allowed a short ($\approx$6h) 
 and valuable dedicated photon beam run at the end of scheduled CEBAF running. During this dedicated 
 period, \ee{} pairs, produced in a gold foil upstream of the 
-experiment, where studied. With no dedicated electron beam running no search for \Aprime{} signal was 
-possible but this final running provided enough data to demonstrate the functionality of the 
-apparatus, document its performance, and explore trigger rates, as shown below. 
+experiment, where studied. This dedicated running provided valuable data to demonstrate the functionality of 
+the apparatus, document its performance, and explore trigger rates, as shown below. 
 
 This paper reviews the HPS Test Run apparatus, documenting the performance of the trigger, 
 data acquisition, silicon tracking and vertex detector, and the electromagnetic calorimeter at, or close 
@@ -428,9 +429,10 @@ determination of their trajectories. This allow \Aprime{} decays to be distingui
 from background via simultaneous measurements of the invariant mass of \ee{} decay products and the 
 position of decay vertices downstream of the target. 
 
-The design of the SVT is primarily driven by direct physics requirements and constraints from the 
+The design of the SVT is primarily driven by physics requirements and constraints from the 
 environment at the interaction region. 
-The \Aprime{} decay products have momenta in the range of 0.4-2.0~GeV$/$c, so multiple scattering 
+The \Aprime{} decay products have momenta in the range of 0.4-2.0~GeV$/$c (from a 2.2~GeV beam), so 
+multiple scattering 
 dominates mass and vertexing uncertainties for any possible material budget. The SVT must therefore 
 minimize the amount of material in the tracking volume. 
 The signal yield for long-lived \Aprime{} is very small, so 
@@ -448,11 +450,12 @@ beam-gas interactions would multiply the density of background hits, so the SVT 
 beam vacuum.  Finally, in order to protect the sensors, the detector must be movable so that it can be 
 retracted during periods of uncertain beam conditions or beam tuning.  
 
-The mass resolution need to be around 2.5\% across the interesting mass range to discover the \Aprime{} 
-signal on top of the copious QED background in the bump-hunt search. With \Aprime{} decay opening 
-angles between 15-70~mrad this translates into track momentum and angular resolution of 4-5\% and 
-1-4~mrad (across the momentum range in the non-bend plane which dominates the measurement)
-~\cite{HPS_proposal_2010}. With multiple scattering dominating both mass and vertexing uncertainties, spatial hit 
+Good mass resolution is needed across the interesting mass range to discover the \Aprime{} 
+signal on top of the copious QED background in the bump-hunt search. Track momentum and angular 
+resolution of 4-5\% and 1-4~mrad (across the momentum range in the non-bend 
+plane which dominates the measurement), respectively, translates into a 2.5\% mass resolution for \Aprime{} 
+decay opening angles between 15-70~mrad~\cite{HPS_proposal_2010}. With multiple scattering dominating 
+both mass and vertexing uncertainties, spatial hit 
 resolution less than 50~$\mu$m are required in the non-bend plane in the first few layers which dominates 
 the vertexing performance and about twice that in the non-bend plane. 
 
@@ -628,7 +631,7 @@ The technology and design choices are largely driven by the need for a compact f
 covering the SVT \Aprime{} acceptance and able to fully absorb 
 electrons and positrons with energy between $0.5$-$6.5$~GeV. It needs granularity and signal 
 readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background and to be radiation hard. 
-While the signal \Aprime{} trigger is largely insensitive to the energy resolution, in order to have the 
+While the trigger for \Aprime{} events is largely insensitive to the energy resolution, in order to have the 
 possibility to improve the energy resolution from the SVT measurement  
 $\sigma(E)$/$E$$<$4.5\%/$\sqrt(E)$ is needed. 
 
@@ -732,8 +735,8 @@ sub-detectors are only read out when a trigger signal from the trigger system is
 \subsection{Trigger system}
 \label{sec:trigger}
 The trigger system is designed to select time coincidences of electromagnetic clusters in the 
-top and bottom halves of the ECal satisfying loose kinematic selections optimized on \Aprime{} events 
-to further reduce the rate. The trigger system need to be essentially dead time free, handle rates up to 
+top and bottom halves of the ECal satisfying loose kinematic selections optimized on simulated \Aprime{} 
+events to further reduce the rate. The trigger system need to be essentially dead time free, handle rates up to 
 50~kHz and importantly supply a trigger time relative to the beam bunches with 8~ns to reduce the 
 background from out-of-time hits in the high occupancy regions of the SVT.  Figure~\ref{fig:hps_trigger_cal} 
 shows a schematic overview of each stage of the system. 
@@ -782,7 +785,7 @@ above 100~kHz by lowering thresholds.
 \subsection{SVT Data Acquisition}
 \label{sec:svt_daq}
 The purpose of the SVT DAQ is to support the continuous 40~MHz readout and processing of signals from 
-each of the 20 silicon strip sensors of the SVT. The data for each strip channel, six analog samples of the 
+each of the 20 silicon strip sensors of the SVT. The data for each strip channel, six samples of the 
 signal, needs to be transferred to the JLab DAQ for those events selected by the trigger at rates 
 up to 50~kHz and with data transfer rates up to 100~MB/s.
 
@@ -919,7 +922,7 @@ the characteristic Landau shape, see Figure~\ref{fig:cluster_pulse}.
 \end{figure}
 A noise level between $1.1-1.5\times 10^{3}$ electrons was established through multiple calibration 
 runs giving a signal to noise ratio of $21-25$, in line with the requirement for HPS. 
-Lab-based radioactive source tests were used to 
+Radioactive source tests were used to 
 provide the absolute charge normalization.
 After clustering hits on a sensor, the hit time for each cluster is computed 
 as the amplitude-weighted average of the individually fitted $t_0$ on each channel. The 
