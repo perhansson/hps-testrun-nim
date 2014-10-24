@@ -185,7 +185,7 @@ silicon \sep microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dar
 
 \end{frontmatter}
 
-% \linenumbers
+ %\linenumbers
  
 %\clearpage
 %\tableofcontents
@@ -443,7 +443,7 @@ that the active region of a sensor can be placed as close as 1.5~mm from the cen
 defining the 15~mrad ``dead zone'' mentioned previously, to maximize low-mass \Aprime{} acceptance 
 with decay products nearly collinear with the beam axis. At the edge of this ``dead zone'', the 
 radiation dose approaches $10^{15}$~electrons/cm$^2$/month, or roughly 
-$3 \times 10^{14}$~\fluenceunit{}/month~\cite{Rashevskaya:2002nd}, 
+$3 \times 10^{13}$~\fluenceunit{}/month~\cite{Rashevskaya:2002nd}, 
 requiring the sensors to be actively cooled. 
 Meanwhile, very low-energy delta rays from 
 beam-gas interactions would multiply the density of background hits, so the SVT must operate inside the 
@@ -458,7 +458,7 @@ the spatial hit resolution requirement to $<100~\mu$m (50~$\mu$m) in the bend (n
 
 High background occupancies, up to 4~MHz$/$mm$^{2}$ locally,  in the region closest to the beam result 
 from beam electrons undergoing multiple scattering in the target. These background hits are rejected by  
-requiring the time reconstruction of each hit to be better than 2~ns. 
+requiring reconstruction of the hit time relative to the trigger with 2~ns resolution.
 
 
 
@@ -547,9 +547,9 @@ experiment at CERN~\cite{French:2001xb}. The APV25 ASIC can capture successive s
 in groups of three at a sampling rate of approximately 40~MHz.  By fitting the known 
 $CR$-$RC$ shaping curve to these samples, the initial time of the hit can be determined to a precision 
 of 2~ns for S/N$\approx$25~\cite{Friedl:2009zz}.  For electron beam running, six-sample readout and 
-the shortest possible shaping time (35~ns) is used to best distinguish hits that overlap in time.
-The APV25 ASICs are hosted on simple FR4 hybrid readout boards, outside the tracking volume, with a 
-short twisted-pair pigtail cable to provide power and configuration and signal readout. Along with a 
+the shortest possible shaping time (35~ns) are used to best distinguish hits that overlap in time.
+The APV25 ASICs are hosted on simple FR4 hybrid readout boards outside the tracking volume with a 
+short twisted-pair pigtail cable to provide power, configuration, and signal readout. Along with a 
 single sensor, these are glued to a polyimide-laminated carbon fiber composite backing making 
 up a half-module. A window is machined in the carbon fiber leaving only a frame around the periphery 
 of the silicon to minimize material. A 50~$\mu$m sheet of polyimide is laminated to the surface of the 
@@ -626,9 +626,9 @@ essential functions for the experiment: it provides a trigger signal to select w
 the detector sub-systems and is used to identify electrons and positrons. 
 The technology and design choices are largely driven by the need for a compact forward design 
 covering the SVT \Aprime{} 
-acceptance and able to measure the energy and positions of electrons and positrons with energy between
-$0.5$ and $\approx$4~GeV. It needs granularity and signal 
-readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background and radiation hardness. 
+acceptance and the ability to measure the energy and positions of electrons and positrons with energy between
+0.5 and 6.6~GeV. It needs granularity and signal 
+readout speed to handle 1~MHz/cm$^{2}$ of electromagnetic background as well as good radiation hardness. 
 Even modest energy resolution is adequate for triggering. HPS requires better 
 energy resolution, $\sigma(E)/E<5\%/\sqrt{E}$, so that the ECal energy measurement can be used in 
 combination with that from the SVT to improve the overall momentum resolution.
@@ -751,7 +751,7 @@ the sub-detectors.
 \end{center}
  \end{figure}
 Each channel on the FADC board has an independent data path to send 5-bit pulse energy and 3-bit 
-pulse arrival time information every 32~ns to a trigger processing board (CTP), which is in the same 
+pulse arrival time information every 32~ns to a Crate Trigger Processor board (CTP), which is in the same 
 crate. The 3-bit pulse arrival time allows the trigger to know the pulse timing at 4~ns resolution. 
 Contrary to the readout path 
 described in Sec.~\ref{sec:fadc}, this energy is a pedestal-subtracted time-over-threshold sum with 
@@ -765,7 +765,7 @@ threshold will need to be lower.  Crystals in the
 fixed-window are included in the sum if the leading edge of the pulse occurred within a 32~ns time 
 window to take into account clock skew and jitter throughout the system.
 The CTP only accepts clusters with the locally highest energy 3x3 window to deal with overlapping and 
-very large clusters. The sub-system board (SSP) receives the clusters from the top and bottom half CTP 
+very large clusters. The Sub-System Processor board (SSP) receives the clusters from the top and bottom half CTP 
 at a maximum rate of 250~MHz and searches for pairs of clusters in an 8~ns wide coincidence window. The 
 SSP sends triggers to the trigger supervisor (TS), which generates all the necessary signals and 
 controls the entire DAQ system readout through the trigger interface units installed in every crate that 
@@ -777,9 +777,9 @@ necessary, for example on a `busy' or `full' condition from the front-end electr
 designed to handle trigger rates above 50~kHz and has a latency set to $\approx 3~\mu$s to match 
 that required by the SVT APV25 ASIC. 
 
-During the HPS Test Run, for the most part the trigger system 
-required only a single cluster in either the top or bottom ECal halves. It was tested to trigger rates 
-above 100~kHz by lowering thresholds. 
+During most of the HPS Test Run, the trigger system 
+required only a single cluster in either the top or bottom ECal halves resulting in rates below 2~kHz. However, 
+the trigger system was tested to rates above 100~kHz by lowering thresholds. 
 
 
 
@@ -794,7 +794,7 @@ The SVT DAQ is based on the Reconfigurable Cluster Element (RCE) and cluster
 interconnect concept developed at SLAC as generic building blocks for DAQ systems. 
 The RCE is a generic computational building block, housed on a separate daughter card called 
 Data Processing Module (DPM), that is realized on an ATCA front board called the Cluster On Board 
-(COB), see Figure~\ref{fig:cob}.
+(COB), as shown in Figure~\ref{fig:cob}.
  \begin{figure}[]
 \begin{center}
 \includegraphics[width=6cm]{svt_daq_module}
@@ -835,7 +835,7 @@ and monitoring software as well as the readout controller application used to in
 JLab DAQ.
 
 In order to minimize cable length for the analog APV25 ASIC output signal the ATCA crate was located 
-approximately 1~m from the beam line, next to our cable vacuum feed-throughs.   
+approximately 1~m from the beam line, next to the cable vacuum feed-throughs.   
 Before shielding with lead-blankets and borated polyethylene was arranged, we observed two failures of normally reliable ATCA 
 crate power supplies, time-correlated to beam instabilities. 
 
@@ -935,7 +935,7 @@ somewhat worse than the approximately 2~ns resolution expected for S/N$=$25 whic
 true pulse shape differing from our idealized fit function which will be improved in the 
 future~\cite{Friedl2007385}. Reducing 
 the APV25 ASIC pulse shaping time to 35~ns will also improve time resolution. 
-These results show that we can operate with the six sample readout mode of the APV25 ASIC and 
+These results show that HPS can operate with the six sample readout mode of the APV25 ASIC and 
 achieve time resolution adequate for pileup rejection during electron running in HPS. 
 \begin{figure}[]
 \begin{center}
@@ -1107,8 +1107,8 @@ converter. In simulated events, the rate of triggers depend on the modeling of t
 distribution and the subsequent multiple Coulomb scattering in the converter. Rates from different 
 converter 
 thicknesses are used to study the varying multiple Coulomb scattering contribution (pair production 
-angular distribution is constant), and are compared with Geant4~\cite{Agostinelli2003250} standard multiple 
-scattering model and EGS5~\cite{egs5}. 
+angular distribution is constant).  These rates are compared with those predicted by the standard Geant4~\cite{Agostinelli2003250} approximation for multiple 
+scattering and the more accurate model used by EGS5~\cite{egs5}. 
 %\begin{center}
 \begin{table}
 {\small
