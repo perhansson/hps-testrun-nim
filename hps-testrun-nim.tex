@@ -164,8 +164,8 @@ In the HPS Test Run, charged particles are measured with a compact forward silic
 inside a dipole magnet. Electromagnetic showers are detected in a PbW0$_{4}$ 
 crystal calorimeter situated behind the magnet,  and are used to trigger the experiment and identify 
 electrons and positrons. Both detectors are placed close to the 
-beam line and split top-bottom. This arrangement  provides sensitivity to low-mass heavy photons,  
-allows clear  passage of the unscattered beam, 
+beam line and split top-bottom. This arrangement provides sensitivity to low-mass heavy photons,  
+allow clear  passage of the unscattered beam, 
 and avoids the spray of degraded electrons coming from the target. 
 The discrimination between prompt and displaced \ee{} pairs requires the first layer of silicon 
 sensors be placed only 10~cm downstream of the target. The expected signal is small, and the 
@@ -185,7 +185,7 @@ silicon \sep microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dar
 
 \end{frontmatter}
 
-% \linenumbers
+ \linenumbers
  
 %\clearpage
 %\tableofcontents
@@ -261,9 +261,8 @@ resolution 2~mrad/$p$(GeV/c)) for $B$$=$0.5~T,
 \item resolution of distance of closest approach to the beam axis less than 250 (100)~$\mu$m for tracks with 
 0.5 (1.7)~GeV/c. This gives a decay length resolution of about 1~mm for a 100~MeV/c$^2$ \Aprime{}.
 \item PbWO$_{4}$ electromagnetic calorimeter energy resolution $\Delta E/E$$\leq$$5\%$/$\sqrt{E}$ and transverse
-segmentation $\sim$1.5~cm (Moliere radius in PbWO$_{4}$).  The energy resolution for triggering is less 
-stringent because the electrons and positrons of interest are relatively hard. 
-The good segmentation provides good spatial resolution and guarantees minimal shower overlap with background hits.
+segmentation $\sim$1.5~cm ($<$ Moliere radius in PbWO$_{4}$).  The energy resolution requirement for
+triggering is less stringent because the electrons and positrons have $E > 0.5$~GeV. The segmentation provides good spatial resolution and guarantees minimal shower overlap with background hits.
 \end{itemize}
 
 The HPS Test Run apparatus was installed on April 19, 2012, and ran parasitically in the photon beam of the HDice 
@@ -674,8 +673,9 @@ results in about eight photoelectrons/MeV which needs to be amplified before bei
 processing. The maximum energy deposited in a crystal is expected to be 4.2~GeV which needs to 
 match the input range of the FADC. The relatively low gain of the APD ($\sim$200) was compensated with 
 custom-made preamplifier boards, that provide further amplification to match the 2~V dynamic range of the 
-FADC. With a total noise level of about 10~MeV and a resolution of about 1~ADC count/MeV the ADC 
-resolution fulfills the requirements from HPS.
+FADC. The ADC has 12-bit resolution. Gains are adjusted to give about 1~ADC count/MeV.
+This dynamic range is adequate to measure the 10~MeV noise level as well as the 
+the maximum energy expected in a single crystal, about 4~GeV.
 
 \subsection{Layout}
 Similar to the SVT, the ECal is built in two separate halves that are mirror reflections of one another 
