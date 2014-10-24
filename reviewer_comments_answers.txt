@@ -1,0 +1,48 @@
+v5.0
+Reviewer #1
+The paper is technically correct and well done concerning the presentation of the physics program, the instrumental realization and the first experience. However, the publication should provide at the end not only a report on the work which has been done but also contain results of common interest. In order to be more specific, the introduction does not give exact values for the required resolutions with respect to tracking and timing or in particular the energy resolution of the calorimeter.
+
+ANSWER
+The revised version contains some significant changes and improvements and spells out the HPS requirements more clearly in the introduction. We hope this will clarify what the HPS Test Run performance limitations were.
+
+In particular we better specified the requirements of both the SVT and ECal, both in the introduction and also in the sections describing the two detectors and what was driving their design (Sec. 4 and 5). Similarly,  we have better related the Test Run performance and its limitations to both the immediate needs of the Test Run (to demonstrate functionality and measure trigger rates) and the ultimate HPS requirements. For example we include the expected resolution of tracks and clusters in the ECal, but also explain what was adequate for the Test Run trigger and what needs improving for HPS offline reconstruction.
+
+ 
+
+There is also no comment on the expected dynamic range to judge the acievable or achieved energy resolution. In most cases there is only the comment that the performance is sufficient or can be improved. 
+
+ANSWER
+In the case of the SVT we list the 3 mip dynamic range with linear gain of the APV25 chip (Sec. 7.1.1). We also quote the typical noise and signal levels to get a feeling for the S/N~25. The resolution of the ADC is 14-bits which is discussed in Sec. 6.2. 
+
+For the ECal the maximum deposited energy in a single crystal is 4.2GeV with a beam energy of 6.6GeV. The dynamic range was checked for the CLAS IC (which was refurbished for HPS Test Run) and was found to be linear across this range to within 1-2%. The 12-bit resolution of the FADC means that we will get a resolution of about 1ADC/MeV which is enough given that our noise is of the order of 10MeV. 
+
+We improved the description of the readout chain for the ECal and in particular added comments about the requirements to be able to capture the maximum expected deposited energy and also the resolution of the ADC. We hope that this clarifies the dynamic range and what is needed for HPS. 
+
+
+In particular, in case of the calorimeter section the achieved performance does not appear acceptable. The high noise level as well as the extremely high thresholds indicate that there is a significant improvement necessary. With such a high threshold a shower reconstruction appears impossible except one focuses on the highest energies only. Even the detected multiplicities a without meaning. Therefore, the authors should focus more consequent on a clear picture of the overall requirements, the achievements, any general limitations and the options to reach the final goals. In that case the complex work would become more valuable for an external reader.
+
+ANSWER
+Parts of the test run performance are indeed undesirable for the HPS experiment; the dead channel count, noise level, and energy resolution were all substandard. Despite those facts, the Ecal performance was acceptable to provide a trigger for the Test Run and reliably measure normalized trigger rates.
+
+The number of non-functioning channels (reasons listed in the paper) is much less than desirable for triggering efficiently on A' in HPS. It has already been improved by installing bigger APDS, modified amplifiers, and new HV distribution for all the crystals in the detector. The new readout chain (new APDs and preamplifiers) show noise levels of about 7.5MeV bringing thresholds down to closer to 10MeV. Simulations show that with a wel- calibrated detector the Ecal esolution will about 3.6% in HPS.
+
+The A' trigger is relatively insensitive to the energy resolution as most of the rejection comes from combined kinematic cuts and time coincidence. Even the simple calibration procedures applied in the Test Run and the relatively high noise in the system were sufficient for Test Run triggering. The 4.5% energy resolution goal was predicated not on trigger-ability, but the desire to use the Ecal to improve on the SVT's measurement of the momentum of electrons and positrons, and so improve on the HPS invariant mass resolution.
+
+We have edited the paper pointing out the requirements of the ECal in the Sec. 5 and added further explanations in the ECal performance section 7.2. 
+
+
+
+
+Reviewer #2
+The paper describes in considerable technical detail a test experiment for the Heavy Photon Search (HPS) at Jefferson Lab.
+The paper is well-written, comprehensive, and gives a very detailed technical description of the apparatus, results, and
+prospects for the data taking run.  I recommend that it be published with the following suggestion:
+
+The details of the HPS experiment are not provided clearly.  From other sources , I understand that HPS proposes to scatter
+an electron beam from a tungsten target and that the A' would be generated in the scattering.  The test run here used a photon
+beam generated from conversion in a gold foil. I suggest that the process to be measured in the HPS experiment (projectile and target) 
+be clearly specified at the beginning of the paper.
+
+ANSWER
+We have updated the introduction with more information to better explain the HPS experiment, and the differences between the Test Run and HPS. Hopefully this also clarifies the purpose of the Test Run and the relevance of its performance to HPS. 
+
