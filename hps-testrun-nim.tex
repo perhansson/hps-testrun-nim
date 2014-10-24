@@ -759,7 +759,9 @@ programmable offsets and minimum threshold discriminator for each channel. With 
 FADC channels, i.e. one half of the ECal, the CTP performs cluster finding and calculates cluster 
 energy and timing information. The 3x3 fixed-window, highly parallel, FPGA-based cluster 
 algorithm simultaneously searches for up to 125 clusters with energy sum larger than 
-the programmable energy threshold ($\approx270$~MeV). Crystals in the 
+the programmable energy threshold set to about 270~MeV. This high threshold didn't hurt the trigger rate 
+rate studies for the HPS Test run since only clusters with high energies were studied but for HPS this 
+threshold will need to be lower.  Crystals in the 
 fixed-window are included in the sum if the leading edge of the pulse occurred within a 32~ns time 
 window to take into account clock skew and jitter throughout the system.
 The CTP only accepts clusters with the locally highest energy 3x3 window to deal with overlapping and 
@@ -1032,8 +1034,10 @@ are clustered using a simple algorithm similar to the one
 deployed for the trigger (see Sec.~\ref{sec:trigger}). Due to the high effective crystal readout threshold 
 of 73~MeV the average number of crystals in a cluster was only about three and the simple clustering 
 algorithm worked well for reconstruction of the detected shower energy. An average noise level of 
-approximately 15~MeV per crystal was measured in special pedestal runs. 
-
+approximately 15~MeV per crystal was measured in special pedestal runs. The high crystal noise level 
+and effective threshold didn't hurt the trigger rate studies in the HPS Test Run 
+as clusters with high energy were used for the analysis. For HPS the noise level and threshold will be 
+lowered to improve energy resolution and to allow triggering on cosmics to improve calibration.  
 
 The ratio of the ECal cluster energy $E$ to the momentum $p$ of a matched track in the SVT was used 
 to determine the conversion factors from ADC counts to energy. To compare data and simulation, all 
@@ -1125,10 +1129,9 @@ thicknesses. The uncertainty on the prediction includes systematic uncertainties
 }
 \end{table}
 %\end{center}
-Restricting clusters to a well calibrated region of the ECal and subtracting the ``no converter'' 
-background we see agreement with the rates predicted by the \egs{} simulation 
-program, 
-see Table~\ref{results}.
+Restricting to a well calibrated region of the ECal and to clusters with energy above the trigger turn-on, 
+we see agreement with the rates predicted by the \egs{} simulation program after subtracting the 
+``no converter'' background , see Table~\ref{results}.
 This gives further confidence that the dominant source of background occupancy for HPS, multiple 
 Coulomb scattered beam electrons, is well 
 described.
