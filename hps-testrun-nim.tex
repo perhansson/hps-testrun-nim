@@ -122,7 +122,7 @@
 
 
 
-\title{The Heavy Photon Search Test Detector}
+\title{The Heavy Photon Search test detector}
 %\title{
 %\begin{flushleft}
 %%       \mbox{\textmd{ \normalsize -PUB-13/020 }}
@@ -176,7 +176,7 @@ the essentially 100\% duty cycle of the CEBAF accelerator at JLab.
 
 \begin{keyword}
 %% keywords here, in the form: keyword \sep keyword
-silicon \sep microstrip \sep tracking  \sep vertexing \sep heavy photon \sep dark photon  \sep electromagnetic calorimeter
+silicon \sep tracking  \sep vertexing \sep heavy photon \sep dark photon  \sep electromagnetic calorimeter
 %% MSC codes here, in the form: \MSC code \sep code
 %% or \MSC[2008] code \sep code (2000 is the default)
 
@@ -282,7 +282,7 @@ to, the level required for the HPS experiment.
 
 
 
-\section{Detector Overview}
+\section{Detector overview}
 \label{detector}
 {\small
 \begin{figure*}[t]
@@ -364,7 +364,7 @@ and triggering system for the ECal.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{The HPS Test Run Beamline}
+\section{The HPS Test Run beamline}
 Since an electron beam was unavailable, the HPS Test Run detected the electrons and positrons 
 produced by interactions of the secondary photon beam with a thin foil just upstream of the detectors.  
 The HPS Test Run studied the performance of the detectors and the multiple Coulomb scattering of the 
@@ -703,7 +703,7 @@ placing the front face of the crystals 147~cm from the upstream edge of the magn
 \end{figure}
 
 
-\subsection{Signal Readout}
+\subsection{Signal readout}
 \label{sec:fadc}
 After a 2:1 signal splitter, $1/3$ of an amplified APD signal was fed to a 
 single channel of a FADC board. $2/3$ of the signal was sent to a 
@@ -724,7 +724,7 @@ top (bottom) half of the ECal.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Trigger and Data Acquisition}
+\section{Trigger and data acquisition}
 \label{sec:triggerdaq}
 
 The data acquisition (DAQ) system handles acquisition of data from the ECal and SVT sub-detectors  with 
@@ -732,7 +732,7 @@ two DAQ architectures. The SVT DAQ is based on Advanced Telecom Communications A
 (ATCA) hardware while the ECal uses VMEbus Switched Serial (VXS) based hardware. Data from the 
 sub-detectors are only read out when a trigger signal from the trigger system is received.
 
-\subsection{Trigger System}
+\subsection{Trigger system}
 \label{sec:trigger}
 The trigger system is designed to select time coincidences of electromagnetic clusters in the top and bottom 
 halves of the ECal which meets kinematic conditions satisfied by \Aprime{} decays and minimize backgrounds.
@@ -783,7 +783,7 @@ the trigger system was tested to rates above 100~kHz by lowering thresholds.
 
 
 
-\subsection{SVT Data Acquisition}
+\subsection{SVT data acquisition}
 \label{sec:svt_daq}
 The purpose of the SVT DAQ is to support the continuous 40~MHz readout and processing of signals from 
 each of the 20 silicon strip sensors of the SVT. The data for each strip channel, six samples of the 
@@ -845,7 +845,7 @@ bandwidth, together with utilizing the overlapping readout and trigger functiona
 system is capable of being read out at 50~kHz trigger rate.
 
 
-\subsection{General Data Acquisition and Online Computing}
+\subsection{General data acquisition and online computing}
 \label{sec:daq}
 Every crate participating in the readout process contains a Readout Controller (ROC) that 
 collects digitized information, processes it, and sends it on to the event builder. For the ECal, both 
@@ -864,14 +864,14 @@ a 1~Gb/s link to the network router.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Reconstruction and Performance}
+\section{Reconstruction and performance}
 
 While dedicated electron beam was precluded for the HPS Test Run the short dedicated photon beam run 
 allowed the study of some of the key performance parameters for HPS and the trigger rates expected during 
 electron beam running. This section documents the performance and discusses the implications of these 
 results for HPS.
 
-\subsection{SVT Performance}
+\subsection{SVT performance}
 
 For the duration of the HPS Test Run all SVT modules and APV25 ASICs were configured to their 
 nominal operating points~\cite{Jones:1069892} with all sensors reverse-biased at 180~V.  The 
@@ -882,7 +882,7 @@ the HPS Test Run. Most of these losses were due to 2-4 misconfigured APV25 ASICs
 half-module and problems in two particular APV25 ASICs.
 
 
-\subsubsection{Cluster and Hit Reconstruction}
+\subsubsection{Cluster and hit reconstruction}
 Track reconstruction in the SVT puts stringent requirement on the clustering and hit reconstruction. The 
 multiple scattering in the tracking material dominates the uncertainty in the track parameter estimation and 
 effectively determines the roughly 50~$\mu$m (100~$\mu$m) requirement on the spatial hit resolution in 
@@ -970,7 +970,7 @@ and vertex resolutions required for HPS.
 
 
 
-\subsubsection{Momentum and Vertexing Resolution}
+\subsubsection{Momentum and vertexing resolution}
 Good track reconstruction performance is crucial to HPS. Simulations show that track momentum resolution 
 of 4-5\% is needed to achieve the desired \Aprime{} mass resolution. The precise reconstruction of the 
 production vertex to reject prompt QED background requires impact parameter resolutions between 
@@ -1019,7 +1019,7 @@ Gaussian part of the vertex resolution in HPS, with a target at 10~cm, will be a
 
 
 
-\subsection{ECal Performance}
+\subsection{ECal performance}
 \label{sec:ecal_calibration}
 During the HPS Test Run 385 out of 442 modules (87\%) were used in offline reconstruction, 39 modules 
 were disabled or not read out (no FADC channel available, no APD bias voltage or masked out due to 
@@ -1066,7 +1066,7 @@ resolution in HPS. The noise and and thresholds need to be closer to 10~MeV and 
 more elaborate calibration technique needs to be employed to suppress the large tails in the $E$/$p$ 
 distribution further. In addition, the fraction of working channels needs significant improvement.
 
-\subsection{Trigger Performance}
+\subsection{Trigger performance}
 As described above in Sec.~\ref{sec:triggerdaq}, the energy from each crystal is determined slightly 
 differently in the trigger and in the readout. The trigger performance was studied by simulating the 
 trigger for each event and comparing to how the events were actually triggered.
@@ -1101,7 +1101,7 @@ hits described above, but based on comparisons with simulation we found that the
 trigger worked exactly as specified.
 
 
-\subsection{Trigger Rate Comparisons}
+\subsection{Trigger rate comparisons}
 Trigger rates observed in the HPS Test Run are dominated by \ee{} pairs produced in the 
 converter. In simulated events, the rate of triggers depend on the modeling of the pairs' angular 
 distribution and the subsequent multiple Coulomb scattering in the converter. Rates from different 
@@ -1146,7 +1146,7 @@ described.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Summary and Outlook}
+\section{Summary and outlook}
 The HPS Test Run experiment, using a simplified version of the apparatus planned for the full HPS 
 experiment in a parasitic photon beam, demonstrated the feasibility of the detector technologies 
 proposed for the silicon vertex tracker, electromagnetic calorimeter, and data acquisition systems. 
@@ -1163,12 +1163,13 @@ CEBAF personnel for good beam performance, especially the last few hours of oper
 The tremendous support from home institutions and supporting staff also needs praise from the 
 authors. 
 
-This work has been supported by the US Department of Energy, 
+Work supported by the U.S. Department of Energy under contract number DE-AC02-76SF00515, 
 the National Science Foundation,  
 French Centre National de la Recherche Scientifique and 
 Italian Istituto Nazionale di Fisica Nucleare. 
-Rouven Essig is supported in part by the Department of Energy Early Career research program DESC0008061and by a Sloan Foundation Research Fellowship.
-Authored by Jefferson Science Associates, LLC under U.S. DOE Contract No. DE-AC05-06OR23177.
+Rouven Essig is supported in part by the Department of Energy Early Career research program 
+DESC0008061and by a Sloan Foundation Research Fellowship. Authored by Jefferson Science 
+Associates, LLC under under U.S. Department of Energy contract No. DE-AC05-06OR23177.
 
 
 %% The Appendices part is started with the command \appendix;
